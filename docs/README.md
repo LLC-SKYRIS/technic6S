@@ -17,4 +17,4 @@
 
 <img src="assets/Technic 6S.png" width="600px" class="center zoom">
 
-Платформа Technic также включает в себя преднастроенный [образ для Orange Pi 5 Pro](https://clover.coex.tech/ru/image.html) в полным набором необходимого ПО для работы со всей периферией и [программирования автономных полетов](https://clover.coex.tech/ru/simple_offboard.html). Исходный код платформы Technic и данной документации открыт и [доступен на GitHub](https://github.com/CopterExpress/clover).
+Платформа Technic также включает в себя преднастроенный образ для Orange Pi 5 Pro в полным набором необходимого ПО для работы со всей периферией и программирования автономных полетов. Исходный код платформы Technic и данной документации открыт и доступен на GitHub
