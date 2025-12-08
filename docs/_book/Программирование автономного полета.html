@@ -1,0 +1,966 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Программирование автономного полёта · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.1.4">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-chollapse/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Автономный полет.html" />
+    
+    
+    <link rel="prev" href="Автозапуск ПО.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Главная
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    Работа с OrangePi 5 Pro
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="OrangePi 5 Pro.html">
+            
+                <a href="OrangePi 5 Pro.html">
+            
+                    
+                    OrangePi 5 Pro
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="Образ для OPi.html">
+            
+                <a href="Образ для OPi.html">
+            
+                    
+                    Образ для OrangePi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="Подключение по Wi-Fi.html">
+            
+                <a href="Подключение по Wi-Fi.html">
+            
+                    
+                    Подключение по Wi-Fi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="Веб-интерфейс.html">
+            
+                <a href="Веб-интерфейс.html">
+            
+                    
+                    Веб-интерфейс
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="SSH-подключение.html">
+            
+                <a href="SSH-подключение.html">
+            
+                    
+                    SSH-подключение
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="Доступ к терминалу на OrangePi 5 Pro.html">
+            
+                <a href="Доступ к терминалу на OrangePi 5 Pro.html">
+            
+                    
+                    Доступ к терминалу на OrangePi 5 Pro
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="Подключение к PX4.html">
+            
+                <a href="Подключение к PX4.html">
+            
+                    
+                    Подключение к PX4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="Подключение QGroundControl по Wi-Fi.html">
+            
+                <a href="Подключение QGroundControl по Wi-Fi.html">
+            
+                    
+                    Подключение QGroundControl по Wi-Fi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="Командная строка.html">
+            
+                <a href="Командная строка.html">
+            
+                    
+                    Командная строка
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="Система координат.html">
+            
+                <a href="Система координат.html">
+            
+                    
+                    Система координат
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    Настройка системы
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="Настройка питания.html">
+            
+                <a href="Настройка питания.html">
+            
+                    
+                    Настройка питания
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="Настройка камеры.html">
+            
+                <a href="Настройка камеры.html">
+            
+                    
+                    Настройка камеры
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="Настройка сети.html">
+            
+                <a href="Настройка сети.html">
+            
+                    
+                    Настройка сети
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="Настройка Failsafe.html">
+            
+                <a href="Настройка Failsafe.html">
+            
+                    
+                    Настройка Failsafe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="Настройка пульта.html">
+            
+                <a href="Настройка пульта.html">
+            
+                    
+                    Настройка пульта
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="Калибровка датчиков.html">
+            
+                <a href="Калибровка датчиков.html">
+            
+                    
+                    Калибровка датчиков
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="Бинд приемника.html">
+            
+                <a href="Бинд приемника.html">
+            
+                    
+                    Бинд приёмника
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    Программирование
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="Программирование.html">
+            
+                <a href="Программирование.html">
+            
+                    
+                    Программирование
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="Автозапуск ПО.html">
+            
+                <a href="Автозапуск ПО.html">
+            
+                    
+                    Автозапуск ПО
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.1.3" data-path="Программирование автономного полета.html">
+            
+                <a href="Программирование автономного полета.html">
+            
+                    
+                    Программирование автономного полёта
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="Автономный полет.html">
+            
+                <a href="Автономный полет.html">
+            
+                    
+                    Автономный полёт (OFFBOARD)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="Просмотр изображений с камер.html">
+            
+                <a href="Просмотр изображений с камер.html">
+            
+                    
+                    Просмотр изображений с камер
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="ROS.html">
+            
+                <a href="ROS.html">
+            
+                    
+                    ROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="ROS-система в Веб-интерфейсе.html">
+            
+                <a href="ROS-система в Веб-интерфейсе.html">
+            
+                    
+                    ROS-система в веб-интерфейсе
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="MAVROS.html">
+            
+                <a href="MAVROS.html">
+            
+                    
+                    MAVROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.9" data-path="Компьютерное зрение.html">
+            
+                <a href="Компьютерное зрение.html">
+            
+                    
+                    Компьютерное зрение
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.10" data-path="Нейронные сети.html">
+            
+                <a href="Нейронные сети.html">
+            
+                    
+                    Нейронные сети
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.11" data-path="Интеграция нейронных сетей в Technic.html">
+            
+                <a href="Интеграция нейронных сетей в Technic.html">
+            
+                    
+                    Интеграция нейронных сетей в Technic
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" >
+            
+                <span>
+            
+                    
+                    Периферия
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="Программирование/Периферия/Периферия.html">
+            
+                <a href="Программирование/Периферия/Периферия.html">
+            
+                    
+                    Обзор периферии
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" >
+            
+                <span>
+            
+                    
+                    Сенсорная периферия
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.2.1" data-path="Программирование/Периферия/Сенсорная периферия/Optical flow.html">
+            
+                <a href="Программирование/Периферия/Сенсорная периферия/Optical flow.html">
+            
+                    
+                    Optical flow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.2" data-path="Программирование/Периферия/Сенсорная периферия/Визуальные маркеры.html">
+            
+                <a href="Программирование/Периферия/Сенсорная периферия/Визуальные маркеры.html">
+            
+                    
+                    Визуальные маркеры
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.3" data-path="Программирование/Периферия/Сенсорная периферия/Лазерный дальномер.html">
+            
+                <a href="Программирование/Периферия/Сенсорная периферия/Лазерный дальномер.html">
+            
+                    
+                    Лазерный дальномер
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.4" data-path="Программирование/Периферия/Сенсорная периферия/Ультразвуковой дальномер.html">
+            
+                <a href="Программирование/Периферия/Сенсорная периферия/Ультразвуковой дальномер.html">
+            
+                    
+                    Ультразвуковой дальномер
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" >
+            
+                <span>
+            
+                    
+                    Исполнительная периферия
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.3.1" data-path="Программирование/Периферия/Исполнительная периферия/GPIO.html">
+            
+                <a href="Программирование/Периферия/Исполнительная периферия/GPIO.html">
+            
+                    
+                    GPIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3.2" data-path="Программирование/Периферия/Исполнительная периферия/Светодиодная лента.html">
+            
+                <a href="Программирование/Периферия/Исполнительная периферия/Светодиодная лента.html">
+            
+                    
+                    Светодиодная лента
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" >
+            
+                <span>
+            
+                    
+                    Дополнительные материалы
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" >
+            
+                <span>
+            
+                    
+                    а
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Программирование автономного полёта</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="программирование-автономного-полета">Программирование автономного полета</h1>
+<p>Наиболее часто для задач автономного полета применяется язык <strong>Python</strong>, который позволяет считывать <a href="simple_offboard.md#get_telemetry">телеметрию</a>(положение, ориентацию, скорость, заряд батареи) и отправлять команды управления, такие как <a href="simple_offboard.md#navigate">полет к заданной точке</a>, <a href="simple_offboard.md#set_attitude">изменение ориентации</a> или <a href="simple_offboard.md#set_rates">задание угловых скоростей</a>.</p>
+<blockquote>
+<p>💡 <strong>Hint</strong> Если вы начинаете изучение Python, можно воспользоваться <a href="https://pythonworld.ru/samouchitel-python" target="_blank">самоучителем</a>.</p>
+</blockquote>
+<p>После настройки позиционирования можно переходить к созданию собственных сценариев автономных полетов.  </p>
+<p>Для этого подключитесь к OrangePi 5 Pro через веб-интерфейс и откройте терминал</p>
+<p>Запуск программ выполняется стандартной командой Python:</p>
+<p><code>python3 flight.py</code></p>
+<p>Пример простого полета (взлет → движение вперед → посадка):</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
+<span class="hljs-keyword">from</span> technic <span class="hljs-keyword">import</span> srv
+<span class="hljs-keyword">from</span> std_srvs.srv <span class="hljs-keyword">import</span> Trigger
+
+rospy.init_node(<span class="hljs-string">'flight'</span>)
+
+get_telemetry = rospy.ServiceProxy(<span class="hljs-string">'get_telemetry'</span>, srv.GetTelemetry)
+navigate = rospy.ServiceProxy(<span class="hljs-string">'navigate'</span>, srv.Navigate)
+navigate_global = rospy.ServiceProxy(<span class="hljs-string">'navigate_global'</span>, srv.NavigateGlobal)
+set_position = rospy.ServiceProxy(<span class="hljs-string">'set_position'</span>, srv.SetPosition)
+set_velocity = rospy.ServiceProxy(<span class="hljs-string">'set_velocity'</span>, srv.SetVelocity)
+set_attitude = rospy.ServiceProxy(<span class="hljs-string">'set_attitude'</span>, srv.SetAttitude)
+set_rates = rospy.ServiceProxy(<span class="hljs-string">'set_rates'</span>, srv.SetRates)
+land = rospy.ServiceProxy(<span class="hljs-string">'land'</span>, Trigger)
+
+<span class="hljs-comment"># Взлет на высоту 1 м</span>
+navigate(x=<span class="hljs-number">0</span>, y=<span class="hljs-number">0</span>, z=<span class="hljs-number">1</span>, frame_id=<span class="hljs-string">'body'</span>, auto_arm=<span class="hljs-literal">True</span>)
+
+<span class="hljs-comment"># Ожидание 3 секунды</span>
+rospy.sleep(<span class="hljs-number">3</span>)
+
+<span class="hljs-comment"># Пролет вперед 1 метр</span>
+navigate(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">0</span>, z=<span class="hljs-number">0</span>, frame_id=<span class="hljs-string">'body'</span>)
+
+<span class="hljs-comment"># Ожидание 3 секунды</span>
+rospy.sleep(<span class="hljs-number">3</span>)
+
+<span class="hljs-comment"># Посадка</span>
+land()
+</code></pre>
+<blockquote>
+<p>ℹ️ Функция <code>navigate</code> выполняется асинхронно: скрипт продолжает работу, не дожидаясь достижения точки. Для блокирующей версии используйте <a href="snippets.md#navigate_wait"><code>navigate_wait</code></a>.</p>
+</blockquote>
+<p>Обратите внимание: параметр <code>auto_arm=True</code> указывается только при первом вызове <code>navigate</code>. Он отвечает за автоматическую постановку дрона на охрану и перевод его в режим OFFBOARD.</p>
+<p>С помощью параметра <code>frame_id</code> задается система координат, относительно которой рассчитываются движения:</p>
+<ul>
+<li><p><code>body</code> — координаты относительно корпуса дрона;</p>
+</li>
+<li><p><code>navigate_target</code> — относительно последней целевой точки;</p>
+</li>
+<li><p><code>map</code> — локальная система координат;</p>
+</li>
+<li><p><code>aruco_map</code> — карта ArUco-маркеров;</p>
+</li>
+<li><p><code>aruco_N</code> — маркер с ID=N.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Hint</strong> В Technic также доступен режим <a href="blocks.md">блочного программирования</a>, позволяющий создавать сценарии без кода.</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Автозапуск ПО.html" class="navigation navigation-prev " aria-label="Previous page: Автозапуск ПО">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Автономный полет.html" class="navigation navigation-next " aria-label="Next page: Автономный полёт (OFFBOARD)">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Программирование автономного полёта","level":"4.1.3","depth":2,"next":{"title":"Автономный полёт (OFFBOARD)","level":"4.1.4","depth":2,"path":"Автономный полет.md","ref":"Автономный полет.md","articles":[]},"previous":{"title":"Автозапуск ПО","level":"4.1.2","depth":2,"path":"Автозапуск ПО.md","ref":"Автозапуск ПО.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chollapse","livereload"],"pluginsConfig":{"chollapse":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"Программирование автономного полета.md","mtime":"2025-12-01T09:16:38.000Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-08T13:33:27.917Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-chollapse/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

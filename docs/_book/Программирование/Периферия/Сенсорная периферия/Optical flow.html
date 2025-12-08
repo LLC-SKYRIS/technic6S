@@ -1,0 +1,976 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Optical flow · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.1.4">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-chollapse/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Визуальные маркеры.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Главная
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    Работа с OrangePi 5 Pro
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../../OrangePi 5 Pro.html">
+            
+                <a href="../../../OrangePi 5 Pro.html">
+            
+                    
+                    OrangePi 5 Pro
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../../../Образ для OPi.html">
+            
+                <a href="../../../Образ для OPi.html">
+            
+                    
+                    Образ для OrangePi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../../../Подключение по Wi-Fi.html">
+            
+                <a href="../../../Подключение по Wi-Fi.html">
+            
+                    
+                    Подключение по Wi-Fi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../../../Веб-интерфейс.html">
+            
+                <a href="../../../Веб-интерфейс.html">
+            
+                    
+                    Веб-интерфейс
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../../../SSH-подключение.html">
+            
+                <a href="../../../SSH-подключение.html">
+            
+                    
+                    SSH-подключение
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../../../Доступ к терминалу на OrangePi 5 Pro.html">
+            
+                <a href="../../../Доступ к терминалу на OrangePi 5 Pro.html">
+            
+                    
+                    Доступ к терминалу на OrangePi 5 Pro
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../../../Подключение к PX4.html">
+            
+                <a href="../../../Подключение к PX4.html">
+            
+                    
+                    Подключение к PX4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../../../Подключение QGroundControl по Wi-Fi.html">
+            
+                <a href="../../../Подключение QGroundControl по Wi-Fi.html">
+            
+                    
+                    Подключение QGroundControl по Wi-Fi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../../../Командная строка.html">
+            
+                <a href="../../../Командная строка.html">
+            
+                    
+                    Командная строка
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="../../../Система координат.html">
+            
+                <a href="../../../Система координат.html">
+            
+                    
+                    Система координат
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    Настройка системы
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../../Настройка питания.html">
+            
+                <a href="../../../Настройка питания.html">
+            
+                    
+                    Настройка питания
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../../Настройка камеры.html">
+            
+                <a href="../../../Настройка камеры.html">
+            
+                    
+                    Настройка камеры
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../../Настройка сети.html">
+            
+                <a href="../../../Настройка сети.html">
+            
+                    
+                    Настройка сети
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../../../Настройка Failsafe.html">
+            
+                <a href="../../../Настройка Failsafe.html">
+            
+                    
+                    Настройка Failsafe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../../../Настройка пульта.html">
+            
+                <a href="../../../Настройка пульта.html">
+            
+                    
+                    Настройка пульта
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../../../Калибровка датчиков.html">
+            
+                <a href="../../../Калибровка датчиков.html">
+            
+                    
+                    Калибровка датчиков
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="../../../Бинд приемника.html">
+            
+                <a href="../../../Бинд приемника.html">
+            
+                    
+                    Бинд приёмника
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    Программирование
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../../Программирование.html">
+            
+                <a href="../../../Программирование.html">
+            
+                    
+                    Программирование
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../../../Автозапуск ПО.html">
+            
+                <a href="../../../Автозапуск ПО.html">
+            
+                    
+                    Автозапуск ПО
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../../../Программирование автономного полета.html">
+            
+                <a href="../../../Программирование автономного полета.html">
+            
+                    
+                    Программирование автономного полёта
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../../../Автономный полет.html">
+            
+                <a href="../../../Автономный полет.html">
+            
+                    
+                    Автономный полёт (OFFBOARD)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../../../Просмотр изображений с камер.html">
+            
+                <a href="../../../Просмотр изображений с камер.html">
+            
+                    
+                    Просмотр изображений с камер
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../../../ROS.html">
+            
+                <a href="../../../ROS.html">
+            
+                    
+                    ROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../../../ROS-система в Веб-интерфейсе.html">
+            
+                <a href="../../../ROS-система в Веб-интерфейсе.html">
+            
+                    
+                    ROS-система в веб-интерфейсе
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="../../../MAVROS.html">
+            
+                <a href="../../../MAVROS.html">
+            
+                    
+                    MAVROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.9" data-path="../../../Компьютерное зрение.html">
+            
+                <a href="../../../Компьютерное зрение.html">
+            
+                    
+                    Компьютерное зрение
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.10" data-path="../../../Нейронные сети.html">
+            
+                <a href="../../../Нейронные сети.html">
+            
+                    
+                    Нейронные сети
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.11" data-path="../../../Интеграция нейронных сетей в Technic.html">
+            
+                <a href="../../../Интеграция нейронных сетей в Technic.html">
+            
+                    
+                    Интеграция нейронных сетей в Technic
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" >
+            
+                <span>
+            
+                    
+                    Периферия
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../Периферия.html">
+            
+                <a href="../Периферия.html">
+            
+                    
+                    Обзор периферии
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" >
+            
+                <span>
+            
+                    
+                    Сенсорная периферия
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="5.1.2.1" data-path="Optical flow.html">
+            
+                <a href="Optical flow.html">
+            
+                    
+                    Optical flow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.2" data-path="Визуальные маркеры.html">
+            
+                <a href="Визуальные маркеры.html">
+            
+                    
+                    Визуальные маркеры
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.3" data-path="Лазерный дальномер.html">
+            
+                <a href="Лазерный дальномер.html">
+            
+                    
+                    Лазерный дальномер
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.4" data-path="Ультразвуковой дальномер.html">
+            
+                <a href="Ультразвуковой дальномер.html">
+            
+                    
+                    Ультразвуковой дальномер
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" >
+            
+                <span>
+            
+                    
+                    Исполнительная периферия
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.3.1" data-path="../Исполнительная периферия/GPIO.html">
+            
+                <a href="../Исполнительная периферия/GPIO.html">
+            
+                    
+                    GPIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3.2" data-path="../Исполнительная периферия/Светодиодная лента.html">
+            
+                <a href="../Исполнительная периферия/Светодиодная лента.html">
+            
+                    
+                    Светодиодная лента
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" >
+            
+                <span>
+            
+                    
+                    Дополнительные материалы
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" >
+            
+                <span>
+            
+                    
+                    а
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >Optical flow</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="optical-flow">Optical flow</h1>
+<p>Технология Optical Flow (оптический поток) обеспечивает возможность полёта в двух режимах:</p>
+<ul>
+<li><p><strong>POSCTL</strong> — стабилизация и управление позицией</p>
+</li>
+<li><p><strong>OFFBOARD</strong> — полностью автономные полёты</p>
+</li>
+</ul>
+<p>Для работы системы используется камера, направленная вниз. Она постоянно анализирует структуру поверхности под дроном, а алгоритм определяет смещения между кадрами. Это даёт возможность вычислять горизонтальное перемещение коптера без использования внешних средств позиционирования.</p>
+<h2 id="активация">Активация</h2>
+<blockquote>
+<p><strong>Hint</strong> Для работы Optical Flow необходим <a href="laser.md">подключенный и настроенный лазерный дальномер</a>.</p>
+</blockquote>
+<p>Включите Optical Flow в файле <code>~/technic_ws/src/technic/technic/launch/technic.launch</code></p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"optical_flow"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"true"</span>/&gt;</span>
+</code></pre>
+<p>Optical Flow публикует данные в топик <code>/mavros/px4flow/raw/send</code>. Кроме того, в топик <code>/optical_flow/debug</code> публикуется визуализация, которую можно просмотреть с помощью <a href="web_video_server.md">web_video_server</a>.</p>
+<blockquote>
+<p><strong>Info</strong> Для правильной работы модуль камеры должен быть корректно подключен и <a href="camera.md">сконфигурирован</a>.</p>
+</blockquote>
+<h2 id="настройка-полетного-контроллера">Настройка полетного контроллера</h2>
+<blockquote>
+<p><strong>Hint</strong> При использовании <a href="firmware.md#прошивка-для-клевера">сборки PX4 для Technic</a> необходимые параметры PX4 применятся автоматически.</p>
+</blockquote>
+<p>При использовании <strong>EKF2</strong> (параметр <code>SYS_MC_EST_GROUP</code> = <code>ekf2</code>):</p>
+<ul>
+<li><code>EKF2_AID_MASK</code> – включен флажок use optical flow.</li>
+<li><code>EKF2_OF_DELAY</code> – 0.</li>
+<li><code>EKF2_OF_QMIN</code> – 10.</li>
+<li><code>EKF2_OF_N_MIN</code> – 0.05.</li>
+<li><code>EKF2_OF_N_MAX</code> - 0.2.</li>
+<li><code>SENS_FLOW_ROT</code> – No rotation (отсутствие поворота).</li>
+<li><code>SENS_FLOW_MAXHGT</code> – 4.0 (для дальномера VL53L1X)</li>
+<li><code>SENS_FLOW_MINHGT</code> – 0.0 (для дальномера VL53L1X)</li>
+<li>Опционально: <code>EKF2_HGT_MODE</code> – range sensor (см. <a href="laser.md">конфигурирование дальномера</a>).</li>
+</ul>
+<p>Для проверки правильности всех настроек можно <a href="selfcheck.md">воспользоваться утилитой <code>selfcheck.py</code></a>.</p>
+<h2 id="полет-в-posctl">Полет в POSCTL</h2>
+<p>Настройте POSCTL как один из полетных режимов PX4. Переведите в режим POSCTL.</p>
+<h2 id="автономный-полет">Автономный полет</h2>
+<p>Автономный полет возможен с использованием модуля <a href="simple_offboard.md">simple_offboard</a>.</p>
+<p>Пример взлета на высоту 1.5 м и удержание позиции:</p>
+<pre><code class="lang-python">navigate(z=<span class="hljs-number">1.5</span>, frame_id=<span class="hljs-string">'body'</span>, auto_arm=<span class="hljs-literal">True</span>)
+</code></pre>
+<p>Полет вперед на 1 м:</p>
+<pre><code class="lang-python">navigate(x=<span class="hljs-number">1</span>, frame_id=<span class="hljs-string">'body'</span>)
+</code></pre>
+<p>Полет назад на 1 м (относительно предыдущей целевой точки):</p>
+<pre><code class="lang-python">navigate(x=-<span class="hljs-number">1</span>, frame_id=<span class="hljs-string">'navigate_target'</span>)
+</code></pre>
+<p>При использовании Optical Flow возможна также <a href="aruco_marker.md">навигация по ArUco-маркерам</a>, в том числе <a href="aruco_map.md">используя VPE</a>.</p>
+<h2 id="дополнительные-настройки">Дополнительные настройки</h2>
+<p>Если коптер нестабильно удерживает позицию, попробуйте увеличить коэффициенты <em>P</em> PID-регулятора по скорости – параметры <code>MPC_XY_VEL_P</code> и <code>MPC_Z_VEL_P</code>.</p>
+<p>Если коптер нестабильно удерживает высоту, попробуйте увеличить коэффициент <code>MPC_Z_VEL_P</code> или лучше подобрать газ висения – <code>MPC_THR_HOVER</code>.</p>
+<p>Если коптер уплывает по рысканью, попробуйте:</p>
+<ul>
+<li>перекалибровать гироскопы;</li>
+<li>перекалибровать магнитометр;</li>
+<li>попробовать разные значения параметра <code>EKF2_MAG_TYPE</code>, который определяет, каким образом данные с магнитометра используются в EKF2;</li>
+<li>изменять значения параметров <code>EKF2_MAG_NOISE</code>, <code>EKF2_GYR_NOISE</code>, <code>EKF2_GYR_B_NOISE</code>.</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong> Для более хороших результатов выполняйте перекалибровку гироскопов непосредственно перед взлетом, используя <a href="snippets.md#calibrate-gyro">соответствующий сниппет</a>.</p>
+</blockquote>
+<p>Если коптер уплывает по высоте, попробуйте:</p>
+<ul>
+<li>повысить значение коэффициента <code>MPC_Z_VEL_P</code>;</li>
+<li>изменить значение параметра <code>MPC_THR_HOVER</code>;</li>
+<li>выставить <code>MPC_ALT_MODE</code> = 2 (Terrain following).</li>
+</ul>
+<p>При использовании Optical Flow максимальная горизонтальная скорость дополнительно ограничивается. За это косвенно отвечает параметр <code>SENS_FLOW_MAXR</code> (максимальная достоверная "угловая скорость" оптического потока). При нормальном полёте горизонтальная скорость будет регулироваться так, чтобы показания Optical Flow не превышали 50% значения данного параметра.</p>
+<h2 id="неисправности">Неисправности</h2>
+<p>При появлении в QGC ошибок типа <code>EKF INTERNAL CHECKS</code> попробуйте перезагрузить EKF2. Для этого наберите в MAVLink-консоли:</p>
+<pre><code class="lang-nsh">ekf2 stop
+ekf2 start
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="Визуальные маркеры.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Визуальные маркеры">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Optical flow","level":"5.1.2.1","depth":3,"next":{"title":"Визуальные маркеры","level":"5.1.2.2","depth":3,"path":"Программирование/Периферия/Сенсорная периферия/Визуальные маркеры.md","ref":"Программирование/Периферия/Сенсорная периферия/Визуальные маркеры.md","articles":[]},"previous":{"title":"Сенсорная периферия","level":"5.1.2","depth":2,"ref":"","articles":[{"title":"Optical flow","level":"5.1.2.1","depth":3,"path":"Программирование/Периферия/Сенсорная периферия/Optical flow.md","ref":"Программирование/Периферия/Сенсорная периферия/Optical flow.md","articles":[]},{"title":"Визуальные маркеры","level":"5.1.2.2","depth":3,"path":"Программирование/Периферия/Сенсорная периферия/Визуальные маркеры.md","ref":"Программирование/Периферия/Сенсорная периферия/Визуальные маркеры.md","articles":[]},{"title":"Лазерный дальномер","level":"5.1.2.3","depth":3,"path":"Программирование/Периферия/Сенсорная периферия/Лазерный дальномер.md","ref":"Программирование/Периферия/Сенсорная периферия/Лазерный дальномер.md","articles":[]},{"title":"Ультразвуковой дальномер","level":"5.1.2.4","depth":3,"path":"Программирование/Периферия/Сенсорная периферия/Ультразвуковой дальномер.md","ref":"Программирование/Периферия/Сенсорная периферия/Ультразвуковой дальномер.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chollapse","livereload"],"pluginsConfig":{"chollapse":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"Программирование/Периферия/Сенсорная периферия/Optical flow.md","mtime":"2025-12-08T13:09:16.000Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-08T13:33:27.917Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-chollapse/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

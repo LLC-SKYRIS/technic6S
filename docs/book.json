@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    "chollapse"
+  ],
+  "styles": {
+    "website": "styles/website.css"
+  }
+}
+
