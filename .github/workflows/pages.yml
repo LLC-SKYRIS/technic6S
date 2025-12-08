@@ -2,7 +2,7 @@ name: Build Honkit and deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]   # если у тебя master — поменяй на master
+    branches: [ main ]   # или master, если у тебя так
 
 permissions:
   contents: read
@@ -26,8 +26,8 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Honkit
-        run: npm install honkit
+      - name: Install dependencies
+        run: npm install
 
       - name: Build Honkit site (in docs/)
         working-directory: ./docs
@@ -49,4 +49,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
