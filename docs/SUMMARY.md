@@ -4,7 +4,7 @@
 
 ---
 * Работа с OrangePi 5 Pro
-	* [OrangePi 5 Pro](OrangePi 5 Pro.md)
+	* [OrangePi 5 Pro](OrangePi.md)
 	* [Образ для OrangePi](Образ для OPi.md)
 	* [Подключение по Wi-Fi](Подключение по Wi-Fi.md)
 	* [Веб-интерфейс](Веб-интерфейс.md)
