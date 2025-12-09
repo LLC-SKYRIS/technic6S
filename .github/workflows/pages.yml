@@ -23,8 +23,12 @@ jobs:
         with:
           node-version: '14'   # GitBook нормально живёт на Node 14
 
+      - name: Downgrade npm to v6 (for GitBook)
+        run: npm install -g npm@6
+
       - name: Install GitBook CLI
         run: |
+          npm --version
           npm install -g gitbook-cli
           gitbook -V
 
