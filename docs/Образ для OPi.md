@@ -21,7 +21,7 @@
 5. После записи установите модуль в **OPi.
 
 
-<img src="../assets/Работа с Orange Pi 5 Pro/image-round-corners.png" width="600" class="zoom">
+<img src="assets/image-round-corners.png" width="600" class="zoom">
 
 
 После того как образ будет записан на eMMC, можно подключаться к [Technic по Wi-Fi](wifi.md), использовать [беспроводное подключение к QGroundControl](gcs_bridge.md), получать [SSH-доступ](ssh.md) и пользоваться всеми функциями системы.  
