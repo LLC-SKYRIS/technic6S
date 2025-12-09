@@ -1,37 +1,38 @@
-name: Build Honkit and deploy to GitHub Pages
+name: Documentation
 
 on:
   push:
-    branches: [ main ]   # или master, если у тебя так
+    branches: [ main ]        # поменяй на master, если у тебя ветка master
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '14'   # GitBook нормально живёт на Node 14
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install GitBook CLI
+        run: |
+          npm install -g gitbook-cli
+          gitbook -V
 
-      - name: Build Honkit site (in docs/)
+      - name: Build GitBook (docs → docs/_book)
         working-directory: ./docs
-        run: npx honkit build
+        run: |
+          gitbook install
+          gitbook build
 
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
@@ -39,8 +40,11 @@ jobs:
           path: docs/_book
 
   deploy:
-    needs: build
     runs-on: ubuntu-latest
+    needs: build
+    concurrency:
+      group: "pages"
+      cancel-in-progress: true
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
