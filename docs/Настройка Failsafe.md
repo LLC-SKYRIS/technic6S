@@ -10,4 +10,4 @@
    * *Terminate* – аварийное отключение моторов.
 3. В поле *RC Loss Timeout* выберите значение таймаута, по истечении которого связь с пультом считается потерянной. Рекомендуемое значение – 2 s.
 
-<img src="../assets/qgc-failsafe.png" width="600" class="center zoom">
+<img src="assets/qgc-failsafe.png" width="600" class="center zoom">
