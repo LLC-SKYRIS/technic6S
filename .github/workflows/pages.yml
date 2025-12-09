@@ -2,7 +2,7 @@ name: Documentation
 
 on:
   push:
-    branches: [ main ]        # поменяй на master, если у тебя ветка master
+    branches: [ main ]  
   workflow_dispatch:
 
 permissions:
@@ -18,18 +18,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Use Node.js
+      - name: Use Node.js 10
         uses: actions/setup-node@v4
         with:
-          node-version: '14'   # GitBook нормально живёт на Node 14
-
-      - name: Downgrade npm to v6 (for GitBook)
-        run: npm install -g npm@6
+          node-version: '10'
 
       - name: Install GitBook CLI
         run: |
+          npm install -g npm@6
           npm --version
-          npm install -g gitbook-cli
+          npm install -g gitbook-cli@2.3.2
           gitbook -V
 
       - name: Build GitBook (docs → docs/_book)
