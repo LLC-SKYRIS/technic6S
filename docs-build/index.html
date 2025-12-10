@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Документация</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f5f6f8;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .logo img {
+      height: 30px;
+      width: auto;
+    }
+
+    .content-wrapper {
+      margin-top: 130px; /* опускаем текст и карточки */
+    }
+
+    h1 {
+      margin-bottom: 24px;
+      font-size: 28px;
+      color: #333;
+    }
+
+    .grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .card {
+      width: 340px;
+      height: 280px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      border: 1px solid #e3e5ea;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: #222;
+      font-size: 18px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .card-img-box {
+      width: 100%;
+      height: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .card-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Логотип -->
+  <div class="logo">
+    <img src="images/logo.svg" alt="Логотип">
+  </div>
+
+  <!-- Контент -->
+  <div class="content-wrapper">
+
+    <div class="grid">
+
+      <a class="card" href="technic6S/">
+        <div class="card-img-box">
+          <img src="images/technic6S.png" class="card-img" alt="Продукт A">
+        </div>
+        <div class="card-title">Technic6S</div>
+      </a>
+
+      <a class="card" href="pilotFPV/">
+        <div class="card-img-box">
+          <img src="images/pilotfpv.png" class="card-img" alt="Продукт B">
+        </div>
+        <div class="card-title">Pilot FPV</div>
+      </a>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
+

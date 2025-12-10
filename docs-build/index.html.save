@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Документация</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f5f6f8;
+      margin: 0;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 24px;
+      font-size: 28px;
+      color: #333;
+    }
+
+    .grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .card {
+      width: 340px;
+      height: 280px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      border: 1px solid #e3e5ea;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: #222;
+      font-size: 18px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .card span {
+      display: block;
+      font-size: 16px;
+      opacity: 0.7;
+      margin-top: 6px;
+    }
+
+    .card-img {
+      width: 120px;
+      height: auto;
+      margin-bottom: 14px;
+      pointer-events: none; /* чтобы картинка не мешала клику */
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <h1>Выберите продукт</h1>
+
+  <div class="grid">
+
+    <a class="card" href="technic6S/">
+      <img src="images/technic6S.png" class="card-img" alt="Продукт A">
+      <div class="card-title">Продукт A</div>
+      <span class="card-subtitle">technic6S</span>
+    </a>
+
+    <a class="card" href="pilotFPV/">
+      <img src="images/pilotfpv.png" class="card-img" alt="Продукт B">
+      <div class="card-title">Продукт B</div>
+      <span class="card-subtitle">pilotFPV</span>
+    </a>
+
+  </div>
+
+</body>
+</html>
+
