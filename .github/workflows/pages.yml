@@ -32,13 +32,9 @@ jobs:
         run: |
           mkdir -p docs-build
 
-          # собрать обе книги
+          # собрать обе книги в подпапки
           honkit build docs/technic6S docs-build/technic6S
           honkit build docs/pilotFPV  docs-build/pilotFPV
-
-          # скопировать главную страницу и картинки
-          cp docs-build/index.html
-          cp -r docs-build/images
 
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
