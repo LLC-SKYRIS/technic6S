@@ -2,7 +2,7 @@ name: Documentation
 
 on:
   push:
-    branches: [ main ]  
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
@@ -18,28 +18,32 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Use Node.js 10
+      - name: Use Node.js (например 18 LTS)
         uses: actions/setup-node@v4
         with:
-          node-version: '10'
+          node-version: '18'
 
-      - name: Install GitBook CLI
+      - name: Install Honkit
         run: |
-          npm install -g npm@6
-          npm --version
-          npm install -g gitbook-cli@2.3.2
-          gitbook -V
+          npm install -g honkit
+          honkit --version
 
-      - name: Build GitBook (docs → docs/_book)
-        working-directory: ./docs
+      - name: Build Honkit books
         run: |
-          gitbook install
-          gitbook build
+          mkdir -p docs-build
+
+          # собрать обе книги
+          honkit build docs/technic6S docs-build/technic6S
+          honkit build docs/pilotFPV  docs-build/pilotFPV
+
+          # скопировать главную страницу и картинки
+          cp docs-build/index.html
+          cp -r docs-build/images
 
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/_book
+          path: docs-build
 
   deploy:
     runs-on: ubuntu-latest
