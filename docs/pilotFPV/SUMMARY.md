@@ -1,6 +1,6 @@
 # Summary
 
-* <a href="http://localhost:8000/" target="_self">← Вернуться на главную</a>
+* <a href="http://llc-skyris.github.io/technic6S/" target="_self">← Вернуться на главную</a>
 * [Главная](README.md)
 * [Введение](Введение.md)
 * [Сборка](Сборка.md)
