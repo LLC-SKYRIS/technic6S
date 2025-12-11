@@ -5,118 +5,207 @@
   <title>Документация</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: system-ui, sans-serif;
-      background: #f5f6f8;
       margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-
-    .logo {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-    }
-
-    .logo img {
-      height: 30px;
-      width: auto;
-    }
-
-    .content-wrapper {
-      margin-top: 130px; /* опускаем текст и карточки */
-    }
-
-    h1 {
-      margin-bottom: 24px;
-      font-size: 28px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f6f8;
       color: #333;
     }
 
-    .grid {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .card {
-      width: 340px;
-      height: 280px;
-      background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-      border: 1px solid #e3e5ea;
+    .page {
+      min-height: 100vh;
+      padding: 32px 56px 32px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      color: #222;
-      font-size: 18px;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    /* ЛОГОТИП */
+
+    .header {
+      margin-bottom: 28px;
     }
 
-    .card-img-box {
-      width: 100%;
-      height: 180px;
+    .logo img {
+      height: 34px;
+      width: auto;
+      display: block;
+    }
+
+    /* КАРТОЧКИ */
+
+    .cards-row {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .big-card {
+      flex: 1 1 420px;
+      min-height: 320px;
+      background: #f1f2f5;
+      border-radius: 26px;
+      text-decoration: none;
+      color: inherit;
       overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      border: 1px solid #e1e3e9;
+      transition: transform .18s ease, box-shadow .18s ease;
     }
 
-    .card-img {
+    .big-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+    }
+
+    .big-card-inner {
+      position: relative;
+      padding: 40px 52px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .big-card img {
       max-width: 100%;
-      max-height: 100%;
-      object-fit: cover;
+      height: auto;
+      display: block;
     }
 
-    .card-title {
-      font-size: 20px;
+    .big-card-caption {
+      position: absolute;
+      left: 52px;
+      bottom: 40px;
+      font-size: 24px;
+      letter-spacing: 0.04em;
+    }
+
+    .big-card-caption span {
+      text-transform: uppercase;
+    }
+
+    .big-card-caption .accent {
+      font-weight: 700;
+    }
+
+    /* БЛОК С ССЫЛКАМИ */
+
+    .links {
+      margin-top: 60px;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .links-row {
+      margin-bottom: 8px;
+    }
+
+    .links-row a {
       font-weight: 600;
-      margin-top: 10px;
+      color: #444;
+      text-decoration: none;
+      border-bottom: 1px solid #999;
     }
 
+    .links-row a:hover {
+      border-bottom-color: transparent;
+    }
+
+    /* ФУТЕР */
+
+    .footer {
+      margin-top: auto;
+      padding-top: 24px;
+      border-top: 1px solid #d6d9e0;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        padding: 20px 16px 24px;
+      }
+
+      .big-card-inner {
+        padding: 28px 24px;
+      }
+
+      .big-card-caption {
+        left: 24px;
+        bottom: 28px;
+        font-size: 20px;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Логотип -->
-  <div class="logo">
-    <img src="images/logo.svg" alt="Логотип">
-  </div>
+<div class="page">
 
-  <!-- Контент -->
-  <div class="content-wrapper">
+  <header class="header">
+    <div class="logo">
+      <img src="images/logo.svg" alt="SKYRIS">
+    </div>
+  </header>
 
-    <div class="grid">
+  <main>
 
-      <a class="card" href="technic6S/">
-        <div class="card-img-box">
-          <img src="images/technic6S.png" class="card-img" alt="Продукт A">
+    <div class="cards-row">
+
+      <!-- Техник 6S -->
+      <a class="big-card" href="technic6S/">
+        <div class="big-card-inner">
+          <img src="images/technic6S.png" alt="Техник 6S">
+          <div class="big-card-caption">
+            <span>Техник </span><span class="accent">6S</span>
+          </div>
         </div>
-        <div class="card-title">Technic6S</div>
       </a>
 
-      <a class="card" href="pilotFPV/">
-        <div class="card-img-box">
-          <img src="images/pilotfpv.png" class="card-img" alt="Продукт B">
+      <!-- Пилот FPV -->
+      <a class="big-card" href="pilotFPV/">
+        <div class="big-card-inner">
+          <img src="images/pilotfpv.png" alt="Пилот FPV">
+          <div class="big-card-caption">
+            <span>Пилот </span><span class="accent">FPV</span>
+          </div>
         </div>
-        <div class="card-title">Pilot FPV</div>
       </a>
 
     </div>
 
-  </div>
+    <section class="links">
+      <div class="links-row">
+        Техническая поддержка&nbsp;
+        <a href="support/">ссылка</a>
+      </div>
+      <div class="links-row">
+        Новости компании&nbsp;
+        <a href="news/">ссылка</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>info@skyris.pro</div>
+    <div>ООО «Скайрис» 2025 © Все права защищены</div>
+  </footer>
+
+</div>
 
 </body>
 </html>
-
