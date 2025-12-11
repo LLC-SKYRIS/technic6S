@@ -6,194 +6,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     * {
-      box-sizing: border-box;
-    }
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #f5f6f8;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #333;
+}
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f5f6f8;
-      color: #333;
-    }
+/* Страница */
+.page {
+  padding: 36px 56px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-    .page {
-      min-height: 100vh;
-      padding: 32px 56px 32px;
-      display: flex;
-      flex-direction: column;
-    }
+/* Логотип */
+.logo {
+  height: 34px;
+  margin-bottom: 32px;
+}
 
-    /* ЛОГОТИП */
-    .header {
-      margin-bottom: 28px;
-    }
+/* Ряд карточек */
+.cards-row {
+  display: flex;
+  gap: 48px;
+  margin-bottom: 64px;
+}
 
-    .logo img {
-      height: 34px;
-      width: auto;
-      display: block;
-    }
+/* Карточка */
+.big-card {
+  display: block;
+  width: 50%;
+  height: 360px;
+  border-radius: 24px;
+  background: #fff;
+  border: 1px solid #e5e6ea;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  position: relative;
+  transition: box-shadow .25s ease;
+}
 
-    /* РЯД КАРТОЧЕК */
-    .cards-row {
-      display: flex;
-      gap: 48px;
-      margin-top: 16px;
-      flex-wrap: wrap;
-    }
+.big-card:hover {
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
 
-    /* КАРТОЧКА В СТИЛЕ ПРИМЕРА */
-    .big-card {
-      display: block;
-      flex: 1 1 600px;
-      min-height: 360px;
-      background: #ffffff;
-      border-radius: 24px;
-      border: 1px solid #dcdfe4;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-      text-decoration: none;
-      color: #222;
+/* Внутри карточки */
+.big-card-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 48px 56px;
+  height: 100%;
+}
 
-      position: relative;
-      overflow: hidden;
+/* Картинка справа */
+.card-img {
+  max-width: 58%;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  transition: filter .25s ease;
+}
 
-      transition: box-shadow .25s ease;
-    }
+.big-card:hover .card-img {
+  filter: brightness(1.12);
+}
 
-    .big-card:hover {
-      transform: none;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.1);
-    }
+/* Текст слева */
+.card-text {
+  display: flex;
+  flex-direction: column;
+}
 
-    .big-card-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      height: 100%;
-      padding: 48px 56px;
-      position: relative;
-    }
+/* Заголовки */
+.title-small {
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 2px;
+}
+.title-big {
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
 
-    /* ТЕКСТ ВНУТРИ КАРТОЧКИ */
-    .card-text {
-      max-width: 35%;
-    }
+/* Надпись «В раздел» */
+.go-link {
+  opacity: 0;
+  transform: translateY(14px);
+  font-size: 18px;
+  border-top: 1px solid #aaa;
+  width: 110px;
+  padding-top: 6px;
+  transition: opacity .25s ease, transform .25s ease;
+}
 
-    .title-small {
-      font-size: 20px;
-      font-weight: 400;
-      margin-bottom: 4px;
-      letter-spacing: 0.04em;
-    }
+.big-card:hover .go-link {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    .title-big {
-      font-size: 34px;
-      font-weight: 700;
-      margin-bottom: 18px;
-      letter-spacing: 0.04em;
-    }
+/* Блок ссылок */
+.links {
+  font-size: 15px;
+  line-height: 1.8;
+}
+.links a {
+  text-decoration: none;
+  border-bottom: 1px solid #999;
+  color: #444;
+  font-weight: 600;
+}
+.links a:hover {
+  border-bottom-color: transparent;
+}
 
-    /* НАДПИСЬ "В раздел" */
-    .go-link {
-      opacity: 0;
-      transform: translateY(10px);
-      font-size: 18px;
-      font-weight: 400;
-      color: #444;
-      border-top: 1px solid #bbb;
-      width: 120px;
-      padding-top: 8px;
+/* Футер */
+.footer {
+  margin-top: auto;
+  padding-top: 28px;
+  border-top: 1px solid #d6d9e0;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+}
 
-      transition: opacity .25s ease, transform .25s ease;
-    }
+.footer a {
+  text-decoration: none;
+  color: inherit;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
 
-    .big-card:hover .go-link {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* КАРТИНКА */
-    .card-img {
-      height: 100%;
-      max-height: none;
-      max-width: 55%;
-      transition: filter .25s ease;
-    }
-
-    .big-card:hover .card-img {
-      filter: brightness(1.15) contrast(1.05);
-    }
-
-    /* БЛОК С ССЫЛКАМИ */
-    .links {
-      margin-top: 60px;
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    .links-row {
-      margin-bottom: 8px;
-    }
-
-    .links-row a {
-      font-weight: 600;
-      color: #444;
-      text-decoration: none;
-      border-bottom: 1px solid #999;
-    }
-
-    .links-row a:hover {
-      border-bottom-color: transparent;
-    }
-
-    /* ФУТЕР */
-    .footer {
-      margin-top: auto;
-      padding-top: 24px;
-      border-top: 1px solid #d6d9e0;
-      font-size: 13px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      color: #666;
-    }
-
-    .footer a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 900px) {
-      .page {
-        padding: 20px 16px 24px;
-      }
-
-      .big-card-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 28px 24px;
-      }
-
-      .card-text {
-        max-width: 100%;
-        margin-bottom: 16px;
-      }
-
-      .card-img {
-        max-width: 100%;
-        align-self: center;
-      }
-
-      .footer {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
   </style>
 </head>
 <body>
@@ -201,62 +153,55 @@
 <div class="page">
 
   <header class="header">
-    <div class="logo">
-      <img src="images/logo.svg" alt="SKYRIS">
-    </div>
+    <img src="images/logo.svg" class="logo" alt="SKYRIS">
   </header>
 
   <main>
 
     <div class="cards-row">
 
-      <!-- Technic 6S -->
+      <!-- TECHNIC 6S -->
       <a class="big-card" href="technic6S/">
         <div class="big-card-inner">
+          <img src="images/technic6S_old.png" alt="" class="card-img">
+
           <div class="card-text">
             <div class="title-small">ТЕХНИК</div>
             <div class="title-big">6S</div>
             <div class="go-link">В раздел</div>
           </div>
-          <img src="images/technic6S.png" alt="Technic 6S" class="card-img">
         </div>
       </a>
 
-      <!-- Pilot FPV -->
+      <!-- PILOT FPV -->
       <a class="big-card" href="pilotFPV/">
         <div class="big-card-inner">
+          <img src="images/pilotfpv_old.png" alt="" class="card-img">
+
           <div class="card-text">
             <div class="title-small">ПИЛОТ</div>
             <div class="title-big">FPV</div>
             <div class="go-link">В раздел</div>
           </div>
-          <img src="images/pilotfpv.png" alt="Pilot FPV" class="card-img">
         </div>
       </a>
 
     </div>
 
     <section class="links">
-      <div class="links-row">
-        Техническая поддержка&nbsp;
-        <a href="https://t.me/SKYRIS_support" target="_blank">@SKYRIS_support</a>
-      </div>
-      <div class="links-row">
-        Новости компании&nbsp;
-        <a href="https://t.me/skyris_public" target="_blank">@skyris_public</a>
-      </div>
+      <div>Техническая поддержка <a href="https://t.me/SKYRIS_support">@SKYRIS_support</a></div>
+      <div>Новости компании <a href="https://t.me/skyris_public">@skyris_public</a></div>
     </section>
 
   </main>
 
   <footer class="footer">
-    <div>
-        <a href="mailto:info@skyris.pro">info@skyris.pro</a>
-    </div>
+    <div><a href="mailto:info@skyris.pro">info@skyris.pro</a></div>
     <div>ООО «Скайрис» 2025 © Все права защищены</div>
   </footer>
 
 </div>
+
 
 </body>
 </html>
