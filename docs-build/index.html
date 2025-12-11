@@ -24,6 +24,7 @@
     }
 
     /* ЛОГОТИП */
+
     .header {
       margin-bottom: 28px;
     }
@@ -35,6 +36,7 @@
     }
 
     /* КАРТОЧКИ */
+
     .cards-row {
       display: flex;
       gap: 32px;
@@ -52,7 +54,6 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.06);
       border: 1px solid #e1e3e9;
       transition: transform .18s ease, box-shadow .18s ease;
-      position: relative;
     }
 
     .big-card:hover {
@@ -73,15 +74,8 @@
       max-width: 100%;
       height: auto;
       display: block;
-      transition: filter .25s ease;
     }
 
-    /* Картинка становится ярче при наведении */
-    .big-card:hover img {
-      filter: brightness(1.18) contrast(1.05);
-    }
-
-    /* Подписи */
     .big-card-caption {
       position: absolute;
       left: 52px;
@@ -98,27 +92,8 @@
       font-weight: 700;
     }
 
-    /* --- ДОБАВЛЕНО: надпись "В раздел" --- */
-    .go-link {
-      position: absolute;
-      left: 52px;
-      bottom: 12px;
-      font-size: 18px;
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity .25s ease, transform .25s ease;
-      border-top: 1px solid #aaa;
-      padding-top: 6px;
-      width: 100px;
-      color: #444;
-    }
+    /* БЛОК С ССЫЛКАМИ */
 
-    .big-card:hover .go-link {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ССЫЛКИ */
     .links {
       margin-top: 60px;
       font-size: 15px;
@@ -141,6 +116,7 @@
     }
 
     /* ФУТЕР */
+
     .footer {
       margin-top: auto;
       padding-top: 24px;
@@ -151,15 +127,6 @@
       align-items: center;
       gap: 12px;
       color: #666;
-    }
-
-    .footer a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
     }
 
     @media (max-width: 768px) {
@@ -175,10 +142,6 @@
         left: 24px;
         bottom: 28px;
         font-size: 20px;
-      }
-
-      .go-link {
-        left: 24px;
       }
 
       .footer {
@@ -205,26 +168,20 @@
       <!-- Техник 6S -->
       <a class="big-card" href="technic6S/">
         <div class="big-card-inner">
-          <img src="images/technic6S_old.png" alt="Техник 6S">
+          <img src="images/technic6S.png" alt="Техник 6S">
           <div class="big-card-caption">
             <span>Техник </span><span class="accent">6S</span>
           </div>
-
-          <!-- Новая строка -->
-          <div class="go-link">В раздел</div>
         </div>
       </a>
 
       <!-- Пилот FPV -->
       <a class="big-card" href="pilotFPV/">
         <div class="big-card-inner">
-          <img src="images/pilotfpv_old.png" alt="Пилот FPV">
+          <img src="images/pilotfpv.png" alt="Пилот FPV">
           <div class="big-card-caption">
             <span>Пилот </span><span class="accent">FPV</span>
           </div>
-
-          <!-- Новая строка -->
-          <div class="go-link">В раздел</div>
         </div>
       </a>
 
@@ -245,7 +202,7 @@
 
   <footer class="footer">
     <div>
-      <a href="mailto:info@skyris.pro">info@skyris.pro</a>
+        <a href="mailto:info@skyris.pro">почта</a>
     </div>
     <div>ООО «Скайрис» 2025 © Все права защищены</div>
   </footer>
