@@ -34,89 +34,94 @@
       display: block;
     }
 
-    /* КАРТОЧКИ */
+    /* РЯД КАРТОЧЕК */
     .cards-row {
       display: flex;
-      gap: 32px;
+      gap: 48px;
+      margin-top: 16px;
       flex-wrap: wrap;
     }
 
+    /* КАРТОЧКА В СТИЛЕ ПРИМЕРА */
     .big-card {
-      width: 48%;              /* две большие карточки в ряд */
-      min-width: 520px;        /* не даём сильно сжиматься на широких экранах */
-      height: 520px;           /* большой размер как в первом варианте */
-      background: #f1f2f5;
-      border-radius: 26px;
+      display: block;
+      flex: 1 1 600px;
+      min-height: 360px;
+      background: #ffffff;
+      border-radius: 24px;
+      border: 1px solid #dcdfe4;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
       text-decoration: none;
-      color: inherit;
-      overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      border: 1px solid #e1e3e9;
-      transition: transform .18s ease, box-shadow .18s ease;
+      color: #222;
+
       position: relative;
+      overflow: hidden;
+
+      transition: box-shadow .25s ease;
     }
 
     .big-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+      transform: none;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.1);
     }
 
     .big-card-inner {
-      position: relative;
-      padding: 40px 52px;
-      height: 100%;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: flex-end;
+      height: 100%;
+      padding: 48px 56px;
+      position: relative;
     }
 
-    .big-card img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      transition: filter .25s ease;
+    /* ТЕКСТ ВНУТРИ КАРТОЧКИ */
+    .card-text {
+      max-width: 35%;
     }
 
-    /* Картинка становится ярче при наведении */
-    .big-card:hover img {
-      filter: brightness(1.18) contrast(1.05);
-    }
-
-    /* Подпись с названием */
-    .big-card-caption {
-      position: absolute;
-      left: 52px;
-      bottom: 40px;
-      font-size: 24px;
+    .title-small {
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 4px;
       letter-spacing: 0.04em;
     }
 
-    .big-card-caption span {
-      text-transform: uppercase;
-    }
-
-    .big-card-caption .accent {
+    .title-big {
+      font-size: 34px;
       font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
     }
 
-    /* Надпись "В раздел" */
+    /* НАДПИСЬ "В раздел" */
     .go-link {
-      position: absolute;
-      left: 52px;
-      bottom: 12px;
-      font-size: 18px;
       opacity: 0;
-      transform: translateY(6px);
-      transition: opacity .25s ease, transform .25s ease;
-      border-top: 1px solid #aaa;
-      padding-top: 6px;
-      width: 100px;
+      transform: translateY(10px);
+      font-size: 18px;
+      font-weight: 400;
       color: #444;
+      border-top: 1px solid #bbb;
+      width: 120px;
+      padding-top: 8px;
+
+      transition: opacity .25s ease, transform .25s ease;
     }
 
     .big-card:hover .go-link {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* КАРТИНКА */
+    .card-img {
+      height: 100%;
+      max-height: none;
+      max-width: 55%;
+      transition: filter .25s ease;
+    }
+
+    .big-card:hover .card-img {
+      filter: brightness(1.15) contrast(1.05);
     }
 
     /* БЛОК С ССЫЛКАМИ */
@@ -163,32 +168,25 @@
       text-decoration: underline;
     }
 
-    /* Адаптив под узкие экраны */
-    @media (max-width: 1100px) {
-      .big-card {
-        width: 100%;
-        min-width: 0;
-        height: 480px;
-      }
-    }
-
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .page {
         padding: 20px 16px 24px;
       }
 
       .big-card-inner {
+        flex-direction: column;
+        align-items: flex-start;
         padding: 28px 24px;
       }
 
-      .big-card-caption {
-        left: 24px;
-        bottom: 32px;
-        font-size: 20px;
+      .card-text {
+        max-width: 100%;
+        margin-bottom: 16px;
       }
 
-      .go-link {
-        left: 24px;
+      .card-img {
+        max-width: 100%;
+        align-self: center;
       }
 
       .footer {
@@ -212,25 +210,27 @@
 
     <div class="cards-row">
 
-      <!-- Техник 6S -->
+      <!-- Technic 6S -->
       <a class="big-card" href="technic6S/">
         <div class="big-card-inner">
-          <img src="images/technic6S.png" alt="Техник 6S">
-          <div class="big-card-caption">
-            <span>Техник </span><span class="accent">6S</span>
+          <div class="card-text">
+            <div class="title-small">ТЕХНИК</div>
+            <div class="title-big">6S</div>
+            <div class="go-link">В раздел</div>
           </div>
-          <div class="go-link">В раздел</div>
+          <img src="images/technic6S_old.png" alt="Technic 6S" class="card-img">
         </div>
       </a>
 
-      <!-- Пилот FPV -->
+      <!-- Pilot FPV -->
       <a class="big-card" href="pilotFPV/">
         <div class="big-card-inner">
-          <img src="images/pilotfpv.png" alt="Пилот FPV">
-          <div class="big-card-caption">
-            <span>Пилот </span><span class="accent">FPV</span>
+          <div class="card-text">
+            <div class="title-small">ПИЛОТ</div>
+            <div class="title-big">FPV</div>
+            <div class="go-link">В раздел</div>
           </div>
-          <div class="go-link">В раздел</div>
+          <img src="images/pilotfpv_old.png" alt="Pilot FPV" class="card-img">
         </div>
       </a>
 
@@ -251,7 +251,7 @@
 
   <footer class="footer">
     <div>
-      <a href="mailto:info@skyris.pro">почта</a>
+        <a href="mailto:info@skyris.pro">info@skyris.pro</a>
     </div>
     <div>ООО «Скайрис» 2025 © Все права защищены</div>
   </footer>
