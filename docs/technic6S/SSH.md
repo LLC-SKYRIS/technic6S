@@ -14,4 +14,4 @@ ssh orangepi@10.42.0.1
 
 > **Hint** Для того, чтобы не вводить пароль при каждом подключении по SSH, см. [статью об использовании SSH-ключей](ssh_keys.md).
 
-Подробнее: [http://nskhuman.ru/allwinner/orange/orangeman.php?np=13](http://nskhuman.ru/allwinner/orange/orangeman.php?np=13).
+Подробнее: [http://nskhuman.ru/allwinner/orange/orangeman.php?np=13](https://help.sprecord.ru/ru/m-mt/additional_settings/ssh).
