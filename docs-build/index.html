@@ -70,6 +70,7 @@
       justify-content: center;
     }
 
+
     .big-card img {
       max-width: 100%;
       height: auto;
@@ -79,9 +80,15 @@
     .big-card-caption {
       position: absolute;
       left: 52px;
-      bottom: 40px;
+      bottom: 8px;
       font-size: 24px;
       letter-spacing: 0.04em;
+    }
+
+    .big-card-caption .title {
+      font-size: 24px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     .big-card-caption span {
@@ -91,6 +98,40 @@
     .big-card-caption .accent {
       font-weight: 700;
     }
+
+
+    .go-link {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #444;
+
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    /* ЛИНИЯ */
+
+    .go-link .divider {
+      width: 120px;
+      height: 1px;
+      background: #bbb;
+    }
+
+    
+    /* ПОЯВЛЕНИЕ ПРИ HOVER */
+
+    .big-card:hover .go-link {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
 
     /* БЛОК С ССЫЛКАМИ */
 
@@ -170,8 +211,16 @@
         <div class="big-card-inner">
           <img src="images/technic6S.png" alt="Техник 6S">
           <div class="big-card-caption">
-            <span>Техник </span><span class="accent">6S</span>
+            <div class="title">
+              <span>Техник </span><span class="accent">6S</span>
+            </div>
+
+            <div class="go-link">
+              <span class="divider"></span>
+              <span class="text">В раздел</span>
+            </div>
           </div>
+
         </div>
       </a>
 
@@ -180,8 +229,15 @@
         <div class="big-card-inner">
           <img src="images/pilotfpv.png" alt="Пилот FPV">
           <div class="big-card-caption">
-            <span>Пилот </span><span class="accent">FPV</span>
+            <div class="title">
+              <span>Пилот </span><span class="accent">FPV</span>
+            </div>
+            <div class="go-link">
+              <span class="divider"></span>
+              <span class="text">В раздел</span>
+            </div>
           </div>
+          
         </div>
       </a>
 
