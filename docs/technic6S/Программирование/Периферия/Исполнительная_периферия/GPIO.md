@@ -2,11 +2,11 @@
 
 GPIO (General-Purpose Input/Output) – это тип пинов на OPi, напряжение на которых можно программно подавать и измерять. Также на некоторых пинах реализован аппаратный <abbr title="Широтно-импульсная модуляция">ШИМ</abbr> (<abbr title="Pulse-width modulation">PWM</abbr>). Интерфейс GPIO может быть использован для управления различной периферией: светодиодами, электромагнитами, электромоторами, сервоприводами и т. д.
 
-> **Info** Используйте [распиновку](https://pinout.xyz), чтобы понять, какие из пинов на OPi поддерживают GPIO и ШИМ.
+> **Info** Используйте [распиновку](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html), чтобы понять, какие из пинов на OPi поддерживают GPIO и ШИМ.
 
 > **Info** Для того, чтобы не создавалось конфликтов при использовании портов *GPIO* в образе закрыт доступ для портов 0, 1, 2, 3, 14, 15, на которые выведены интерфейсы подключения I2C и UART.
 
-Для работы с GPIO на [образе для OPi](image.md) предустановлена библиотека [`pigpio`](http://abyz.me.uk/rpi/pigpio/). Чтобы взаимодействовать с этой библиотекой, запустите соответствующий демон:
+Для работы с GPIO на [образе для OPi](ImageOPI.md) предустановлена библиотека [`pigpio`](http://abyz.me.uk/rpi/pigpio/). Чтобы взаимодействовать с этой библиотекой, запустите соответствующий демон:
 
 ```bash
 sudo systemctl start pigpiod.service
@@ -18,7 +18,6 @@ sudo systemctl start pigpiod.service
 sudo systemctl enable pigpiod.service
 ```
 
-> **Warning** При одновременном использовании `pigpiod` и [LED-ленты](leds.md) возможны конфликты. Для подключения ленты используйте пин GPIO21. На версиях [образа](image.md) ниже 0.17 измените в файле `/lib/systemd/system/pigpiod.service` строку запуска сервиса на `ExecStart=/usr/bin/pigpiod -l -t 0 -x 0x0FFF3FF0`.
 
 Пример работы с библиотекой:
 
@@ -49,7 +48,7 @@ pi.set_mode(12, pigpio.INPUT)
 level = pi.read(12)
 ```
 
-Для определения номера пина используйте [распиновку Raspberry Pi](https://pinout.xyz).
+Для определения номера пина используйте [распиновку Orange Pi](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html).
 
 ## Подключение сервоприводов
 

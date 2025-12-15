@@ -3,7 +3,7 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <title>Ультразвуковой дальномер · HonKit</title>
+        <title>Светодиодная лента · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="HonKit 6.1.4">
@@ -57,7 +57,7 @@
 
     
     
-    <link rel="prev" href="Лазерный дальномер.html" />
+    <link rel="prev" href="GPIO.html" />
     
 
     </head>
@@ -602,9 +602,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1.2.1" data-path="Optical flow.html">
+        <li class="chapter " data-level="5.1.2.1" data-path="../Сенсорная_периферия/OpticalFlow.html">
             
-                <a href="Optical flow.html">
+                <a href="../Сенсорная_периферия/OpticalFlow.html">
             
                     
                     Optical flow
@@ -615,9 +615,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.2.2" data-path="Визуальные маркеры.html">
+        <li class="chapter " data-level="5.1.2.2" data-path="../Сенсорная_периферия/Aruco.html">
             
-                <a href="Визуальные маркеры.html">
+                <a href="../Сенсорная_периферия/Aruco.html">
             
                     
                     Визуальные маркеры
@@ -628,9 +628,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.2.3" data-path="Лазерный дальномер.html">
+        <li class="chapter " data-level="5.1.2.3" data-path="../Сенсорная_периферия/LaserRangefinder.html">
             
-                <a href="Лазерный дальномер.html">
+                <a href="../Сенсорная_периферия/LaserRangefinder.html">
             
                     
                     Лазерный дальномер
@@ -641,9 +641,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="5.1.2.4" data-path="Ультразвуковой дальномер.html">
+        <li class="chapter " data-level="5.1.2.4" data-path="../Сенсорная_периферия/UltrasonicRangefinder.html">
             
-                <a href="Ультразвуковой дальномер.html">
+                <a href="../Сенсорная_периферия/UltrasonicRangefinder.html">
             
                     
                     Ультразвуковой дальномер
@@ -673,9 +673,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1.3.1" data-path="../Исполнительная периферия/GPIO.html">
+        <li class="chapter " data-level="5.1.3.1" data-path="GPIO.html">
             
-                <a href="../Исполнительная периферия/GPIO.html">
+                <a href="GPIO.html">
             
                     
                     GPIO
@@ -686,9 +686,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.3.2" data-path="../Исполнительная периферия/Светодиодная лента.html">
+        <li class="chapter active" data-level="5.1.3.2" data-path="LedStrip.html">
             
-                <a href="../Исполнительная периферия/Светодиодная лента.html">
+                <a href="LedStrip.html">
             
                     
                     Светодиодная лента
@@ -759,7 +759,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >Ультразвуковой дальномер</a>
+        <a href="../../.." >Светодиодная лента</a>
     </h1>
 </div>
 
@@ -774,99 +774,135 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="дальномер-hc-sr04">Дальномер HC-SR04</h1>
-<p>Ультразвуковой дальномер (<em>«сонар»</em>) — это датчик расстояния, принцип действия которого основан на измерении времени распространения звуковой волны (с частотой около 40 кГц) до препятствия и обратно. Сонар может измерять расстояние до 1,5–3 м с точностью до нескольких сантиметров.</p>
-<p><img src="../../../assets/hc-sr04.jpg" alt="HC-SR04" width="200"></img></p>
-<h2 id="установка">Установка</h2>
-<p>Дальномер закрепляется к корпусу с помощью двухстороннего скотча. Для получения приемлемых результатов необходимо использование виброразвязки. В качестве виброразвязки можно использовать кусок поролона.</p>
-<h3 id="подключение">Подключение</h3>
-<p>Подключите HC-SR04 к OPi согласно схеме подключения. Используйте резисторы на 1,0 и 2,2 кОм и любые свободные GPIO-пины, например 23 и 24:</p>
+                                <h1 id="светодиодная-лента">Светодиодная лента</h1>
+<p>Адресуемая RGB-светодиодная лента типа <strong>ws281x</strong>, которая входит в наборы Technic, позволяет выставлять произвольные 24-битные цвета на каждый из отдельных светодиодов. Это позволяет сделать полет Technic более ярким. Для использования светодиодной ленты с OrangePi 5 Pro был установлен драйвер opi_ws2812_rt. Лента также позволяет визуально получать информацию о полетных режимах, этапе выполнения пользовательской программы и других событиях.</p>
+<p><img src="../../../assets/image-2.png" align="right" width="400px" alt="Technic Drone"></img></p>
+<p>На образе <a href="ImageOPI.md">для OPi</a> предустановлены необходимые модули для работы с лентой. Они позволяют:</p>
+<ul>
+<li>управлять эффектами/анимациями на ленте;</li>
+<li>управлять лентой на низком уровне (переключением цветов отдельных светодиодов);</li>
+<li>настраивать реакцию ленты на полетные события.</li>
+</ul>
 <blockquote>
-<p><strong>Hint</strong> Вместо резистора на 2,2 кОм можно использовать два резистора на 1 кОм, соединенные последовательно.</p>
-<p><strong>Hint</strong> На OPi есть несколько взаимозаменяемых пинов <strong>GND</strong> и <strong>VCC 5V</strong>. Используйте <a href="https://pinout.xyz" target="_blank">распиновку</a>, чтобы найти их.</p>
+<p><strong>Hint</strong> Обратите внимание, что светодиодную ленту нужно питать от стабильного источника энергии. Если вы подключите питание напрямую к OPi, то это создаст слишком большую нагрузку на ваш микрокомпьютер. Для снятия нагрузки с OPi можно подключить питание к преобразователю BEC.</p>
 </blockquote>
-<h3 id="чтение-данных">Чтение данных</h3>
-<p>Чтобы считать данные с дальномера HC-SR04, используется библиотека для работы с <abbr title="General-Purpose Input/Output – пины ввода/вывода общего назначения">GPIO</abbr> – <a href="http://abyz.me.uk/rpi/pigpio/index.html" target="_blank"><code>pigpio</code></a>. Эта библиотека предустановлена на <a href="image.md">образе Technic</a>.</p>
-<p>Для работы с <code>pigpio</code> необходимо запустить соответствующий демон:</p>
-<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl start pigpiod.service
+<h2 id="set_effect">Высокоуровневое управление лентой </h2>
+<ol>
+<li>Для работы с лентой подключите ее к питанию +5v – 5v, земле GND – GND и сигнальному порту DIN – GPIO21. Обратитесь <a href="">к инструкции по сборке</a> для подробностей.</li>
+<li><p>Включите поддержку LED-ленты в файле <code>~/technic_ws/src/technic/technic/launch/technic.launch</code>:</p>
+<pre><code class="lang-xml"> <span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"led"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"true"</span>/&gt;</span>
 </code></pre>
-<p>Вы также можете включить автоматический запуск <code>pigpiod</code> при старте системы:</p>
-<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">enable</span> pigpiod.service
+</li>
+<li><p>Настройте параметры подключения ленты <em>ws281x</em> в файле <code>~/technic_ws/src/opi_ws2812_rt/base.launch</code>. Необходимо ввести верное количество светодиодов в ленте и GPIO-пин, использованный для подключения (если он отличается от <em>GPIO21</em>):</p>
+<pre><code class="lang-xml"> <span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"led_count"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"58"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- количество светодиодов в ленте --&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"gpio_pin"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"21"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- GPIO-пин для подключения --&gt;</span>
 </code></pre>
-<p>Таким образом становится возможным взаимодействие с демоном <code>pigpiod</code> из языка Python:</p>
-<pre><code class="lang-python"><span class="hljs-keyword">import</span> pigpio
-pi = pigpio.pi()
+</li>
+</ol>
+<p>Высокоуровневое управления лентой позволяет управлять текущим эффектом (анимацией) на ленте. Для этого используется ROS-сервис <code>/led/set_effect</code>. Параметры сервиса:</p>
+<ul>
+<li><code>effect</code> – название необходимого эффекта.</li>
+<li><code>r</code>, <code>g</code>, <code>b</code> – цвет эффекта в формате <a href="https://ru.wikipedia.org/wiki/RGB" target="_blank">RGB</a>. Значения изменяются от 0 до 255.</li>
+</ul>
+<p>Список доступных эффектов:</p>
+<ul>
+<li><code>fill</code> (или пустая строка) – залить всю ленту цветом;</li>
+<li><code>blink</code> – мигание цветом;</li>
+<li><code>blink_fast</code> – ускоренное мигание цветом;</li>
+<li><code>fade</code> – плавное перетекание в цвет;</li>
+<li><code>wipe</code> – "надвигание" нового цвета;</li>
+<li><code>flash</code> – быстро мигнуть цветом 2 раза и вернуться к предыдущему эффекту;</li>
+<li><code>rainbow</code> – переливание ленты цветами радуги;</li>
+<li><code>rainbow_fill</code> – переливать заливку по цветам радуги.</li>
+</ul>
+<p>Пример работы с сервисом из Python:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
+<span class="hljs-keyword">from</span> clover.srv <span class="hljs-keyword">import</span> SetLEDEffect
+
+rospy.init_node(<span class="hljs-string">'flight'</span>)
+
+set_effect = rospy.ServiceProxy(<span class="hljs-string">'led/set_effect'</span>, SetLEDEffect)  <span class="hljs-comment"># define proxy to ROS-service</span>
+
+set_effect(r=<span class="hljs-number">255</span>, g=<span class="hljs-number">0</span>, b=<span class="hljs-number">0</span>)  <span class="hljs-comment"># fill strip with red color</span>
+rospy.sleep(<span class="hljs-number">2</span>)
+
+set_effect(r=<span class="hljs-number">0</span>, g=<span class="hljs-number">100</span>, b=<span class="hljs-number">0</span>)  <span class="hljs-comment"># fill strip with green color</span>
+rospy.sleep(<span class="hljs-number">2</span>)
+
+set_effect(effect=<span class="hljs-string">'fade'</span>, r=<span class="hljs-number">0</span>, g=<span class="hljs-number">0</span>, b=<span class="hljs-number">255</span>)  <span class="hljs-comment"># fade to blue color</span>
+rospy.sleep(<span class="hljs-number">2</span>)
+
+set_effect(effect=<span class="hljs-string">'flash'</span>, r=<span class="hljs-number">255</span>, g=<span class="hljs-number">0</span>, b=<span class="hljs-number">0</span>)  <span class="hljs-comment"># flash twice with red color</span>
+rospy.sleep(<span class="hljs-number">5</span>)
+
+set_effect(effect=<span class="hljs-string">'blink'</span>, r=<span class="hljs-number">255</span>, g=<span class="hljs-number">255</span>, b=<span class="hljs-number">255</span>)  <span class="hljs-comment"># blink with white color</span>
+rospy.sleep(<span class="hljs-number">5</span>)
+
+set_effect(effect=<span class="hljs-string">'rainbow'</span>)  <span class="hljs-comment"># show rainbow</span>
 </code></pre>
+<p>Также лентой можно управлять из командной сроки (Bash):</p>
+<pre><code class="lang-bash">rosservice call /led/set_effect <span class="hljs-string">"{effect: 'fade', r: 0, g: 0, b: 255}"</span>
+</code></pre>
+<pre><code class="lang-bash">rosservice call /led/set_effect <span class="hljs-string">"{effect: 'rainbow'}"</span>
+</code></pre>
+<h2 id="настройка-реакции-ленты-на-события">Настройка реакции ленты на события</h2>
+<p>Technic умеет показывать LED-лентой текущее состояние полетного контроллера и сигнализировать о событиях. Данная функция настраивается в файле <code>~/technic_ws/src/technic/technic/launch/led.launch</code> в разделе <em>events effects table</em>. Пример настройки:</p>
+<pre><code class="lang-xml">startup: { r: 255, g: 255, b: 255 }
+connected: { effect: rainbow }
+disconnected: { effect: blink, r: 255, g: 50, b: 50 }
+<span class="hljs-comment">&lt;!-- ... --&gt;</span>
+</code></pre>
+<p>В левой части таблицы указывается событие, на которая лента должна среагировать. В правой части указывается эффект (анимация), который необходимо включить при возникновении события.</p>
+<p>Список поддерживаемых событий:</p>
+<table>
+  <tr><th>Событие</th><th>Описание</th><th>Эффект по умолчанию</th></tr>
+  <tr><td><code>startup</code></td><td>Запуск всех систем Technic</td><td>Белый</td></tr>
+  <tr><td><code>connected</code></td><td>Успешное подключение к полетному контроллеру</td><td>Цвета российского флага</td></tr>
+  <tr><td><code>disconnected</code></td><td>Разрыв связи с полетным контроллером</td><td><div class="circle" style="background:rgb(255,50,50)"></div>Мигание красным</td></tr>
+  <tr><td><code>armed</code></td><td>Переход в состояние Armed</td><td></td></tr>
+  <tr><td><code>disarmed</code></td><td>Переход в состояние Disarmed</td><td></td></tr>
+  <tr><td><code>acro</code></td><td>Режим Acro</td><td><div class="circle" style="background:rgb(245,155,0)"></div>Оранжевый</td></tr>
+  <tr><td><code>stabilized</code></td><td>Режим Stabilized</td><td><div class="circle" style="background:rgb(30,180,50)"></div>Зеленый</td></tr>
+  <tr><td><code>altctl</code></td><td>Режим Altitude</td><td><div class="circle" style="background:rgb(255,255,40)"></div>Желтый</td></tr>
+  <tr><td><code>posctl</code></td><td>Режим Position</td><td><div class="circle" style="background:rgb(50,100,220)"></div>Синий</td></tr>
+  <tr><td><code>offboard</code></td><td>Режим Offboard</td><td><div class="circle" style="background:rgb(220,20,250)"></div>Фиолетовый</td></tr>
+  <tr><td><code>rattitude</code>, <code>mission</code>, <code>rtl</code>, <code>land</code></td><td>Переход в соответствующие режимы</td><td></td></tr>
+  <tr><td><code>error</code></td><td>Возникновение ошибки в ROS-нодах или полетном контроллере (<i>ERROR</i>-сообщение в топике <code>/rosout</code>)</td><td><div class="circle" style="background:rgb(255,0,0)"></div>Мигнуть красным</td></tr>
+  <tr><td><code>low_battery</code></td><td>Низкий заряд батареи (порог настраивается в параметре <code>threshold</code>)</td><td><nobr><div class="circle" style="background:rgb(255,0,0)"></div>Быстрое мигание красным</nobr></td></tr>
+</table>
+
 <blockquote>
-<p><strong>Hint</strong> См. подробное описание Python API в <a href="http://abyz.me.uk/rpi/pigpio/python.html" target="_blank">документации <code>pigpio</code></a>.</p>
+<p><strong>Note</strong> Для корректной работы сигнализации LED-лентой о низком заряде батареи необходимо корректная <a href="EnergySettings.md">калибровка электропитания</a>.</p>
 </blockquote>
-<p>Пример кода для чтения данных с HC-SR04:</p>
-<pre><code class="lang-python"><span class="hljs-keyword">import</span> time
-<span class="hljs-keyword">import</span> threading
-<span class="hljs-keyword">import</span> pigpio
-
-TRIG = <span class="hljs-number">23</span>  <span class="hljs-comment"># пин, к которому подключен контакт Trig дальномера</span>
-ECHO = <span class="hljs-number">24</span>  <span class="hljs-comment"># пин, к которому подключен контакт Echo дальномера</span>
-
-pi = pigpio.pi()
-done = threading.Event()
-
-<span class="hljs-keyword">def</span> <span class="hljs-title function_">rise</span>(<span class="hljs-params">gpio, level, tick</span>):
-    <span class="hljs-keyword">global</span> high
-    high = tick
-
-<span class="hljs-keyword">def</span> <span class="hljs-title function_">fall</span>(<span class="hljs-params">gpio, level, tick</span>):
-    <span class="hljs-keyword">global</span> low
-    low = tick - high
-    done.<span class="hljs-built_in">set</span>()
-
-<span class="hljs-keyword">def</span> <span class="hljs-title function_">read_distance</span>():
-    <span class="hljs-keyword">global</span> low
-    done.clear()
-    pi.gpio_trigger(TRIG, <span class="hljs-number">50</span>, <span class="hljs-number">1</span>)
-    <span class="hljs-keyword">if</span> done.wait(timeout=<span class="hljs-number">5</span>):
-        <span class="hljs-keyword">return</span> low / <span class="hljs-number">58.0</span> / <span class="hljs-number">100.0</span>
-
-pi.set_mode(TRIG, pigpio.OUTPUT)
-pi.set_mode(ECHO, pigpio.INPUT)
-pi.callback(ECHO, pigpio.RISING_EDGE, rise)
-pi.callback(ECHO, pigpio.FALLING_EDGE, fall)
-
-<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
-    <span class="hljs-comment"># Читаем дистанцию:</span>
-    <span class="hljs-built_in">print</span>(read_distance())
+<p>Для того, чтобы отключить реакцию светодиодной ленты на события, установите аргумент <code>led_notify</code> в файле <code>~/technic_ws/src/technic/technic/launch/led.launch</code> в значение <code>false</code>:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"led_notify"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"false"</span>/&gt;</span>
 </code></pre>
-<h3 id="фильтрация-данных">Фильтрация данных</h3>
-<p>Для фильтрации (сглаживания) данных и удаления <a href="https://ru.wikipedia.org/wiki/Выброс_%28статистика%29" target="_blank">выбросов</a> может быть использован <a href="https://ru.wikipedia.org/wiki/Фильтр_Калмана" target="_blank">фильтр Калмана</a> или более простой <a href="https://ru.wikipedia.org/wiki/Медианный_фильтр" target="_blank">медианный фильтр</a>. Пример реализации медианной фильтрации:</p>
-<pre><code class="lang-python"><span class="hljs-keyword">import</span> collections
-<span class="hljs-keyword">import</span> numpy
+<h2 id="низкоуровневое-управление-лентой">Низкоуровневое управление лентой</h2>
+<p>Для управления отдельными светодиодами используется ROS-сервис <code>/led/set_leds</code>. В параметрах задается массив номеров и RGB-цветов светодиодов, которые необходимо переключить.</p>
+<p>Пример работы с сервисом из Python:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
+<span class="hljs-keyword">from</span> led_msgs.srv <span class="hljs-keyword">import</span> SetLEDs
+<span class="hljs-keyword">from</span> led_msgs.msg <span class="hljs-keyword">import</span> LEDStateArray, LEDState
 
-<span class="hljs-comment"># ...</span>
+rospy.init_node(<span class="hljs-string">'flight'</span>)
 
-history = collections.deque(maxlen=<span class="hljs-number">10</span>)  <span class="hljs-comment"># 10 - количество сэмплов для усреднения</span>
+set_leds = rospy.ServiceProxy(<span class="hljs-string">'led/set_leds'</span>, SetLEDs)  <span class="hljs-comment"># define proxy to ROS service</span>
 
-<span class="hljs-keyword">def</span> <span class="hljs-title function_">read_distance_filtered</span>():
-    history.append(read_distance())
-    <span class="hljs-keyword">return</span> numpy.median(history)
-
-<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
-    <span class="hljs-built_in">print</span>(read_distance_filtered())
+<span class="hljs-comment"># switch LEDs number 0, 1 and 2 to red, green and blue color:</span>
+set_leds([LEDState(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), LEDState(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>), LEDState(<span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>)])
 </code></pre>
-<p>Пример графиков исходных и отфильтрованных данных:</p>
-<p><img src="../../../assets/sonar-filtered.png"></img></p>
-<p>Исходный код ROS-ноды, использовавшейся для построения графика можно найти <a href="https://gist.github.com/okalachev/feb2d7235f5c9636802c3cda43add253" target="_blank">на Gist</a>.</p>
-<h2 id="дальномер-rcw-0001">Дальномер RCW-0001</h2>
-<p><img src="../../../assets/rcw-0001.jpg" width="200"></img></p>
-<p>Ультразвуковой дальномер RCW-0001 совместим с дальномером HC-SR04. Используйте инструкцию выше для подключения и работы с ним.</p>
-<h2 id="полет">Полет</h2>
-<p>Пример полетной программы с использованием <a href="simple_offboard.md">simple_offboard</a>, которая заставляет коптер лететь вперед, пока подключенный ультразвуковой дальномер не задетектирует препятствие:</p>
-<pre><code class="lang-python">set_velocity(vx=<span class="hljs-number">0.5</span>, frame_id=<span class="hljs-string">'body'</span>, auto_arm=<span class="hljs-literal">True</span>)  <span class="hljs-comment"># полет вперед со скоростью 0.5 мс</span>
-
-<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
-    <span class="hljs-keyword">if</span> read_distance_filtered() &lt; <span class="hljs-number">1</span>:
-        <span class="hljs-comment"># если препятствие ближе, чем в 1 м, зависаем в точке</span>
-        set_position(x=<span class="hljs-number">0</span>, y=<span class="hljs-number">0</span>, z=<span class="hljs-number">0</span>, frame_id=<span class="hljs-string">'body'</span>)
-    rospy.sleep(<span class="hljs-number">0.1</span>)
+<p>Сервис можно использовать из командной строки:</p>
+<pre><code class="lang-bash">rosservice call /led/set_leds <span class="hljs-string">"leds:
+- index: 0
+  r: 50
+  g: 100
+  b: 200"</span>
+</code></pre>
+<p>При использовании ленты в ROS-топике <code>/led/state</code> публикуется текущие цвета светодиодов. Просмотр топика из командной строки:</p>
+<pre><code class="lang-bash">rostopic <span class="hljs-built_in">echo</span> /led/state
+</code></pre>
+<p>Используя этот же топик можно получить общее выставленное в настройках количество светодиодов:</p>
+<pre><code class="lang-python">led_count = <span class="hljs-built_in">len</span>(rospy.wait_for_message(<span class="hljs-string">'led/state'</span>, LEDStateArray, timeout=<span class="hljs-number">10</span>).leds)
 </code></pre>
 
                                 
@@ -895,7 +931,7 @@ history = collections.deque(maxlen=<span class="hljs-number">10</span>)  <span c
 
             
                 
-                <a href="Лазерный дальномер.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Лазерный дальномер">
+                <a href="GPIO.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: GPIO">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -907,7 +943,7 @@ history = collections.deque(maxlen=<span class="hljs-number">10</span>)  <span c
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Ультразвуковой дальномер","level":"5.1.2.4","depth":3,"next":{"title":"Исполнительная периферия","level":"5.1.3","depth":2,"ref":"","articles":[{"title":"GPIO","level":"5.1.3.1","depth":3,"path":"Программирование/Периферия/Исполнительная периферия/GPIO.md","ref":"Программирование/Периферия/Исполнительная периферия/GPIO.md","articles":[]},{"title":"Светодиодная лента","level":"5.1.3.2","depth":3,"path":"Программирование/Периферия/Исполнительная периферия/Светодиодная лента.md","ref":"Программирование/Периферия/Исполнительная периферия/Светодиодная лента.md","articles":[]}]},"previous":{"title":"Лазерный дальномер","level":"5.1.2.3","depth":3,"path":"Программирование/Периферия/Сенсорная периферия/Лазерный дальномер.md","ref":"Программирование/Периферия/Сенсорная периферия/Лазерный дальномер.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Программирование/Периферия/Сенсорная периферия/Ультразвуковой дальномер.md","mtime":"2025-12-08T13:09:11.000Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-15T08:37:06.296Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Светодиодная лента","level":"5.1.3.2","depth":3,"next":{"title":"Дополнительные материалы","level":"6.1","depth":1,"ref":"","articles":[]},"previous":{"title":"GPIO","level":"5.1.3.1","depth":3,"path":"Программирование/Периферия/Исполнительная_периферия/GPIO.md","ref":"Программирование/Периферия/Исполнительная_периферия/GPIO.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Программирование/Периферия/Исполнительная_периферия/LedStrip.md","mtime":"2025-12-15T08:42:39.246Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-15T08:49:52.661Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

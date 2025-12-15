@@ -3,7 +3,7 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <title>GPIO · HonKit</title>
+        <title>Лазерный дальномер · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="HonKit 6.1.4">
@@ -56,8 +56,10 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Светодиодная лента.html" />
+    <link rel="next" href="UltrasonicRangefinder.html" />
     
+    
+    <link rel="prev" href="Aruco.html" />
     
 
     </head>
@@ -602,9 +604,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1.2.1" data-path="../Сенсорная периферия/Optical flow.html">
+        <li class="chapter " data-level="5.1.2.1" data-path="OpticalFlow.html">
             
-                <a href="../Сенсорная периферия/Optical flow.html">
+                <a href="OpticalFlow.html">
             
                     
                     Optical flow
@@ -615,9 +617,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.2.2" data-path="../Сенсорная периферия/Визуальные маркеры.html">
+        <li class="chapter " data-level="5.1.2.2" data-path="Aruco.html">
             
-                <a href="../Сенсорная периферия/Визуальные маркеры.html">
+                <a href="Aruco.html">
             
                     
                     Визуальные маркеры
@@ -628,9 +630,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.2.3" data-path="../Сенсорная периферия/Лазерный дальномер.html">
+        <li class="chapter active" data-level="5.1.2.3" data-path="LaserRangefinder.html">
             
-                <a href="../Сенсорная периферия/Лазерный дальномер.html">
+                <a href="LaserRangefinder.html">
             
                     
                     Лазерный дальномер
@@ -641,9 +643,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.2.4" data-path="../Сенсорная периферия/Ультразвуковой дальномер.html">
+        <li class="chapter " data-level="5.1.2.4" data-path="UltrasonicRangefinder.html">
             
-                <a href="../Сенсорная периферия/Ультразвуковой дальномер.html">
+                <a href="UltrasonicRangefinder.html">
             
                     
                     Ультразвуковой дальномер
@@ -673,9 +675,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="5.1.3.1" data-path="GPIO.html">
+        <li class="chapter " data-level="5.1.3.1" data-path="../Исполнительная_периферия/GPIO.html">
             
-                <a href="GPIO.html">
+                <a href="../Исполнительная_периферия/GPIO.html">
             
                     
                     GPIO
@@ -686,9 +688,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.3.2" data-path="Светодиодная лента.html">
+        <li class="chapter " data-level="5.1.3.2" data-path="../Исполнительная_периферия/LedStrip.html">
             
-                <a href="Светодиодная лента.html">
+                <a href="../Исполнительная_периферия/LedStrip.html">
             
                     
                     Светодиодная лента
@@ -759,7 +761,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >GPIO</a>
+        <a href="../../.." >Лазерный дальномер</a>
     </h1>
 </div>
 
@@ -774,86 +776,62 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="gpio">GPIO</h1>
-<p>GPIO (General-Purpose Input/Output) – это тип пинов на OPi, напряжение на которых можно программно подавать и измерять. Также на некоторых пинах реализован аппаратный <abbr title="Широтно-импульсная модуляция">ШИМ</abbr> (<abbr title="Pulse-width modulation">PWM</abbr>). Интерфейс GPIO может быть использован для управления различной периферией: светодиодами, электромагнитами, электромоторами, сервоприводами и т. д.</p>
+                                <h2 id="дальномер-vl53l1x">Дальномер VL53L1X</h2>
+<p>Рекомендуемая для Technic модель дальномера – STM VL53L1X. Это дальномер может измерять расстояния от 0 до 4 м, при этом обеспечивая высокую точность измерений.</p>
+<p>На <a href="image.md">образе для OPi</a> предустановлен соответствующий ROS-драйвер.</p>
+<h3 id="подключение-к-opi">Подключение к OPi</h3>
 <blockquote>
-<p><strong>Info</strong> Используйте <a href="https://pinout.xyz" target="_blank">распиновку</a>, чтобы понять, какие из пинов на OPi поддерживают GPIO и ШИМ.</p>
-<p><strong>Info</strong> Для того, чтобы не создавалось конфликтов при использовании портов <em>GPIO</em> в образе закрыт доступ для портов 0, 1, 2, 3, 14, 15, на которые выведены интерфейсы подключения I2C и UART.</p>
+<p><strong>Hint</strong> Перед включением дальномера необходимо снять с него защитную пленку.</p>
 </blockquote>
-<p>Для работы с GPIO на <a href="image.md">образе для OPi</a> предустановлена библиотека <a href="http://abyz.me.uk/rpi/pigpio/" target="_blank"><code>pigpio</code></a>. Чтобы взаимодействовать с этой библиотекой, запустите соответствующий демон:</p>
-<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl start pigpiod.service
-</code></pre>
-<p>Для включение автозапуска демона <code>pigpiod</code> используйте команду:</p>
-<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">enable</span> pigpiod.service
-</code></pre>
+<p>Подключите дальномер по интерфейсу I²C к пинам 3V, GND, SCL и SDA:</p>
+<p>Если обозначенный пин GND занят, можно использовать другой свободный, используя <a href="https://pinout.xyz" target="_blank">распиновку</a>.</p>
 <blockquote>
-<p><strong>Warning</strong> При одновременном использовании <code>pigpiod</code> и <a href="leds.md">LED-ленты</a> возможны конфликты. Для подключения ленты используйте пин GPIO21. На версиях <a href="image.md">образа</a> ниже 0.17 измените в файле <code>/lib/systemd/system/pigpiod.service</code> строку запуска сервиса на <code>ExecStart=/usr/bin/pigpiod -l -t 0 -x 0x0FFF3FF0</code>.</p>
+<p><strong>Hint</strong> По интерфейсу I²C возможно подключать несколько периферийных устройств одновременно. Используйте для этого параллельное подключение.</p>
 </blockquote>
-<p>Пример работы с библиотекой:</p>
-<pre><code class="lang-python"><span class="hljs-keyword">import</span> time
-<span class="hljs-keyword">import</span> pigpio
+<h3 id="включение">Включение</h3>
+<p><a href="ssh.md">Подключитесь по SSH</a> и отредактируйте файл <code>~/technic_ws/src/technic/technic/launch/technic.launch</code> так, чтобы драйвер VL53L1X был включен:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"rangefinder_vl53l1x"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"true"</span>/&gt;</span>
+</code></pre>
+<p>По умолчания драйвер дальномера передает данные в Pixhawk (через топик <code>/rangefinder/range</code>). Для просмотра данных из топика используйте команду:</p>
+<pre><code class="lang-bash">rostopic <span class="hljs-built_in">echo</span> /rangefinder/range
+</code></pre>
+<h3 id="настройки-px4">Настройки PX4</h3>
+<blockquote>
+<p><strong>Hint</strong> Для корректной работы лазерного дальномера с полетным контроллером рекомендуется использование <a href="firmware.md#прошивка-для-клевера">специальной сборки PX4 для Technic</a>.</p>
+</blockquote>
+<p>Для использования данных с дальномера в <a href="parameters.md">PX4 должен быть сконфигурирован</a>.</p>
+<p>При использовании EKF2 (<code>SYS_MC_EST_GROUP</code> = <code>ekf2</code>):</p>
+<ul>
+<li><code>EKF2_HGT_MODE</code> = <code>2</code> (Range sensor) – при полете над горизонтальным полом;</li>
+<li><code>EKF2_RNG_AID</code> = <code>1</code> (Range aid enabled) – в остальных случаях.</li>
+</ul>
+<h3 id="получение-данных-из-python">Получение данных из Python</h3>
+<p>Для получения данных из топика создайте подписчика:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
+<span class="hljs-keyword">from</span> sensor_msgs.msg <span class="hljs-keyword">import</span> Range
 
-<span class="hljs-comment"># инициализируем подключение к pigpiod</span>
-pi = pigpio.pi()
+rospy.init_node(<span class="hljs-string">'flight'</span>)
 
-<span class="hljs-comment"># устанавливаем режим 11 пина на вывод</span>
-pi.set_mode(<span class="hljs-number">11</span>, pigpio.OUTPUT)
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">range_callback</span>(<span class="hljs-params">msg</span>):
+    <span class="hljs-comment"># Обработка новых данных с дальномера</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Rangefinder distance:'</span>, msg.<span class="hljs-built_in">range</span>)
 
-<span class="hljs-comment"># включаем сигнал на 11 пине</span>
-pi.write(<span class="hljs-number">11</span>, <span class="hljs-number">1</span>)
+rospy.Subscriber(<span class="hljs-string">'rangefinder/range'</span>, Range, range_callback)
 
-time.sleep(<span class="hljs-number">2</span>)
-
-<span class="hljs-comment"># отключаем сигнал на 11 пине</span>
-pi.write(<span class="hljs-number">11</span>, <span class="hljs-number">0</span>)
+rospy.spin() <span class="hljs-comment"># дальнейший код программы</span>
+</code></pre>
+<p>Также существует возможность однократного получения данных с дальномера:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> sensor_msgs.msg <span class="hljs-keyword">import</span> Range
 
 <span class="hljs-comment"># ...</span>
 
-<span class="hljs-comment"># устанавливаем режим 12 пина на ввод</span>
-pi.set_mode(<span class="hljs-number">12</span>, pigpio.INPUT)
-
-<span class="hljs-comment"># считываем состояние 12 пина</span>
-level = pi.read(<span class="hljs-number">12</span>)
+dist = rospy.wait_for_message(<span class="hljs-string">'rangefinder/range'</span>, Range).<span class="hljs-built_in">range</span>
 </code></pre>
-<p>Для определения номера пина используйте <a href="https://pinout.xyz" target="_blank">распиновку Raspberry Pi</a>.</p>
-<h2 id="подключение-сервоприводов">Подключение сервоприводов</h2>
-<p>Большинство сервоприводов управляются с помощью ШИМ-сигнала, причем крайним положениям привода соответствуют сигналы шириной приблизительно 1000 и 2000 мкс. Значения для конкретного сервопривода могут быть определены экспериментально.</p>
-<p>Подключите сигнальный провод сервопривода к одному из GPIO-пинов OrangePi 5 Pro. Для управления сервоприводом, подключенного к 13 пину, используйте такой код:</p>
-<pre><code class="lang-python"><span class="hljs-keyword">import</span> time
-<span class="hljs-keyword">import</span> pigpio
-
-pi = pigpio.pi()
-
-<span class="hljs-comment"># устанавливаем режим 13 пина на вывод</span>
-pi.set_mode(<span class="hljs-number">13</span>, pigpio.OUTPUT)
-
-<span class="hljs-comment"># устанавливаем на 13 пине ШИМ сигнал в 1000 мкс</span>
-pi.set_servo_pulsewidth(<span class="hljs-number">13</span>, <span class="hljs-number">1000</span>)
-
-time.sleep(<span class="hljs-number">2</span>)
-
-<span class="hljs-comment"># устанавливаем на 13 пине ШИМ сигнал в 2000 мкс</span>
-pi.set_servo_pulsewidth(<span class="hljs-number">13</span>, <span class="hljs-number">2000</span>)
-</code></pre>
-<h2 id="подключение-электромагнита">Подключение электромагнита</h2>
-<p><img src="../../../assets/gpio_mosfet_magnet.png" alt="HC-SR04" width="300"></img></p>
-<p>Для подключения электромагнита используйте полевой транзистор (MOSFET). Подключите транзистор к одному из GPIO-пинов OPi. Для управления магнитом, подключенным к 18 пину, используйте такой код:</p>
-<pre><code class="lang-python"><span class="hljs-keyword">import</span> time
-<span class="hljs-keyword">import</span> pigpio
-
-pi = pigpio.pi()
-
-<span class="hljs-comment"># устанавливаем режим 18 пина на вывод</span>
-pi.set_mode(<span class="hljs-number">18</span>, pigpio.OUTPUT)
-
-<span class="hljs-comment"># включаем электромагнит</span>
-pi.write(<span class="hljs-number">18</span>, <span class="hljs-number">1</span>)
-
-time.sleep(<span class="hljs-number">2</span>)
-
-<span class="hljs-comment"># отключаем электромагнит</span>
-pi.write(<span class="hljs-number">18</span>, <span class="hljs-number">0</span>)
-</code></pre>
+<h3 id="визуализация-данных">Визуализация данных</h3>
+<p>Для построения графика по данным с дальномера может быть использован rqt_multiplot.</p>
+<p>Для визуализации данных может быть использован rviz. Для этого необходимо добавить топик типа <code>sensor_msgs/Range</code> в визуализацию:</p>
+<p><img src="../../../assets/rviz-range.png" width="400" class="center zoom"></img></p>
+<p>См. <a href="rviz.md">подробнее об rviz и rqt</a>.</p>
 
                                 
                                 </section>
@@ -881,8 +859,12 @@ pi.write(<span class="hljs-number">18</span>, <span class="hljs-number">0</span>
 
             
                 
+                <a href="Aruco.html" class="navigation navigation-prev " aria-label="Previous page: Визуальные маркеры">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="Светодиодная лента.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Светодиодная лента">
+                
+                <a href="UltrasonicRangefinder.html" class="navigation navigation-next " aria-label="Next page: Ультразвуковой дальномер">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -893,7 +875,7 @@ pi.write(<span class="hljs-number">18</span>, <span class="hljs-number">0</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GPIO","level":"5.1.3.1","depth":3,"next":{"title":"Светодиодная лента","level":"5.1.3.2","depth":3,"path":"Программирование/Периферия/Исполнительная периферия/Светодиодная лента.md","ref":"Программирование/Периферия/Исполнительная периферия/Светодиодная лента.md","articles":[]},"previous":{"title":"Исполнительная периферия","level":"5.1.3","depth":2,"ref":"","articles":[{"title":"GPIO","level":"5.1.3.1","depth":3,"path":"Программирование/Периферия/Исполнительная периферия/GPIO.md","ref":"Программирование/Периферия/Исполнительная периферия/GPIO.md","articles":[]},{"title":"Светодиодная лента","level":"5.1.3.2","depth":3,"path":"Программирование/Периферия/Исполнительная периферия/Светодиодная лента.md","ref":"Программирование/Периферия/Исполнительная периферия/Светодиодная лента.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Программирование/Периферия/Исполнительная периферия/GPIO.md","mtime":"2025-12-15T06:31:56.610Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-15T08:37:06.296Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Лазерный дальномер","level":"5.1.2.3","depth":3,"next":{"title":"Ультразвуковой дальномер","level":"5.1.2.4","depth":3,"path":"Программирование/Периферия/Сенсорная_периферия/UltrasonicRangefinder.md","ref":"Программирование/Периферия/Сенсорная_периферия/UltrasonicRangefinder.md","articles":[]},"previous":{"title":"Визуальные маркеры","level":"5.1.2.2","depth":3,"path":"Программирование/Периферия/Сенсорная_периферия/Aruco.md","ref":"Программирование/Периферия/Сенсорная_периферия/Aruco.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Программирование/Периферия/Сенсорная_периферия/LaserRangefinder.md","mtime":"2025-12-08T13:32:01.000Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-15T08:49:52.661Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
