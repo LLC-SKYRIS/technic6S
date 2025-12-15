@@ -2,13 +2,13 @@
 
 Основная документация: https://wiki.ros.org.
 
-**ROS** – это широко используемый фреймворк для создания сложных, распределенных робототехнических систем. На ROS основана [программная платформа Technic](programming.md).
+**ROS** – это широко используемый фреймворк для создания сложных, распределенных робототехнических систем. На ROS основана [программная платформа Technic](Programming.md).
 
 <img src="assets/ros.png" width=300 class="center zoom">
 
 ## Установка
 
-ROS уже установлен на [образе для OPi для Technic].
+ROS уже установлен на [образе для OPi для Technic](ImageOPI.md).
 
 Для установки инструментов ROS на компьютере вы можете обратиться к [официальной документации](https://wiki.ros.org/noetic/Installation/Ubuntu) по установке. Для быстрого старта рекомендуется воспользоваться [образом виртуальной машины с ROS и симулятором Technic](simulation_vm.md).
 
@@ -44,7 +44,7 @@ rospy.init_node('my_ros_node')  # имя ROS-ноды
 rospy.spin()  # входим в бесконечный цикл...
 ```
 
-> **Info** Любая [программа для автономного полета Technic](programming.md) является ROS-нодой.
+> **Info** Любая [программа для автономного полета Technic](AutonomousFlight.md) является ROS-нодой.
 
 ### Топики
 
@@ -65,14 +65,14 @@ rospy.spin()  # входим в бесконечный цикл...
 
 Примеры стандартных типов сообщений:
 
-|Тип сообщения|Описание|
-|-|-|
-|[`std_msgs/Int64`](https://docs.ros.org/api/std_msgs/html/msg/Int64.html)|Целое число.|
-|[`std_msgs/Float64`](https://docs.ros.org/api/std_msgs/html/msg/Float64.html)|Число с плавающей точкой (дробное) двойной точности.|
-|[`std_msgs/String`](https://docs.ros.org/api/std_msgs/html/msg/String.html)|Строка.|
-|[`geometry_msgs/PoseStamped`](https://docs.ros.org/api/geometry_msgs/html/msg/PoseStamped.html)|Позиция и ориентация объекта с заданной [системой координат](frames.md) и временной меткой (широко используется для передачи текущей позиции робота и его частей).|
-|[`geometry_msgs/TwistStamped`](https://docs.ros.org/api/geometry_msgs/html/msg/TwistStamped.html)|Линейная и угловая скорость объекта с заданной системой координат и временной меткой.|
-|[`sensor_msgs/Image`](https://docs.ros.org/api/sensor_msgs/html/msg/Image.html)|Изображение (см. [статью о работе с камерой](camera.md))|
+| Тип сообщения                                                                                     | Описание                                                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`std_msgs/Int64`](https://docs.ros.org/api/std_msgs/html/msg/Int64.html)                         | Целое число.                                                                                                                                                                  |
+| [`std_msgs/Float64`](https://docs.ros.org/api/std_msgs/html/msg/Float64.html)                     | Число с плавающей точкой (дробное) двойной точности.                                                                                                                          |
+| [`std_msgs/String`](https://docs.ros.org/api/std_msgs/html/msg/String.html)                       | Строка.                                                                                                                                                                       |
+| [`geometry_msgs/PoseStamped`](https://docs.ros.org/api/geometry_msgs/html/msg/PoseStamped.html)   | Позиция и ориентация объекта с заданной [системой координат](CoordinateSystems.md) и временной меткой (широко используется для передачи текущей позиции робота и его частей). |
+| [`geometry_msgs/TwistStamped`](https://docs.ros.org/api/geometry_msgs/html/msg/TwistStamped.html) | Линейная и угловая скорость объекта с заданной системой координат и временной меткой.                                                                                         |
+| [`sensor_msgs/Image`](https://docs.ros.org/api/sensor_msgs/html/msg/Image.html)                   | Изображение (см. [статью о работе с камерой](CameraImages.md))                                                                                                                |
 
 > **Info** Смотрите остальные стандартные типы сообщений в пакетах [`common_msgs`](http://wiki.ros.org/common_msgs), [`std_msgs`](https://wiki.ros.org/std_msgs), [`geometry_msgs`](https://wiki.ros.org/geometry_msgs), [`sensor_msgs`](https://wiki.ros.org/sensor_msgs) и других.
 
@@ -162,7 +162,7 @@ telemetry = get_telemetry()
 rosservice call /get_telemetry "{frame_id: ''}"
 ```
 
-Больше примеров использования сервисов для автономных полетов квадрокоптера Клевер можно посмотреть в [документации ноды simple_offboard](simple_offboard.md)
+Больше примеров использования сервисов для автономных полетов квадрокоптера Клевер можно посмотреть в [документации ноды simple_offboard](AutonomousFlightOffboard.md)
 
 ### Имена
 

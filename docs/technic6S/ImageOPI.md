@@ -2,7 +2,7 @@
 
 Для полноценной работы с Technic 6S необходимо установить образ для OPi через eMMC, идущий в комплекте с квадрокоптером. 
 
-Система Technic построена на базе операционной системы [Ubuntu](https://www.raspberrypi.org/downloads/raspbian/) и робототехнической платформы [ROS](ROS.md).  
+Система Technic построена на базе операционной системы [Ubuntu](https://drive.google.com/drive/folders/11tj_ivEBwvJx4vdNtK91YQeGOKDC4JNy) и робототехнической платформы [ROS](ROS.md).  
 
 ## Как установить
 
@@ -24,4 +24,4 @@
 <img src="assets/image-round-corners.png" width="600" class="zoom">
 
 
-После того как образ будет записан на eMMC, можно подключаться к [Technic по Wi-Fi](wifi.md), использовать [беспроводное подключение к QGroundControl](gcs_bridge.md), получать [SSH-доступ](ssh.md) и пользоваться всеми функциями системы.  
+После того как образ будет записан на eMMC, можно подключаться к [Technic по Wi-Fi](ConnectingToWi-Fi.md), использовать [беспроводное подключение к QGroundControl](QGroundControlViaWi-Fi.md), получать [SSH-доступ](SSH.md) и пользоваться всеми функциями системы.  

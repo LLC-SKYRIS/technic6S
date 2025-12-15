@@ -6,7 +6,7 @@
 
 ## Просмотр через браузер
 
-Для просмотра видеострима нужно [подключиться к Wi-Fi](obsidian://open?vault=Obsidian%20Vault&file=%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BA%20Technic%20%D0%BF%D0%BE%20Wi-Fi) Technic \(`technic-xxxx`\), перейти на страницу [http://10.42.0.1:8080/](http://10.42.0.1:8080/) и выбрать топик.
+Для просмотра видеострима нужно [подключиться к Wi-Fi](ConnectingToWi-Fi.md) Technic \(`technic-xxxx`\), перейти на страницу [http://10.42.0.1:8080/](http://10.42.0.1:8080/) и выбрать топик.
 
 <img src="assets/web_video_server.png" width=300 class="center zoom">
 
@@ -22,7 +22,7 @@ http://10.42.0.1:8080/stream_viewer?topic=/main_camera/image_raw&type=mjpeg&qual
 
 Для просмотра изображений через инструменты rqt необходим компьютер с установленной Ubuntu 20.04 и [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu).
 
-[Подключитесь к Wi-Fi сети Technic](obsidian://open?vault=Obsidian%20Vault&file=%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BA%20Technic%20%D0%BF%D0%BE%20Wi-Fi) и запустите `rqt_image_view` с указанием его IP-адреса:
+[Подключитесь к Wi-Fi сети Technic](ConnectingToWi-Fi.md) и запустите `rqt_image_view` с указанием его IP-адреса:
 
 ```bash
 ROS_MASTER_URI=http://10.42.0.1:11311 rqt_image_view

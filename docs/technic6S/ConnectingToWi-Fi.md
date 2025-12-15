@@ -2,7 +2,7 @@
 
 > **Hint** Перед началом убедитесь, что eMMC с обрзом вставлена в OPi
 
-На [образе для Orangepi 5 pro](image.md) преднастроена раздача Wi-Fi с SSID `technic-xxxx`, где xxxx – 4 случайных цифры, назначаемых при первом включении Orangepi 5 pro.
+На [образе для Orangepi 5 pro](ImageOPI.md) преднастроена раздача Wi-Fi с SSID `technic-xxxx`, где xxxx – 4 случайных цифры, назначаемых при первом включении Orangepi 5 pro.
 
 1. Подсоедините аккумулятор к Technic
 2. Дождитесь загрузки OPi

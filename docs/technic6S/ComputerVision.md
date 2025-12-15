@@ -6,7 +6,7 @@
 <arg name="main_camera" default="true"/>
 ```
 
-Также нужно убедиться, что камера [сфокусирована и для нее указано корректное расположение и ориентация](camera_setup.md).
+Также нужно убедиться, что камера [сфокусирована и для нее указано корректное расположение и ориентация](CameraSettings.md).
 
 При изменении launch-файла необходимо перезапустить пакет `technic`:
 
@@ -124,8 +124,7 @@ img = bridge.imgmsg_to_cv2(rospy.wait_for_message('main_camera/image_raw', Image
 
 > **Hint** Для высокоскоростного распознавания и позиционирования лучше использовать [ArUco-маркеры](aruco.md).
 
-Для программирования различных действий коптера при детектировании нужных [QR-кодов](https://ru.wikipedia.org/wiki/QR-код) можно использовать библиотеку [pyZBar](https://pypi.org/project/pyzbar/). Она уже установлена в последнем образе для Raspberry Pi.
-
+Для программирования различных действий коптера при детектировании нужных [QR-кодов](https://ru.wikipedia.org/wiki/QR-код) можно использовать библиотеку [pyZBar](https://pypi.org/project/pyzbar/). Она уже установлена в последнем образе для Orange Pi.
 Распознавание QR-кодов на Python:
 
 ```python
@@ -156,7 +155,7 @@ image_sub = rospy.Subscriber('main_camera/image_raw_throttled', Image, image_cal
 rospy.spin()
 ```
 
-> **Hint** Смотрите другие примеры по работе с компьютерным зрением в каталоге `~/examples` [образа для RPi](image.md).
+> **Hint** Смотрите другие примеры по работе с компьютерным зрением в каталоге `~/examples` [образа для OPI](ImageOPI.md).
 
 ## Запись видео
 
