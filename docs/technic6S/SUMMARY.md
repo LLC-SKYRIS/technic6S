@@ -31,6 +31,7 @@
 	* [Автономный запуск ПО](AutoRunSoft.md)
 	* [Автономный полет](AutonomousFlight.md)
 	* [Режим автономного полета (OFFBOARD)](AutonomousFlightOffboard.md)
+	* [Блочное программирование](Blocky.md)
 	* [Просмотр изображений с камер](CameraImages.md)
 	* [ROS](ROS.md)
 	* [ROS топики в Веб Интерфейсе](ROSWeb.md)
