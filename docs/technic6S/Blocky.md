@@ -39,7 +39,7 @@
 
 * <span style="padding:2px;color:white;background:#9d5ca6">Flight</span> – команды, имеющие отношение к полету.
 * <span style="padding:2px;color:white;background:#ff9b00">State</span> – блоки, позволяющие получить те или иные параметры текущего состояния коптера.
-* <span style="padding:2px;color:white;background:#01d754">LED</span> – блоки для управления [LED-лентой](leds.md).
+* <span style="padding:2px;color:white;background:#01d754">LED</span> – блоки для управления [LED-лентой](LedStrip.md).
 * <span style="padding:2px;color:white;background:#5b97cc">GPIO</span> – блоки для работы с [GPIO-пинами](GPIO.md).
 
 В остальных категориях находятся стандартные блоки Google Blockly.
