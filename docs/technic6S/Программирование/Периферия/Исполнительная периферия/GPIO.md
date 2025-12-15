@@ -77,7 +77,7 @@ pi.set_servo_pulsewidth(13, 2000)
 
 ## Подключение электромагнита
 
-![GPIO Mosfet Magnet Connection](docs/technic6S/assets/gpio_mosfet_magnet.png)
+<img src="../../../assets/gpio_mosfet_magnet.png" alt="HC-SR04" width=300>
 
 Для подключения электромагнита используйте полевой транзистор (MOSFET). Подключите транзистор к одному из GPIO-пинов OPi. Для управления магнитом, подключенным к 18 пину, используйте такой код:
 
