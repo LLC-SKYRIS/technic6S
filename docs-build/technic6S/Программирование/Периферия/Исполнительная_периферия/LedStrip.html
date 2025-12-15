@@ -813,7 +813,19 @@
 </blockquote>
 <h2 id="set_effect">Высокоуровневое управление лентой </h2>
 <ol>
-<li>Для работы с лентой подключите ее к питанию +5v – 5v, земле GND – GND и сигнальному порту DIN – GPIO21. Обратитесь <a href="">к инструкции по сборке</a> для подробностей.</li>
+<li><p>Чтобы лента работала, подключите её следующим образом:</p>
+<ul>
+<li><p><strong>Питание +5V</strong> → к <strong>выводу 5V</strong> на плате</p>
+</li>
+<li><p><strong>Земля (GND)</strong> → к <strong>GND</strong></p>
+</li>
+<li><p><strong>Сигнальный провод (DIN)</strong> → к <strong>GPIO21</strong></p>
+</li>
+</ul>
+</li>
+</ol>
+<!--Обратитесь к инструкции по сборке для подробностей.-->
+<ol>
 <li><p>Включите поддержку LED-ленты в файле <code>~/technic_ws/src/technic/technic/launch/technic.launch</code>:</p>
 <pre><code class="lang-xml"> <span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"led"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"true"</span>/&gt;</span>
 </code></pre>
@@ -968,7 +980,7 @@ set_leds([LEDState(<span class="hljs-number">0</span>, <span class="hljs-number"
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Светодиодная лента","level":"5.1.2.2","depth":3,"next":{"title":"Дополнительные материалы","level":"6.1","depth":1,"ref":"","articles":[{"title":"Примеры кода на Python","level":"6.1.1","depth":2,"path":"CodeExamples.md","ref":"CodeExamples.md","articles":[]}]},"previous":{"title":"GPIO","level":"5.1.2.1","depth":3,"path":"Программирование/Периферия/Исполнительная_периферия/GPIO.md","ref":"Программирование/Периферия/Исполнительная_периферия/GPIO.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Программирование/Периферия/Исполнительная_периферия/LedStrip.md","mtime":"2025-12-15T12:37:35.926Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-15T13:01:01.234Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Светодиодная лента","level":"5.1.2.2","depth":3,"next":{"title":"Дополнительные материалы","level":"6.1","depth":1,"ref":"","articles":[{"title":"Примеры кода на Python","level":"6.1.1","depth":2,"path":"CodeExamples.md","ref":"CodeExamples.md","articles":[]}]},"previous":{"title":"GPIO","level":"5.1.2.1","depth":3,"path":"Программирование/Периферия/Исполнительная_периферия/GPIO.md","ref":"Программирование/Периферия/Исполнительная_периферия/GPIO.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Программирование/Периферия/Исполнительная_периферия/LedStrip.md","mtime":"2025-12-15T13:26:23.916Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-15T13:26:36.095Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
