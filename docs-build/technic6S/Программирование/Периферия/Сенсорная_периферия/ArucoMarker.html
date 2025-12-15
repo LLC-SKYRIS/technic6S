@@ -3,7 +3,7 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <title>Светодиодная лента · HonKit</title>
+        <title>Распознавание ArUco-маркеров · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="HonKit 6.1.4">
@@ -56,8 +56,10 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="ArucoMap.html" />
     
-    <link rel="prev" href="GPIO.html" />
+    
+    <link rel="prev" href="Aruco.html" />
     
 
     </head>
@@ -615,9 +617,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1.2.1" data-path="../Сенсорная_периферия/OpticalFlow.html">
+        <li class="chapter " data-level="5.1.2.1" data-path="OpticalFlow.html">
             
-                <a href="../Сенсорная_периферия/OpticalFlow.html">
+                <a href="OpticalFlow.html">
             
                     
                     Optical flow
@@ -628,9 +630,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.2.2" data-path="../Сенсорная_периферия/Aruco.html">
+        <li class="chapter " data-level="5.1.2.2" data-path="Aruco.html">
             
-                <a href="../Сенсорная_периферия/Aruco.html">
+                <a href="Aruco.html">
             
                     
                     Визуальные маркеры
@@ -642,9 +644,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1.2.2.1" data-path="../Сенсорная_периферия/ArucoMarker.html">
+        <li class="chapter active" data-level="5.1.2.2.1" data-path="ArucoMarker.html">
             
-                <a href="../Сенсорная_периферия/ArucoMarker.html">
+                <a href="ArucoMarker.html">
             
                     
                     Распознавание ArUco-маркеров
@@ -655,9 +657,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.2.2.2" data-path="../Сенсорная_периферия/ArucoMap.html">
+        <li class="chapter " data-level="5.1.2.2.2" data-path="ArucoMap.html">
             
-                <a href="../Сенсорная_периферия/ArucoMap.html">
+                <a href="ArucoMap.html">
             
                     
                     Навигация по картам ArUco-маркеров
@@ -673,9 +675,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.2.3" data-path="../Сенсорная_периферия/LaserRangefinder.html">
+        <li class="chapter " data-level="5.1.2.3" data-path="LaserRangefinder.html">
             
-                <a href="../Сенсорная_периферия/LaserRangefinder.html">
+                <a href="LaserRangefinder.html">
             
                     
                     Лазерный дальномер
@@ -686,9 +688,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.2.4" data-path="../Сенсорная_периферия/UltrasonicRangefinder.html">
+        <li class="chapter " data-level="5.1.2.4" data-path="UltrasonicRangefinder.html">
             
-                <a href="../Сенсорная_периферия/UltrasonicRangefinder.html">
+                <a href="UltrasonicRangefinder.html">
             
                     
                     Ультразвуковой дальномер
@@ -718,9 +720,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1.3.1" data-path="GPIO.html">
+        <li class="chapter " data-level="5.1.3.1" data-path="../Исполнительная_периферия/GPIO.html">
             
-                <a href="GPIO.html">
+                <a href="../Исполнительная_периферия/GPIO.html">
             
                     
                     GPIO
@@ -731,9 +733,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="5.1.3.2" data-path="LedStrip.html">
+        <li class="chapter " data-level="5.1.3.2" data-path="../Исполнительная_периферия/LedStrip.html">
             
-                <a href="LedStrip.html">
+                <a href="../Исполнительная_периферия/LedStrip.html">
             
                     
                     Светодиодная лента
@@ -804,7 +806,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >Светодиодная лента</a>
+        <a href="../../.." >Распознавание ArUco-маркеров</a>
     </h1>
 </div>
 
@@ -819,136 +821,82 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="светодиодная-лента">Светодиодная лента</h1>
-<p>Адресуемая RGB-светодиодная лента типа <strong>ws281x</strong>, которая входит в наборы Technic, позволяет выставлять произвольные 24-битные цвета на каждый из отдельных светодиодов. Это позволяет сделать полет Technic более ярким. Для использования светодиодной ленты с OrangePi 5 Pro был установлен драйвер opi_ws2812_rt. Лента также позволяет визуально получать информацию о полетных режимах, этапе выполнения пользовательской программы и других событиях.</p>
-<p><img src="../../../assets/image-2.png" align="right" width="400px" alt="Technic Drone"></img></p>
-<p>На образе <a href="ImageOPI.md">для OPi</a> предустановлены необходимые модули для работы с лентой. Они позволяют:</p>
-<ul>
-<li>управлять эффектами/анимациями на ленте;</li>
-<li>управлять лентой на низком уровне (переключением цветов отдельных светодиодов);</li>
-<li>настраивать реакцию ленты на полетные события.</li>
-</ul>
+                                <h1 id="распознавание-aruco-маркеров">Распознавание ArUco-маркеров</h1>
 <blockquote>
-<p><strong>Hint</strong> Обратите внимание, что светодиодную ленту нужно питать от стабильного источника энергии. Если вы подключите питание напрямую к OPi, то это создаст слишком большую нагрузку на ваш микрокомпьютер. Для снятия нагрузки с OPi можно подключить питание к преобразователю BEC.</p>
+<p><strong>Info</strong> Для распознавания маркеров модуль камеры должен быть корректно подключен и <a href="CameraSettings.md">сконфигурирован</a>.</p>
 </blockquote>
-<h2 id="set_effect">Высокоуровневое управление лентой </h2>
-<ol>
-<li>Для работы с лентой подключите ее к питанию +5v – 5v, земле GND – GND и сигнальному порту DIN – GPIO21. Обратитесь <a href="">к инструкции по сборке</a> для подробностей.</li>
-<li><p>Включите поддержку LED-ленты в файле <code>~/technic_ws/src/technic/technic/launch/technic.launch</code>:</p>
-<pre><code class="lang-xml"> <span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"led"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"true"</span>/&gt;</span>
+<p>Модуль <code>aruco_detect</code> распознает ArUco-маркеры и публикует их позиции в ROS-топики и в <a href="CoordinateSystems.md">TF</a>.</p>
+<p>Эта функция полезна для применения совместно с какой-либо системой позиционирования для дрона, такой как <a href="gps.md">GPS</a>, <a href="OpticalFlow.html">Optical Flow</a>, PX4Flow, визуальная одометрия, ультразвуковое (<a href="https://marvelmind.com" target="_blank">Marvelmind</a>) или UWB-позиционирование (<a href="https://www.pozyx.io" target="_blank">Pozyx</a>).</p>
+<p>Также возможно применение совместно с <a href="ArucoMap.html">навигацией по карте маркеров</a>.</p>
+<h2 id="настройка">Настройка</h2>
+<p>Аргумент <code>aruco</code> в файле <code>~/technic_ws/src/technic/technic/launch/technic.launch</code> должен быть в значении <code>true</code>:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"aruco"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"true"</span>/&gt;</span>
 </code></pre>
-</li>
-<li><p>Настройте параметры подключения ленты <em>ws281x</em> в файле <code>~/technic_ws/src/opi_ws2812_rt/base.launch</code>. Необходимо ввести верное количество светодиодов в ленте и GPIO-пин, использованный для подключения (если он отличается от <em>GPIO21</em>):</p>
-<pre><code class="lang-xml"> <span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"led_count"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"58"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- количество светодиодов в ленте --&gt;</span>
- <span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"gpio_pin"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"21"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- GPIO-пин для подключения --&gt;</span>
+<p>Для включения распознавания маркеров аргумент <code>aruco_detect</code> в файле <code>~/technic_ws/src/technic/technic/launch/aruco.launch</code> должен быть в значении <code>true</code>:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"aruco_detect"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"true"</span>/&gt;</span>
 </code></pre>
-</li>
-</ol>
-<p>Высокоуровневое управления лентой позволяет управлять текущим эффектом (анимацией) на ленте. Для этого используется ROS-сервис <code>/led/set_effect</code>. Параметры сервиса:</p>
+<p>Для правильной работы в этом же файле также должны быть выставлены аргументы:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"placement"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"floor"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- расположение маркеров, см. далее --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"length"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"0.33"</span>/&gt;</span>     <span class="hljs-comment">&lt;!-- размер маркеров в метрах (не включая белую рамку) --&gt;</span>
+</code></pre>
+<p>Значение аргумента <code>placement</code> следует выставлять следующим образом:</p>
 <ul>
-<li><code>effect</code> – название необходимого эффекта.</li>
-<li><code>r</code>, <code>g</code>, <code>b</code> – цвет эффекта в формате <a href="https://ru.wikipedia.org/wiki/RGB" target="_blank">RGB</a>. Значения изменяются от 0 до 255.</li>
+<li>если <em>все</em> маркеры наклеены на полу (земле), выставить значение <code>floor</code>;</li>
+<li>если <em>все</em> маркеры наклеены на потолке, выставить значение <code>ceiling</code>;</li>
+<li>в противном случае удалить строку с параметром.</li>
 </ul>
-<p>Список доступных эффектов:</p>
+<p>Если некоторые маркеры имеют размер, отличный значения <code>length</code>, их размер может быть переопределен с помощью параметра <code>length_override</code> ноды <code>aruco_detect</code>:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"length_override/3"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0.1"</span>/&gt;</span>    <span class="hljs-comment">&lt;!-- маркер c id 3 имеет размер 10 см --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"length_override/17"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0.25"</span>/&gt;</span>  <span class="hljs-comment">&lt;!-- маркер c id 17 имеет размер 25 см --&gt;</span>
+</code></pre>
+<h2 id="система-координат">Система координат</h2>
+<p>С маркером связана следующая система координат:</p>
 <ul>
-<li><code>fill</code> (или пустая строка) – залить всю ленту цветом;</li>
-<li><code>blink</code> – мигание цветом;</li>
-<li><code>blink_fast</code> – ускоренное мигание цветом;</li>
-<li><code>fade</code> – плавное перетекание в цвет;</li>
-<li><code>wipe</code> – "надвигание" нового цвета;</li>
-<li><code>flash</code> – быстро мигнуть цветом 2 раза и вернуться к предыдущему эффекту;</li>
-<li><code>rainbow</code> – переливание ленты цветами радуги;</li>
-<li><code>rainbow_fill</code> – переливать заливку по цветам радуги.</li>
+<li>ось <strong><font color="red">x</font></strong> указывает на правую сторону маркера;</li>
+<li>ось <strong><font color="green">y</font></strong> указывает кверху маркера;</li>
+<li>ось <strong><font color="blue">z</font></strong> указывает от плоскости маркера.</li>
 </ul>
-<p>Пример работы с сервисом из Python:</p>
+<p><img src="../../../assets/aruco-axis.png" width="300"></img></p>
+<h2 id="работа-с-распознанными-маркерами">Работа с распознанными маркерами</h2>
+<p>Наглядно распознанные маркеры можно видеть в топике <code>aruco_detect/debug</code>. Просмотреть его можно с помощью <a href="rviz.md"><code>rqt_image_view</code></a> или через <a href="web_video_server.md">web_video_server</a> по ссылке <a href="http://10.42.0.1:8080/snapshot?topic=/aruco_pose/debug" target="_blank">http://10.42.0.1:8080/snapshot?topic=/aruco_pose/debug</a>:</p>
+<p><img src="../../../assets/aruco_detect_debug.png" width="200"></img></p>
+<p>Распознанные маркеры и их позиции публикуются в топик <code>aruco_detect/markers</code>. Чтение топика из Bash:</p>
+<pre><code class="lang-bash">rostopic <span class="hljs-built_in">echo</span> /aruco_detect/markers
+</code></pre>
+<h2 id="навигация-по-маркерам">Навигация по маркерам</h2>
+<p>С использованием модуля <a href="AutonomousFlightOffboard.md"><code>simple_offboard</code></a> можно осуществлять навигацию по маркерам используя соответствующие TF-фреймы.</p>
+<p>Полет в точку над маркером 5 на высоту 1 метр:</p>
+<pre><code class="lang-python">navigate(frame_id=<span class="hljs-string">'aruco_5'</span>, x=<span class="hljs-number">0</span>, y=<span class="hljs-number">0</span>, z=<span class="hljs-number">1</span>)
+</code></pre>
+<p>Полет в точку на метр левее маркера 7 на высоте 2 метра:</p>
+<pre><code class="lang-python">navigate(frame_id=<span class="hljs-string">'aruco_7'</span>, x=-<span class="hljs-number">1</span>, y=<span class="hljs-number">0</span>, z=<span class="hljs-number">2</span>)
+</code></pre>
+<p>Если необходимый маркер не появится в поле зрения в течение полусекунды, дрон продолжит выполнять предыдущую команду.</p>
+<p>Подобные значения <code>frame_id</code> можно использовать и в других сервисах, например <code>get_telemetry</code>. Получение расположения дрона относительно маркера 3:</p>
+<pre><code class="lang-python">telem = get_telemetry(frame_id=<span class="hljs-string">'aruco_3'</span>)
+</code></pre>
+<p>Если необходимый маркер не появится в поле зрения в течение полусекунды, в полях <code>telem.x</code>, <code>telem.y</code>, <code>telem.z</code>, <code>telem.yaw</code> будет значение <code>NaN</code>.</p>
+<h2 id="работа-с-результатом-распознавания-из-python">Работа с результатом распознавания из Python</h2>
+<p>Чтение топика <code>aruco_detect/markers</code> из Python:</p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
-<span class="hljs-keyword">from</span> clover.srv <span class="hljs-keyword">import</span> SetLEDEffect
+<span class="hljs-keyword">from</span> aruco_pose.msg <span class="hljs-keyword">import</span> MarkerArray
+rospy.init_node(<span class="hljs-string">'my_node'</span>)
 
-rospy.init_node(<span class="hljs-string">'flight'</span>)
+<span class="hljs-comment"># ...</span>
 
-set_effect = rospy.ServiceProxy(<span class="hljs-string">'led/set_effect'</span>, SetLEDEffect)  <span class="hljs-comment"># define proxy to ROS-service</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">markers_callback</span>(<span class="hljs-params">msg</span>):
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Detected markers:'</span>):
+    <span class="hljs-keyword">for</span> marker <span class="hljs-keyword">in</span> msg.markers:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">'Marker: %s'</span> % marker)
 
-set_effect(r=<span class="hljs-number">255</span>, g=<span class="hljs-number">0</span>, b=<span class="hljs-number">0</span>)  <span class="hljs-comment"># fill strip with red color</span>
-rospy.sleep(<span class="hljs-number">2</span>)
+<span class="hljs-comment"># Подписываемся. При получении сообщения в топик aruco_detect/markers будет вызвана функция markers_callback.</span>
+rospy.Subscriber(<span class="hljs-string">'aruco_detect/markers'</span>, MarkerArray, markers_callback)
 
-set_effect(r=<span class="hljs-number">0</span>, g=<span class="hljs-number">100</span>, b=<span class="hljs-number">0</span>)  <span class="hljs-comment"># fill strip with green color</span>
-rospy.sleep(<span class="hljs-number">2</span>)
+<span class="hljs-comment"># ...</span>
 
-set_effect(effect=<span class="hljs-string">'fade'</span>, r=<span class="hljs-number">0</span>, g=<span class="hljs-number">0</span>, b=<span class="hljs-number">255</span>)  <span class="hljs-comment"># fade to blue color</span>
-rospy.sleep(<span class="hljs-number">2</span>)
-
-set_effect(effect=<span class="hljs-string">'flash'</span>, r=<span class="hljs-number">255</span>, g=<span class="hljs-number">0</span>, b=<span class="hljs-number">0</span>)  <span class="hljs-comment"># flash twice with red color</span>
-rospy.sleep(<span class="hljs-number">5</span>)
-
-set_effect(effect=<span class="hljs-string">'blink'</span>, r=<span class="hljs-number">255</span>, g=<span class="hljs-number">255</span>, b=<span class="hljs-number">255</span>)  <span class="hljs-comment"># blink with white color</span>
-rospy.sleep(<span class="hljs-number">5</span>)
-
-set_effect(effect=<span class="hljs-string">'rainbow'</span>)  <span class="hljs-comment"># show rainbow</span>
+rospy.spin()
 </code></pre>
-<p>Также лентой можно управлять из командной сроки (Bash):</p>
-<pre><code class="lang-bash">rosservice call /led/set_effect <span class="hljs-string">"{effect: 'fade', r: 0, g: 0, b: 255}"</span>
-</code></pre>
-<pre><code class="lang-bash">rosservice call /led/set_effect <span class="hljs-string">"{effect: 'rainbow'}"</span>
-</code></pre>
-<h2 id="настройка-реакции-ленты-на-события">Настройка реакции ленты на события</h2>
-<p>Technic умеет показывать LED-лентой текущее состояние полетного контроллера и сигнализировать о событиях. Данная функция настраивается в файле <code>~/technic_ws/src/technic/technic/launch/led.launch</code> в разделе <em>events effects table</em>. Пример настройки:</p>
-<pre><code class="lang-xml">startup: { r: 255, g: 255, b: 255 }
-connected: { effect: rainbow }
-disconnected: { effect: blink, r: 255, g: 50, b: 50 }
-<span class="hljs-comment">&lt;!-- ... --&gt;</span>
-</code></pre>
-<p>В левой части таблицы указывается событие, на которая лента должна среагировать. В правой части указывается эффект (анимация), который необходимо включить при возникновении события.</p>
-<p>Список поддерживаемых событий:</p>
-<table>
-  <tr><th>Событие</th><th>Описание</th><th>Эффект по умолчанию</th></tr>
-  <tr><td><code>startup</code></td><td>Запуск всех систем Technic</td><td>Белый</td></tr>
-  <tr><td><code>connected</code></td><td>Успешное подключение к полетному контроллеру</td><td>Цвета российского флага</td></tr>
-  <tr><td><code>disconnected</code></td><td>Разрыв связи с полетным контроллером</td><td><div class="circle" style="background:rgb(255,50,50)"></div>Мигание красным</td></tr>
-  <tr><td><code>armed</code></td><td>Переход в состояние Armed</td><td></td></tr>
-  <tr><td><code>disarmed</code></td><td>Переход в состояние Disarmed</td><td></td></tr>
-  <tr><td><code>acro</code></td><td>Режим Acro</td><td><div class="circle" style="background:rgb(245,155,0)"></div>Оранжевый</td></tr>
-  <tr><td><code>stabilized</code></td><td>Режим Stabilized</td><td><div class="circle" style="background:rgb(30,180,50)"></div>Зеленый</td></tr>
-  <tr><td><code>altctl</code></td><td>Режим Altitude</td><td><div class="circle" style="background:rgb(255,255,40)"></div>Желтый</td></tr>
-  <tr><td><code>posctl</code></td><td>Режим Position</td><td><div class="circle" style="background:rgb(50,100,220)"></div>Синий</td></tr>
-  <tr><td><code>offboard</code></td><td>Режим Offboard</td><td><div class="circle" style="background:rgb(220,20,250)"></div>Фиолетовый</td></tr>
-  <tr><td><code>rattitude</code>, <code>mission</code>, <code>rtl</code>, <code>land</code></td><td>Переход в соответствующие режимы</td><td></td></tr>
-  <tr><td><code>error</code></td><td>Возникновение ошибки в ROS-нодах или полетном контроллере (<i>ERROR</i>-сообщение в топике <code>/rosout</code>)</td><td><div class="circle" style="background:rgb(255,0,0)"></div>Мигнуть красным</td></tr>
-  <tr><td><code>low_battery</code></td><td>Низкий заряд батареи (порог настраивается в параметре <code>threshold</code>)</td><td><nobr><div class="circle" style="background:rgb(255,0,0)"></div>Быстрое мигание красным</nobr></td></tr>
-</table>
-
-<blockquote>
-<p><strong>Note</strong> Для корректной работы сигнализации LED-лентой о низком заряде батареи необходимо корректная <a href="EnergySettings.md">калибровка электропитания</a>.</p>
-</blockquote>
-<p>Для того, чтобы отключить реакцию светодиодной ленты на события, установите аргумент <code>led_notify</code> в файле <code>~/technic_ws/src/technic/technic/launch/led.launch</code> в значение <code>false</code>:</p>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"led_notify"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"false"</span>/&gt;</span>
-</code></pre>
-<h2 id="низкоуровневое-управление-лентой">Низкоуровневое управление лентой</h2>
-<p>Для управления отдельными светодиодами используется ROS-сервис <code>/led/set_leds</code>. В параметрах задается массив номеров и RGB-цветов светодиодов, которые необходимо переключить.</p>
-<p>Пример работы с сервисом из Python:</p>
-<pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
-<span class="hljs-keyword">from</span> led_msgs.srv <span class="hljs-keyword">import</span> SetLEDs
-<span class="hljs-keyword">from</span> led_msgs.msg <span class="hljs-keyword">import</span> LEDStateArray, LEDState
-
-rospy.init_node(<span class="hljs-string">'flight'</span>)
-
-set_leds = rospy.ServiceProxy(<span class="hljs-string">'led/set_leds'</span>, SetLEDs)  <span class="hljs-comment"># define proxy to ROS service</span>
-
-<span class="hljs-comment"># switch LEDs number 0, 1 and 2 to red, green and blue color:</span>
-set_leds([LEDState(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), LEDState(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>), LEDState(<span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>)])
-</code></pre>
-<p>Сервис можно использовать из командной строки:</p>
-<pre><code class="lang-bash">rosservice call /led/set_leds <span class="hljs-string">"leds:
-- index: 0
-  r: 50
-  g: 100
-  b: 200"</span>
-</code></pre>
-<p>При использовании ленты в ROS-топике <code>/led/state</code> публикуется текущие цвета светодиодов. Просмотр топика из командной строки:</p>
-<pre><code class="lang-bash">rostopic <span class="hljs-built_in">echo</span> /led/state
-</code></pre>
-<p>Используя этот же топик можно получить общее выставленное в настройках количество светодиодов:</p>
-<pre><code class="lang-python">led_count = <span class="hljs-built_in">len</span>(rospy.wait_for_message(<span class="hljs-string">'led/state'</span>, LEDStateArray, timeout=<span class="hljs-number">10</span>).leds)
-</code></pre>
+<p>Сообщения будут содержать ID маркера, его угловые точки на изображении и его позицию (относительно камеры).</p>
 
                                 
                                 </section>
@@ -976,10 +924,14 @@ set_leds([LEDState(<span class="hljs-number">0</span>, <span class="hljs-number"
 
             
                 
-                <a href="GPIO.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: GPIO">
+                <a href="Aruco.html" class="navigation navigation-prev " aria-label="Previous page: Визуальные маркеры">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="ArucoMap.html" class="navigation navigation-next " aria-label="Next page: Навигация по картам ArUco-маркеров">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -988,7 +940,7 @@ set_leds([LEDState(<span class="hljs-number">0</span>, <span class="hljs-number"
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Светодиодная лента","level":"5.1.3.2","depth":3,"next":{"title":"Дополнительные материалы","level":"6.1","depth":1,"ref":"","articles":[]},"previous":{"title":"GPIO","level":"5.1.3.1","depth":3,"path":"Программирование/Периферия/Исполнительная_периферия/GPIO.md","ref":"Программирование/Периферия/Исполнительная_периферия/GPIO.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Программирование/Периферия/Исполнительная_периферия/LedStrip.md","mtime":"2025-12-15T08:42:39.246Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-15T12:14:48.727Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Распознавание ArUco-маркеров","level":"5.1.2.2.1","depth":4,"next":{"title":"Навигация по картам ArUco-маркеров","level":"5.1.2.2.2","depth":4,"path":"Программирование/Периферия/Сенсорная_периферия/ArucoMap.md","ref":"Программирование/Периферия/Сенсорная_периферия/ArucoMap.md","articles":[]},"previous":{"title":"Визуальные маркеры","level":"5.1.2.2","depth":3,"path":"Программирование/Периферия/Сенсорная_периферия/Aruco.md","ref":"Программирование/Периферия/Сенсорная_периферия/Aruco.md","articles":[{"title":"Распознавание ArUco-маркеров","level":"5.1.2.2.1","depth":4,"path":"Программирование/Периферия/Сенсорная_периферия/ArucoMarker.md","ref":"Программирование/Периферия/Сенсорная_периферия/ArucoMarker.md","articles":[]},{"title":"Навигация по картам ArUco-маркеров","level":"5.1.2.2.2","depth":4,"path":"Программирование/Периферия/Сенсорная_периферия/ArucoMap.md","ref":"Программирование/Периферия/Сенсорная_периферия/ArucoMap.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Программирование/Периферия/Сенсорная_периферия/ArucoMarker.md","mtime":"2025-12-15T11:36:20.878Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-15T12:14:48.727Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
