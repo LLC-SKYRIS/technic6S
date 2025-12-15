@@ -11,7 +11,7 @@
 	* [Подключение к Web Терминалу](Butterfly.md)
 	* [Подключение к полетному контроллеру](ConnectingToPX4.md)
 	* [Подключение к QGroundControl](QGroundControlViaWi-Fi.md)
-	* [Коммандная строка](CommandLine.md)
+	* [Командная строка](CommandLine.md)
 	* [Система координат](CoordinateSystems.md)
 
 ---
@@ -23,6 +23,7 @@
 	* [Настройка пульта](PultSettings.md)
 	* [Калибровка датчиков](CalibrationSensors.md)
 	* [Bind приемника](Bind.md)
+	* [Полетные режимы](Modes.md)
 
 ---
 * [Программирование](Programming.md)
@@ -54,3 +55,4 @@
 * Дополнительные материалы
 	* [Примеры кода на Python](CodeExamples.md)
 	* [Подключение GPS](GPS.md)
+	* [Параметры]()

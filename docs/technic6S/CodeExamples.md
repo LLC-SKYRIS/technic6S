@@ -303,7 +303,7 @@ rospy.spin()
 
 ### # {#set_mode}
 
-Сменить [режим полета](modes.md) на произвольный:
+Сменить [режим полета](Modes.md) на произвольный:
 
 ```python
 from mavros_msgs.srv import SetMode
