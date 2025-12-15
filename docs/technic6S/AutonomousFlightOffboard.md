@@ -50,8 +50,8 @@ land = rospy.ServiceProxy('land', Trigger)
 * `armed` – состояние `armed` винтов (винты включены, если true);
 * `mode` – текущий [полетный режим](modes.md);
 * `x, y, z` – локальная позиция коптера *(м)*;
-* `lat, lon` – широта, долгота *(градусы)*, необходимо наличие [GPS](gps.md);
-* `alt` – высота в глобальной системе координат (стандарт [WGS-84](https://ru.wikipedia.org/wiki/WGS_84), не <abbr title="Above Mean Sea Level, выше среднего уровня моря">AMSL</abbr>!), необходимо наличие [GPS](gps.md);
+* `lat, lon` – широта, долгота *(градусы)*, необходимо наличие [GPS](GPS.md);
+* `alt` – высота в глобальной системе координат (стандарт [WGS-84](https://ru.wikipedia.org/wiki/WGS_84), не <abbr title="Above Mean Sea Level, выше среднего уровня моря">AMSL</abbr>!), необходимо наличие [GPS](GPS.md);
 * `vx, vy, vz` – скорость коптера *(м/с)*;
 * `roll` – угол по крену *(радианы)*;
 * `pitch` – угол по тангажу *(радианы)*;

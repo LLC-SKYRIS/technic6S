@@ -5,7 +5,7 @@
 
 Модуль `aruco_detect` распознает ArUco-маркеры и публикует их позиции в ROS-топики и в [TF](../../../CoordinateSystems.md).
 
-Эта функция полезна для применения совместно с какой-либо системой позиционирования для дрона, такой как [GPS](gps.md), [Optical Flow](OpticalFlow.md), PX4Flow, визуальная одометрия, ультразвуковое ([Marvelmind](https://marvelmind.com)) или UWB-позиционирование ([Pozyx](https://www.pozyx.io)).
+Эта функция полезна для применения совместно с какой-либо системой позиционирования для дрона, такой как [GPS](../../../GPS.md), [Optical Flow](OpticalFlow.md), PX4Flow, визуальная одометрия, ультразвуковое ([Marvelmind](https://marvelmind.com)) или UWB-позиционирование ([Pozyx](https://www.pozyx.io)).
 
 Также возможно применение совместно с [навигацией по карте маркеров](ArucoMap.md).
 
