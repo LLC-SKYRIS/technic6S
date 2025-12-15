@@ -5,7 +5,7 @@
 ---
 * Работа с OrangePi 5 Pro
 	* [Работа с OPI](OrangePi.md)
-	* [Образ дл] OPI](ImageOPI.md)
+	* [Образ для OPI](ImageOPI.md)
 	* [Подключение к Wi-Fi](ConnectingToWi-Fi.md)
 	* [Веб Интерфейс](WebInterface.md)
 	* [Подключение по SSH](SSH.md)
@@ -20,7 +20,7 @@
 	* [Настройка питания](EnergySettings.md)
 	* [Настройка камеры](CameraSettings.md)
 	* [Настройка сети](NetworkSettings.md)
-	* [Настройка failsafe(FailsafeSettings.md)
+	* [Настройка failsafe](FailsafeSettings.md)
 	* [Настройка пульта](PultSettings.md)
 	* [Калибровка датчиков](CalibrationSensors.md)
 	* [Bind приемника](Bind.md)
