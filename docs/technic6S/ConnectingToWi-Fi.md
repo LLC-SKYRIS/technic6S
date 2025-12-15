@@ -10,5 +10,5 @@
 
 <img src="assets/wifi-round-corners.png" width=500 class="center zoom">
 
-Для изменения настроек Wi-Fi или получения более детальной информации о устройстве сети на Orangepi 5 pro прочитайте статью "[Настройка Wi-Fi](NetworkSettings.md)".
+Для изменения настроек Wi-Fi или получения более детальной информации о устройстве сети на Orangepi 5 pro прочитайте статью [настройка Wi-Fi](NetworkSettings.md).
 
