@@ -2,7 +2,7 @@
 
 Добро пожаловать! Этот гитбук представляет собой официальную документацию по учебному конструктору от компании **SKYRIS** Technic 6s. 
 
-<img src="assets/logo.png" align="right" width="300px" alt="Skyris Logo">
+<img src="assets/logo.svg" align="right" width="300px" alt="Skyris Logo">
 
 
 # Кто мы такие?
