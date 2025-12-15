@@ -1,6 +1,6 @@
 # Подключение к PX4
 
-Для программирования [автономных полетов](simple_offboard.md), [работы с Pixhawk (Pixracer) по Wi-Fi](gcs_bridge.md), использования [телефонного пульта](rc.md) и других функций необходимо соединение OPi и полетного контроллера.
+Для программирования [автономных полетов](AutonomousFlightOffboard.md), [работы с Pixhawk (Pixracer) по Wi-Fi](ConnectingToPX4.md), использования [телефонного пульта](rc.md) и других функций необходимо соединение OPi и полетного контроллера.
 
 ## Подключение по UART
 
@@ -24,7 +24,7 @@
 
 1. Соедините OPi и полетный контроллер micro-USB to USB кабелем.
 2. Отключите соединение по uart 
-3. [Подключитесь в Orangepi 5 pro по SSH](ssh.md).
+3. [Подключитесь в Orangepi 5 pro по SSH](SSH.md).
 4. Поменяйте в launch-файле Technic (`~/catkin_ws/src/clover/clover/launch/clover.launch`) тип подключения с `uart` на `usb` ``:
 
     ```xml
@@ -37,7 +37,7 @@
     sudo systemctl restart technic
     ```
 
-5. Убедитесь в работоспособности подключения, [выполнив команду на Orangepi 5 pro](cli.md):
+5. Убедитесь в работоспособности подключения, [выполнив команду на Orangepi 5 pro](CommandLine.md):
 
     ```bash
     rostopic echo /mavros/state
