@@ -10,7 +10,7 @@
 
 ## Активация
 
-> **Hint** Для работы Optical Flow необходим [подключенный и настроенный лазерный дальномер](laser.md).
+> **Hint** Для работы Optical Flow необходим [подключенный и настроенный лазерный дальномер](LaserRangefinder.md).
 
 Включите Optical Flow в файле `~/technic_ws/src/technic/technic/launch/technic.launch`
 
@@ -20,7 +20,7 @@
 
 Optical Flow публикует данные в топик `/mavros/px4flow/raw/send`. Кроме того, в топик `/optical_flow/debug` публикуется визуализация, которую можно просмотреть с помощью [web_video_server](web_video_server.md).
 
-> **Info** Для правильной работы модуль камеры должен быть корректно подключен и [сконфигурирован](camera.md).
+> **Info** Для правильной работы модуль камеры должен быть корректно подключен и [сконфигурирован](CameraSettings.md).
 
 ## Настройка полетного контроллера
 
@@ -36,7 +36,7 @@ Optical Flow публикует данные в топик `/mavros/px4flow/raw/
 * `SENS_FLOW_ROT` – No rotation (отсутствие поворота).
 * `SENS_FLOW_MAXHGT` – 4.0 (для дальномера VL53L1X)
 * `SENS_FLOW_MINHGT` – 0.0 (для дальномера VL53L1X)
-* Опционально: `EKF2_HGT_MODE` – range sensor (см. [конфигурирование дальномера](laser.md)).
+* Опционально: `EKF2_HGT_MODE` – range sensor (см. [конфигурирование дальномера](LaserRangefinder.md)).
 
 Для проверки правильности всех настроек можно [воспользоваться утилитой `selfcheck.py`](selfcheck.md).
 
@@ -46,7 +46,7 @@ Optical Flow публикует данные в топик `/mavros/px4flow/raw/
 
 ## Автономный полет
 
-Автономный полет возможен с использованием модуля [simple_offboard](simple_offboard.md).
+Автономный полет возможен с использованием модуля [simple_offboard](../../../AutonomousFlightOffboard.md).
 
 Пример взлета на высоту 1.5 м и удержание позиции:
 
@@ -66,7 +66,7 @@ navigate(x=1, frame_id='body')
 navigate(x=-1, frame_id='navigate_target')
 ```
 
-При использовании Optical Flow возможна также [навигация по ArUco-маркерам](aruco_marker.md), в том числе [используя VPE](aruco_map.md).
+При использовании Optical Flow возможна также [навигация по ArUco-маркерам](ArucoMarker.md), в том числе [используя VPE](ArucoMap.md).
 
 ## Дополнительные настройки
 
@@ -81,7 +81,7 @@ navigate(x=-1, frame_id='navigate_target')
 * попробовать разные значения параметра `EKF2_MAG_TYPE`, который определяет, каким образом данные с магнитометра используются в EKF2;
 * изменять значения параметров `EKF2_MAG_NOISE`, `EKF2_GYR_NOISE`, `EKF2_GYR_B_NOISE`.
 
-> **Note** Для более хороших результатов выполняйте перекалибровку гироскопов непосредственно перед взлетом, используя [соответствующий сниппет](snippets.md#calibrate-gyro).
+> **Note** Для более хороших результатов выполняйте перекалибровку гироскопов непосредственно перед взлетом, используя [соответствующий сниппет](../../../CodeExamples.md#calibrate-gyro).
 
 Если коптер уплывает по высоте, попробуйте:
 
