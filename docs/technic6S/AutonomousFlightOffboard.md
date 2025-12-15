@@ -71,7 +71,7 @@ telemetry = get_telemetry()
 print(telemetry.x, telemetry.y, telemetry.z)
 ```
 
-Вывод высоты коптера относительно [карты ArUco-меток](Aruco.md):
+Вывод высоты коптера относительно [карты ArUco-меток](Программирование/Периферия/Сенсорная_периферия/Aruco.md):
 
 ```python
 telemetry = get_telemetry(frame_id='aruco_map')
