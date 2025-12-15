@@ -3,8 +3,7 @@
 * <a href="http://llc-skyris.github.io/technic6S/" target="_self">← Вернуться на главную</a>
 * [Main](README.md)
 ---
-* Работа с OrangePi 5 Pro
-	* [Работа с OPI](OrangePi.md)
+* [Работа с OrangePi 5 Pro](OrangePi.md)
 	* [Образ для OPI](ImageOPI.md)
 	* [Подключение к Wi-Fi](ConnectingToWi-Fi.md)
 	* [Веб Интерфейс](WebInterface.md)
@@ -26,8 +25,7 @@
 	* [Bind приемника](Bind.md)
 
 ---
-* Программирование
-	* [Программирование](Programming.md)
+* [Программирование](Programming.md)
 	* [Автономный запуск ПО](AutoRunSoft.md)
 	* [Автономный полет](AutonomousFlight.md)
 	* [Режим автономного полета (OFFBOARD)](AutonomousFlightOffboard.md)
@@ -41,8 +39,7 @@
 	* [Интеграция нейронных сетей в Technic6S](IntergrationCNN.md)
 
 ---
-* Периферия
-    * [Обзор периферии](Программирование/Периферия/Периферия.md)
+* [Периферия](Программирование/Периферия/Периферия.md)
     * Сенсорная периферия
         * [Optical flow](Программирование/Периферия/Сенсорная_периферия/OpticalFlow.md)
         * [Визуальные маркеры](Программирование/Периферия/Сенсорная_периферия/Aruco.md)
