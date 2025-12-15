@@ -18,7 +18,7 @@ sudo systemctl restart technic
 
 ## Неисправности
 
-Если изображение с камеры отсутствует, попробуйте проверить ее с помощью утилиты [`raspistill`](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md).
+Если изображение с камеры отсутствует, попробуйте проверить ее с помощью утилиты [``]().
 
 Остановите сервисы Technic:
 
