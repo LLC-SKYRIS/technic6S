@@ -42,7 +42,7 @@
 
 ---
 * [Периферия](docs/technic6S/Периферия.md)
-     * [Optical flow](OpticalFlow.md)
+	* [Optical flow](OpticalFlow.md)
     * [Визуальные маркеры](Aruco.md)
 	     * [Распознавание ArUco-маркеров](ArucoMarker.md)
 	    * [Навигация по картам ArUco-маркеров](ArucoMap.md)
