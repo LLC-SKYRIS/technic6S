@@ -122,7 +122,7 @@ disconnected: { effect: blink, r: 255, g: 50, b: 50 }
   <tr><td><code>low_battery</code></td><td>Низкий заряд батареи (порог настраивается в параметре <code>threshold</code>)</td><td><nobr><div class=circle style="background:rgb(255,0,0)"></div>Быстрое мигание красным</nobr></td></tr>
 </table>
 
-> **Note** Для корректной работы сигнализации LED-лентой о низком заряде батареи необходимо корректная [калибровка электропитания](../../../EnergySettings.md).
+> **Note** Для корректной работы сигнализации LED-лентой о низком заряде батареи необходимо корректная [калибровка электропитания](EnergySettings.md).
 
 Для того, чтобы отключить реакцию светодиодной ленты на события, установите аргумент `led_notify` в файле `~/technic_ws/src/technic/technic/launch/led.launch` в значение `false`:
 

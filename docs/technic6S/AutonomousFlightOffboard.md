@@ -71,7 +71,7 @@ telemetry = get_telemetry()
 print(telemetry.x, telemetry.y, telemetry.z)
 ```
 
-Вывод высоты коптера относительно [карты ArUco-меток](Программирование/Периферия/Сенсорная_периферия/ArucoMap.md):
+Вывод высоты коптера относительно [карты ArUco-меток](ArucoMap.md):
 
 ```python
 telemetry = get_telemetry(frame_id='aruco_map')
@@ -144,7 +144,7 @@ navigate(x=0, y=2, z=0, speed=1, frame_id='navigate_target')
 navigate(yaw=math.radians(-90), frame_id='body')
 ```
 
-Полет в точку 3:2 (высота 2) в системе координат [маркерного поля](Программирование/Периферия/Сенсорная_периферия/ArucoMap.md) со скоростью 1 м/с:
+Полет в точку 3:2 (высота 2) в системе координат [маркерного поля](ArucoMap.md) со скоростью 1 м/с:
 
 ```python
 navigate(x=3, y=2, z=2, speed=1, frame_id='aruco_map')
@@ -206,7 +206,7 @@ rosservice call /navigate_global "{lat: 55.707033, lon: 37.725010, z: 0.0, yaw: 
 set_altitude(z=2, frame_id='terrain')
 ```
 
-Установить высоту полета в 1 м относительно [маркерного поля](Программирование/Периферия/Сенсорная_периферия/ArucoMap.md):
+Установить высоту полета в 1 м относительно [маркерного поля](ArucoMap.md):
 
 ```python
 set_altitude(z=1, frame_id='aruco_map')
@@ -227,7 +227,7 @@ set_altitude(z=1, frame_id='aruco_map')
 set_yaw(yaw=math.radians(-90), frame_id='body')
 ```
 
-Установить угол по рысканью в ноль в системе координат [маркерного поля](Программирование/Периферия/Сенсорная_периферия/ArucoMap.md):
+Установить угол по рысканью в ноль в системе координат [маркерного поля](ArucoMap.md):
 
 ```python
 set_yaw(yaw=0, frame_id='aruco_map')
@@ -330,7 +330,7 @@ set_velocity(vx=1, vy=0.0, vz=0, frame_id='body')
 
 Перевести коптер в [режим](Modes.md) посадки (`AUTO.LAND` или аналогичный).
 
-> **Note** Для автоматического отключения винтов после посадки [параметр PX4](parameters.md) `COM_DISARM_LAND` должен быть установлен в значение > 0.
+> **Note** Для автоматического отключения винтов после посадки [параметр PX4](Parameters.md) `COM_DISARM_LAND` должен быть установлен в значение > 0.
 
 Посадка коптера:
 
