@@ -246,5 +246,6 @@ relative_foo_pub = rospy.Publisher('foo', String, queue_size=1)
 
 * Учебник по ROS от Voltbro - http://docs.voltbro.ru/starting-ros/.
 * Другие книги по ROS - https://wiki.ros.org/Books.
+* Курс по ROS 2 - https://stepik.org/course/221157/promo
 
 [^1]: Также встречается перевод "узел".
