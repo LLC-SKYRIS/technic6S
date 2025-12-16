@@ -233,7 +233,7 @@ rospy.spin()
 
 <!-- markdownlint-enable MD044 -->
 
-Пример отправки произвольного [MAVLink-сообщения](mavlink.md) коптеру:
+Пример отправки произвольного [MAVLink-сообщения](Mavlink.md) коптеру:
 
 ```python
 from mavros_msgs.msg import Mavlink

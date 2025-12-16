@@ -62,4 +62,5 @@
 * Дополнительные материалы
 	* [Примеры кода на Python](CodeExamples.md)
 	* [Подключение GPS](GPS.md)
+	* [Mavlink](Mavlink.md)
 
