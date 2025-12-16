@@ -42,18 +42,23 @@
 
 ---
 * [Периферия](docs/technic6S/Периферия.md)
-    * Сенсорная периферия
-        * [Optical flow](OpticalFlow.md)
-        * [Визуальные маркеры](Aruco.md)
-	        * [Распознавание ArUco-маркеров](ArucoMarker.md)
-	        * [Навигация по картам ArUco-маркеров](ArucoMap.md)
-        * [Лазерный дальномер](LaserRangefinder.md)
-        * [Ультразвуковой дальномер](UltrasonicRangefinder.md)
-    * Исполнительная периферия
-        * [GPIO](GPIO.md)
-        * [Светодиодная лента](LedStrip.md)
+     * [Optical flow](OpticalFlow.md)
+    * [Визуальные маркеры](Aruco.md)
+	     * [Распознавание ArUco-маркеров](ArucoMarker.md)
+	    * [Навигация по картам ArUco-маркеров](ArucoMap.md)
+    * [Лазерный дальномер](LaserRangefinder.md)
+    * [Ультразвуковой дальномер](UltrasonicRangefinder.md)
+    * [GPIO](GPIO.md)
+    * [Светодиодная лента](LedStrip.md)
+
+---
+* [Симулятор](Simulator.md)
+	* [Сборка на собственной машине](SimulationNative.md)
+	* [Установка виртуальной машины](SimulationVM.md)
+	* [Симулятор на компьютерах с чипом M1](SimulationM1.md)
+	
 ---
 * Дополнительные материалы
 	* [Примеры кода на Python](CodeExamples.md)
 	* [Подключение GPS](GPS.md)
-	* [Параметры]()
+
