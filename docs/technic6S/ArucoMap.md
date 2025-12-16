@@ -68,7 +68,7 @@ rosrun aruco_pose genmap.py 0.33 2 4 1 1 0 -o test_map.txt
 
 <img src="../../../assets/aruco_map.png" width=200>
 
-Техник публикует текущую позицию распознанной карты в топик `aruco_map/pose`. Также публикуется [TF-фрейм](CoordinateSystems.md) `aruco_map` (VPE выключен) или `aruco_map_detected` (VPE включен). Используя топик `aruco_map/visualization` можно визуализировать текущую карту маркеров в [rviz](rviz.md).
+Техник публикует текущую позицию распознанной карты в топик `aruco_map/pose`. Также публикуется [TF-фрейм](CoordinateSystems.md) `aruco_map` (VPE выключен) или `aruco_map_detected` (VPE включен). Используя топик `aruco_map/visualization` можно визуализировать текущую карту маркеров в [rviz](Rviz.md).
 
 Наглядно позиция распознанной карты отображается в топике `aruco_map/debug` (просмотр доступен по ссылке http://10.42.0.1:8080/stream_viewer?topic=/aruco_map/debug):
 
