@@ -34,7 +34,7 @@ def navigate_wait(x=0, y=0, z=0, yaw=float('nan'), speed=0.5, frame_id='', auto_
 
 Для того, чтобы определить расстояние до целевой точки, функция использует фрейм [`navigate_target`](CoordinateSystems.md#navigate_target).
 
-Использование функции для полета в точку x=3, y=2, z=1 [относительно карты маркеров](Программирование/Периферия/Сенсорная_периферия/ArucoMap.md):
+Использование функции для полета в точку x=3, y=2, z=1 [относительно карты маркеров](ArucoMap.md):
 
 ```python
 navigate_wait(x=3, y=2, z=1, frame_id='aruco_map')
@@ -386,7 +386,7 @@ calibrate_gyro()
 
 <!-- markdownlint-enable MD044 -->
 
-Динамически включать и отключать [распознавание ArUco-маркеров](Программирование/Периферия/Сенсорная_периферия/ArucoMarker.md) (например, для экономии ресурсов процессора):
+Динамически включать и отключать [распознавание ArUco-маркеров](ArucoMarker.md) (например, для экономии ресурсов процессора):
 
 ```python
 import rospy
@@ -406,7 +406,7 @@ aruco_client.update_configuration({'enabled': True})
 
 ### # {#optical-flow-enabled}
 
-Динамически включать и отключать [Optical Flow](Программирование/Периферия/Сенсорная_периферия/OpticalFlow.md):
+Динамически включать и отключать [Optical Flow](OpticalFlow.md):
 
 ```python
 import rospy
@@ -428,7 +428,7 @@ flow_client.update_configuration({'enabled': True})
 
 ### # {#aruco-map-dynamic}
 
-Динамически изменить используемый файл с [картой ArUco-маркеров](Программирование/Периферия/Сенсорная_периферия/ArucoMap.md):
+Динамически изменить используемый файл с [картой ArUco-маркеров](ArucoMap.md):
 
 <!-- markdownlint-enable MD044 -->
 
@@ -444,7 +444,7 @@ map_client.update_configuration({'map': '/home/pi/catkin_ws/src/clover/aruco_pos
 
 ### # {#wait-global-position}
 
-Ожидать появления глобальной позиции (окончания инициализации [GPS-приемника](gps.md)):
+Ожидать появления глобальной позиции (окончания инициализации [GPS-приемника](GPS.md)):
 
 ```python
 import math
