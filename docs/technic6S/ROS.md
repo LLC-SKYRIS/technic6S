@@ -4,7 +4,7 @@
 
 **ROS** – это широко используемый фреймворк для создания сложных, распределенных робототехнических систем. На ROS основана [программная платформа Technic](Programming.md).
 
-<img src="assets/ros.png" width=300 class="center zoom">
+<img src="assets/Ros_logo.svg.png" width=300 class="center zoom">
 
 ## Установка
 
