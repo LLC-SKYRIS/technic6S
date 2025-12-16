@@ -63,4 +63,5 @@
 	* [Примеры кода на Python](CodeExamples.md)
 	* [Подключение GPS](GPS.md)
 	* [Mavlink](Mavlink.md)
+	* [Подключение к Orange Pi 5 Pro с использованием SSH-ключей](SshKeys.md)
 
