@@ -64,7 +64,7 @@ rosrun aruco_pose genmap.py 0.33 2 4 1 1 0 -o test_map.txt
 
 ### Проверка
 
-Для контроля карты, по которой в данный момент коптер осуществляет навигацию, можно просмотреть содержимое топика `/aruco_map/image`. Через браузер его можно просмотреть при помощи [web_video_server](web_video_server.md) по ссылке http://10.42.0.1:8080/snapshot?topic=/aruco_map/image:
+Для контроля карты, по которой в данный момент коптер осуществляет навигацию, можно просмотреть содержимое топика `/aruco_map/image`. Через браузер его можно просмотреть при помощи [web_video_server](CameraImages.md) по ссылке http://10.42.0.1:8080/snapshot?topic=/aruco_map/image:
 
 <img src="../../../assets/aruco_map.png" width=200>
 
