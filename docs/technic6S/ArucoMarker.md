@@ -55,7 +55,7 @@
 
 ## Работа с распознанными маркерами
 
-Наглядно распознанные маркеры можно видеть в топике `aruco_detect/debug`. Просмотреть его можно с помощью [`rqt_image_view`](rviz.md) или через [web_video_server](web_video_server.md) по ссылке http://10.42.0.1:8080/snapshot?topic=/aruco_pose/debug:
+Наглядно распознанные маркеры можно видеть в топике `aruco_detect/debug`. Просмотреть его можно с помощью [`rqt_image_view`](Rviz.md) или через [web_video_server](web_video_server.md) по ссылке http://10.42.0.1:8080/snapshot?topic=/aruco_pose/debug:
 
 <img src="../../../assets/aruco_detect_debug.png" width=200>
 

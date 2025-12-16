@@ -76,4 +76,4 @@ dist = rospy.wait_for_message('rangefinder/range', Range).range
 
 <img src="../../../assets/rviz-range.png" width="400" class="center zoom">
 
-См. [подробнее об rviz и rqt](rviz.md).
+См. [подробнее об rviz и rqt](Rviz.md).
