@@ -8,231 +8,236 @@
 <style>
 * { box-sizing: border-box; }
 body{
-margin:0;
-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-background:#f5f6f8;
-color:#333;
+  margin:0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:#f5f6f8;
+  color:#333;
 }
 
 /* ===== ШАПКА (как в шаблоне) ===== */
 .gen-header{
-position: sticky;
-top: 0;
-z-index: 50;
-display:flex;
-align-items:center;
-gap:16px;
-padding: 14px 18px;
-background:#ffffff;
-border-bottom:1px solid #e1e3e9;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding: 14px 18px;
+  background:#ffffff;
+  border-bottom:1px solid #e1e3e9;
 }
 
 .icon-home{
-display:flex;
-align-items:center;
-gap:12px;
-text-decoration:none;
-color:inherit;
-min-width: 80px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:inherit;
+  min-width: 80px;
 }
 
 /* Оставляем только SVG-лого */
 .logo{
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
 }
 .logo img{
-height:14px;
-width:auto;
-display:block;
+  height:14px;
+  width:auto;
+  display:block;
 }
 
 .header-nav-link{
-display:flex;
-gap:14px;
-flex-wrap:wrap;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
 }
 .header-nav-link a{
-text-decoration:none;
-color:#444;
-font-weight:600;
-border-bottom: 1px solid transparent;
+  text-decoration:none;
+  color:#444;
+  font-weight:600;
+  border-bottom: 1px solid transparent;
 }
 .header-nav-link a:hover{
-border-bottom-color:#999;
+  border-bottom-color:#999;
 }
 
 .menu-toggle{
-margin-left:auto;
-display:none;
-align-items:center;
-gap:8px;
-cursor:pointer;
-user-select:none;
-text-decoration:none;
-color:#444;
-font-weight:600;
+  margin-left:auto;
+  display:none;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+  user-select:none;
+  text-decoration:none;
+  color:#444;
+  font-weight:600;
 }
 .material-icons{
-font-family: inherit;
-font-weight: 700;
-letter-spacing: .04em;
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: .04em;
 }
 
 .wy-header-nav-search{
-margin-left:auto;
-display:flex;
-align-items:center;
-gap:10px;
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 .wy-header-nav-search .input{
-display:flex;
-align-items:center;
+  display:flex;
+  align-items:center;
 }
 .wy-form input[type="text"]{
-width:min(340px, 46vw);
-padding:10px 12px;
-border-radius: 12px;
-border:1px solid #e1e3e9;
-background:#f7f8fb;
-outline:none;
+  width:min(340px, 46vw);
+  padding:10px 12px;
+  border-radius: 12px;
+  border:1px solid #e1e3e9;
+  background:#f7f8fb;
+  outline:none;
 }
 .wy-form input[type="text"]:focus{
-background:#fff;
-border-color:#c8ccda;
+  background:#fff;
+  border-color:#c8ccda;
 }
 
 /* ===== Контент ===== */
 .page{
-min-height:100vh;
-display:flex;
-flex-direction:column;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 .wy-nav-content{
-max-width: 1200px;   /* как у шаблона */
-margin: 0 auto;      /* центрирование */
-width: 100%;
+  max-width: 1200px;   /* как у шаблона */
+  margin: 0 auto;      /* центрирование */
+  width: 100%;
 }
 .rst-content{
-padding-left: clamp(16px, 4vw, 56px);
-padding-right: clamp(16px, 4vw, 56px);
-padding-top: 32px;
-padding-bottom: 32px;
+  padding-left: clamp(16px, 4vw, 56px);
+  padding-right: clamp(16px, 4vw, 56px);
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
 /* ===== Карточки ===== */
 .cards-row{
-display:flex;
-gap:32px;
-flex-wrap:wrap;
+  display:flex;
+  gap:32px;
+  flex-wrap:wrap;
 }
 .big-card{
-flex:1 1 420px;
-min-height:320px;
-background:#f1f2f5;
-border-radius:26px;
-text-decoration:none;
-color:inherit;
-overflow:hidden;
-box-shadow:0 6px 18px rgba(0,0,0,0.06);
-border:1px solid #e1e3e9;
-transition: transform .18s ease, box-shadow .18s ease;
+  flex:1 1 420px;
+  min-height:320px;
+  background:#f1f2f5;
+  border-radius:26px;
+  text-decoration:none;
+  color:inherit;
+  overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  border:1px solid #e1e3e9;
+  transition: transform .18s ease, box-shadow .18s ease;
 }
 .big-card:hover{
-transform: translateY(-4px);
-box-shadow:0 14px 28px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+  box-shadow:0 14px 28px rgba(0,0,0,0.12);
 }
+
+/* ✅ НОВОЕ: раскладка "текст слева — картинка справа" */
 .big-card-inner{
-  position: relative;
   padding: 40px 52px;
   height: 100%;
   display:flex;
   align-items:center;
-  justify-content:center;
+  justify-content:space-between;
+  gap:32px;
 }
 
-/* 1) фиксируем зону под картинку */
-.big-card-inner img{
-  width: 100%;
-  height: 260px;          /* подбери: 220–300 */
-  object-fit: contain;    
-  display: block;
+/* Левая часть (текст) */
+.big-card-text{
+  flex: 1;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
 }
-  
-.big-card img{
-max-width:100%;
-height:auto;
-display:block;
+
+.big-card-text .title{
+  font-size:24px;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
 }
-.big-card-caption{
-position:absolute;
-left:52px;
-bottom:8px;
-font-size:24px;
-letter-spacing:0.04em;
-}
-.big-card-caption .title{
-font-size:24px;
-letter-spacing:0.04em;
-text-transform:uppercase;
-}
-.big-card-caption span{ text-transform:uppercase; }
-.big-card-caption .accent{ font-weight:700; }
+.big-card-text span{ text-transform:uppercase; }
+.big-card-text .accent{ font-weight:700; }
+
+/* Hover-блок "в раздел" */
 .go-link{
-margin-top:10px;
-display:flex;
-flex-direction:column;
-gap:6px;
-font-size:14px;
-letter-spacing:0.08em;
-text-transform:uppercase;
-color:#444;
-opacity:0;
-transform: translateY(6px);
-transition: opacity .2s ease, transform .2s ease;
+  margin-top:10px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-size:14px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:#444;
+  opacity:0;
+  transform: translateY(6px);
+  transition: opacity .2s ease, transform .2s ease;
 }
 .go-link .divider{
-width:120px;
-height:1px;
-background:#bbb;
+  width:120px;
+  height:1px;
+  background:#bbb;
 }
 .big-card:hover .go-link{
-opacity:1;
-transform: translateY(0);
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* Правая часть (картинка) */
+.big-card-image{
+  flex: 0 0 45%;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+}
+.big-card-image img{
+  max-width:100%;
+  max-height:260px;    /* подбери: 220–300 */
+  object-fit:contain;
+  display:block;
 }
 
 /* ===== Футер (без дублей и без иконок) ===== */
 footer{
-margin-top:auto;
-background:#fff;
-border-top:1px solid #e1e3e9;
-padding: 22px 18px;
+  margin-top:auto;
+  background:#fff;
+  border-top:1px solid #e1e3e9;
+  padding: 22px 18px;
 }
 .projectInfo{
-display:flex;
-flex-direction:column;
-gap:10px;
-color:#666;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  color:#666;
 }
 .projectInfo a{
-color:#444;
-text-decoration:none;
-border-bottom:1px solid transparent;
-width: fit-content;
+  color:#444;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  width: fit-content;
 }
 .projectInfo a:hover{
-border-bottom-color:#999;
+  border-bottom-color:#999;
 }
 .contentInfo{
-margin-top:14px;
-color:#888;
-font-size:13px;
-margin-top:0;
-text-align:right;
+  margin-top:14px;
+  color:#888;
+  font-size:13px;
+  margin-top:0;
+  text-align:right;
 }
-
 
 /* Обёртка только для позиционирования */
 .search-inline{
@@ -272,132 +277,147 @@ text-align:right;
   box-shadow:0 6px 16px rgba(0,0,0,0.12);
 }
 
-
-
 /* ===== Адаптив ===== */
 @media (max-width: 768px){
-.rst-content{ padding: 20px 16px 24px; }
-.big-card-inner{ padding:28px 24px; }
-.big-card-caption{ left:24px; bottom:28px; font-size:20px; }
-.wy-header-nav-search{ width:100%; margin-left:0; }
-.gen-header{ flex-wrap:wrap; }
-.header-nav-link{ width:100%; }
-.wy-form input[type="text"]{ width: 100%; }
+  .rst-content{ padding: 20px 16px 24px; }
+
+  /* ✅ на мобиле: картинка сверху, текст снизу */
+  .big-card-inner{
+    padding:28px 24px;
+    flex-direction: column-reverse;
+    text-align:center;
+  }
+  .big-card-image{
+    justify-content:center;
+    width:100%;
+  }
+
+  .wy-header-nav-search{ width:100%; margin-left:0; }
+  .gen-header{ flex-wrap:wrap; }
+  .header-nav-link{ width:100%; }
+  .wy-form input[type="text"]{ width: 100%; }
 }
 </style>
 </head>
 
 <body>
-
-
 <div class="page">
 
   <nav class="gen-header">
-<a href="#" class="icon-home">
-<div class="logo">
-<img src="images/logo.svg" alt="SKYRIS" />
-</div>
-</a>
+    <a href="#" class="icon-home">
+      <div class="logo">
+        <img src="images/logo.svg" alt="SKYRIS" />
+      </div>
+    </a>
 
-<div class="nav-link header-nav-link">
-<a href="https://skyris.pro/" target="_blank" rel="noopener"><span>Сайт SKYRIS</span></a>
-<a href="https://t.me/skyris_public" target="_blank" rel="noopener"><span>Новости компании</span></a>
-</div>
+    <div class="nav-link header-nav-link">
+      <a href="https://skyris.pro/" target="_blank" rel="noopener"><span>Сайт SKYRIS</span></a>
+      <a href="https://t.me/skyris_public" target="_blank" rel="noopener"><span>Новости компании</span></a>
+    </div>
 
-<a class="menu-toggle" data-toggle="wy-nav-top"><span class="material-icons">menu</span></a>
+    <a class="menu-toggle" data-toggle="wy-nav-top"><span class="material-icons">menu</span></a>
 
-<div class="wy-header-nav-search">
-<div class="input" role="search">
-   <form id="rtd-search-form" class="wy-form search-inline" action="search.html" method="get">
-     <span class="search-icon" aria-hidden="true">🔍</span>
+    <div class="wy-header-nav-search">
+      <div class="input" role="search">
+        <form id="rtd-search-form" class="wy-form search-inline" action="search.html" method="get">
+          <span class="search-icon" aria-hidden="true">🔍</span>
 
-     <input
-       type="text"
-       name="q"
-       placeholder="Search something..."
-       onfocus="this.placeholder=''"
-       onblur="this.placeholder='Search something...'"
-     >
+          <input
+            type="text"
+            name="q"
+            placeholder="Search something..."
+            onfocus="this.placeholder=''"
+            onblur="this.placeholder='Search something...'"
+          >
 
-     <input type="hidden" name="check_keywords" value="yes">
-     <input type="hidden" name="area" value="default">
-   </form>
+          <input type="hidden" name="check_keywords" value="yes">
+          <input type="hidden" name="area" value="default">
+        </form>
+      </div>
+    </div>
+  </nav>
 
+  <div class="wy-nav-content">
+    <!-- Хлебные крошки (скрыты) -->
+    <div role="navigation" aria-label="Page navigation" style="visibility: hidden;">
+      <ul class="wy-breadcrumbs">
+        <li>
+          <a href="#" aria-label="Home">
+            <span>Главная</span>
+          </a>
+        </li>
+        <li class="bread-diveder"> ➤ </li>
+      </ul>
+    </div>
 
+    <script type="text/javascript">
+      const bcWrapper = document.querySelector("div[aria-label='Page navigation']");
+      if (bcWrapper) bcWrapper.style.visibility = "hidden";
+    </script>
 
-</div>
-</div>
-</nav>
-  
-<div class="wy-nav-content">
-<!-- Хлебные крошки (скрыты) -->
-<div role="navigation" aria-label="Page navigation" style="visibility: hidden;">
-<ul class="wy-breadcrumbs">
-<li>
-<a href="#" aria-label="Home">
-<span>Главная</span>
-</a>
-</li>
-<li class="bread-diveder"> ➤ </li>
-</ul>
-</div>
+    <div class="rst-content">
+      <main>
+        <div class="cards-row">
 
-<script type="text/javascript">
-const bcWrapper = document.querySelector("div[aria-label='Page navigation']");
-if (bcWrapper) bcWrapper.style.visibility = "hidden";
-</script>
+          <!-- Техник 6S -->
+          <a class="big-card" href="technic6S/">
+            <div class="big-card-inner">
 
-<div class="rst-content">
-<main>
-<div class="cards-row">
-<!-- Техник 6S -->
-<a class="big-card" href="technic6S/">
-<div class="big-card-inner">
-<img src="images/technic6S_old.png" alt="Техник 6S">
-<div class="big-card-caption">
-<div class="title">
-<span>Техник </span><span class="accent">6S</span>
-</div>
-<div class="go-link">
-<span class="divider"></span>
-<span class="text">В раздел</span>
-</div>
-</div>
-</div>
-</a>
+              <div class="big-card-text">
+                <div class="title">
+                  <span>Техник </span><span class="accent">6S</span>
+                </div>
+                <div class="go-link">
+                  <span class="divider"></span>
+                  <span class="text">В раздел</span>
+                </div>
+              </div>
 
-<!-- Пилот FPV -->
-<a class="big-card" href="pilotFPV/">
-<div class="big-card-inner">
-<img src="images/pilotfpv_old.png" alt="Пилот FPV">
-<div class="big-card-caption">
-<div class="title">
-<span>Пилот </span><span class="accent">FPV</span>
-</div>
-<div class="go-link">
-<span class="divider"></span>
-<span class="text">В раздел</span>
-</div>
-</div>
-</div>
-</a>
-</div>
-</main>
-</div>
-</div>
+              <div class="big-card-image">
+                <img src="images/technic6S_old.png" alt="Техник 6S">
+              </div>
 
-<footer>
-<div class="projectInfo">
-<span>Обратиться за помощью в техническую поддержку</span>
-<a href="https://t.me/SKYRIS_support" target="_blank" rel="noopener">• telegram @SKYRIS_support</a>
-<a href="mailto:info@skyris.pro">• info@skyris.pro</a>
-</div>
+            </div>
+          </a>
 
-<div role="contentinfo" class="contentInfo">
-ООО «Скайрис» 2025 © Все права защищены
-</div>
-</footer>
-</div>
+          <!-- Пилот FPV -->
+          <a class="big-card" href="pilotFPV/">
+            <div class="big-card-inner">
+
+              <div class="big-card-text">
+                <div class="title">
+                  <span>Пилот </span><span class="accent">FPV</span>
+                </div>
+                <div class="go-link">
+                  <span class="divider"></span>
+                  <span class="text">В раздел</span>
+                </div>
+              </div>
+
+              <div class="big-card-image">
+                <img src="images/pilotfpv_old.png" alt="Пилот FPV">
+              </div>
+
+            </div>
+          </a>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <footer>
+    <div class="projectInfo">
+      <span>Обратиться за помощью в техническую поддержку</span>
+      <a href="https://t.me/SKYRIS_support" target="_blank" rel="noopener">• telegram @SKYRIS_support</a>
+      <a href="mailto:info@skyris.pro">• info@skyris.pro</a>
+    </div>
+
+    <div role="contentinfo" class="contentInfo">
+      ООО «Скайрис» 2025 © Все права защищены
+    </div>
+  </footer>
+
 </div>
 </body>
 </html>
