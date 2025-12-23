@@ -110,8 +110,10 @@
       display:flex;
       flex-direction:column;
     }
-    .wy-nav-content{ width:100%; }
-    .rst-content{ padding: 32px 56px 32px; }
+    .wy-nav-content{ max-width: 1500px; margin: 0 auto;}
+    .rst-content{ padding: 24px 48px; }
+    @media (max-width: 768px) {
+      .rst-content{ padding: 16px; }
 
     /* ===== Карточки ===== */
     .cards-row{
