@@ -110,8 +110,17 @@
       display:flex;
       flex-direction:column;
     }
-    .wy-nav-content{ width:100%; }
-    .rst-content{ padding: 32px 56px 32px; }
+    .wy-nav-content{
+      max-width: 1200px;   /* как у шаблона */
+      margin: 0 auto;      /* центрирование */
+      width: 100%;
+    }
+    .rst-content{
+      padding-left: clamp(16px, 4vw, 56px);
+      padding-right: clamp(16px, 4vw, 56px);
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
 
     /* ===== Карточки ===== */
     .cards-row{
