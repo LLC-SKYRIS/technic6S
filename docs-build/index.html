@@ -224,56 +224,44 @@
       text-align:right;
     }
 
-    /* Обёртка поиска */
-    .search-pill{
-      position: relative;
-      display: flex;
-      align-items: center;
-      width: min(360px, 46vw);
-      background: #fff;
-      border-radius: 999px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-      border: 1px solid rgba(0,0,0,0.06);
-      padding: 6px 14px;
+   /* Форма без плашки вокруг */
+    .search-inline{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      width:min(360px, 46vw);
+      padding:0;                 /* нет контейнерных отступов */
+      background:transparent;    /* нет фона */
+      border:none;               /* нет рамки */
+      box-shadow:none;           /* нет тени */
     }
     
-    /* Поле ввода */
-    .search-pill input{
-      border: none;
-      outline: none;
-      background: transparent;
-      font-size: 15px;
-      width: 100%;
-      padding: 8px 10px;
-      color: #333;
+    /* Иконка внутри области поиска */
+    .search-inline .search-icon{
+      opacity:.55;
+      user-select:none;
+      font-size:16px;
     }
     
-    /* Иконка поиска */
-    .search-icon{
-      font-size: 16px;
-      opacity: 0.55;
-      margin-right: 6px;
-      user-select: none;
+    /* Сам input — “пилюля” */
+    .search-inline input[type="text"]{
+      width:100%;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid #e1e3e9;
+      background:#ffffff;         /* только у инпута */
+      outline:none;
     }
     
-    /* Кнопка очистки */
-    .search-clear{
-      font-size: 14px;
-      opacity: 0.35;
-      cursor: pointer;
-      user-select: none;
-      transition: opacity .15s ease;
+    /* Hover/Focus */
+    .search-inline input[type="text"]:hover{
+      border-color:#d3d7e3;
     }
-    
-    .search-clear:hover{
-      opacity: 0.7;
+    .search-inline input[type="text"]:focus{
+      border-color:#c8ccda;
+      box-shadow:0 6px 16px rgba(0,0,0,0.12);
     }
-    
-    /* Hover / focus эффект */
-    .search-pill:focus-within{
-      box-shadow: 0 8px 22px rgba(0,0,0,0.18);
-      border-color: rgba(0,0,0,0.12);
-    }
+
 
 
     /* ===== Адаптив ===== */
@@ -306,13 +294,14 @@
 
     <div class="wy-header-nav-search">
       <div class="input" role="search">
-        <form id="rtd-search-form" class="wy-form search-pill" action="search.html" method="get">
-          <span class="search-icon">
-            🔍
-          </span>
-          <input type="text" name="q" placeholder="Search something...">
-          <span class="search-clear">✕</span>
+        <form id="rtd-search-form" class="wy-form search-inline" action="search.html" method="get">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input type="text" name="q" placeholder="Search something..."
+                 onfocus="this.placeholder=''" onblur="this.placeholder='Search something...'">
+          <input type="hidden" name="check_keywords" value="yes">
+          <input type="hidden" name="area" value="default">
         </form>
+
 
       </div>
     </div>
