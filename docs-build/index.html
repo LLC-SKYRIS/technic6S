@@ -224,36 +224,36 @@
       text-align:right;
     }
 
-   /* Форма без плашки вокруг */
+       /* Обёртка только для позиционирования */
     .search-inline{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      width:min(360px, 46vw);
-      padding:0;                 /* нет контейнерных отступов */
-      background:transparent;    /* нет фона */
-      border:none;               /* нет рамки */
-      box-shadow:none;           /* нет тени */
+      position: relative;
+      width: min(360px, 46vw);
     }
     
-    /* Иконка внутри области поиска */
-    .search-inline .search-icon{
-      opacity:.55;
-      user-select:none;
-      font-size:16px;
-    }
-    
-    /* Сам input — “пилюля” */
+    /* Сам input */
     .search-inline input[type="text"]{
-      width:100%;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid #e1e3e9;
-      background:#ffffff;         /* только у инпута */
-      outline:none;
+      width: 100%;
+      padding: 10px 14px 10px 40px; /* место под лупу слева */
+      border-radius: 999px;
+      border: 1px solid #e1e3e9;
+      background: #ffffff;
+      outline: none;
+      font-size: 15px;
+      color: #333;
     }
     
-    /* Hover/Focus */
+    /* Лупа внутри */
+    .search-inline .search-icon{
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      opacity: .45;
+      pointer-events: none; /* чтобы не мешала клику */
+    }
+    
+    /* Hover / focus */
     .search-inline input[type="text"]:hover{
       border-color:#d3d7e3;
     }
@@ -294,13 +294,21 @@
 
     <div class="wy-header-nav-search">
       <div class="input" role="search">
-        <form id="rtd-search-form" class="wy-form search-inline" action="search.html" method="get">
+       <form id="rtd-search-form" class="wy-form search-inline" action="search.html" method="get">
           <span class="search-icon" aria-hidden="true">🔍</span>
-          <input type="text" name="q" placeholder="Search something..."
-                 onfocus="this.placeholder=''" onblur="this.placeholder='Search something...'">
+
+          <input
+            type="text"
+            name="q"
+            placeholder="Search something..."
+            onfocus="this.placeholder=''"
+            onblur="this.placeholder='Search something...'"
+          >
+
           <input type="hidden" name="check_keywords" value="yes">
           <input type="hidden" name="area" value="default">
-        </form>
+      </form>
+
 
 
       </div>
