@@ -145,13 +145,22 @@ transform: translateY(-4px);
 box-shadow:0 14px 28px rgba(0,0,0,0.12);
 }
 .big-card-inner{
-position:relative;
-padding:40px 52px;
-height:100%;
-display:flex;
-align-items:center;
-justify-content:center;
+  position: relative;
+  padding: 40px 52px;
+  height: 100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
+
+/* 1) фиксируем зону под картинку */
+.big-card-inner img{
+  width: 100%;
+  height: 260px;          /* подбери: 220–300 */
+  object-fit: contain;    
+  display: block;
+}
+  
 .big-card img{
 max-width:100%;
 height:auto;
