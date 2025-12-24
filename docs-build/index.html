@@ -430,7 +430,15 @@ footer{
 </div>
   
 <script>
-  const SEARCH_HUB_PAGE = "search.html";
+  const HONKIT_BASE = "technic6S";
+  const SEARCH_RESULTS_PAGE = "OrangePi.html";
+
+  function goSearch(q) {
+    q = (q || "").trim();
+    if (!q) return;
+    const base = HONKIT_BASE.replace(/\/+$/, "");
+    window.location.href = `${base}/${SEARCH_RESULTS_PAGE}?q=${encodeURIComponent(q)}`;
+  }
 
   const form = document.getElementById("site-search-form");
   const input = document.getElementById("site-search-input");
@@ -438,21 +446,17 @@ footer{
   if (form && input) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const q = input.value.trim();
-      if (!q) return;
-      window.location.href = `${SEARCH_HUB_PAGE}?q=${encodeURIComponent(q)}`;
+      goSearch(input.value);
     });
-
     input.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
-        const q = input.value.trim();
-        if (!q) return;
-        window.location.href = `${SEARCH_HUB_PAGE}?q=${encodeURIComponent(q)}`;
+        goSearch(input.value);
       }
     });
   }
 </script>
+
 
 
 
