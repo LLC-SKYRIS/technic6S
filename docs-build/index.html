@@ -261,14 +261,11 @@ footer{
 }
 
 /* Лупа внутри */
-.search-inline .search-icon{
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 16px;
-  opacity: .45;
-  pointer-events: none; /* чтобы не мешала клику */
+.search-inline .search-icon img{
+  width:16px;
+  height:16px;
+  display:block;
+  opacity:.45;
 }
 
 /* Hover / focus */
@@ -327,7 +324,9 @@ footer{
     <div class="wy-header-nav-search">
       <div class="input" role="search">
        <form id="site-search-form" class="wy-form search-inline" action="#" method="get" role="search">
-          <span class="search-icon" aria-hidden="true">🔍</span>
+          <span class="search-icon" aria-hidden="true">
+            <img src="images/search.png" alt="">
+          </span>
         
           <input
             id="site-search-input"
