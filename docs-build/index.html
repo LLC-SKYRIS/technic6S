@@ -245,13 +245,13 @@ footer{
 /* Обёртка только для позиционирования */
 .search-inline{
   position: relative;
-  width: min(360px, 46vw);
+  width: min(260px, 40vw);
 }
 
 /* Сам input */
 .search-inline input[type="text"]{
   width: 100%;
-  padding: 10px 140px 10px 40px; /* место под лупу слева */
+  padding: 10px 16px 10px 40px; /* место под лупу слева */
   border-radius: 999px;
   border: 1px solid #e1e3e9;
   background: #ffffff;
@@ -266,10 +266,21 @@ footer{
   left: 14px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
   opacity: .45;
-  pointer-events: none; /* чтобы не мешала клику */
 }
+
+.search-inline .search-icon img{
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
 
 /* Hover / focus */
 .search-inline input[type="text"]:hover{
@@ -327,7 +338,9 @@ footer{
     <div class="wy-header-nav-search">
       <div class="input" role="search">
        <form id="site-search-form" class="wy-form search-inline" action="#" method="get" role="search">
-          <span class="search-icon" aria-hidden="true">🔍</span>
+          <span class="search-icon" aria-hidden="true">
+            <img src="images/search.png" alt="">
+          </span>
         
           <input
             id="site-search-input"
