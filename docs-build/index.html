@@ -326,7 +326,7 @@ footer{
 
     <div class="wy-header-nav-search">
       <div class="input" role="search">
-        <form id="site-search-form" class="wy-form search-inline" action="#" method="get" role="search">
+       <form id="site-search-form" class="wy-form search-inline" action="#" method="get" role="search">
           <span class="search-icon" aria-hidden="true">🔍</span>
         
           <input
@@ -338,17 +338,8 @@ footer{
             onfocus="this.placeholder=''"
             onblur="this.placeholder='Search something...'"
           >
-        
-          <!-- куда искать -->
-          <select id="site-search-scope" aria-label="Search scope"
-                  style="position:absolute; right:10px; top:50%; transform:translateY(-50%);
-                         border:1px solid #e1e3e9; border-radius:999px; padding:6px 10px;
-                         background:#fff; font-size:13px; opacity:.9;">
-            <option value="all">Везде</option>
-            <option value="technic6S">Technic 6S</option>
-            <option value="pilotFPV">Pilot FPV</option>
-          </select>
         </form>
+
 
 
       </div>
@@ -439,36 +430,30 @@ footer{
 </div>
   
 <script>
-  const BOOKS = {
-    technic6S: { base: "technic6S", page: "OrangePi.html" },  // любая существующая страница внутри книги
-    pilotFPV:  { base: "pilotFPV",  page: "index.html" }      // <-- поменяйте на реальную страницу PilotFPV
-  };
+  /**
+   * Страницы HonKit, на которых гарантированно работает поиск.
+   * Укажите реальные существующие страницы в каждой книге.
+   */
+  const BOOKS = [
+    { base: "technic6S", page: "OrangePi.html" },
+    { base: "pilotFPV",  page: "index.html" } // ← замените, если у вас другое имя
+  ];
 
-  function urlFor(bookKey, q) {
-    const b = BOOKS[bookKey];
-    const base = b.base.replace(/\/+$/, "");
-    return `${base}/${b.page}?q=${encodeURIComponent(q)}`;
-  }
-
-  function goSearch(q) {
+  function searchEverywhere(q) {
     q = (q || "").trim();
     if (!q) return;
 
-    const scope = document.getElementById("site-search-scope")?.value || "all";
+    BOOKS.forEach((book, i) => {
+      const base = book.base.replace(/\/+$/, "");
+      const url = `${base}/${book.page}?q=${encodeURIComponent(q)}`;
 
-    if (scope === "technic6S") {
-      window.location.href = urlFor("technic6S", q);
-      return;
-    }
-
-    if (scope === "pilotFPV") {
-      window.location.href = urlFor("pilotFPV", q);
-      return;
-    }
-
-    // scope === "all": откроем две вкладки, чтобы реально искать в обеих книгах
-    window.open(urlFor("technic6S", q), "_blank", "noopener");
-    window.location.href = urlFor("pilotFPV", q);
+      // первую книгу открываем в этой вкладке, вторую — в новой
+      if (i === 0) {
+        window.location.href = url;
+      } else {
+        window.open(url, "_blank", "noopener");
+      }
+    });
   }
 
   const form = document.getElementById("site-search-form");
@@ -477,17 +462,18 @@ footer{
   if (form && input) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      goSearch(input.value);
+      searchEverywhere(input.value);
     });
 
     input.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
-        goSearch(input.value);
+        searchEverywhere(input.value);
       }
     });
   }
 </script>
+
 
 
 
