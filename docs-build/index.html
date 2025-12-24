@@ -251,7 +251,7 @@ footer{
 /* Сам input */
 .search-inline input[type="text"]{
   width: 100%;
-  padding: 10px 14px 10px 40px; /* место под лупу слева */
+  padding: 10px 140px 10px 40px; /* место под лупу слева */
   border-radius: 999px;
   border: 1px solid #e1e3e9;
   background: #ffffff;
@@ -338,7 +338,18 @@ footer{
             onfocus="this.placeholder=''"
             onblur="this.placeholder='Search something...'"
           >
+        
+          <!-- куда искать -->
+          <select id="site-search-scope" aria-label="Search scope"
+                  style="position:absolute; right:10px; top:50%; transform:translateY(-50%);
+                         border:1px solid #e1e3e9; border-radius:999px; padding:6px 10px;
+                         background:#fff; font-size:13px; opacity:.9;">
+            <option value="all">Везде</option>
+            <option value="technic6S">Technic 6S</option>
+            <option value="pilotFPV">Pilot FPV</option>
+          </select>
         </form>
+
 
       </div>
     </div>
@@ -428,14 +439,36 @@ footer{
 </div>
   
 <script>
-  const HONKIT_BASE = "technic6S";
-  const SEARCH_RESULTS_PAGE = "OrangePi.html";
+  const BOOKS = {
+    technic6S: { base: "technic6S", page: "OrangePi.html" },  // любая существующая страница внутри книги
+    pilotFPV:  { base: "pilotFPV",  page: "index.html" }      // <-- поменяйте на реальную страницу PilotFPV
+  };
+
+  function urlFor(bookKey, q) {
+    const b = BOOKS[bookKey];
+    const base = b.base.replace(/\/+$/, "");
+    return `${base}/${b.page}?q=${encodeURIComponent(q)}`;
+  }
 
   function goSearch(q) {
     q = (q || "").trim();
     if (!q) return;
-    const base = HONKIT_BASE.replace(/\/+$/, "");
-    window.location.href = `${base}/${SEARCH_RESULTS_PAGE}?q=${encodeURIComponent(q)}`;
+
+    const scope = document.getElementById("site-search-scope")?.value || "all";
+
+    if (scope === "technic6S") {
+      window.location.href = urlFor("technic6S", q);
+      return;
+    }
+
+    if (scope === "pilotFPV") {
+      window.location.href = urlFor("pilotFPV", q);
+      return;
+    }
+
+    // scope === "all": откроем две вкладки, чтобы реально искать в обеих книгах
+    window.open(urlFor("technic6S", q), "_blank", "noopener");
+    window.location.href = urlFor("pilotFPV", q);
   }
 
   const form = document.getElementById("site-search-form");
@@ -446,6 +479,7 @@ footer{
       e.preventDefault();
       goSearch(input.value);
     });
+
     input.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
@@ -454,6 +488,7 @@ footer{
     });
   }
 </script>
+
 
 
 </body>
