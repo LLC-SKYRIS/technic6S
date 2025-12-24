@@ -261,12 +261,26 @@ footer{
 }
 
 /* Лупа внутри */
-.search-inline .search-icon img{
-  width:16px;
-  height:16px;
-  display:block;
-  opacity:.45;
+.search-inline .search-icon{
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: .45;
 }
+
+.search-inline .search-icon img{
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
 
 /* Hover / focus */
 .search-inline input[type="text"]:hover{
