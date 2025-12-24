@@ -430,31 +430,7 @@ footer{
 </div>
   
 <script>
-  /**
-   * Страницы HonKit, на которых гарантированно работает поиск.
-   * Укажите реальные существующие страницы в каждой книге.
-   */
-  const BOOKS = [
-    { base: "technic6S", page: "OrangePi.html" },
-    { base: "pilotFPV",  page: "index.html" } // ← замените, если у вас другое имя
-  ];
-
-  function searchEverywhere(q) {
-    q = (q || "").trim();
-    if (!q) return;
-
-    BOOKS.forEach((book, i) => {
-      const base = book.base.replace(/\/+$/, "");
-      const url = `${base}/${book.page}?q=${encodeURIComponent(q)}`;
-
-      // первую книгу открываем в этой вкладке, вторую — в новой
-      if (i === 0) {
-        window.location.href = url;
-      } else {
-        window.open(url, "_blank", "noopener");
-      }
-    });
-  }
+  const SEARCH_HUB_PAGE = "search.html";
 
   const form = document.getElementById("site-search-form");
   const input = document.getElementById("site-search-input");
@@ -462,13 +438,17 @@ footer{
   if (form && input) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      searchEverywhere(input.value);
+      const q = input.value.trim();
+      if (!q) return;
+      window.location.href = `${SEARCH_HUB_PAGE}?q=${encodeURIComponent(q)}`;
     });
 
     input.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
-        searchEverywhere(input.value);
+        const q = input.value.trim();
+        if (!q) return;
+        window.location.href = `${SEARCH_HUB_PAGE}?q=${encodeURIComponent(q)}`;
       }
     });
   }
