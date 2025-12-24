@@ -300,6 +300,11 @@ footer{
   .wy-form input[type="text"]{ width: 100%; }
 }
 </style>
+
+  <!-- HonKit styles for search -->
+<link rel="stylesheet" href="gitbook/style.css">
+<link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+
 </head>
 
 <body>
@@ -321,20 +326,20 @@ footer{
 
     <div class="wy-header-nav-search">
       <div class="input" role="search">
-        <form id="rtd-search-form" class="wy-form search-inline" action="search.html" method="get">
+        <form id="site-search-form" class="wy-form search-inline" action="#" method="get" role="search">
           <span class="search-icon" aria-hidden="true">🔍</span>
-
+        
           <input
+            id="site-search-input"
             type="text"
             name="q"
             placeholder="Search something..."
+            autocomplete="off"
             onfocus="this.placeholder=''"
             onblur="this.placeholder='Search something...'"
           >
-
-          <input type="hidden" name="check_keywords" value="yes">
-          <input type="hidden" name="area" value="default">
         </form>
+
       </div>
     </div>
   </nav>
@@ -421,5 +426,35 @@ footer{
   </footer>
 
 </div>
+  
+<script>
+  const HONKIT_BASE = "technic6S";
+  const SEARCH_RESULTS_PAGE = "OrangePi.html";
+
+  function goSearch(q) {
+    q = (q || "").trim();
+    if (!q) return;
+    const base = HONKIT_BASE.replace(/\/+$/, "");
+    window.location.href = `${base}/${SEARCH_RESULTS_PAGE}?q=${encodeURIComponent(q)}`;
+  }
+
+  const form = document.getElementById("site-search-form");
+  const input = document.getElementById("site-search-input");
+
+  if (form && input) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      goSearch(input.value);
+    });
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        goSearch(input.value);
+      }
+    });
+  }
+</script>
+
+
 </body>
 </html>
