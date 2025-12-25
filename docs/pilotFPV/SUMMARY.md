@@ -1,8 +1,6 @@
 # Summary
 
-* <a href="javascript:void(0)" onclick="window.location.assign('https://llc-skyris.github.io/technic6S/')">
-  ← Вернуться на главную
-</a>
+* <a href="/technic6S/index.html">← Вернуться на главную</a>
 * [Главная](README.md)
 * [Введение](Введение.md)
 * [Сборка](Сборка.md)
