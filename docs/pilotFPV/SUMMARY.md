@@ -1,6 +1,6 @@
 # Summary
 
-* <a href="https://llc-skyris.github.io/technic6S/index.html" onclick="location.href=this.href; return false;">
+* <a href="javascript:void(0)" onclick="window.location.assign('https://llc-skyris.github.io/technic6S/')">
   ← Вернуться на главную
 </a>
 * [Главная](README.md)
