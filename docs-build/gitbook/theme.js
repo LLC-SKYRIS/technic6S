@@ -59,3 +59,13 @@
   stripBlankTarget(document);
 })();
 
+// --- Final fallback: block window.open to force same-tab navigation
+(function () {
+  var _open = window.open;
+  window.open = function (url) {
+    window.location.href = url;
+    return null;
+  };
+})();
+
+
