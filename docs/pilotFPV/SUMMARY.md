@@ -1,6 +1,6 @@
 # Summary
 
-* <a href="http://llc-skyris.github.io/technic6S/">← Вернуться на главную</a>
+* [← Вернуться на главную](README.md)
 * [Главная](README.md)
 * [Введение](Введение.md)
 * [Сборка](Сборка.md)
