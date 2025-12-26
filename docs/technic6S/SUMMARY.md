@@ -1,6 +1,6 @@
 # Summary
 
-* <a class="home-link" href="https://llc-skyris.github.io/technic6S/">← Вернуться на главную</a>
+* <a href="https://llc-skyris.github.io/technic6S/">← Вернуться на главную</a>
 * [Main](README.md)
 ---
 * [Работа с OrangePi 5 Pro](OrangePi.md)
