@@ -18,23 +18,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Use Node.js (например 18 LTS)
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.18.1'
+          node-version: "20"
+          cache: "npm"
 
-      - name: Install Honkit
-        run: |
-          npm install -g honkit
-          honkit --version
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build Honkit books
         run: |
           mkdir -p docs-build
+          npx honkit --version
 
-          # собрать обе книги в подпапки
-          honkit build docs/technic6S docs-build/technic6S
-          honkit build docs/pilotFPV  docs-build/pilotFPV
+          npx honkit build docs/technic6S docs-build/technic6S
+          npx honkit build docs/pilotFPV  docs-build/pilotFPV
 
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
