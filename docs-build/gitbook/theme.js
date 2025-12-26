@@ -31,3 +31,25 @@
 })();
 
 
+(function () {
+  const HOME = "https://llc-skyris.github.io/technic6S/";
+
+  function fix() {
+    document.querySelectorAll('a[href="' + HOME + '"]').forEach(a => {
+      a.removeAttribute("target");
+      a.removeAttribute("rel");
+    });
+  }
+
+  // сразу
+  fix();
+
+  // при смене страниц (HonKit/GitBook SPA)
+  if (typeof gitbook !== "undefined" && gitbook.events && gitbook.events.bind) {
+    gitbook.events.bind("page.change", fix);
+  } else {
+    // fallback
+    document.addEventListener("click", fix, true);
+  }
+})();
+
