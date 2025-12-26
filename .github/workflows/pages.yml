@@ -27,6 +27,38 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Patch honkit-plugin-add-js (mkdir before write)
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+
+          const p = path.join(process.cwd(), 'node_modules', 'honkit-plugin-add-js', 'index.js');
+          let s = fs.readFileSync(p, 'utf8');
+
+          // Добавляем mkdirSync перед writeFileSync, если ещё не добавлено
+          if (!s.includes('fs.mkdirSync(path.dirname')) {
+            s = s.replace(
+              /fs\.writeFileSync\(([^,]+),/g,
+              "fs.mkdirSync(path.dirname($1), { recursive: true });\n    fs.writeFileSync($1,"
+            );
+
+            // Убедимся что path импортирован
+            if (!s.includes("const path = require('path')") && !s.includes('var path = require')) {
+              s = s.replace(
+                /const fs = require\('fs'\);\n/,
+                "const fs = require('fs');\nconst path = require('path');\n"
+              );
+            }
+
+            fs.writeFileSync(p, s, 'utf8');
+            console.log('Patched:', p);
+          } else {
+            console.log('Already patched:', p);
+          }
+          NODE
+
+
       - name: Build Honkit books
         run: |
           mkdir -p docs-build
