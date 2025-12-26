@@ -74,6 +74,6 @@ dist = rospy.wait_for_message('rangefinder/range', Range).range
 
 Для визуализации данных может быть использован rviz. Для этого необходимо добавить топик типа `sensor_msgs/Range` в визуализацию:
 
-<img src="../../../assets/rviz-range.png" width="400" class="center zoom">
+<img src="assets/rviz-range.png" width="400" class="center zoom">
 
 См. [подробнее об rviz и rqt](Rviz.md).

@@ -51,13 +51,13 @@
 * ось **<font color=green>y</font>** указывает кверху маркера;
 * ось **<font color=blue>z</font>** указывает от плоскости маркера.
 
-<img src="../../../assets/aruco-axis.png" width="300">
+<img src="assets/aruco-axis.png" width="300">
 
 ## Работа с распознанными маркерами
 
 Наглядно распознанные маркеры можно видеть в топике `aruco_detect/debug`. Просмотреть его можно с помощью [`rqt_image_view`](Rviz.md) или через [web_video_server](Cameramages.md) по ссылке http://10.42.0.1:8080/snapshot?topic=/aruco_pose/debug:
 
-<img src="../../../assets/aruco_detect_debug.png" width=200>
+<img src="assets/aruco_detect_debug.png" width=200>
 
 
 Распознанные маркеры и их позиции публикуются в топик `aruco_detect/markers`. Чтение топика из Bash:
