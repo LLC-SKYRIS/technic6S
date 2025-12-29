@@ -4,10 +4,7 @@ module.exports = {
     "add-js": {
       js: ["./assets/home-link.js"]
     }
-  }
-};
-
-module.exports = {
+  },
   styles: {
     website: "styles/website.css"
   }
