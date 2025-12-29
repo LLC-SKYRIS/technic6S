@@ -4,7 +4,7 @@
 
 > **Hint** Для доступа по SSH из Windows можно использовать [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) или веб-доступ (см. далее). Также можно получить доступ по SSH со смартфона с помощью приложения [Termius](https://www.termius.com).
 
-В GNU/Linux или macOS необходимо запустить Терминал и выполнить команду:
+В GNU/Linux или macOS необходимо запустить Терминал и выполнить команду
 
 ```bash
 ssh orangepi@10.42.0.1
