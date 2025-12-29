@@ -9,7 +9,7 @@
 
 Для использования rviz и rqt необходим компьютер с ОС Ubuntu Linux (либо виртуальная машина, например [Parallels Desktop Lite](https://itunes.apple.com/ru/app/parallels-desktop-lite/id1085114709?mt=12) или [VirtualBox](https://www.virtualbox.org)).
 
-> **Hint** Вы можете можете использовать готовый [образ виртуальной машины](SimulationVm.md) с инструментами для Техника.
+> **Подсказка** Вы можете можете использовать готовый [образ виртуальной машины](SimulationVm.md) с инструментами для Техника.
 
 На него необходимо установить пакет `ros-noetic-desktop-full` или `ros-noetic-desktop`, используя [документацию по установке](http://wiki.ros.org/noetic/Installation/Ubuntu).
 
@@ -22,7 +22,7 @@
 ROS_MASTER_URI=http://10.42.0.1:11311 rviz
 ```
 
-> **Note** В случае использования виртуальной машины для использования rviz и других инструментов может быть необходимо поменять ее сетевую конфигурацию на режим *bridge* ([см. подробности для VMware](https://docs.vmware.com/en/VMware-Workstation-Player-for-Windows/16.0/com.vmware.player.win.using.doc/GUID-826323AD-D014-475D-8909-DFA73B5A3A57.html)).
+> **Заметки** В случае использования виртуальной машины для использования rviz и других инструментов может быть необходимо поменять ее сетевую конфигурацию на режим *bridge* ([см. подробности для VMware](https://docs.vmware.com/en/VMware-Workstation-Player-for-Windows/16.0/com.vmware.player.win.using.doc/GUID-826323AD-D014-475D-8909-DFA73B5A3A57.html)).
 
 Использование rviz
 ---

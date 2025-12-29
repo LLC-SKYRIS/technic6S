@@ -940,7 +940,7 @@ image_sub = rospy.Subscriber(<span class="hljs-string">'main_camera/image_raw'</
 rospy.spin()
 </code></pre>
 <blockquote>
-<p><strong>Note</strong> Обработка изображения может занимать значительное время. Это может вызвать <a href="https://github.com/ros/ros_comm/issues/1901" target="_blank">проблему</a> в библиотеке rospy, которая приведет к обработке устаревших кадров с камеры. Для решения этой проблемы необходимо использовать декоратор <code>long_callback</code> из библиотеки <code>technic</code>, как в примере выше.</p>
+<p><strong>Заметки</strong> Обработка изображения может занимать значительное время. Это может вызвать <a href="https://github.com/ros/ros_comm/issues/1901" target="_blank">проблему</a> в библиотеке rospy, которая приведет к обработке устаревших кадров с камеры. Для решения этой проблемы необходимо использовать декоратор <code>long_callback</code> из библиотеки <code>technic</code>, как в примере выше.</p>
 </blockquote>
 <h4 id="ограничение-использования-cpu">Ограничение использования CPU</h4>
 <p>При использовании топика <code>main_camera/image_raw</code> скрипт будет обрабатывать максимальное количество кадров с камеры, активно используя CPU (вплоть до 100%). В задачах, где обработка каждого кадра не критична, можно использовать топик, где кадры публикуются с частотой 5 Гц: <code>main_camera/image_raw_throttled</code>:</p>
@@ -971,7 +971,7 @@ img = bridge.imgmsg_to_cv2(rospy.wait_for_message(<span class="hljs-string">'mai
 <h3 id="примеры">Примеры</h3>
 <h4 id="работа-с-qr-кодами">Работа с QR-кодами</h4>
 <blockquote>
-<p><strong>Hint</strong> Для высокоскоростного распознавания и позиционирования лучше использовать <a href="ArucoMarker.html">ArUco-маркеры</a>.</p>
+<p><strong>Подсказка</strong> Для высокоскоростного распознавания и позиционирования лучше использовать <a href="ArucoMarker.html">ArUco-маркеры</a>.</p>
 </blockquote>
 <p>Для программирования различных действий коптера при детектировании нужных <a href="https://ru.wikipedia.org/wiki/QR-код" target="_blank">QR-кодов</a> можно использовать библиотеку <a href="https://pypi.org/project/pyzbar/" target="_blank">pyZBar</a>. Она уже установлена в последнем образе для Orange Pi.
 Распознавание QR-кодов на Python:</p>
@@ -1002,7 +1002,7 @@ image_sub = rospy.Subscriber(<span class="hljs-string">'main_camera/image_raw_th
 rospy.spin()
 </code></pre>
 <blockquote>
-<p><strong>Hint</strong> Смотрите другие примеры по работе с компьютерным зрением в каталоге <code>~/examples</code> <a href="ImageOPI.html">образа для OPI</a>.</p>
+<p><strong>Подсказка</strong> Смотрите другие примеры по работе с компьютерным зрением в каталоге <code>~/examples</code> <a href="ImageOPI.html">образа для OPI</a>.</p>
 </blockquote>
 <h2 id="запись-видео">Запись видео</h2>
 <p>Для записи видео может использована нода <a href="http://wiki.ros.org/image_view#image_view.2Fdiamondback.video_recorder" target="_blank"><code>video_recorder</code></a> из пакета <code>image_view</code>:</p>
@@ -1052,7 +1052,7 @@ rospy.spin()
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Компьютерное зрение","level":"4.1.9","depth":2,"next":{"title":"Нейронные сети (CNN)","level":"4.1.10","depth":2,"path":"CNN.md","ref":"CNN.md","articles":[]},"previous":{"title":"MAVROS","level":"4.1.8","depth":2,"path":"MAVROS.md","ref":"MAVROS.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"ComputerVision.md","mtime":"2025-12-16T12:35:48.710Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-29T09:45:56.725Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Компьютерное зрение","level":"4.1.9","depth":2,"next":{"title":"Нейронные сети (CNN)","level":"4.1.10","depth":2,"path":"CNN.md","ref":"CNN.md","articles":[]},"previous":{"title":"MAVROS","level":"4.1.8","depth":2,"path":"MAVROS.md","ref":"MAVROS.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"ComputerVision.md","mtime":"2025-12-29T09:58:58.148Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-29T10:04:43.320Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

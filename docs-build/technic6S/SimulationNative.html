@@ -934,8 +934,8 @@ rosdep install --from-paths src --ignore-src -y
 <span class="hljs-built_in">ln</span> -s ~/PX4-Autopilot/mavlink ~/technic_ws/src/
 </code></pre>
 <blockquote>
-<p><strong>Hint</strong> Симулятор пока не поддерживает более поздние версии PX4, и при их использовании могут возникнуть ошибки.</p>
-<p><strong>Note</strong> Если процесс клонирования завершится с ошибкой сети (<code>fatal: fetch-pack: invalid index-pack output</code>), используйте версию HTTP 1.1 <code>git config --global http.version HTTP/1.1</code> (после клонирования верните 2 версию командой <code>git config --global http.version HTTP/2</code>). Альтернативным решением будет принудительное клонирование репозитория и субмодулей через SSH командой <code>git config --global url."git@github.com:".insteadOf https://github.com/</code> (требует генерации и установки SSH ключа в настройках профиля GitHub).</p>
+<p><strong>Подсказка</strong> Симулятор пока не поддерживает более поздние версии PX4, и при их использовании могут возникнуть ошибки.</p>
+<p><strong>Заметки</strong> Если процесс клонирования завершится с ошибкой сети (<code>fatal: fetch-pack: invalid index-pack output</code>), используйте версию HTTP 1.1 <code>git config --global http.version HTTP/1.1</code> (после клонирования верните 2 версию командой <code>git config --global http.version HTTP/2</code>). Альтернативным решением будет принудительное клонирование репозитория и субмодулей через SSH командой <code>git config --global url."git@github.com:".insteadOf https://github.com/</code> (требует генерации и установки SSH ключа в настройках профиля GitHub).</p>
 </blockquote>
 <h2 id="установка-зависимостей-px4">Установка зависимостей PX4</h2>
 <p>PX4 имеет свой собственный скрипт для установки зависимостей. Воспользуемся им:</p>
@@ -944,7 +944,7 @@ rosdep install --from-paths src --ignore-src -y
 </code></pre>
 <p>Он установит все, что нужно для сборки PX4 и SITL.</p>
 <blockquote>
-<p><strong>Hint</strong> Также вы можете пропустить установку ARM тулчейна, если вы не планируете компилировать PX4 для вашего полетного контроллера. Для этого воспользуйтесь флагом <code>--no-nuttx</code>: <code>sudo ./ubuntu.sh --no-nuttx</code>.</p>
+<p><strong>Подсказка</strong> Также вы можете пропустить установку ARM тулчейна, если вы не планируете компилировать PX4 для вашего полетного контроллера. Для этого воспользуйтесь флагом <code>--no-nuttx</code>: <code>sudo ./ubuntu.sh --no-nuttx</code>.</p>
 </blockquote>
 <p>Установите дополнительные необходимые Python-пакеты:</p>
 <pre><code class="lang-bash">pip3 install --user toml
@@ -963,7 +963,7 @@ rosdep install --from-paths src --ignore-src -y
 catkin_make -j1
 </code></pre>
 <blockquote>
-<p><strong>Note</strong> Флаг <code>-j1</code> означает, что сборка не будет использовать параллельные процессы, так как при сборке с параллельными процессами на виртуальной машине может не хватить оперативной памяти. Если у вас достаточно памяти, вы можете не использовать этот флаг.</p>
+<p><strong>Заметки</strong> Флаг <code>-j1</code> означает, что сборка не будет использовать параллельные процессы, так как при сборке с параллельными процессами на виртуальной машине может не хватить оперативной памяти. Если у вас достаточно памяти, вы можете не использовать этот флаг.</p>
 </blockquote>
 <h2 id="запуск-симулятора">Запуск симулятора</h2>
 <p>Чтобы удостовериться в том, что все было собрано корректно, попробуйте запустить симулятор:</p>
@@ -1037,7 +1037,7 @@ sed <span class="hljs-string">"s/pi/<span class="hljs-variable">$USER</span>/g"<
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Сборка на собственной машине","level":"6.1.1","depth":2,"next":{"title":"Установка виртуальной машины","level":"6.1.2","depth":2,"path":"SimulationVM.md","ref":"SimulationVM.md","articles":[]},"previous":{"title":"Симулятор","level":"6.1","depth":1,"path":"Simulator.md","ref":"Simulator.md","articles":[{"title":"Сборка на собственной машине","level":"6.1.1","depth":2,"path":"SimulationNative.md","ref":"SimulationNative.md","articles":[]},{"title":"Установка виртуальной машины","level":"6.1.2","depth":2,"path":"SimulationVM.md","ref":"SimulationVM.md","articles":[]},{"title":"Симулятор на компьютерах с чипом M1","level":"6.1.3","depth":2,"path":"SimulationM1.md","ref":"SimulationM1.md","articles":[]},{"title":"Rviz и RQT","level":"6.1.4","depth":2,"path":"Rviz.md","ref":"Rviz.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"SimulationNative.md","mtime":"2025-12-16T08:05:36.193Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-29T09:45:56.725Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Сборка на собственной машине","level":"6.1.1","depth":2,"next":{"title":"Установка виртуальной машины","level":"6.1.2","depth":2,"path":"SimulationVM.md","ref":"SimulationVM.md","articles":[]},"previous":{"title":"Симулятор","level":"6.1","depth":1,"path":"Simulator.md","ref":"Simulator.md","articles":[{"title":"Сборка на собственной машине","level":"6.1.1","depth":2,"path":"SimulationNative.md","ref":"SimulationNative.md","articles":[]},{"title":"Установка виртуальной машины","level":"6.1.2","depth":2,"path":"SimulationVM.md","ref":"SimulationVM.md","articles":[]},{"title":"Симулятор на компьютерах с чипом M1","level":"6.1.3","depth":2,"path":"SimulationM1.md","ref":"SimulationM1.md","articles":[]},{"title":"Rviz и RQT","level":"6.1.4","depth":2,"path":"Rviz.md","ref":"Rviz.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"SimulationNative.md","mtime":"2025-12-29T10:02:33.253Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-29T10:04:43.320Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

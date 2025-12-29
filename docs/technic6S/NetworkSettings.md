@@ -10,7 +10,7 @@ sudo nano /etc/hostapd/hostapd.conf
 2. Для изменения имени Wi-Fi точки доступа поменяйте значение параметра **ssid**
 3. Для изменения пароля Wi-Fi поменяйте значение параметра **wpa_passphrase**
 
-> **Hint** По умолчанию имя точки: technic-xxxx, пароль: technicwifi
+> **Подсказка** По умолчанию имя точки: technic-xxxx, пароль: technicwifi
 
 4.  После внесенных изменений, нажмите Ctrl+X, затем Y и Enter
 5. Перезапустите OrangePi 5 Pro

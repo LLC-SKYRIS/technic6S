@@ -13,9 +13,9 @@
 
 Подключите HC-SR04 к OPi согласно схеме подключения. Используйте резисторы на 1,0 и 2,2 кОм и любые свободные GPIO-пины, например 23 и 24:
 
-> **Hint** Вместо резистора на 2,2 кОм можно использовать два резистора на 1 кОм, соединенные последовательно.
+> **Подсказка** Вместо резистора на 2,2 кОм можно использовать два резистора на 1 кОм, соединенные последовательно.
 
-> **Hint** На OPi есть несколько взаимозаменяемых пинов **GND** и **VCC 5V**. Используйте [распиновку](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html), чтобы найти их.
+> **Подсказка** На OPi есть несколько взаимозаменяемых пинов **GND** и **VCC 5V**. Используйте [распиновку](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html), чтобы найти их.
 
 ### Чтение данных
 
@@ -40,7 +40,7 @@ import pigpio
 pi = pigpio.pi()
 ```
 
-> **Hint** См. подробное описание Python API в [документации `pigpio`](http://abyz.me.uk/rpi/pigpio/python.html).
+> **Подсказка** См. подробное описание Python API в [документации `pigpio`](http://abyz.me.uk/rpi/pigpio/python.html).
 
 Пример кода для чтения данных с HC-SR04:
 
