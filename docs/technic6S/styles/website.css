@@ -1,12 +1,18 @@
-/* INFO block */
-blockquote {
-  border-left: 4px solid #3498db;
-  background: #f3f9ff;
-  padding: 12px 16px;
-  margin: 16px 0;
+/* Общий стиль blockquote */
+.markdown-section blockquote {
+  border-left: 4px solid #ccc;
+  padding: 10px 16px;
+  background: #f9f9f9;
 }
 
-blockquote > p > strong:first-child {
-  color: #1d6fdc;
+/* Синий Hint */
+.markdown-section blockquote strong:first-child {
+  color: #1e88e5;
+}
+
+/* Если начинается с "Hint" */
+.markdown-section blockquote {
+  border-left-color: #1e88e5;
+  background: #e3f2fd;
 }
 
