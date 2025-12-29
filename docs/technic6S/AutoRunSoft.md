@@ -1,7 +1,7 @@
 # Автозапуск ПО
 ## systemd
 
-> 💡 **Hint** Основная документация: https://wiki.archlinux.org/index.php/Systemd_(Русский).
+> 💡 **Подсказка** Основная документация: https://wiki.archlinux.org/index.php/Systemd_(Русский).
 
 Все автоматически стартуемое ПО Technic запускается в виде systemd-сервиса `technic.service`.
 
@@ -32,7 +32,7 @@ sudo systemctl disable technic
 
 ## roslaunch
 
-> **Hint** Основная документация: http://wiki.ros.org/roslaunch.
+> **Подсказка** Основная документация: http://wiki.ros.org/roslaunch.
 
 Список объявленных для запуска нод / программ указывается в файле `/home/orangepi/technic_ws/src/technic/technic/launch/technic.launch`
 

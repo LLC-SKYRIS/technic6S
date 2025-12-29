@@ -897,12 +897,12 @@
 <p>На <a href="ImageOPI.html">образе для OPi</a> предустановлен соответствующий ROS-драйвер.</p>
 <h3 id="подключение-к-opi">Подключение к OPi</h3>
 <blockquote>
-<p><strong>Hint</strong> Перед включением дальномера необходимо снять с него защитную пленку.</p>
+<p><strong>Подсказка</strong> Перед включением дальномера необходимо снять с него защитную пленку.</p>
 </blockquote>
 <p>Подключите дальномер по интерфейсу I²C к пинам 3V, GND, SCL и SDA:</p>
 <p>Если обозначенный пин GND занят, можно использовать другой свободный, используя <a href="http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html" target="_blank">распиновку</a>.</p>
 <blockquote>
-<p><strong>Hint</strong> По интерфейсу I²C возможно подключать несколько периферийных устройств одновременно. Используйте для этого параллельное подключение.</p>
+<p><strong>Подсказка</strong> По интерфейсу I²C возможно подключать несколько периферийных устройств одновременно. Используйте для этого параллельное подключение.</p>
 </blockquote>
 <h3 id="включение">Включение</h3>
 <p><a href="SSH.html">Подключитесь по SSH</a> и отредактируйте файл <code>~/technic_ws/src/technic/technic/launch/technic.launch</code> так, чтобы драйвер VL53L1X был включен:</p>
@@ -913,7 +913,7 @@
 </code></pre>
 <h3 id="настройки-px4">Настройки PX4</h3>
 <blockquote>
-<p><strong>Hint</strong> Для корректной работы лазерного дальномера с полетным контроллером рекомендуется использование <a href="firmware.md#прошивка-для-клеверa">специальной сборки PX4 для Technic</a>.</p>
+<p><strong>Подсказка</strong> Для корректной работы лазерного дальномера с полетным контроллером рекомендуется использование <a href="firmware.md#прошивка-для-клеверa">специальной сборки PX4 для Technic</a>.</p>
 </blockquote>
 <p>Для использования данных с дальномера в <a href="Parameters.html">PX4 должен быть сконфигурирован</a>.</p>
 <p>При использовании EKF2 (<code>SYS_MC_EST_GROUP</code> = <code>ekf2</code>):</p>
@@ -991,7 +991,7 @@ dist = rospy.wait_for_message(<span class="hljs-string">'rangefinder/range'</spa
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Лазерный дальномер","level":"5.1.5","depth":2,"next":{"title":"Ультразвуковой дальномер","level":"5.1.6","depth":2,"path":"UltrasonicRangefinder.md","ref":"UltrasonicRangefinder.md","articles":[]},"previous":{"title":"Навигация по картам ArUco-маркеров","level":"5.1.4","depth":2,"path":"ArucoMap.md","ref":"ArucoMap.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"LaserRangefinder.md","mtime":"2025-12-26T13:21:11.797Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-29T09:45:56.725Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Лазерный дальномер","level":"5.1.5","depth":2,"next":{"title":"Ультразвуковой дальномер","level":"5.1.6","depth":2,"path":"UltrasonicRangefinder.md","ref":"UltrasonicRangefinder.md","articles":[]},"previous":{"title":"Навигация по картам ArUco-маркеров","level":"5.1.4","depth":2,"path":"ArucoMap.md","ref":"ArucoMap.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"LaserRangefinder.md","mtime":"2025-12-29T09:59:54.023Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-29T10:04:43.320Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

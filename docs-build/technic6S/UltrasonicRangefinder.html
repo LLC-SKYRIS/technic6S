@@ -900,8 +900,8 @@
 <h3 id="подключение">Подключение</h3>
 <p>Подключите HC-SR04 к OPi согласно схеме подключения. Используйте резисторы на 1,0 и 2,2 кОм и любые свободные GPIO-пины, например 23 и 24:</p>
 <blockquote>
-<p><strong>Hint</strong> Вместо резистора на 2,2 кОм можно использовать два резистора на 1 кОм, соединенные последовательно.</p>
-<p><strong>Hint</strong> На OPi есть несколько взаимозаменяемых пинов <strong>GND</strong> и <strong>VCC 5V</strong>. Используйте <a href="http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html" target="_blank">распиновку</a>, чтобы найти их.</p>
+<p><strong>Подсказка</strong> Вместо резистора на 2,2 кОм можно использовать два резистора на 1 кОм, соединенные последовательно.</p>
+<p><strong>Подсказка</strong> На OPi есть несколько взаимозаменяемых пинов <strong>GND</strong> и <strong>VCC 5V</strong>. Используйте <a href="http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html" target="_blank">распиновку</a>, чтобы найти их.</p>
 </blockquote>
 <h3 id="чтение-данных">Чтение данных</h3>
 <p>Чтобы считать данные с дальномера HC-SR04, используется библиотека для работы с <abbr title="General-Purpose Input/Output – пины ввода/вывода общего назначения">GPIO</abbr> – <a href="http://abyz.me.uk/rpi/pigpio/index.html" target="_blank"><code>pigpio</code></a>. Эта библиотека предустановлена на <a href="ImageOPI.html">образе Technic</a>.</p>
@@ -916,7 +916,7 @@
 pi = pigpio.pi()
 </code></pre>
 <blockquote>
-<p><strong>Hint</strong> См. подробное описание Python API в <a href="http://abyz.me.uk/rpi/pigpio/python.html" target="_blank">документации <code>pigpio</code></a>.</p>
+<p><strong>Подсказка</strong> См. подробное описание Python API в <a href="http://abyz.me.uk/rpi/pigpio/python.html" target="_blank">документации <code>pigpio</code></a>.</p>
 </blockquote>
 <p>Пример кода для чтения данных с HC-SR04:</p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> time
@@ -1029,7 +1029,7 @@ history = collections.deque(maxlen=<span class="hljs-number">10</span>)  <span c
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Ультразвуковой дальномер","level":"5.1.6","depth":2,"next":{"title":"GPIO","level":"5.1.7","depth":2,"path":"GPIO.md","ref":"GPIO.md","articles":[]},"previous":{"title":"Лазерный дальномер","level":"5.1.5","depth":2,"path":"LaserRangefinder.md","ref":"LaserRangefinder.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"UltrasonicRangefinder.md","mtime":"2025-12-26T13:21:30.916Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-29T09:45:56.725Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Ультразвуковой дальномер","level":"5.1.6","depth":2,"next":{"title":"GPIO","level":"5.1.7","depth":2,"path":"GPIO.md","ref":"GPIO.md","articles":[]},"previous":{"title":"Лазерный дальномер","level":"5.1.5","depth":2,"path":"LaserRangefinder.md","ref":"LaserRangefinder.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"UltrasonicRangefinder.md","mtime":"2025-12-29T10:04:01.670Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-29T10:04:43.320Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

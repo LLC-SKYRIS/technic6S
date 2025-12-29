@@ -4,7 +4,7 @@
 
 <!-- markdownlint-disable MD031 -->
 
-> **Note** При использовании кириллических символов в кодировке UTF-8 необходимо добавить в начало программы указание кодировки:
+> **Заметки** При использовании кириллических символов в кодировке UTF-8 необходимо добавить в начало программы указание кодировки:
 > ```python
 > # -*- coding: utf-8 -*-
 > ```
@@ -515,4 +515,4 @@ set_link_state = rospy.ServiceProxy('gazebo/set_link_state', SetLinkState)
 set_link_state(LinkState(link_name='unit_box::link', pose=Pose(position=Point(1, 2, 3), orientation=Quaternion(0, 0, 0, 1))))
 ```
 
-> **Info** Простую анимацию объектов в Gazebo можно реализовать [с помощью акторов](http://classic.gazebosim.org/tutorials?tut=actor&cat=build_robot).
+> **Подсказка** Простую анимацию объектов в Gazebo можно реализовать [с помощью акторов](http://classic.gazebosim.org/tutorials?tut=actor&cat=build_robot).

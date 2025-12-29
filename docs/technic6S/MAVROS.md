@@ -8,10 +8,10 @@ MAVROS подписывается на определенные ROS-топики
 
 Нода MAVROS автоматически запускается в launch-файле Technic. Для [настройки типа подключения](ConnectingToPX4.md) см. аргумент `fcu_conn`.
 
-> **Hint** Упрощенное взаимодействие с коптером возможно с использованием пакета [`simple_offboard`](AutonomousFlightOffboard.md).
+> **Подсказка** Упрощенное взаимодействие с коптером возможно с использованием пакета [`simple_offboard`](AutonomousFlightOffboard.md).
 
 
-> **Note** В пакете `technic` некоторые плагины MAVROS отключены (в целях сохранения ресурсов). Подробнее см. параметр `plugin_blacklist` в файле `/home/orangepi/technic_ws/src/technic/technic/launch/mavros.launch`.
+> **Заметки** В пакете `technic` некоторые плагины MAVROS отключены (в целях сохранения ресурсов). Подробнее см. параметр `plugin_blacklist` в файле `/home/orangepi/technic_ws/src/technic/technic/launch/mavros.launch`.
 
 ## Основные сервисы
 

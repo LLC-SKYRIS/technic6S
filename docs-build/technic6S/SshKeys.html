@@ -899,7 +899,7 @@
 <h2 id="аутентификация-по-паролю">Аутентификация по паролю</h2>
 <p>Аутентификация <a href="SSH.html">по паролю</a> на образе OPI для Техника включена и пароль может быть использован для входа в командную оболочку мини-компьютера. На ЭВМ с операционными системами Linux (и в первую очередь на серверах, подключенных к интернету) возможность входа по паролю обычно отключают, поскольку есть более безопасный способ аутентификации.</p>
 <blockquote>
-<p><strong>Hint</strong> Вход в Техник по паролю отключать не рекомендуется, поскольку можно совсем утратить доступ к командной оболочке по сети.</p>
+<p><strong>Подсказка</strong> Вход в Техник по паролю отключать не рекомендуется, поскольку можно совсем утратить доступ к командной оболочке по сети.</p>
 </blockquote>
 <p>При первом подключении к OPI пользователю показывается уведомление с предложением сохранить уникальный отпечаток <em>fingerprint</em>. Сохранённая информация накапливается на компьютерах с которых выполняется вход по SSH на OPI, и проверяется на внезапную подмену.</p>
 <p>В ОС Linux и Unix (Mac OS) в текстовом SSH-клиенте первое подключение к OPI выглядит таким образом:</p>
@@ -913,18 +913,18 @@
 </code></pre>
 <p>В графических программах в Windows у вас будут периодически возникать окошки с похожими предупреждениями.</p>
 <blockquote>
-<p><strong>Hint</strong> В Windows 10 появился встроенный SSH-клиент, который можно запускать из командной строки, см. руководство по использованию от Microsoft <a href="https://learn.microsoft.com/ru-ru/windows-server/administration/openssh/openssh_install_firstuse" target="_blank">по этой ссылке</a>.</p>
+<p><strong>Подсказка</strong> В Windows 10 появился встроенный SSH-клиент, который можно запускать из командной строки, см. руководство по использованию от Microsoft <a href="https://learn.microsoft.com/ru-ru/windows-server/administration/openssh/openssh_install_firstuse" target="_blank">по этой ссылке</a>.</p>
 </blockquote>
 <h2 id="аутентификация-с-использованием-ssh-ключей">Аутентификация с использованием SSH-ключей</h2>
 <p>SSH-ключи - это удобный, быстрый альтернативный способ подключения к Orange Pi, для которого не требуется ввод пароля. В частности, при эксплуатации Техника такой способ удобен потому, что экономит время, а значит и заряд аккумулятора, и лимит времени отведённого на мероприятия в полётных зонах. Кроме того, использование SSH-ключей открывает возможности по удобному использованию других программ, которыми бы вы вряд-ли воспользовались бы при необходимости всякий раз набирать пароль.</p>
 <p>SSH-ключ делится на две части: пара состоит из т.н. <em>закрытого</em> и <em>открытого</em> ключа. Ключ однократно генерируется. Одна часть ключа (открытая) однократно передаётся на удалённый компьютер к которому будет выполняться подключение, вторая часть ключа (закрытая) хранится на компьютере, который будет подключаться, закрытая часть ключа никуда не передаётся.</p>
 <blockquote>
-<p><strong>Hint</strong> Открытый ключ однократно копируется на Orangepi Pi, а закрытый ключ сохраняется в ноутбуке в виде файла.</p>
+<p><strong>Подсказка</strong> Открытый ключ однократно копируется на Orangepi Pi, а закрытый ключ сохраняется в ноутбуке в виде файла.</p>
 </blockquote>
 <h3 id="подготовка">Подготовка</h3>
 <p>Для того, чтобы пара ключей появилась, её необходимо сгенерировать. В ОС Linux и Unix (Mac OS) есть программа <code>ssh-keygen</code> с помощью которой мы и получим нужную нам пару ключей </p>
 <blockquote>
-<p><strong>Hint</strong> Команды выполняются не в Orange Pi, и не в виртуальной машине симулятора Gazebo, а в командной оболочке ноутбука с которого вы будете подключаться к Технику</p>
+<p><strong>Подсказка</strong> Команды выполняются не в Orange Pi, и не в виртуальной машине симулятора Gazebo, а в командной оболочке ноутбука с которого вы будете подключаться к Технику</p>
 </blockquote>
 <p>Прежде чем пользоваться ключами, необходимо выполнить ряд действий для настройки прав доступа <em>на ноутбуке</em>:</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># однократная настойка прав доступа к пользовательским директориям</span>
@@ -935,7 +935,7 @@
 <span class="hljs-built_in">chmod</span> 600 ~/.ssh/config ~/.ssh/known_hosts
 </code></pre>
 <blockquote>
-<p><strong>Hint</strong> Директория <code>.ssh</code> в домашней папке пользователя - это стандартное место хранения и ключевых пар, и настроек подключения с использованием SSH, поэтому доступ к ней запрещаем группе Others (<em>посторонние</em>). Современные дистрибутивы Linux проверяют права доступа к файлам в директории <code>.ssh</code> и могут отказать в аутентификации по ключевым парам.</p>
+<p><strong>Подсказка</strong> Директория <code>.ssh</code> в домашней папке пользователя - это стандартное место хранения и ключевых пар, и настроек подключения с использованием SSH, поэтому доступ к ней запрещаем группе Others (<em>посторонние</em>). Современные дистрибутивы Linux проверяют права доступа к файлам в директории <code>.ssh</code> и могут отказать в аутентификации по ключевым парам.</p>
 </blockquote>
 <h3 id="генерация-пары-ssh-ключей">Генерация пары SSH-ключей</h3>
 <p>Генерируем пару SSH-ключей в директории <code>~/.ssh</code> на ноутбуке:</p>
@@ -982,11 +982,11 @@ galina@Thinkpad-X1:~/.ssh$
 </ul>
 <p>Таким образом будет решено множество неудобств, связанных с использованием SSH-подключений.</p>
 <blockquote>
-<p><strong>Hint</strong> Если у вас в лаборатории несколько дронов на базе Orange Pi, и несколько ноутбуков, то можно <strong>однократно</strong> сгенерировать SSH-ключи, скопировать их на все дроны и разложить по всем ноутбукам, тогда с любого ноутбука можно будет быстро зайти на любой из дронов.</p>
+<p><strong>Подсказка</strong> Если у вас в лаборатории несколько дронов на базе Orange Pi, и несколько ноутбуков, то можно <strong>однократно</strong> сгенерировать SSH-ключи, скопировать их на все дроны и разложить по всем ноутбукам, тогда с любого ноутбука можно будет быстро зайти на любой из дронов.</p>
 </blockquote>
 <p>Теперь, чтобы подключиться к OPI из терминала Linux вам достаточно набрать <code>ssh 1[TAB][TAB][ENTER]</code> и ip-адрес <code>10.42.0.1</code> автоматически дополнится в командной строке, т.к. командная оболочка использует адреса из файла <code>~/.ssh/config</code> и способна "угадать" ваши намерения для подключения к Технику. Нажав ввод вы мгновенно окажетесь в терминале  OPI.</p>
 <blockquote>
-<p><strong>Hint</strong> Графические программы для Windows, которые поддерживают работу с SSH-ключами, которыми вы можете воспользоваться: <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" target="_blank">PuTTY</a> и <a href="https://mobaxterm.mobatek.net/" target="_blank">MobaXterm</a>.</p>
+<p><strong>Подсказка</strong> Графические программы для Windows, которые поддерживают работу с SSH-ключами, которыми вы можете воспользоваться: <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" target="_blank">PuTTY</a> и <a href="https://mobaxterm.mobatek.net/" target="_blank">MobaXterm</a>.</p>
 </blockquote>
 <h2 id="копирование-файлов-при-помощи-ssh">Копирование файлов при помощи SSH</h2>
 <p>Чтобы скопировать файл <code>circle_flight.py</code> с ноутбука на OPI в домашнюю папку пользователя <code>orangepi</code> можно также воспользоваться SSH. Для этого наберите в командной оболочке команду:</p>
@@ -1049,7 +1049,7 @@ scp 10.42.0.1:examples/output.avi ./
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Подключение к Orange Pi 5 Pro с использованием SSH-ключей","level":"7.1.4","depth":2,"previous":{"title":"Mavlink","level":"7.1.3","depth":2,"path":"Mavlink.md","ref":"Mavlink.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"SshKeys.md","mtime":"2025-12-16T13:10:56.520Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-29T09:45:56.725Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Подключение к Orange Pi 5 Pro с использованием SSH-ключей","level":"7.1.4","depth":2,"previous":{"title":"Mavlink","level":"7.1.3","depth":2,"path":"Mavlink.md","ref":"Mavlink.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"SshKeys.md","mtime":"2025-12-29T10:03:46.391Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2025-12-29T10:04:43.320Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
