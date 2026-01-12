@@ -36,14 +36,12 @@ jobs:
           const p = path.join(process.cwd(), 'node_modules', 'honkit-plugin-add-js', 'index.js');
           let s = fs.readFileSync(p, 'utf8');
 
-          // Добавляем mkdirSync перед writeFileSync, если ещё не добавлено
           if (!s.includes('fs.mkdirSync(path.dirname')) {
             s = s.replace(
               /fs\.writeFileSync\(([^,]+),/g,
               "fs.mkdirSync(path.dirname($1), { recursive: true });\n    fs.writeFileSync($1,"
             );
 
-            // Убедимся что path импортирован
             if (!s.includes("const path = require('path')") && !s.includes('var path = require')) {
               s = s.replace(
                 /const fs = require\('fs'\);\n/,
@@ -66,6 +64,26 @@ jobs:
 
           npx honkit build docs/technic6S docs-build/technic6S
           npx honkit build docs/pilotFPV  docs-build/pilotFPV
+
+            - name: Create redirect /tdocs/ -> /
+              run: |
+                mkdir -p docs-build/tdocs
+                cat > docs-build/tdocs/index.html <<'HTML'
+                <!doctype html>
+                <html lang="ru">
+                  <head>
+                    <meta charset="utf-8" />
+                    <meta http-equiv="refresh" content="0; url=/" />
+                    <link rel="canonical" href="/" />
+                    <script>window.location.replace("/");</script>
+                    <title>Redirecting…</title>
+                  </head>
+                  <body>
+                    <p>Redirecting to <a href="/">docs.skyris.ru</a>…</p>
+                  </body>
+                </html>
+                HTML
+
 
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
