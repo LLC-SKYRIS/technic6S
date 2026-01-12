@@ -1,7 +1,7 @@
 # Автозапуск ПО
 ## systemd
 
-> 💡 **Подсказка** Основная документация: https://wiki.archlinux.org/index.php/Systemd_(Русский).
+> 💡 **Подсказка** Основная документация: https://wiki.archlinux.org/index.php/Systemd_(Русский)
 
 Все автоматически стартуемое ПО Technic запускается в виде systemd-сервиса `technic.service`.
 
