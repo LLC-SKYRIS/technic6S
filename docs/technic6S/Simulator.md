@@ -45,9 +45,3 @@
     
 
 Данная архитектура обеспечивает единый программный контур для симуляции и реального дрона, что позволяет переносить разрабатываемое ПО без изменений.
-
-## Видео
-
-Краткий видеоматериал, демонстрирующий работу симулятора:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8HYXREMDfzQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
