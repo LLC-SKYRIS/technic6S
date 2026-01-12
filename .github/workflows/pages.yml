@@ -65,24 +65,28 @@ jobs:
           npx honkit build docs/technic6S docs-build/technic6S
           npx honkit build docs/pilotFPV  docs-build/pilotFPV
 
-            - name: Create redirect /tdocs/ -> /
-              run: |
-                mkdir -p docs-build/tdocs
-                cat > docs-build/tdocs/index.html <<'HTML'
-                <!doctype html>
-                <html lang="ru">
-                  <head>
-                    <meta charset="utf-8" />
-                    <meta http-equiv="refresh" content="0; url=/" />
-                    <link rel="canonical" href="/" />
-                    <script>window.location.replace("/");</script>
-                    <title>Redirecting…</title>
-                  </head>
-                  <body>
-                    <p>Redirecting to <a href="/">docs.skyris.ru</a>…</p>
-                  </body>
-                </html>
-                HTML
+
+      - name: Create redirect /tdocs/ -> /
+        run: |
+          set -euo pipefail
+          mkdir -p docs-build/tdocs
+          printf '%s\n' \
+      '<!doctype html>' \
+      '<html lang="ru">' \
+      '  <head>' \
+      '    <meta charset="utf-8" />' \
+      '    <meta http-equiv="refresh" content="0; url=/" />' \
+      '    <link rel="canonical" href="/" />' \
+      '    <script>window.location.replace("/");</script>' \
+      '    <title>Redirecting…</title>' \
+      '  </head>' \
+      '  <body>' \
+      '    <p>Redirecting to <a href="/">docs.skyris.ru</a>…</p>' \
+      '  </body>' \
+      '</html>' \
+          > docs-build/tdocs/index.html
+
+
 
 
       - name: Upload artifact for GitHub Pages
