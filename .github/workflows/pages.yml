@@ -66,31 +66,32 @@ jobs:
           npx honkit build docs/pilotFPV  docs-build/pilotFPV
 
 
-    - name: "Create redirect /tdocs/ -> /"
-      run: |
-        python3 - <<'PY'
-        from pathlib import Path
-    
-        out = Path("docs-build/tdocs")
-        out.mkdir(parents=True, exist_ok=True)
-    
-        html = """<!doctype html>
-        <html lang="ru">
-          <head>
-            <meta charset="utf-8" />
-            <meta http-equiv="refresh" content="0; url=/" />
-            <link rel="canonical" href="/" />
-            <script>window.location.replace("/");</script>
-            <title>Redirecting…</title>
-          </head>
-          <body>
-            <p>Redirecting to <a href="/">docs.skyris.ru</a>…</p>
-          </body>
-        </html>
-        """
-        (out / "index.html").write_text(html, encoding="utf-8")
-        print("Wrote", out / "index.html")
-        PY
+      - name: "Create redirect /tdocs/ -> /"
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          out = Path("docs-build/tdocs")
+          out.mkdir(parents=True, exist_ok=True)
+
+          html = """<!doctype html>
+          <html lang="ru">
+            <head>
+              <meta charset="utf-8" />
+              <meta http-equiv="refresh" content="0; url=/" />
+              <link rel="canonical" href="/" />
+              <script>window.location.replace("/");</script>
+              <title>Redirecting…</title>
+            </head>
+            <body>
+              <p>Redirecting to <a href="/">docs.skyris.ru</a>…</p>
+            </body>
+          </html>
+          """
+          (out / "index.html").write_text(html, encoding="utf-8")
+          print("Wrote", out / "index.html")
+          PY
+
 
 
 
