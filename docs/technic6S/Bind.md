@@ -1,6 +1,5 @@
 # Бинд приемника 
 
- <img src="assets/pult.png" width=180 class="center zoom"> 
  <img src="assets/bind.png" width=400 class="center zoom">
 
 1. Скачайте файл с прошивкой для пульта __________
