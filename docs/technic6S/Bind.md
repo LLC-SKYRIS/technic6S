@@ -2,7 +2,7 @@
 
  <img src="assets/bind.png" width=400 class="center zoom">
 
-1. Далее в меню ExpressLRS ⭢ WiFi Connectivity ⭢Enable WiFi (для навигации по меню используйте кнопку “Menu”)
+1. В меню ExpressLRS ⭢ WiFi Connectivity ⭢Enable WiFi (для навигации по меню используйте кнопку “Menu”)
     
 2. Далее нажмите “Enter”
       
