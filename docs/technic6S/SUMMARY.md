@@ -3,6 +3,9 @@
 * <a href="https://llc-skyris.github.io/technic6S/">← Вернуться на главную</a>
 * [Main](README.md)
 ---
+* [Сборка Этап 1](Sborka.md)
+*  [Сборка Этап 2](Sborka2.md)
+---
 * [Работа с OrangePi 5 Pro](OrangePi.md)
 	* [Образ для OPI](ImageOPI.md)
 	* [Подключение к Wi-Fi](ConnectingToWi-Fi.md)
