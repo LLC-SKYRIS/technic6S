@@ -16,3 +16,24 @@
   background: #e3f2fd;
 }
 
+/* Контейнер для блока кода + кнопки */
+pre {
+  position: relative;
+}
+
+.copy-code-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 6px;
+  background: rgba(255,255,255,.9);
+  cursor: pointer;
+}
+
+.copy-code-btn:active {
+  transform: translateY(1px);
+}
+
