@@ -170,9 +170,36 @@ body{
   font-size:24px;
   letter-spacing:0.04em;
   text-transform:uppercase;
+  display: inline-block; /* ширина = ширине текста */
+  position: relative; 
 }
 .big-card-text span{ text-transform:uppercase; }
 .big-card-text .accent{ font-weight:700; }
+
+/* Заголовок — ширина по тексту */
+.big-card-text .title{
+  display:inline-block;
+  position:relative;
+}
+
+/* Линия под заголовком */
+.big-card-text .title::after{
+  content:"";
+  display:block;
+  height:1px;
+  background:#bbb;
+  margin-top:10px;
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s ease;
+}
+
+/* Анимация при hover карточки */
+.big-card:hover .title::after{
+  transform: scaleX(1);
+}
+
 
 /* Hover-блок "в раздел" */
 .go-link{
@@ -192,6 +219,7 @@ body{
 
 /* Линия */
 .go-link .divider{
+  display:none;
   width: 120px;               /* одинаковая длина у всех карточек */
   height:1px;
   background:#bbb;
