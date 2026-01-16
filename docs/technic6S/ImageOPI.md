@@ -4,7 +4,7 @@
 
 Система Technic построена на базе операционной системы [Ubuntu](https://drive.google.com/drive/folders/11tj_ivEBwvJx4vdNtK91YQeGOKDC4JNy) и робототехнической платформы [ROS](ROS.md).  
 
-## Как установить
+### ***Как установить***
 
 1. Перейдите на страницу [релизов проекта](https://disk.yandex.ru/d/SWneXHZx7jRJog) и скачайте актуальный стабильный образ.
 
