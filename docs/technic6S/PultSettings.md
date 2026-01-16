@@ -4,22 +4,25 @@
 <div style="
   display: grid;
   grid-template-columns: repeat(2, 200px);
-  gap: 10px;
+  grid-auto-rows: 130px;
+  row-gap: 2px;
+  column-gap: 8px;
   justify-content: center;
 ">
-  <div style="width:200px;height:200px;display:flex;align-items:center;justify-content:center;background:#fff;">
-    <img src="assets/bind1.png" style="max-width:100%;max-height:100%;">
+  <div style="width:200px;height:130px;display:flex;align-items:center;justify-content:center;">
+    <img src="assets/bind1.png" style="max-width:100%;max-height:90%;">
   </div>
-  <div style="width:200px;height:200px;display:flex;align-items:center;justify-content:center;background:#fff;">
-    <img src="assets/bind2.png" style="max-width:100%;max-height:100%;">
+  <div style="width:200px;height:130px;display:flex;align-items:center;justify-content:center;">
+    <img src="assets/bind2.png" style="max-width:100%;max-height:90%;">
   </div>
-  <div style="width:200px;height:200px;display:flex;align-items:center;justify-content:center;background:#fff;">
-    <img src="assets/bind3.png" style="max-width:100%;max-height:100%;">
+  <div style="width:200px;height:130px;display:flex;align-items:center;justify-content:center;">
+    <img src="assets/bind3.png" style="max-width:100%;max-height:90%;">
   </div>
-  <div style="width:200px;height:200px;display:flex;align-items:center;justify-content:center;background:#fff;">
-    <img src="assets/bind4.jpg" style="max-width:100%;max-height:100%;">
+  <div style="width:200px;height:130px;display:flex;align-items:center;justify-content:center;">
+    <img src="assets/bind4.jpg" style="max-width:100%;max-height:90%;">
   </div>
 </div>
+
 
 
 1. Скачайте файл с прошивкой для пульта __________
