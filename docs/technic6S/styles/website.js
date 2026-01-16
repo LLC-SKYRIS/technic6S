@@ -1,7 +1,7 @@
 (function () {
   function addCopyButtons() {
-    // HonKit обычно рендерит код как: <pre><code class="lang-bash">...</code></pre>
     var blocks = document.querySelectorAll('pre > code');
+
     blocks.forEach(function (code) {
       var pre = code.parentNode;
       if (!pre || pre.querySelector('.copy-code-btn')) return;
@@ -11,23 +11,33 @@
       btn.type = 'button';
       btn.textContent = 'Copy';
 
-      btn.addEventListener('click', async function () {
-        // Берём "чистый" текст без HTML
-        var text = code.innerText.replace(/\n$/, ''); // уберём последний перенос строки
-        try {
-          await navigator.clipboard.writeText(text);
+      btn.addEventListener('click', function () {
+        var text = (code.innerText || code.textContent || '').replace(/\n$/, '');
+
+        function showCopied() {
           btn.textContent = 'Copied!';
           setTimeout(function () { btn.textContent = 'Copy'; }, 1200);
-        } catch (e) {
-          // fallback для старых браузеров
+        }
+
+        function fallbackCopy(t) {
           var ta = document.createElement('textarea');
-          ta.value = text;
+          ta.value = t;
+          ta.style.position = 'fixed';
+          ta.style.left = '-9999px';
           document.body.appendChild(ta);
           ta.select();
           document.execCommand('copy');
           document.body.removeChild(ta);
-          btn.textContent = 'Copied!';
-          setTimeout(function () { btn.textContent = 'Copy'; }, 1200);
+        }
+
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(showCopied).catch(function () {
+            fallbackCopy(text);
+            showCopied();
+          });
+        } else {
+          fallbackCopy(text);
+          showCopied();
         }
       });
 
@@ -35,14 +45,7 @@
     });
   }
 
-  // GitBook/HonKit подгружает страницы динамически — нужно ловить события
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', addCopyButtons);
-  } else {
-    addCopyButtons();
-  }
-
-  // На смену страницы в SPA-режиме
+  document.addEventListener('DOMContentLoaded', addCopyButtons);
   document.addEventListener('gitbook:page.change', addCopyButtons);
 })();
 
