@@ -293,14 +293,6 @@ footer{
 .search-inline{
   position: relative;
   width: min(260px, 40vw);
-  transform-origin: right center;       /* чтобы росло вправо/влево аккуратно */
-  transition: transform .18s ease;
-}
-.search-inline:hover{
-  transform: scale(1.03);              /* чуть-чуть увеличивается */
-}
-.search-inline:focus-within{
-  transform: scale(1.03);
 }
   
 /* Сам input */
@@ -343,7 +335,7 @@ footer{
 }
 .search-inline input[type="text"]:focus{
   border-color:#c8ccda;
-  box-shadow:0 6px 16px rgba(0,0,0,0.12);
+  box-shadow:none;
 }
 
 /* ===== Адаптив ===== */
