@@ -293,8 +293,16 @@ footer{
 .search-inline{
   position: relative;
   width: min(260px, 40vw);
+  transform-origin: right center;       /* чтобы росло вправо/влево аккуратно */
+  transition: transform .18s ease;
 }
-
+.search-inline:hover{
+  transform: scale(1.03);              /* чуть-чуть увеличивается */
+}
+.search-inline:focus-within{
+  transform: scale(1.03);
+}
+  
 /* Сам input */
 .search-inline input[type="text"]{
   width: 100%;
