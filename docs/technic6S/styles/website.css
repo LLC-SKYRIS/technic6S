@@ -37,3 +37,17 @@ pre {
   transform: translateY(1px);
 }
 
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  grid-template-rows: repeat(2, 200px);
+  gap: 10px;
+  justify-content: center;
+}
+
+.img-grid img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover; /* важное — делает квадрат */
+}
+
