@@ -926,15 +926,44 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="бинд-приемника">Бинд приемника</h1>
-<p> <img src="assets/bind.png" width="400" class="center zoom"></img></p>
+<p><img src="assets/pult1.png" width="400" class="center zoom"></img></p>
+<p><img src="assets/WifiHotspot.png" width="200" class="center zoom"></img></p>
 <ol>
-<li><p>В меню ExpressLRS ⭢ WiFi Connectivity ⭢Enable WiFi (для навигации по меню используйте кнопку “Menu”)</p>
+<li><p>Скачайте файл с прошивкой для приемника <strong><strong>__</strong></strong></p>
 </li>
-<li><p>Далее нажмите “Enter”</p>
+<li><p>Подключите полетный контроллер к ПК по USB </p>
 </li>
-<li><p>После появления индикации “WiFi Running” пульт запустит точку доступа с названием “ExpressLRS TX” </p>
+<li><p>Дождитесь когда приемник перейдет в режим “WiFi” (Примерно через 1 мин после подачи питания, приемник начнет быстро мигать зеленым светодиодом)</p>
 </li>
-<li><p>Повторите пункты 4-12 из главы с настройкой приемника. При выборе прошивки загрузите файл “Название файла”, а в поле “Binding phrase” введите ту же фразу, которую вводили при настройке приемника</p>
+<li><p>Подключитесь к приемнику как к точке доступа WiFi:</p>
+<ol>
+<li><p>сеть ExpressLRS RX</p>
+</li>
+<li><p>пароль: expresslrs</p>
+</li>
+</ol>
+</li>
+<li><p>В окне браузера введите адрес 10.0.0.1</p>
+</li>
+</ol>
+<p><img src="assets/pult1.png" width="400" class="center zoom"></img></p>
+<ol>
+<li><p>Перейдите на вкладку “Update”</p>
+</li>
+<li><p>Выберите скачанный ранее файл с прошивкой</p>
+</li>
+<li><p>Нажмите кнопку “Update” - приемник обновит прошивку и перезагрузится</p>
+</li>
+</ol>
+<p><img src="assets/pult2.png" width="400" class="center zoom"></img></p>
+<ol>
+<li><p>Повторно подключитесь к приемнику по WIFI и запустите окно настроек в браузере (пункты 4 и 5)</p>
+</li>
+<li><p>Перейдите на вкладку “Options”</p>
+</li>
+<li><p>В строке “Binding phrase” введите фразу (любое сообщение: не менее 6 символов, латинские буквы, заглавные буквы, спец. знаки, цифры)</p>
+</li>
+<li><p>Нажмите кнопку “SAVE”</p>
 </li>
 </ol>
 
@@ -980,7 +1009,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Bind приемника","level":"4.1.7","depth":2,"next":{"title":"Полетные режимы","level":"4.1.8","depth":2,"path":"Modes.md","ref":"Modes.md","articles":[]},"previous":{"title":"Калибровка датчиков","level":"4.1.6","depth":2,"path":"CalibrationSensors.md","ref":"CalibrationSensors.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"Bind.md","mtime":"2026-01-15T14:17:53.617Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-01-16T13:42:08.723Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Bind приемника","level":"4.1.7","depth":2,"next":{"title":"Полетные режимы","level":"4.1.8","depth":2,"path":"Modes.md","ref":"Modes.md","articles":[]},"previous":{"title":"Калибровка датчиков","level":"4.1.6","depth":2,"path":"CalibrationSensors.md","ref":"CalibrationSensors.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"Bind.md","mtime":"2026-01-16T14:40:06.730Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-01-16T14:40:22.825Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -1034,11 +1063,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/ZyTttWJMkz7HKYXm-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/pGBfDRUIhGO6DuL8-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/5srTUCpBveZJU5bf-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/gjnf71FZGwAhHRqr-website.js"></script>
         
     
         
