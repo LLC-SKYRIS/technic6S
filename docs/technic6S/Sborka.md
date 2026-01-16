@@ -12,8 +12,10 @@
 - Винт М3х14 - 4шт;
 - Винт М3х18 - 4шт.
 
-<img src="assets/1.svg" width="600" style="center zoom">
-                                 Рис. 1
+<div class="img-figure">
+  <img src="assets/1.svg">
+</div>
+<p class="img-caption">Рис. 1</p>
 
 Соедините детали, как показано на рисунке 1:
 
@@ -21,9 +23,10 @@
     
 - во внешних отверстиях используются винты М3х18 - 4шт.
 
-<img src="assets/2.svg" width="600" style="center zoom">
-                                 Рис. 2
-
+<div class="img-figure">
+  <img src="assets/2.svg">
+</div>
+<p class="img-caption">Рис. 2</p>
 
 > **Подсказка** Обратите внимание на расположение выреза детали “Луч”, он должен совпадать с вырезом на деталях” Центральная пластина нижняя” и “Центральная пластина верхняя” как показано на рисунке 2.
 
@@ -34,15 +37,19 @@
 - Мотор - 4шт; 
 - Винт М3х8 - 8шт.
 
-<img src="assets/3_1.svg" width="600" style="center zoom">
-                                 Рис. 3
+<div class="img-figure">
+  <img src="assets/3_1.svg">
+</div>
+<p class="img-caption">Рис. 3</p>
 
 Установите моторы на лучи, как показано на рисунке 3:
 
 - на данном этапе моторы крепятся на 2 винта М3х8 в боковые отверстия на лучах.
 
-<img src="assets/4_1.svg" width="600" style="center zoom">
-                                 Рис. 4
+<div class="img-figure">
+  <img src="assets/4_1.svg">
+</div>
+<p class="img-caption">Рис. 4</p>
 
 > **Подсказка** Обратите внимание на расположение фазных проводов и моторов. Во избежание повреждений проводов пропеллерами, моторы и провода необходимо расположить как указано на рисунке 4.
 
@@ -54,9 +61,11 @@
 - Проставка маунта шасси - 4шт;
 - Винт М3х20 - 8шт.
 
-<img src="assets/5_1.svg" width="600" style="center zoom">
-                                 Рис. 5
-                                 
+<div class="img-figure">
+  <img src="assets/5_1.svg">
+</div>
+<p class="img-caption">Рис. 5</p>
+
 Установите маунты шасси с помощью 8 винтов М3х20, как показано на рисунке 5.
 
 ### ***Шаг 4. Установка полетного контроллера и Регулятора 4в1 (стека)***
@@ -72,8 +81,10 @@
 - Кабель ESC 4in1 to FC - 1шт.
 
 
-<img src="assets/6_1.svg" width="600" style="center zoom">
-                                 Рис. 6
+<div class="img-figure">
+  <img src="assets/6_1.svg">
+</div>
+<p class="img-caption">Рис. 6</p>
 
 Установите регулятор 4в1 и полетный контроллер как показано на рисунке 6: 
 
@@ -83,8 +94,10 @@
     
 - установите 4 стойки HTP-310 для фиксации регулятора 4в1;
 
-<img src="assets/7_1.png" width="600" style="center zoom">
-                                 Рис. 7
+<div class="img-figure">
+  <img src="assets/7_1.png">
+</div>
+<p class="img-caption">Рис. 7</p>
 
 - установите 4 демпфера полетного контроллера в отверстия на полетном контроллере
     
@@ -93,20 +106,30 @@
 - зафиксируйте полетный контроллер с помощью 4-х винтов М3х5 , вкрутив их в стойки HTP-310.
     
 
-<img src="assets/8_1.svg" width="400">                  <img src="assets/5.png" width="100">
-								 Рис. 8
+<div class="img-figure">
+  <img src="assets/8_1.svg">
+</div>
+<p class="img-caption">Рис. 8</p>
+<div class="img-figure">
+  <img src="assets/5.png">
+</div>
+<p class="img-caption">Рис. 8</p>
 
 - Соедините Регулятор 4в1 с полетным контроллером с помощью кабеля “ESC 4in1 to FC”, как показано на рисунке 8
 
 > **Подсказка** Для того чтобы подключить кабель правильно, не перепутав полярности, обратите внимание на стикер со стрелкой и маркировкой “FC”, этой стороной кабель подключается в гнездо полетного контроллера.
 
-<img src="assets/9_1.svg" width="600" style="center zoom">
-                                 Рис. 9
+<div class="img-figure">
+  <img src="assets/9_1.svg">
+</div>
+<p class="img-caption">Рис. 9</p>
 
 - Подключите фазные провода моторов к регулятору 4в1 (коннекторы MR-30)
 
-<img src="assets/11.png" width="600" style="center zoom">
-                                 Рис. 10
+<div class="img-figure">
+  <img src="assets/11.png">
+</div>
+<p class="img-caption">Рис. 10</p>
 
 - Зафиксируйте фазные провода на лучах с помощью пластиковых хомутов ( в центре луча)
 
@@ -124,38 +147,52 @@
 - Винт М3х5 - 4шт; 
 - Винт М3х14 - 2шт.
 
-<img src="assets/11_1.svg" width="600" style="center zoom">
-                                 Рис. 11
+<div class="img-figure">
+  <img src="assets/11_1.svg">
+</div>
+<p class="img-caption">Рис. 11</p>
 
 Установите приемник на деталь “Центральная пластина верхняя” с помощью клейкой двухсторонней ленты как показано на рисунке 11.
 
-<img src="assets/13.png" width="600" style="center zoom">
-                                 Рис. 12
+<div class="img-figure">
+  <img src="assets/13.png">
+</div>
+<p class="img-caption">Рис. 12</p>
 
 Подключите приемник в гнездо “TELEM1” на полетном контроллере.
 
-<img src="assets/13_1.svg" width="600" style="center zoom">
-                                 Рис. 13
+<div class="img-figure">
+  <img src="assets/13_1.svg">
+</div>
+<p class="img-caption">Рис. 13</p>
 
 Приклейте силиконовую антискользящую наклейку на деталь “Пластина АКБ”, как показано на рисунке 13.
 
-<img src="assets/14_1.svg" width="600" style="center zoom">
-                                 Рис. 14
+<div class="img-figure">
+  <img src="assets/14_1.svg">
+</div>
+<p class="img-caption">Рис. 14</p>
 
 Зафиксируйте коннектор XT-60 кабеля питания на детали “Пластина АКБ” с помощью Маунта XT-60 и 2 Винтов М3х14.
 
-<img src="assets/15_11.svg" width="600" style="center zoom">
-                                 Рис. 15
+<div class="img-figure">
+  <img src="assets/15_11.svg">
+</div>
+<p class="img-caption">Рис. 15</p>
 
 Проденьте силовые провода в паз на детали “Пластина АКБ”, как показано на рисунке 15.
 
-<img src="assets/16_1.svg" width="600" style="center zoom">
-                                 Рис. 16
+<div class="img-figure">
+  <img src="assets/16_1.svg">
+</div>
+<p class="img-caption">Рис. 16</p>
 
 Проденьте ремешок для АКБ в пазы на детали “Пластина АКБ”, как показано на рисунке 16.
 
-<img src="assets/17_1.svg" width="600" style="center zoom">
-                                 Рис. 17
+<div class="img-figure">
+  <img src="assets/17_1.svg">
+</div>
+<p class="img-caption">Рис. 17</p>
 
 Установите деталь “Пластина АКБ” на 4 алюминиевые стойки  L35мм и зафиксируйте ее с помощью 4 винтов М3х5. (Стрелка на детали “Пластина АКБ” должна совпадать со стрелкой на полетном контроллере и направлением дрона) как показано на рисунке 17.
 
@@ -165,13 +202,17 @@
 - Ножка (мал) - 4шт;
 - Винт М3х14 - 4шт.
 
-<img src="assets/18_1.svg" width="600" style="center zoom">
-                                 Рис. 18
+<div class="img-figure">
+  <img src="assets/18_1.svg">
+</div>
+<p class="img-caption">Рис. 18</p>
 
 Установите детали Ножка (мал) 4шт в пазы как показано на рисунке 18.
 
-<img src="assets/19_1.svg" width="600" style="center zoom">
-                                 Рис. 19
+<div class="img-figure">
+  <img src="assets/19_1.svg">
+</div>
+<p class="img-caption">Рис. 19</p>
 
 Установите 4 винта М3х14 в отверстия на деталях “Маунт шасси” для фиксации ножек.
 
@@ -185,27 +226,35 @@
 - Гайка М5 - 4шт; 
 - Винт М3х8 - 8шт (опционально).
 
-<img src="assets/20_1.svg" width="600" style="center zoom">
-                                 Рис. 20
+<div class="img-figure">
+  <img src="assets/20_1.svg">
+</div>
+<p class="img-caption">Рис. 20</p>
 
 Установите детали “Защита пропеллера” на лучи, как показано на рисунке 20.
 
 - “Защита пропеллера” вставляется в паз с торца луча с усилием, до щелчка.
 
-<img src="assets/21_1.svg" width="600" style="center zoom">
-                                 Рис. 21
+<div class="img-figure">
+  <img src="assets/21_1.svg">
+</div>
+<p class="img-caption">Рис. 21</p>
 
 Установите детали “Перемычка (мал)” и “Перемычка (бол)”, как показано на рисунке 21.
 
 - Перемычки защелкиваются на деталь “Защита пропеллера” с усилием, до щелчка.
 
-<img src="assets/22_1.svg" width="600" style="center zoom">
-                                 Рис. 22
+<div class="img-figure">
+  <img src="assets/22_1.svg">
+</div>
+<p class="img-caption">Рис. 22</p>
 
 Дополнительно можно зафиксировать перемычки с помощью винтов М3х8, как показано на рисунке 22 (если требуется увеличить жесткость защиты). 
 
-<img src="assets/23_1.svg" width="600" style="center zoom">
-                                 Рис. 23
+<div class="img-figure">
+  <img src="assets/23_1.svg">
+</div>
+<p class="img-caption">Рис. 23</p>
 
 Установите пропеллеры на моторы ,как показано на рисунке 23:
 
@@ -213,8 +262,10 @@
     
 - Передний правый и задний левый моторы вращаются против часовой стрелки (CCW)
 
-<img src="assets/24_1.svg" width="600" style="center zoom">
-                                 Рис. 24
+<div class="img-figure">
+  <img src="assets/24_1.svg">
+</div>
+<p class="img-caption">Рис. 24</p>
  
 Зафиксируйте пропеллеры на моторах с помощью 4 гаек М5, как показано на рисунке 24.
 
