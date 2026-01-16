@@ -1,17 +1,31 @@
 # Настройка пульта
 
-<img src="assets/bind5.png" width=150 class="center zoom">
 
-<div class="img-grid">
-  <img src="assets/bind1.png" class="zoom">
-  <img src="assets/bind2.png" class="zoom">
-  <img src="assets/bind3.png" class="zoom">
-  <img src="assets/bind4.jpg" class="zoom">
+<div style="
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  gap: 10px;
+  justify-content: center;
+">
+  <div style="width:200px;height:200px;display:flex;align-items:center;justify-content:center;background:#fff;">
+    <img src="assets/bind1.png" style="max-width:100%;max-height:100%;">
+  </div>
+  <div style="width:200px;height:200px;display:flex;align-items:center;justify-content:center;background:#fff;">
+    <img src="assets/bind2.png" style="max-width:100%;max-height:100%;">
+  </div>
+  <div style="width:200px;height:200px;display:flex;align-items:center;justify-content:center;background:#fff;">
+    <img src="assets/bind3.png" style="max-width:100%;max-height:100%;">
+  </div>
+  <div style="width:200px;height:200px;display:flex;align-items:center;justify-content:center;background:#fff;">
+    <img src="assets/bind4.jpg" style="max-width:100%;max-height:100%;">
+  </div>
 </div>
 
 
 1. Скачайте файл с прошивкой для пульта __________
-    
+
+<img src="assets/bind5.png" width=200 class="center zoom">
+
 2. Включите пульт РУ зажав кнопку “Power” 
     
 3. Перейдите в меню нажав кнопку “SYS” 
