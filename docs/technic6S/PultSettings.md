@@ -2,8 +2,13 @@
 
 <img src="assets/bind5.png" width=150 class="center zoom">
 
-<img src="assets/bind1.png" width=200 class="center zoom"> <img src="assets/bind2.png" width=200 class="center zoom">
-<img src="assets/bind3.png" width=200 class="center zoom"> <img src="assets/bind4.jpg" width=200 class="center zoom">          
+<div class="img-grid">
+  <img src="assets/bind1.png" class="zoom">
+  <img src="assets/bind2.png" class="zoom">
+  <img src="assets/bind3.png" class="zoom">
+  <img src="assets/bind4.jpg" class="zoom">
+</div>
+
 
 1. Скачайте файл с прошивкой для пульта __________
     
