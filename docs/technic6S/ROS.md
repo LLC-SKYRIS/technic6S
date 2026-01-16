@@ -7,15 +7,15 @@
 
 <img src="assets/Ros_logo.svg.png" width=300 class="center zoom">
 
-## Установка
+### ***Установка***
 
 ROS уже установлен на [образе для OPi для Technic](ImageOPI.md).
 
 Для установки инструментов ROS на компьютере вы можете обратиться к [официальной документации](https://wiki.ros.org/noetic/Installation/Ubuntu) по установке. Для быстрого старта рекомендуется воспользоваться [образом виртуальной машины с ROS и симулятором Technic](simulation_vm.md).
 
-## Концепции
+### ***Концепции***
 
-### Ноды
+#### Ноды
 
 Основная статья: https://wiki.ros.org/Nodes.
 
@@ -47,7 +47,7 @@ rospy.spin()  # входим в бесконечный цикл...
 
 > **Подсказка** Любая [программа для автономного полета Technic](AutonomousFlight.md) является ROS-нодой.
 
-### Топики
+#### Топики
 
 Основная статья: https://wiki.ros.org/Topics.
 
@@ -123,7 +123,7 @@ rostopic echo /mavros/state
 
 Также данные в топиках можно визуализировать и в [графических инструментах ROS](rviz.md).
 
-### Сервисы
+#### Сервисы
 
 Основная статья: https://wiki.ros.org/Services.
 
@@ -165,7 +165,7 @@ rosservice call /get_telemetry "{frame_id: ''}"
 
 Больше примеров использования сервисов для автономных полетов квадрокоптера Клевер можно посмотреть в [документации ноды simple_offboard](AutonomousFlightOffboard.md)
 
-### Имена
+#### Имена
 
 Основная статья: https://wiki.ros.org/Names.
 
