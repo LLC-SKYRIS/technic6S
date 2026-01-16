@@ -182,8 +182,14 @@ body{
   position:relative;
 }
 
-/* Линия под заголовком */
-.big-card-text .title::after{
+/* Линия только под первым словом ("Техник", "Пилот") */
+.big-card-text .title > span:first-child{
+  display:inline-block;     /* ширина = только ширине слова */
+  position:relative;
+}
+
+/* Линия под первым словом */
+.big-card-text .title > span:first-child::after{
   content:"";
   display:block;
   height:1px;
@@ -196,7 +202,7 @@ body{
 }
 
 /* Анимация при hover карточки */
-.big-card:hover .title::after{
+.big-card:hover .title > span:first-child::after{
   transform: scaleX(1);
 }
 
