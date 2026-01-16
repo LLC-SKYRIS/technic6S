@@ -175,13 +175,11 @@ body{
 .big-card-text .accent{ font-weight:700; }
 
 /* Hover-блок "в раздел" */
-/* Hover-блок "в раздел" */
 .go-link{
   margin-top:10px;
   display:flex;
-  flex-direction:row;         /* ВАЖНО: строка */
-  align-items:center;
-  gap:12px;                   /* фиксированный зазор -> "одинаково" */
+  flex-direction:column;      /* ВАЖНО: снова колонка */
+  gap:6px;
   font-size:14px;
   letter-spacing:0.08em;
   text-transform:uppercase;
@@ -192,23 +190,24 @@ body{
   transition: opacity .2s ease, transform .2s ease;
 }
 
+/* Линия */
 .go-link .divider{
-  flex: 1 1 auto;             /* линия занимает всё свободное место */
+  width: 120px;               /* одинаковая длина у всех карточек */
   height:1px;
   background:#bbb;
 
-  transform: scaleX(0);       /* спрятана */
-  transform-origin: left;     /* появление слева направо */
+  transform: scaleX(0);       /* скрыта */
+  transform-origin: left;     /* слева направо */
   transition: transform .35s ease;
 }
 
-/* появляется блок */
+/* Появление блока */
 .big-card:hover .go-link{
   opacity:1;
   transform: translateY(0);
 }
 
-/* и линия "рисуется" */
+/* Анимация линии */
 .big-card:hover .go-link .divider{
   transform: scaleX(1);
 }
