@@ -1,18 +1,33 @@
 {% extends "website/page.html" %}
 
 {% block body %}
-  {{ super() }}  {# Это рендерит весь контент + меню слева #}
+  {{ super() }}
 
-  <!-- Footer -->
-  <footer>
-    <div class="projectInfo">
-      <span>Обратиться за помощью в техническую поддержку</span>
-      <a href="https://t.me/skyris_support" target="_blank" rel="noopener">• telegram @skyris_support</a>
-      <a href="mailto:info@skyris.pro">• info@skyris.pro</a>
-    </div>
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__support">
+        <div class="projectInfo">
+          <span>Обратиться за помощью в техническую поддержку</span>
+          <a href="https://t.me/skyris_support" target="_blank" rel="noopener">• telegram @skyris_support</a>
+          <a href="mailto:info@skyris.pro">• info@skyris.pro</a>
+        </div>
+      </div>
 
-    <div role="contentinfo" class="contentInfo">
-      ООО «Скайрис» 2025 © Все права защищены
+      <div class="site-footer__social">
+        <div class="site-footer__social-title">Следить за новостями проекта в социальных сетях</div>
+        <div class="site-footer__social-icons">
+          <!-- иконки можно потом подставить ссылками/картинками; пока оставил "как на скрине" визуально -->
+          <span class="site-footer__icon"></span>
+          <span class="site-footer__icon"></span>
+          <span class="site-footer__icon"></span>
+        </div>
+      </div>
+
+      <div class="site-footer__copyright">
+        <div role="contentinfo" class="contentInfo">
+          ООО «Скайрис» 2025 © Все права защищены
+        </div>
+      </div>
     </div>
   </footer>
 {% endblock %}
