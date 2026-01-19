@@ -73,10 +73,31 @@ pre {
   margin-bottom: 30px;
 }
 
-.custom-footer{
-  margin-top:40px;
+footer{
+  margin-top:auto;
   background:#fff;
   border-top:1px solid #e1e3e9;
-  padding:22px 18px;
+  padding: 22px 18px;
+}
+.projectInfo{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  color:#666;
+}
+.projectInfo a{
+  color:#444;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  width: fit-content;
+}
+.projectInfo a:hover{
+  border-bottom-color:#999;
+}
+.contentInfo{
+  margin-top:14px;
+  color:#888;
+  font-size:13px;
+  text-align:right;
 }
 
