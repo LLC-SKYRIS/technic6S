@@ -18,4 +18,6 @@ orangepi
 
 > **Подсказка** Для того, чтобы не вводить пароль при каждом подключении по SSH, см. [статью об использовании SSH-ключей](ssh_keys.md).
 
+> **Подсказка** Некоторые ссылки на ресурсы не работают без vpn.
+
 Подробнее: [https://help.sprecord.ru/ru/m-mt/additional_settings/ssh](https://help.sprecord.ru/ru/m-mt/additional_settings/ssh).
