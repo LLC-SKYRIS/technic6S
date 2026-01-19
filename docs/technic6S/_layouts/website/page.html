@@ -1,9 +1,10 @@
-{% extends "website/page.html" %}
+<div class="wy-nav-content">
 
-{% block body %}
-  {{ super() }}
+  <div class="rst-content">
+    {{ content }}
+  </div>
 
-  <!-- Footer -->
+  <!-- Footer только под контентом -->
   <footer>
     <div class="projectInfo">
       <span>Обратиться за помощью в техническую поддержку</span>
@@ -15,5 +16,6 @@
       ООО «Скайрис» 2025 © Все права защищены
     </div>
   </footer>
-{% endblock %}
+
+</div>
 
