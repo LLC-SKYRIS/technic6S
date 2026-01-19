@@ -73,26 +73,39 @@ pre {
   margin-bottom: 30px;
 }
 
-/* ===== Footer like on the screenshot ===== */
+/* ===== Footer layout like Geoscan (2 rows) ===== */
 
 .site-footer {
   border-top: 1px solid #e6e8ee;
-  margin-top: 40px;
+  margin-top: 28px;
   background: transparent;
 }
 
-/* Важно: ширина и позиционирование как у контента страницы */
+/* Делает структуру как на референсе:
+   Row 1: center socials
+   Row 2: left support + right copyright
+*/
 .site-footer__inner {
-  max-width: 1000px;   /* подгони под ширину твоего контента, если нужно */
+  max-width: 1000px;     /* подгони под ширину контента при желании */
   margin: 0 auto;
-  padding: 26px 18px;
+  padding: 22px 18px;
+
   display: grid;
-  grid-template-columns: 1fr auto 1fr; /* слева / центр / справа */
-  column-gap: 28px;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas:
+    ". social ."
+    "support . copyright";
+  row-gap: 14px;
+  column-gap: 24px;
   align-items: end;
 }
 
-/* Левый блок: поддержка */
+/* --- Areas --- */
+.site-footer__support { grid-area: support; }
+.site-footer__social { grid-area: social; }
+.site-footer__copyright { grid-area: copyright; }
+
+/* Левый блок: поддержка (как в Geoscan — не по центру) */
 .site-footer__support .projectInfo {
   display: flex;
   flex-direction: column;
@@ -113,7 +126,7 @@ pre {
   border-bottom-color: #999;
 }
 
-/* Центральный блок: заголовок + иконки (как на скрине) */
+/* Центр: соцсети */
 .site-footer__social {
   text-align: center;
   color: #8a8f99;
@@ -130,16 +143,16 @@ pre {
   gap: 18px;
 }
 
-/* Заглушки под иконки — визуально как серые квадраты на скрине */
+/* Иконки-заглушки (как серые на скрине) */
 .site-footer__icon {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
   background: #e9ecf2;
   display: inline-block;
 }
 
-/* Правый блок: копирайт */
+/* Правый блок: копирайт справа */
 .site-footer__copyright .contentInfo {
   margin: 0;
   color: #9aa0aa;
@@ -148,110 +161,19 @@ pre {
   white-space: nowrap;
 }
 
-/* Адаптив: складываем в колонку как обычно */
+/* Адаптив */
 @media (max-width: 900px) {
   .site-footer__inner {
     grid-template-columns: 1fr;
-    row-gap: 18px;
+    grid-template-areas:
+      "social"
+      "support"
+      "copyright";
+    row-gap: 14px;
     align-items: start;
   }
 
   .site-footer__support .projectInfo,
-  .site-footer__social,
-  .site-footer__copyright .contentInfo {
-    text-align: center;
-    white-space: normal;
-  }
-
-  .site-footer__support .projectInfo a {
-    margin: 0 auto;
-  }
-}
-/* ===== Footer like on the screenshot ===== */
-
-.site-footer {
-  border-top: 1px solid #e6e8ee;
-  margin-top: 40px;
-  background: transparent;
-}
-
-/* Важно: ширина и позиционирование как у контента страницы */
-.site-footer__inner {
-  max-width: 1000px;   /* подгони под ширину твоего контента, если нужно */
-  margin: 0 auto;
-  padding: 26px 18px;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr; /* слева / центр / справа */
-  column-gap: 28px;
-  align-items: end;
-}
-
-/* Левый блок: поддержка */
-.site-footer__support .projectInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  color: #666;
-  font-size: 14px;
-  text-align: left;
-}
-
-.site-footer__support .projectInfo a {
-  color: #444;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  width: fit-content;
-}
-
-.site-footer__support .projectInfo a:hover {
-  border-bottom-color: #999;
-}
-
-/* Центральный блок: заголовок + иконки (как на скрине) */
-.site-footer__social {
-  text-align: center;
-  color: #8a8f99;
-  font-size: 13px;
-}
-
-.site-footer__social-title {
-  margin-bottom: 10px;
-}
-
-.site-footer__social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-}
-
-/* Заглушки под иконки — визуально как серые квадраты на скрине */
-.site-footer__icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: #e9ecf2;
-  display: inline-block;
-}
-
-/* Правый блок: копирайт */
-.site-footer__copyright .contentInfo {
-  margin: 0;
-  color: #9aa0aa;
-  font-size: 13px;
-  text-align: right;
-  white-space: nowrap;
-}
-
-/* Адаптив: складываем в колонку как обычно */
-@media (max-width: 900px) {
-  .site-footer__inner {
-    grid-template-columns: 1fr;
-    row-gap: 18px;
-    align-items: start;
-  }
-
-  .site-footer__support .projectInfo,
-  .site-footer__social,
   .site-footer__copyright .contentInfo {
     text-align: center;
     white-space: normal;
