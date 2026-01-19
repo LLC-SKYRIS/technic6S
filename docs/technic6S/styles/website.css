@@ -73,13 +73,11 @@ pre {
   margin-bottom: 30px;
 }
 
-footer {
-  background: #fff;
-  border-top: 1px solid #e1e3e9;
+footer{
+  margin-top:auto;
+  background:#fff;
+  border-top:1px solid #e1e3e9;
   padding: 22px 18px;
-  max-width: 1200px;    /* как .wy-nav-content */
-  margin: 32px auto 0;  /* центрирование под контентом */
-  box-sizing: border-box;
 }
 
 .projectInfo{
