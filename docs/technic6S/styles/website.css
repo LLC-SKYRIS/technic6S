@@ -174,3 +174,22 @@ pre {
   padding-top: 18px;  /* линия футера + аккуратный воздух сверху */
 }
 
+/* ===== Sticky footer ONLY for right content column (HonKit) ===== */
+
+/* Правая колонка (без sidebar) растягивается на высоту окна */
+.book .book-body .body-inner {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Контент + стрелки занимает всё доступное место */
+.book .book-body .body-inner .page-wrapper {
+  flex: 1 0 auto;
+}
+
+/* Футер прижимается вниз правой колонки */
+.book .book-body .body-inner #site-footer.site-footer {
+  margin-top: auto !important;
+}
+
