@@ -58,8 +58,42 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="автозапуск-по">Автозапуск ПО</h1>
+<h3 id="systemd"><strong><em>systemd</em></strong></h3>
+<blockquote>
+<p>💡 <strong>Подсказка</strong> Основная документация: <a href="https://wiki.archlinux.org/title/Systemd_%28%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9%29" target="_blank">Systemd — Arch Wiki (RU)</a></p>
+</blockquote>
+<p>Все автоматически стартуемое ПО Technic запускается в виде systemd-сервиса <code>technic.service</code>.</p>
+<p>Сервис может быть перезапущен командой <code>systemctl</code>:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl restart technic
+</code></pre>
+<p>Текстовый вывод ПО можно просмотреть с помощью команды <code>journalctl</code>:</p>
+<pre><code class="lang-bash">journalctl -u technic
+</code></pre>
+<p>Для того чтобы запустить ПО Technic непосредственно в текущей консольной сессии, вы можете использовать <code>roslaunch</code>:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl stop technic
+roslaunch technic technic.launch
+</code></pre>
+<p>Вы можете выключить автозапуск ПО Technic с помощью команды <code>disable</code>:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">disable</span> technic
+</code></pre>
+<h3 id="roslaunch"><strong><em>roslaunch</em></strong></h3>
+<blockquote>
+<p><strong>Подсказка</strong> Основная документация: <a href="http://wiki.ros.org/roslaunch" target="_blank">http://wiki.ros.org/roslaunch</a>.</p>
+</blockquote>
+<p>Список объявленных для запуска нод / программ указывается в файле <code>/home/orangepi/technic_ws/src/technic/technic/launch/technic.launch</code></p>
+<p>Вы можете добавить собственную ноду в список автозапускаемых. Для этого разместите ваш запускаемый файл (например, <code>my_program.py</code>) в каталог <code>/home/orangepi/technic_ws/src/technic/technic</code>. Затем добавьте запуск вашей ноды в <code>clover.launch</code>, например:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">node</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"my_program"</span> <span class="hljs-attr">pkg</span>=<span class="hljs-string">"technic"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"my_program.py"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"screen"</span>/&gt;</span>
+</code></pre>
+<p>Запускаемый файл должен иметь <em>permission</em> на запуск:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">chmod</span> +x my_program.py
+</code></pre>
+<p>При использовании скриптовых языков вначале файла должен стоять <a href="https://ru.wikipedia.org/wiki/Шебанг_(Unix)" target="_blank">shebang</a>, например:</p>
+<pre><code class="lang-bash"><span class="hljs-meta">#!/usr/bin/env python3</span>
+</code></pre>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +157,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

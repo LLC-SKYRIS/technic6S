@@ -56,8 +56,51 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="использование-rviz-и-rqt">Использование rviz и rqt</h1>
+<p><img src="assets/rviz.png" alt="rviz"></img></p>
+<p>Инструмент <a href="http://wiki.ros.org/rviz" target="_blank">rviz</a> позволяет в реальном времени визуализировать на 3D-сцене все компоненты робототехнической системы — системы координат, движущиеся части, показания датчиков, изображения с камер.</p>
+<p><a href="http://wiki.ros.org/rqt" target="_blank">rqt</a> – это набор GUI для анализа и контроля ROS-систем. Например, <code>rqt_image_view</code> позволяет просматривать топики с изображениями, <code>rqt_multiplot</code> – строить графики по значениям в топиках и т. д.</p>
+<p>Для использования rviz и rqt необходим компьютер с ОС Ubuntu Linux (либо виртуальная машина, например <a href="https://itunes.apple.com/ru/app/parallels-desktop-lite/id1085114709?mt=12" target="_blank">Parallels Desktop Lite</a> или <a href="https://www.virtualbox.org" target="_blank">VirtualBox</a>).</p>
+<blockquote>
+<p><strong>Подсказка</strong> Вы можете можете использовать готовый <a href="SimulationVm.md">образ виртуальной машины</a> с инструментами для Техника.</p>
+</blockquote>
+<p>На него необходимо установить пакет <code>ros-noetic-desktop-full</code> или <code>ros-noetic-desktop</code>, используя <a href="http://wiki.ros.org/noetic/Installation/Ubuntu" target="_blank">документацию по установке</a>.</p>
+<h2 id="запуск-rviz">Запуск rviz</h2>
+<p>Для запуска визуализация состояния Техника в реальном времени, необходимо подключиться к нему по <a href="ConnectingToWi-Fi.html">Wi-Fi</a> (<code>technic-xxxx</code>) и запустить rviz, указав соответствующий ROS_MASTER_URI:</p>
+<pre><code class="lang-bash">ROS_MASTER_URI=http://10.42.0.1:11311 rviz
+</code></pre>
+<blockquote>
+<p><strong>Заметки</strong> В случае использования виртуальной машины для использования rviz и других инструментов может быть необходимо поменять ее сетевую конфигурацию на режим <em>bridge</em> (<a href="https://docs.vmware.com/en/VMware-Workstation-Player-for-Windows/16.0/com.vmware.player.win.using.doc/GUID-826323AD-D014-475D-8909-DFA73B5A3A57.html" target="_blank">см. подробности для VMware</a>).</p>
+</blockquote>
+<h2 id="использование-rviz">Использование rviz</h2>
+<h3 id="визуализация-положения-коптера">Визуализация положения коптера</h3>
+<p>В качестве reference frame рекомендуется установить фрейм <code>map</code>. Для визуализации коптера добавьте визуализационные маркеры из топика <code>/vehicle_markers</code>. Для визуализации камеры коптера добавьте визуализационные маркеры из топика <code>/main_camera/camera_markers</code>.</p>
+<p>Результат визуализации коптера и камеры представлен ниже:</p>
+<p><img src="assets/copter_visualization.png" alt="rviz"></img></p>
+<h3 id="визуализация-окружения">Визуализация окружения</h3>
+<p>Можно просмотреть картинку с дополненной реальностью из топика основной камеры <code>/main_camera/image_raw</code>.</p>
+<p>Axis или Grid настроенный на фрейм <code>aruco_map</code> будут визуализировать расположение <a href="Aruco.html">карты ArUco-меток</a>.</p>
+<h3 id="jskrvizplugins">jsk_rviz_plugins</h3>
+<p>Рекомендуется также установка набора дополнительных полезных плагинов для rviz <a href="https://jsk-visualization.readthedocs.io/en/latest/jsk_rviz_plugins/index.html" target="_blank">jsk_rviz_plugins</a>. Это набор позволяет визуализировать топики типа <code>TwistStamped</code> (скорость), <code>CameraInfo</code>, <code>PolygonArray</code> и многое другое. Для установки используйте команду:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> apt-get install ros-melodic-jsk-visualization
+</code></pre>
+<h2 id="запуск-инструментов-rqt">Запуск инструментов rqt</h2>
+<p><img src="assets/rqt.png" alt="rqt"></img></p>
+<p>Для запуска rqt для мониторинга состояния Техника используйте команду:</p>
+<pre><code class="lang-bash">ROS_MASTER_URI=http://10.42.0.1:11311 rqt
+</code></pre>
+<p>Пример запуск конкретного плагина (<code>rqt_image_view</code>):</p>
+<pre><code class="lang-bash">ROS_MASTER_URI=http://10.42.0.1:11311 rqt_image_view
+</code></pre>
+<p>Краткое описание полезных rqt-плагинов:</p>
+<ul>
+<li><code>rqt_image_view</code> – просмотр изображений из топиков типа <code>sensor_msgs/Image</code>;</li>
+<li><code>rqt_multiplot</code> – построение графиков по данным из произвольным топиков (установка: <code>sudo apt-get install ros-melodic-rqt-multiplot</code>);</li>
+<li>Bag – работа с <a href="http://wiki.ros.org/rosbag" target="_blank">Bag-файлами</a>.</li>
+</ul>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -121,11 +164,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

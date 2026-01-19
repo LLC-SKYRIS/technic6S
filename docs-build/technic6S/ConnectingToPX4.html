@@ -58,8 +58,44 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="подключение-к-px4">Подключение к PX4</h1>
+<p>Для программирования <a href="AutonomousFlight.html">автономных полетов</a>, <a href="ConnectingToPX4.html">работы с Pixhawk (Pixracer) по Wi-Fi</a>, использования телефонного пульта и других функций необходимо соединение OPi и полетного контроллера.</p>
+<h3 id="подключение-по-uart"><strong><em>Подключение по UART</em></strong></h3>
+<p>Основным способом подключения является подключение по интерфейсу UART0.</p>
+<p>Если обозначенный пин GND занят, можно использовать другой UART7-M2, используя <a href="http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html" target="_blank">распиновку</a>.</p>
+<ol>
+<li><p>Убедитесь в работоспособности подключения:</p>
+<pre><code class="lang-bash"> rostopic <span class="hljs-built_in">echo</span> -n1 /mavros/state
+</code></pre>
+<p> Поле <code>connected</code> должно содержать значение <code>True</code>.</p>
+</li>
+</ol>
+<p>Дополнительная информация: <a href="https://docs.px4.io/main/en/peripherals/serial_configuration.html" target="_blank">https://docs.px4.io/main/en/peripherals/serial_configuration.html</a>.</p>
+<h3 id="подключение-по-usb"><strong><em>Подключение по USB</em></strong></h3>
+<p>Дополнительным способом подключения является подключение по интерфейсу USB.</p>
+<ol>
+<li>Соедините OPi и полетный контроллер micro-USB to USB кабелем.</li>
+<li>Отключите соединение по uart </li>
+<li><a href="SSH.html">Подключитесь в Orangepi 5 pro по SSH</a>.</li>
+<li><p>Поменяйте в launch-файле Technic (<code>~/catkin_ws/src/clover/clover/launch/clover.launch</code>) тип подключения с <code>uart</code> на <code>usb</code> ``:</p>
+<pre><code class="lang-xml"> <span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fcu_conn"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"usb"</span>/&gt;</span>
+</code></pre>
+<p> При изменении launch-файла необходимо перезапустить сервис <code>technic</code>:</p>
+<pre><code class="lang-bash"> <span class="hljs-built_in">sudo</span> systemctl restart technic
+</code></pre>
+</li>
+<li><p>Убедитесь в работоспособности подключения, <a href="CommandLine.html">выполнив команду на Orangepi 5 pro</a>:</p>
+<pre><code class="lang-bash"> rostopic <span class="hljs-built_in">echo</span> /mavros/state
+</code></pre>
+<p> Поле <code>connected</code> должно содержать значение <code>True</code>.</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>Подсказка</strong> Для корректной работы подключения OPi и Pixhawk по USB необходимо установить значение <a href="Parameters.html">параметра</a> <code>CBRK_USB_CHK</code> на 197848.</p>
+</blockquote>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +159,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

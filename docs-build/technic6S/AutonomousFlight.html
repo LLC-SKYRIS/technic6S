@@ -58,8 +58,69 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="программирование-автономного-полета">Программирование автономного полета</h1>
+<p>Наиболее часто для задач автономного полета применяется язык <strong>Python</strong>, который позволяет считывать <a href="AutonomousFlightOffboard.html">телеметрию</a>(положение, ориентацию, скорость, заряд батареи) и отправлять команды управления, такие как <a href="AutonomousFlightOffboard.html">полет к заданной точке</a>, <a href="AutonomousFlightOffboard">изменение ориентации</a> или <a href="AutonomousFlightOffboard">задание угловых скоростей</a>.</p>
+<blockquote>
+<p>💡 <strong>Hint</strong> Если вы начинаете изучение Python, можно воспользоваться <a href="https://pythonworld.ru/samouchitel-python" target="_blank">самоучителем</a>.</p>
+</blockquote>
+<p>После настройки позиционирования можно переходить к созданию собственных сценариев автономных полетов.  </p>
+<p>Для этого подключитесь к OrangePi 5 Pro через веб-интерфейс и откройте терминал</p>
+<p>Запуск программ выполняется стандартной командой Python:</p>
+<p><code>python3 flight.py</code></p>
+<p>Пример простого полета (взлет → движение вперед → посадка):</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
+<span class="hljs-keyword">from</span> technic <span class="hljs-keyword">import</span> srv
+<span class="hljs-keyword">from</span> std_srvs.srv <span class="hljs-keyword">import</span> Trigger
+
+rospy.init_node(<span class="hljs-string">'flight'</span>)
+
+get_telemetry = rospy.ServiceProxy(<span class="hljs-string">'get_telemetry'</span>, srv.GetTelemetry)
+navigate = rospy.ServiceProxy(<span class="hljs-string">'navigate'</span>, srv.Navigate)
+navigate_global = rospy.ServiceProxy(<span class="hljs-string">'navigate_global'</span>, srv.NavigateGlobal)
+set_position = rospy.ServiceProxy(<span class="hljs-string">'set_position'</span>, srv.SetPosition)
+set_velocity = rospy.ServiceProxy(<span class="hljs-string">'set_velocity'</span>, srv.SetVelocity)
+set_attitude = rospy.ServiceProxy(<span class="hljs-string">'set_attitude'</span>, srv.SetAttitude)
+set_rates = rospy.ServiceProxy(<span class="hljs-string">'set_rates'</span>, srv.SetRates)
+land = rospy.ServiceProxy(<span class="hljs-string">'land'</span>, Trigger)
+
+<span class="hljs-comment"># Взлет на высоту 1 м</span>
+navigate(x=<span class="hljs-number">0</span>, y=<span class="hljs-number">0</span>, z=<span class="hljs-number">1</span>, frame_id=<span class="hljs-string">'body'</span>, auto_arm=<span class="hljs-literal">True</span>)
+
+<span class="hljs-comment"># Ожидание 3 секунды</span>
+rospy.sleep(<span class="hljs-number">3</span>)
+
+<span class="hljs-comment"># Пролет вперед 1 метр</span>
+navigate(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">0</span>, z=<span class="hljs-number">0</span>, frame_id=<span class="hljs-string">'body'</span>)
+
+<span class="hljs-comment"># Ожидание 3 секунды</span>
+rospy.sleep(<span class="hljs-number">3</span>)
+
+<span class="hljs-comment"># Посадка</span>
+land()
+</code></pre>
+<blockquote>
+<p>ℹ️ Функция <code>navigate</code> выполняется асинхронно: скрипт продолжает работу, не дожидаясь достижения точки. Для блокирующей версии используйте <a href="CodeExamples.html#navigate_wait"><code>navigate_wait</code></a>.</p>
+</blockquote>
+<p>Обратите внимание: параметр <code>auto_arm=True</code> указывается только при первом вызове <code>navigate</code>. Он отвечает за автоматическую постановку дрона на охрану и перевод его в режим OFFBOARD.</p>
+<p>С помощью параметра <code>frame_id</code> задается система координат, относительно которой рассчитываются движения:</p>
+<ul>
+<li><p><code>body</code> — координаты относительно корпуса дрона;</p>
+</li>
+<li><p><code>navigate_target</code> — относительно последней целевой точки;</p>
+</li>
+<li><p><code>map</code> — локальная система координат;</p>
+</li>
+<li><p><code>aruco_map</code> — карта ArUco-маркеров;</p>
+</li>
+<li><p><code>aruco_N</code> — маркер с ID=N.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Подсказка</strong> В Technic также доступен режим <a href="Blocky.html">блочного программирования</a>, позволяющий создавать сценарии без кода.</p>
+</blockquote>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +184,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

@@ -58,8 +58,24 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="программирование">Программирование</h1>
+<p>Платформа <strong>Technic</strong> предоставляет возможность использовать <a href="OrangePi.html">OrangePi 5 Pro</a> для написания и выполнения программ, управляющих дроном в автономном режиме.  </p>
+<p>Technic работает поверх <a href="ROS.html">ROS</a> — фреймворка, обеспечивающего взаимодействие пользовательских программ с системными сервисами, запущенными в фоновом режиме как демон <code>technic</code>.<br></br>Связь с полетным контроллером осуществляется через пакет <a href="MAVROS.html">MAVROS</a>.</p>
+<p>В полетном контроллере PX4 автономное управление выполняется в <a href="Modes.html#auto">режиме OFFBOARD</a>. API Technic автоматически переводит дрон в этот режим при запуске автономной программы. Чтобы прервать полет и вернуть ручное управление, достаточно переключить режим на пульте управления.</p>
+<hr></hr>
+<h3 id="система-позиционирования"><strong><em>Система позиционирования</em></strong></h3>
+<p>Чтобы дрон мог стабильно удерживать позицию или перемещаться между заданными точками, ему требуется система позиционирования — механизм, который вычисляет текущее местоположение.<br></br>В Technic поддерживается несколько способов определения позиции:</p>
+<ul>
+<li><p><strong><a href="OpticalFlow.html">Optical Flow</a></strong> — Метод основан на сравнении последовательных кадров с камеры и определении смещения между ними. Полученные данные позволяют контроллеру оценить движение дрона относительно стартовой точки;</p>
+</li>
+<li><p><strong><a href="Aruco.html">ArUco-маркеры</a></strong> — дрон определяет свое положение, распознавая изображения специальных меток в поле зрения камеры;</p>
+</li>
+<li><p><a href="GPS.html"><strong>GPS</strong></a> —  при полетах на открытом воздухе можно использовать GPS для работы с глобальными координатами — широтой и долготой. Для этого применяется функция <a href="AutonomousFlightOffboard.html#navigate_global"><code>navigate_global</code></a>.</p>
+</li>
+</ul>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +139,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

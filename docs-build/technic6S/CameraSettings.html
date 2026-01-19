@@ -58,8 +58,89 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="настройка-камеры">Настройка камеры</h1>
+<p>Для корректной работы всех функций, связанных с компьютерным зрением (в том числе <a href="Aruco.html">полета по ArUco-маркерам</a> и <a href="OpticalFlow.html">Optical Flow</a>) необходимо сфокусировать основную камеру, а также выставить ее расположение и ориентацию. Улучшить качество работы также может опциональная калибровка камеры.</p>
+<h3 id="focus"><strong><em>Настройка фокуса камеры </em></strong></h3>
+<p>Для успешного осуществления полетов с использованием камеры, необходимо настроить фокус камеры. </p>
+<p><img src="assets/cam_setup.png" width="180" class="center zoom"></img></p>
+<ol>
+<li>Откройте трансляцию изображения с камеры используя <a href="CameraImages.html">web_video_server</a>.</li>
+<li>С помощью вращения объектива камеры добейтесь максимальной резкости деталей (предпочтительно на расстоянии предполагаемой высоты полета – 2–3 м).</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Расфокусированное изображение</th>
+<th>Сфокусированное изображение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="assets/unfocused.png" width="300" class="zoom"></img></td>
+<td><img src="assets/focused.png" width="300" class="zoom"></img></td>
+</tr>
+</tbody>
+</table>
+<h3 id="frame"><strong><em>Настройка расположения камеры </em></strong></h3>
+<p>Расположение и ориентация камеры <a href="CommandLine.html">задается в файле</a> <code>~/technic_ws/src/technic/technic/launch/main_camera.launch</code>:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"direction_z"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"down"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- direction the camera points: down, up --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"direction_y"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"backward"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- direction the camera cable points: backward, forward --&gt;</span>
+</code></pre>
+<p>Для того, чтобы задать ориентацию, необходимо установить:</p>
+<ul>
+<li>направление обзора камеры <code>direction_z</code>: вниз (<code>down</code>) или вверх (<code>up</code>);</li>
+<li>направление, в которое указывает шлейф камеры <code>direction_y</code>: назад (<code>backward</code>) или вперед (<code>forward</code>).</li>
+</ul>
+<h3 id="примеры"><strong><em>Примеры</em></strong></h3>
+<h4 id="камера-направлена-вниз-шлейф-назад">Камера направлена вниз, шлейф назад</h4>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"direction_z"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"down"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"direction_y"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"backward"</span>/&gt;</span>
+</code></pre>
+<p><img src="assets/camera_option_1_rviz-round-corners.png" width="300"></img>
+<img src="assets/0410.png" width="300"></img></p>
+<h4 id="камера-направлена-вниз-шлейф-вперёд">Камера направлена вниз, шлейф вперёд</h4>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"direction_z"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"down"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"direction_y"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"forward"</span>/&gt;</span>
+</code></pre>
+<p><img src="assets/camera_option_2_rviz-round-corners.png" width="300"></img>
+<img src="assets/0410.png" width="300"></img></p>
+<h4 id="камера-направлена-вверх-шлейф-назад">Камера направлена вверх, шлейф назад</h4>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"direction_z"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"up"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"direction_y"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"backward"</span>/&gt;</span>
+</code></pre>
+<p><img src="assets/camera_option_3_rviz-round-corners.png" width="300"></img>
+<img src="assets/0411.png" width="300"></img></p>
+<h4 id="камера-направлена-вверх-шлейф-вперёд">Камера направлена вверх, шлейф вперёд</h4>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"direction_z"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"up"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"direction_y"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"forward"</span>/&gt;</span>
+</code></pre>
+<p><img src="assets/camera_option_4_rviz-round-corners.png" width="300"></img>
+<img src="assets/0411.png" width="300"></img></p>
+<blockquote>
+<p><strong>Подсказка</strong> <a href="selfcheck.md">Утилита <code>selfcheck.py</code></a> выдает словесное описание установленной в данной момент ориентации основной камеры.</p>
+</blockquote>
+<h3 id="произвольное-расположение-камеры"><strong><em>Произвольное расположение камеры</em></strong></h3>
+<p>Также возможны произвольное расположение и ориентация камеры. Для этого раскомментируйте запуск ноды, подписанной как <code>Template for custom camera orientation</code>:</p>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!-- Template for custom camera orientation --&gt;</span>
+<span class="hljs-comment">&lt;!-- Camera position and orientation are represented by base_link -&gt; main_camera_optical transform --&gt;</span>
+<span class="hljs-comment">&lt;!-- static_transform_publisher arguments: x y z yaw pitch roll frame_id child_frame_id --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">node</span> <span class="hljs-attr">pkg</span>=<span class="hljs-string">"tf2_ros"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"static_transform_publisher"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"main_camera_frame"</span> <span class="hljs-attr">args</span>=<span class="hljs-string">"0.05 0 -0.07 -1.5707963 0 3.1415926 base_link main_camera_optical"</span>/&gt;</span>
+</code></pre>
+<p>Эта строка задает статическую трансформацию между фреймом <code>base_link</code> (<a href="CoordinateSystems.html">соответствует корпусу полетного контроллера</a>) и камерой (<code>main_camera_optical</code>) в формате:</p>
+<pre><code class="lang-txt">сдвиг_x сдвиг_y сдвиг_z угол_рысканье угол_тангаж угол_крен
+</code></pre>
+<p>Фрейм камеры задается таким образом, что:</p>
+<ul>
+<li><strong><font color="red">x</font></strong> указывает направо на изображении;</li>
+<li><strong><font color="green">y</font></strong> указывает вниз на изображении;</li>
+<li><strong><font color="blue">z</font></strong> указывает от плоскости матрицы камеры.</li>
+</ul>
+<p>Сдвиги задаются в метрах, углы задаются в радианах. Корректность установленной трансформации может быть проверена с использованием <a href="Rviz.html">rviz</a>.</p>
+<h3 id="calibration"><strong><em>Калибровка </em></strong></h3>
+<p>Для улучшения качества работы алгоритмов также рекомендуется произвести <a href="https://waksoft.susu.ru/2020/02/29/kalibrovka-kamery-s-ispolzovaniem-s-opencv/" target="_blank">калибровку камеры</a>.</p>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +204,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

@@ -58,8 +58,126 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="компьютерное-зрение">Компьютерное зрение</h1>
+<p>Для работы с основной камерой необходимо убедиться что она включена в файле <code>~/technic_ws/src/technic/technic/launch/technic.launch</code>:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"main_camera"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"true"</span>/&gt;</span>
+</code></pre>
+<p>Также нужно убедиться, что камера <a href="CameraSettings.html">сфокусирована и для нее указано корректное расположение и ориентация</a>.</p>
+<p>При изменении launch-файла необходимо перезапустить пакет <code>technic</code>:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl restart technic
+</code></pre>
+<p>Для мониторинга изображения с камеры можно использовать <a href="Rviz.html">rqt</a> или <a href="CameraImages.html">web_video_server</a>.</p>
+<h2 id="неисправности">Неисправности</h2>
+<p>Если изображение с камеры отсутствует, попробуйте проверить ее с помощью утилиты <a href=""><code>orangepicheckcamera</code></a>.</p>
+<p>Остановите сервисы Technic:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl stop technic
+</code></pre>
+<p>Получите картинку с камеры утилитой <code>orangepicheckcamera</code>:</p>
+<pre><code class="lang-bash">orangepicheckcamera -o test.jpg
+</code></pre>
+<p>Если команда завершается с ошибкой, проверьте качество подключения шлейфа камеры к OPi или замените его.</p>
+<h2 id="настройки-камеры">Настройки камеры</h2>
+<p>Ряд параметров камеры - размер изображения, максимальную частоту кадров, экспозицию - можно настроить в файле <code>main_camera.launch</code>. Список настраиваемых параметров можно <a href="https://github.com/OTL/cv_camera#parameters" target="_blank">посмотреть в репозитории cv_camera</a>.</p>
+<p>Параметры, не указанные в этом списке, можно указывать через <a href="https://docs.opencv.org/3.3.1/d4/d15/group__videoio__flags__base.html" target="_blank">код параметра OpenCV</a>. Например, для установки фиксированной экспозиции добавьте следующие параметры в ноду камеры:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"property_0_code"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"21"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- property code 21 is CAP_PROP_AUTO_EXPOSURE --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"property_0_value"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0.25"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- property values are normalized as per OpenCV specs, even for "menu" controls; 0.25 means "use manual exposure" --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"cv_cap_prop_exposure"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0.3"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- set exposure to 30% of maximum value --&gt;</span>
+</code></pre>
+<h2 id="компьютерное-зрение">Компьютерное зрение</h2>
+<p>Для реализации алгоритмов компьютерного зрения рекомендуется использовать предустановленную на eMMC библиотеку <a href="https://opencv.org" target="_blank">OpenCV</a>.</p>
+<h3 id="python">Python</h3>
+<p>Пример создания подписчика на топик с изображением с основной камеры для обработки с использованием OpenCV:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
+<span class="hljs-keyword">import</span> cv2
+<span class="hljs-keyword">from</span> sensor_msgs.msg <span class="hljs-keyword">import</span> Image
+<span class="hljs-keyword">from</span> cv_bridge <span class="hljs-keyword">import</span> CvBridge
+<span class="hljs-keyword">from</span> technic <span class="hljs-keyword">import</span> long_callback
+
+rospy.init_node(<span class="hljs-string">'cv'</span>)
+bridge = CvBridge()
+
+<span class="hljs-meta">@long_callback</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">image_callback</span>(<span class="hljs-params">data</span>):
+    img = bridge.imgmsg_to_cv2(data, <span class="hljs-string">'bgr8'</span>)  <span class="hljs-comment"># OpenCV image</span>
+    <span class="hljs-comment"># Do any image processing with cv2...</span>
+
+image_sub = rospy.Subscriber(<span class="hljs-string">'main_camera/image_raw'</span>, Image, image_callback)
+
+rospy.spin()
+</code></pre>
+<blockquote>
+<p><strong>Заметки</strong> Обработка изображения может занимать значительное время. Это может вызвать <a href="https://github.com/ros/ros_comm/issues/1901" target="_blank">проблему</a> в библиотеке rospy, которая приведет к обработке устаревших кадров с камеры. Для решения этой проблемы необходимо использовать декоратор <code>long_callback</code> из библиотеки <code>technic</code>, как в примере выше.</p>
+</blockquote>
+<h4 id="ограничение-использования-cpu">Ограничение использования CPU</h4>
+<p>При использовании топика <code>main_camera/image_raw</code> скрипт будет обрабатывать максимальное количество кадров с камеры, активно используя CPU (вплоть до 100%). В задачах, где обработка каждого кадра не критична, можно использовать топик, где кадры публикуются с частотой 5 Гц: <code>main_camera/image_raw_throttled</code>:</p>
+<pre><code class="lang-python">image_sub = rospy.Subscriber(<span class="hljs-string">'main_camera/image_raw_throttled'</span>, Image, image_callback, queue_size=<span class="hljs-number">1</span>)
+</code></pre>
+<h4 id="публикация-изображений">Публикация изображений</h4>
+<p>Для отладки обработки изображения можно публиковать отдельный топик с обработанным изображением:</p>
+<pre><code class="lang-python">image_pub = rospy.Publisher(<span class="hljs-string">'~debug'</span>, Image)
+</code></pre>
+<p>Публикация обработанного изображения:</p>
+<pre><code class="lang-python">image_pub.publish(bridge.cv2_to_imgmsg(img, <span class="hljs-string">'bgr8'</span>))
+</code></pre>
+<p>Получаемые изображения можно просматривать используя <a href="CameraImages.html">web_video_server</a> или <a href="Rviz.html">rqt</a>.</p>
+<h4 id="получение-одного-кадра">Получение одного кадра</h4>
+<p>Существует возможность единоразового получения кадра с камеры. Этот способ работает медленнее, чем подписка на топик; его не следует применять в случае необходимости постоянной обработки изображений.</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
+<span class="hljs-keyword">from</span> sensor_msgs.msg <span class="hljs-keyword">import</span> Image
+<span class="hljs-keyword">from</span> cv_bridge <span class="hljs-keyword">import</span> CvBridge
+
+rospy.init_node(<span class="hljs-string">'cv'</span>)
+bridge = CvBridge()
+
+<span class="hljs-comment"># ...</span>
+
+<span class="hljs-comment"># Retrieve a frame:</span>
+img = bridge.imgmsg_to_cv2(rospy.wait_for_message(<span class="hljs-string">'main_camera/image_raw'</span>, Image), <span class="hljs-string">'bgr8'</span>)
+</code></pre>
+<h3 id="примеры">Примеры</h3>
+<h4 id="работа-с-qr-кодами">Работа с QR-кодами</h4>
+<blockquote>
+<p><strong>Подсказка</strong> Для высокоскоростного распознавания и позиционирования лучше использовать <a href="ArucoMarker.html">ArUco-маркеры</a>.</p>
+</blockquote>
+<p>Для программирования различных действий коптера при детектировании нужных <a href="https://ru.wikipedia.org/wiki/QR-код" target="_blank">QR-кодов</a> можно использовать библиотеку <a href="https://pypi.org/project/pyzbar/" target="_blank">pyZBar</a>. Она уже установлена в последнем образе для Orange Pi.
+Распознавание QR-кодов на Python:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
+<span class="hljs-keyword">from</span> pyzbar <span class="hljs-keyword">import</span> pyzbar
+<span class="hljs-keyword">import</span> cv2
+<span class="hljs-keyword">from</span> cv_bridge <span class="hljs-keyword">import</span> CvBridge
+<span class="hljs-keyword">from</span> sensor_msgs.msg <span class="hljs-keyword">import</span> Image
+<span class="hljs-keyword">from</span> technic <span class="hljs-keyword">import</span> long_callback
+
+rospy.init_node(<span class="hljs-string">'cv'</span>)
+bridge = CvBridge()
+
+<span class="hljs-meta">@long_callback</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">image_callback</span>(<span class="hljs-params">msg</span>):
+    img = bridge.imgmsg_to_cv2(msg, <span class="hljs-string">'bgr8'</span>)
+    barcodes = pyzbar.decode(img)
+    <span class="hljs-keyword">for</span> barcode <span class="hljs-keyword">in</span> barcodes:
+        b_data = barcode.data.decode(<span class="hljs-string">'utf-8'</span>)
+        b_type = barcode.<span class="hljs-built_in">type</span>
+        (x, y, w, h) = barcode.rect
+        xc = x + w/<span class="hljs-number">2</span>
+        yc = y + h/<span class="hljs-number">2</span>
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">'Found {} with data {} with center at x={}, y={}'</span>.<span class="hljs-built_in">format</span>(b_type, b_data, xc, yc))
+
+image_sub = rospy.Subscriber(<span class="hljs-string">'main_camera/image_raw_throttled'</span>, Image, image_callback, queue_size=<span class="hljs-number">1</span>)
+
+rospy.spin()
+</code></pre>
+<blockquote>
+<p><strong>Подсказка</strong> Смотрите другие примеры по работе с компьютерным зрением в каталоге <code>~/examples</code> <a href="ImageOPI.html">образа для OPI</a>.</p>
+</blockquote>
+<h2 id="запись-видео">Запись видео</h2>
+<p>Для записи видео может использована нода <a href="http://wiki.ros.org/image_view#image_view.2Fdiamondback.video_recorder" target="_blank"><code>video_recorder</code></a> из пакета <code>image_view</code>:</p>
+<pre><code class="lang-bash">rosrun image_view video_recorder image:=/main_camera/image_raw
+</code></pre>
+<p>Видео будет сохранено в файл <code>output.avi</code>. В аргументе <code>image</code> указывается название топика для записи видео.</p>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +241,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

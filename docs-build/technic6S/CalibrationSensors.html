@@ -58,8 +58,55 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="калибровка-датчиков">Калибровка датчиков</h1>
+<p>Чтобы откалибровать датчики зайдите во вкладку <em>Vehicle Setup</em> и выберите меню <em>Sensors</em>.</p>
+<h3 id="компас"><strong><em>Компас</em></strong></h3>
+<p><img src="assets/qgc-cal-compass.png" width="600" class="center zoom"></img></p>
+<ol>
+<li>Выберите меню <em>Compass</em>.</li>
+<li>Выберите ориентацию полетного контроллера – <em>ROTATION_NONE</em> при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.</li>
+<li>Нажмите <em>OK</em>.</li>
+<li>Последовательно устанавливайте квадрокоптер в каждую из указанных ориентаций до появления желтой рамки.</li>
+<li>Вращайте квадрокоптер по направлению стрелки до появления зеленой рамки.</li>
+</ol>
+<blockquote>
+<p><strong>Подсказка</strong> Последние версии прошивки PX4 не поддерживают внутренний компас на полетном контроллере SKYRIS Pix. При появлении ошибки <em>No mags found</em> перейдите во вкладку <em>Parameters</em>, установите параметры <code>SYS_HAS_MAG</code> в <code>0</code>, <code>EKF2_MAG_TYPE</code> в <code>None</code> и перезагрузите полетный контроллер (<em>Tools</em> =&gt; <em>Reboot Vehicle</em>).</p>
+</blockquote>
+<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/compass.html" target="_blank">https://docs.px4.io/master/en/config/compass.html</a>.</p>
+<h3 id="гироскоп"><strong><em>Гироскоп</em></strong></h3>
+<p><img src="assets/qgc-cal-gyro.png" width="600" class="center zoom"></img></p>
+<ol>
+<li>Выберите меню <em>Gyroscope</em></li>
+<li>Установите квадрокоптер на ровную поверхность.</li>
+<li>Нажмите <em>OK</em>.</li>
+<li>Дождитесь окончания калибровки.</li>
+</ol>
+<blockquote>
+<p><strong>Подсказка</strong> Во время калибровки гироскопа квадрокоптер не должен менять своего положения, шататься и т. д.</p>
+</blockquote>
+<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/gyroscope.html" target="_blank">https://docs.px4.io/master/en/config/gyroscope.html</a>.</p>
+<h3 id="акселерометр"><strong><em>Акселерометр</em></strong></h3>
+<p><img src="assets/qgc-cal-acc.png" width="600" class="center zoom"></img></p>
+<ol>
+<li>Выберите меню <em>Accelerometer</em>.</li>
+<li>Выберите ориентацию полетного контроллера – <em>ROTATION_NONE</em> при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.</li>
+<li>Последовательно устанавливайте квадрокоптер в каждую из указанных ориентаций до появления желтой рамки.</li>
+<li>Держите квадрокоптер неподвижно до появления зеленой рамки.</li>
+</ol>
+<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/accelerometer.html" target="_blank">https://docs.px4.io/master/en/config/accelerometer.html</a>.</p>
+<h3 id="уровень-горизонта"><strong><em>Уровень горизонта</em></strong></h3>
+<p><img src="assets/qgc-cal-level.png" width="600" class="center zoom"></img></p>
+<ol>
+<li>Выберите меню <em>Level Horizon</em>.</li>
+<li>Выберите ориентацию полетного контроллера – <em>ROTATION_NONE</em> при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.</li>
+<li>Установите квадрокоптер на ровную поверхность.</li>
+<li>Нажмите <em>OK</em>.</li>
+<li>Дождитесь окончания калибровки.</li>
+</ol>
+<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/level_horizon_calibration.html" target="_blank">https://docs.px4.io/master/en/config/level_horizon_calibration.html</a>.</p>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +170,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

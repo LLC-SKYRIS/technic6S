@@ -58,8 +58,36 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="подключение-gps">Подключение GPS</h1>
+<p>При подключении GPS появляются следующие возможности:</p>
+<ul>
+<li>удерживание коптером позиции при полете на улице;</li>
+<li>программирование автономных миссий в программе QGroundControl;</li>
+<li>полеты на глобальные точки в автономном режиме при помощи модуля <a href="AutonomousFlightOffboard.html">simple_offboard</a></li>
+</ul>
+<p>Полезные ссылки:</p>
+<ul>
+<li><a href="https://docs.px4.io/en/assembly/quick_start_pixhawk.html" target="_blank">https://docs.px4.io/en/assembly/quick_start_pixhawk.html</a></li>
+<li><a href="http://ardupilot.org/copter/docs/common-pixhawk-wiring-and-quick-start.html" target="_blank">http://ardupilot.org/copter/docs/common-pixhawk-wiring-and-quick-start.html</a></li>
+<li><a href="http://ardupilot.org/copter/docs/common-installing-3dr-ublox-gps-compass-module.html" target="_blank">http://ardupilot.org/copter/docs/common-installing-3dr-ublox-gps-compass-module.html</a></li>
+</ul>
+<h2 id="подключение">Подключение</h2>
+<p>GPS-модуль подключается к полётному контроллеру двумя кабелями:</p>
+<ul>
+<li><p>к разъёму <strong>GPS</strong> — для приёма координат,</p>
+</li>
+<li><p>к разъёму <strong>I2C</strong> — для работы встроенного компаса.</p>
+</li>
+</ul>
+<p>После подключения GPS необходимо <strong>заново откалибровать компасы</strong> в программе <strong>QGroundControl</strong>. Подключиться к контроллеру можно по <a href="ConnectingToWi-Fi.html"><strong>Wi-Fi</strong></a> или через <strong>USB</strong>.</p>
+<p>Затем нужно разрешить использование GPS в настройках автопилота:</p>
+<ul>
+<li>при использовании <strong>EKF2</strong> включите GPS в параметре <code>EKF2_AID_MASK</code>,</li>
+</ul>
+<p>Если используется <strong>LPE</strong>, также убедитесь, что компас включён и имеет ненулевой вес — параметр <code>ATT_W_MAG</code>должен быть, например, <strong>0.1</strong>.</p>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +151,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         
