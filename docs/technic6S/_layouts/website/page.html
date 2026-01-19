@@ -1,19 +1,21 @@
 {% extends "website/page.html" %}
 
 {% block body %}
-  {{ super() }}
+  <div class="book-body">
+    <!-- Здесь будет весь контент страницы автоматически -->
+    
+    <!-- Footer -->
+    <footer>
+      <div class="projectInfo">
+        <span>Обратиться за помощью в техническую поддержку</span>
+        <a href="https://t.me/skyris_support" target="_blank" rel="noopener">• telegram @skyris_support</a>
+        <a href="mailto:info@skyris.pro">• info@skyris.pro</a>
+      </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="projectInfo">
-      <span>Обратиться за помощью в техническую поддержку</span>
-      <a href="https://t.me/skyris_support" target="_blank" rel="noopener">• telegram @skyris_support</a>
-      <a href="mailto:info@skyris.pro">• info@skyris.pro</a>
-    </div>
-
-    <div role="contentinfo" class="contentInfo">
-      ООО «Скайрис» 2025 © Все права защищены
-    </div>
-  </footer>
+      <div role="contentinfo" class="contentInfo">
+        ООО «Скайрис» 2025 © Все права защищены
+      </div>
+    </footer>
+  </div>
 {% endblock %}
 
