@@ -56,8 +56,400 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="примеры-кода">Примеры кода</h1>
+<h2 id="python">Python</h2>
+<!-- markdownlint-disable MD031 -->
+<blockquote>
+<p><strong>Заметки</strong> При использовании кириллических символов в кодировке UTF-8 необходимо добавить в начало программы указание кодировки:</p>
+<pre><code class="lang-python"><span class="hljs-comment"># -*- coding: utf-8 -*-</span>
+</code></pre>
+</blockquote>
+<!-- markdownlint-enable MD031 -->
+<h3 id="navigate_wait"># </h3>
+<p><a name="block-nav"></a><!-- old name of anchor --></p>
+<p><a name="block-takeoff"></a><!-- old name of anchor --></p>
+<p>Функция для полета в точку и ожидание окончания полета:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> math
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">navigate_wait</span>(<span class="hljs-params">x=<span class="hljs-number">0</span>, y=<span class="hljs-number">0</span>, z=<span class="hljs-number">0</span>, yaw=<span class="hljs-built_in">float</span>(<span class="hljs-params"><span class="hljs-string">'nan'</span></span>), speed=<span class="hljs-number">0.5</span>, frame_id=<span class="hljs-string">''</span>, auto_arm=<span class="hljs-literal">False</span>, tolerance=<span class="hljs-number">0.2</span></span>):
+    navigate(x=x, y=y, z=z, yaw=yaw, speed=speed, frame_id=frame_id, auto_arm=auto_arm)
+
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> rospy.is_shutdown():
+        telem = get_telemetry(frame_id=<span class="hljs-string">'navigate_target'</span>)
+        <span class="hljs-keyword">if</span> math.sqrt(telem.x ** <span class="hljs-number">2</span> + telem.y ** <span class="hljs-number">2</span> + telem.z ** <span class="hljs-number">2</span>) &lt; tolerance:
+            <span class="hljs-keyword">break</span>
+        rospy.sleep(<span class="hljs-number">0.2</span>)
+</code></pre>
+<p>Для того, чтобы определить расстояние до целевой точки, функция использует фрейм <a href="CoordinateSystems.html#navigate_target"><code>navigate_target</code></a>.</p>
+<p>Использование функции для полета в точку x=3, y=2, z=1 <a href="ArucoMap.html">относительно карты маркеров</a>:</p>
+<pre><code class="lang-python">navigate_wait(x=<span class="hljs-number">3</span>, y=<span class="hljs-number">2</span>, z=<span class="hljs-number">1</span>, frame_id=<span class="hljs-string">'aruco_map'</span>)
+</code></pre>
+<p>Эту функцию можно использовать и для взлета:</p>
+<pre><code class="lang-python">navigate_wait(z=<span class="hljs-number">1</span>, frame_id=<span class="hljs-string">'body'</span>, auto_arm=<span class="hljs-literal">True</span>)
+</code></pre>
+<h3 id="land_wait"># </h3>
+<p><a name="block-land"></a><!-- old name of anchor --></p>
+<p>Посадка и ожидание окончания посадки:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">land_wait</span>():
+    land()
+    <span class="hljs-keyword">while</span> get_telemetry().armed:
+        rospy.sleep(<span class="hljs-number">0.2</span>)
+</code></pre>
+<p>Использование:</p>
+<pre><code class="lang-python">land_wait()
+</code></pre>
+<h3 id="wait_arrival"># </h3>
+<p>Ожидание окончания прилета в <a href="AutonomousFlightOffboard.html">navigate</a>-точку:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> math
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">wait_arrival</span>(<span class="hljs-params">tolerance=<span class="hljs-number">0.2</span></span>):
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> rospy.is_shutdown():
+        telem = get_telemetry(frame_id=<span class="hljs-string">'navigate_target'</span>)
+        <span class="hljs-keyword">if</span> math.sqrt(telem.x ** <span class="hljs-number">2</span> + telem.y ** <span class="hljs-number">2</span> + telem.z ** <span class="hljs-number">2</span>) &lt; tolerance:
+            <span class="hljs-keyword">break</span>
+        rospy.sleep(<span class="hljs-number">0.2</span>)
+</code></pre>
+<h3 id="get_distance"># </h3>
+<p>Функция определения расстояния между двумя точками (<strong>важно</strong>: точки должны быть в одной <a href="CoordinateSystems.html">системе координат</a>):</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> math
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">get_distance</span>(<span class="hljs-params">x1, y1, z1, x2, y2, z2</span>):
+    <span class="hljs-keyword">return</span> math.sqrt((x1 - x2) ** <span class="hljs-number">2</span> + (y1 - y2) ** <span class="hljs-number">2</span> + (z1 - z2) ** <span class="hljs-number">2</span>)
+</code></pre>
+<h3 id="get_distance_global"># </h3>
+<p>Функция для приблизительного определения расстояния (в метрах) между двумя глобальными координатами (широта/долгота):</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> math
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">get_distance_global</span>(<span class="hljs-params">lat1, lon1, lat2, lon2</span>):
+    <span class="hljs-keyword">return</span> math.hypot(lat1 - lat2, lon1 - lon2) * <span class="hljs-number">1.113195e5</span>
+</code></pre>
+<h3 id="disarm"># </h3>
+<p>Дизарм коптера (выключение винтов, <strong>коптер упадет</strong>):</p>
+<pre><code class="lang-python"><span class="hljs-comment"># Объявление прокси:</span>
+<span class="hljs-keyword">from</span> mavros_msgs.srv <span class="hljs-keyword">import</span> CommandBool
+arming = rospy.ServiceProxy(<span class="hljs-string">'mavros/cmd/arming'</span>, CommandBool)
+
+<span class="hljs-comment"># ...</span>
+
+arming(<span class="hljs-literal">False</span>)  <span class="hljs-comment"># дизарм</span>
+</code></pre>
+<h3 id="transform"># </h3>
+<p>Трансформировать позицию (<code>PoseStamped</code>) из одной системы координат (<a href="CoordinateSystems.html">фрейма</a>) в другую, используя <a href="http://wiki.ros.org/tf2" target="_blank">tf2</a>:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> tf2_ros
+<span class="hljs-keyword">import</span> tf2_geometry_msgs
+<span class="hljs-keyword">from</span> geometry_msgs.msg <span class="hljs-keyword">import</span> PoseStamped
+
+tf_buffer = tf2_ros.Buffer()
+tf_listener = tf2_ros.TransformListener(tf_buffer)
+
+<span class="hljs-comment"># ...</span>
+
+<span class="hljs-comment"># Создаем объект PoseStamped (либо получаем из топика):</span>
+pose = PoseStamped()
+pose.header.frame_id = <span class="hljs-string">'map'</span>  <span class="hljs-comment"># фрейм, в котором задана позиция</span>
+pose.header.stamp = rospy.get_rostime()  <span class="hljs-comment"># момент времени, для которого задана позиция (текущее время)</span>
+pose.pose.position.x = <span class="hljs-number">1</span>
+pose.pose.position.y = <span class="hljs-number">2</span>
+pose.pose.position.z = <span class="hljs-number">3</span>
+pose.pose.orientation.w = <span class="hljs-number">1</span>
+
+frame_id = <span class="hljs-string">'base_link'</span>  <span class="hljs-comment"># целевой фрейм</span>
+transform_timeout = rospy.Duration(<span class="hljs-number">0.2</span>)  <span class="hljs-comment"># таймаут ожидания трансформации</span>
+
+<span class="hljs-comment"># Преобразовываем позицию из старого фрейма в новый:</span>
+new_pose = tf_buffer.transform(pose, frame_id, transform_timeout)
+</code></pre>
+<h3 id="upside-down"># </h3>
+<p>Определение, перевернут ли коптер:</p>
+<pre><code class="lang-python">PI_2 = math.pi / <span class="hljs-number">2</span>
+telem = get_telemetry()
+
+flipped = <span class="hljs-built_in">abs</span>(telem.roll) &gt; PI_2 <span class="hljs-keyword">or</span> <span class="hljs-built_in">abs</span>(telem.pitch) &gt; PI_2
+</code></pre>
+<h3 id="angle-hor"># </h3>
+<p>Расчет общего угла коптера к горизонту:</p>
+<pre><code class="lang-python">PI_2 = math.pi / <span class="hljs-number">2</span>
+telem = get_telemetry()
+
+flipped = <span class="hljs-keyword">not</span> -PI_2 &lt;= telem.roll &lt;= PI_2 <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span> -PI_2 &lt;= telem.pitch &lt;= PI_2
+angle_to_horizon = math.atan(math.hypot(math.tan(telem.pitch), math.tan(telem.roll)))
+<span class="hljs-keyword">if</span> flipped:
+    angle_to_horizon = math.pi - angle_to_horizon
+</code></pre>
+<h3 id="circle"># </h3>
+<p>Полет по круговой траектории:</p>
+<pre><code class="lang-python">RADIUS = <span class="hljs-number">0.6</span>  <span class="hljs-comment"># m</span>
+SPEED = <span class="hljs-number">0.3</span>  <span class="hljs-comment"># rad / s</span>
+
+start = get_telemetry()
+start_stamp = rospy.get_rostime()
+
+r = rospy.Rate(<span class="hljs-number">10</span>)
+
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> rospy.is_shutdown():
+    angle = (rospy.get_rostime() - start_stamp).to_sec() * SPEED
+    x = start.x + math.sin(angle) * RADIUS
+    y = start.y + math.cos(angle) * RADIUS
+    set_position(x=x, y=y, z=start.z)
+
+    r.sleep()
+</code></pre>
+<h3 id="rate"># </h3>
+<p>Повторять действие с частотой 10 Гц:</p>
+<pre><code class="lang-python">r = rospy.Rate(<span class="hljs-number">10</span>)
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> rospy.is_shutdown():
+    <span class="hljs-comment"># Do anything</span>
+    r.sleep()
+</code></pre>
+<h3 id="mavros-sub"># </h3>
+<p>Пример подписки на топики из MAVROS:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> geometry_msgs.msg <span class="hljs-keyword">import</span> PoseStamped, TwistStamped
+<span class="hljs-keyword">from</span> sensor_msgs.msg <span class="hljs-keyword">import</span> BatteryState
+<span class="hljs-keyword">from</span> mavros_msgs.msg <span class="hljs-keyword">import</span> RCIn
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">pose_update</span>(<span class="hljs-params">pose</span>):
+    <span class="hljs-comment"># Обработка новых данных о позиции коптера</span>
+    <span class="hljs-keyword">pass</span>
+
+rospy.Subscriber(<span class="hljs-string">'mavros/local_position/pose'</span>, PoseStamped, pose_update)
+rospy.Subscriber(<span class="hljs-string">'mavros/local_position/velocity'</span>, TwistStamped, velocity_update)
+rospy.Subscriber(<span class="hljs-string">'mavros/battery'</span>, BatteryState, battery_update)
+rospy.Subscriber(<span class="hljs-string">'mavros/rc/in'</span>, RCIn, rc_callback)
+
+rospy.spin()
+</code></pre>
+<p>Информацию по топикам MAVROS см. по <a href="MAVROS.html">ссылке</a>.</p>
+<!-- markdownlint-disable MD044 -->
+<h3 id="mavlink"># </h3>
+<!-- markdownlint-enable MD044 -->
+<p>Пример отправки произвольного <a href="Mavlink.html">MAVLink-сообщения</a> коптеру:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> mavros_msgs.msg <span class="hljs-keyword">import</span> Mavlink
+<span class="hljs-keyword">from</span> mavros <span class="hljs-keyword">import</span> mavlink
+<span class="hljs-keyword">from</span> pymavlink <span class="hljs-keyword">import</span> mavutil
+
+mavlink_pub = rospy.Publisher(<span class="hljs-string">'mavlink/to'</span>, Mavlink, queue_size=<span class="hljs-number">1</span>)
+
+<span class="hljs-comment"># Отправка сообщения HEARTBEAT:</span>
+
+msg = mavutil.mavlink.MAVLink_heartbeat_message(mavutil.mavlink.MAV_TYPE_GCS, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+msg.pack(mavutil.mavlink.MAVLink(<span class="hljs-string">''</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>))
+ros_msg = mavlink.convert_to_rosmsg(msg)
+
+mavlink_pub.publish(ros_msg)
+</code></pre>
+<!-- markdownlint-disable MD044 -->
+<h3 id="mavlink-receive"># </h3>
+<!-- markdownlint-enable MD044 -->
+<p>Подписка на все MAVLink-сообщения от полетного контроллера и их декодирование:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> mavros_msgs.msg <span class="hljs-keyword">import</span> Mavlink
+<span class="hljs-keyword">from</span> mavros <span class="hljs-keyword">import</span> mavlink
+<span class="hljs-keyword">from</span> pymavlink <span class="hljs-keyword">import</span> mavutil
+
+link = mavutil.mavlink.MAVLink(<span class="hljs-string">''</span>, <span class="hljs-number">255</span>, <span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">mavlink_cb</span>(<span class="hljs-params">msg</span>):
+    mav_msg = link.decode(mavlink.convert_to_bytes(msg))
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'msgid ='</span>, msg.msgid, mav_msg) <span class="hljs-comment"># print message id and parsed message</span>
+
+mavlink_sub = rospy.Subscriber(<span class="hljs-string">'mavlink/from'</span>, Mavlink, mavlink_cb)
+
+rospy.spin()
+</code></pre>
+<h3 id="rc-sub"># </h3>
+<p>Реакция на переключение режима на пульте радиоуправления (может быть использовано для запуска автономного полета, см. <a href="https://gist.github.com/okalachev/b709f04522d2f9af97e835baedeb806b" target="_blank">пример</a>):</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> mavros_msgs.msg <span class="hljs-keyword">import</span> RCIn
+
+<span class="hljs-comment"># Вызывается при получении новых данных с пульта</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">rc_callback</span>(<span class="hljs-params">data</span>):
+    <span class="hljs-comment"># Произвольная реакция на переключение тумблера на пульте</span>
+    <span class="hljs-keyword">if</span> data.channels[<span class="hljs-number">5</span>] &lt; <span class="hljs-number">1100</span>:
+        <span class="hljs-comment"># ...</span>
+        <span class="hljs-keyword">pass</span>
+    <span class="hljs-keyword">elif</span> data.channels[<span class="hljs-number">5</span>] &gt; <span class="hljs-number">1900</span>:
+        <span class="hljs-comment"># ...</span>
+        <span class="hljs-keyword">pass</span>
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-comment"># ...</span>
+        <span class="hljs-keyword">pass</span>
+
+<span class="hljs-comment"># Создаем подписчик на топик с данными с пульта</span>
+rospy.Subscriber(<span class="hljs-string">'mavros/rc/in'</span>, RCIn, rc_callback)
+
+rospy.spin()
+</code></pre>
+<h3 id="set_mode"># </h3>
+<p>Сменить <a href="Modes.html">режим полета</a> на произвольный:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> mavros_msgs.srv <span class="hljs-keyword">import</span> SetMode
+
+set_mode = rospy.ServiceProxy(<span class="hljs-string">'mavros/set_mode'</span>, SetMode)
+
+<span class="hljs-comment"># ...</span>
+
+set_mode(custom_mode=<span class="hljs-string">'STABILIZED'</span>)
+</code></pre>
+<h3 id="flip"># </h3>
+<p>Флип:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> math
+
+PI_2 = math.pi / <span class="hljs-number">2</span>
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">flip</span>():
+    start = get_telemetry()  <span class="hljs-comment"># memorize starting position</span>
+
+    set_rates(thrust=<span class="hljs-number">1</span>)  <span class="hljs-comment"># bump up</span>
+    rospy.sleep(<span class="hljs-number">0.2</span>)
+
+    set_rates(pitch_rate=<span class="hljs-number">30</span>, thrust=<span class="hljs-number">0.2</span>)  <span class="hljs-comment"># pitch flip</span>
+    <span class="hljs-comment"># set_rates(roll_rate=30, thrust=0.2)  # roll flip</span>
+
+    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+        telem = get_telemetry()
+        flipped = <span class="hljs-built_in">abs</span>(telem.roll) &gt; PI_2 <span class="hljs-keyword">or</span> <span class="hljs-built_in">abs</span>(telem.pitch) &gt; PI_2
+        <span class="hljs-keyword">if</span> flipped:
+            <span class="hljs-keyword">break</span>
+
+    rospy.loginfo(<span class="hljs-string">'finish flip'</span>)
+    set_position(x=start.x, y=start.y, z=start.z, yaw=start.yaw)  <span class="hljs-comment"># finish flip</span>
+
+<span class="hljs-built_in">print</span>(navigate(z=<span class="hljs-number">2</span>, speed=<span class="hljs-number">1</span>, frame_id=<span class="hljs-string">'body'</span>, auto_arm=<span class="hljs-literal">True</span>))  <span class="hljs-comment"># take off</span>
+rospy.sleep(<span class="hljs-number">10</span>)
+
+rospy.loginfo(<span class="hljs-string">'flip'</span>)
+flip()
+</code></pre>
+<p>Перед выполнением флипа необходимо принять все меры безопасности.</p>
+<h3 id="calibrate-gyro"># </h3>
+<p>Произвести калибровку гироскопа:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> pymavlink <span class="hljs-keyword">import</span> mavutil
+<span class="hljs-keyword">from</span> mavros_msgs.srv <span class="hljs-keyword">import</span> CommandLong
+<span class="hljs-keyword">from</span> mavros_msgs.msg <span class="hljs-keyword">import</span> State
+
+send_command = rospy.ServiceProxy(<span class="hljs-string">'mavros/cmd/command'</span>, CommandLong)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">calibrate_gyro</span>():
+    rospy.loginfo(<span class="hljs-string">'Calibrate gyro'</span>)
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> send_command(command=mavutil.mavlink.MAV_CMD_PREFLIGHT_CALIBRATION, param1=<span class="hljs-number">1</span>).success:
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>
+
+    calibrating = <span class="hljs-literal">False</span>
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> rospy.is_shutdown():
+        state = rospy.wait_for_message(<span class="hljs-string">'mavros/state'</span>, State)
+        <span class="hljs-keyword">if</span> state.system_status == mavutil.mavlink.MAV_STATE_CALIBRATING <span class="hljs-keyword">or</span> state.system_status == mavutil.mavlink.MAV_STATE_UNINIT:
+            calibrating = <span class="hljs-literal">True</span>
+        <span class="hljs-keyword">elif</span> calibrating <span class="hljs-keyword">and</span> state.system_status == mavutil.mavlink.MAV_STATE_STANDBY:
+            rospy.loginfo(<span class="hljs-string">'Calibrating finished'</span>)
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>
+
+calibrate_gyro()
+</code></pre>
+<blockquote>
+<p><strong>Note</strong> В процессе калибровки гироскопов дрон нельзя двигать.</p>
+</blockquote>
+<!-- markdownlint-disable MD044 -->
+<h3 id="aruco-detect-enabled"># </h3>
+<!-- markdownlint-enable MD044 -->
+<p>Динамически включать и отключать <a href="ArucoMarker.html">распознавание ArUco-маркеров</a> (например, для экономии ресурсов процессора):</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
+<span class="hljs-keyword">import</span> dynamic_reconfigure.client
+
+rospy.init_node(<span class="hljs-string">'flight'</span>)
+aruco_client = dynamic_reconfigure.client.Client(<span class="hljs-string">'aruco_detect'</span>)
+
+<span class="hljs-comment"># Выключить распознавание маркеров</span>
+aruco_client.update_configuration({<span class="hljs-string">'enabled'</span>: <span class="hljs-literal">False</span>})
+
+rospy.sleep(<span class="hljs-number">5</span>)
+
+<span class="hljs-comment"># Включить распознавание маркеров</span>
+aruco_client.update_configuration({<span class="hljs-string">'enabled'</span>: <span class="hljs-literal">True</span>})
+</code></pre>
+<h3 id="optical-flow-enabled"># </h3>
+<p>Динамически включать и отключать <a href="OpticalFlow.html">Optical Flow</a>:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
+<span class="hljs-keyword">import</span> dynamic_reconfigure.client
+
+rospy.init_node(<span class="hljs-string">'flight'</span>)
+flow_client = dynamic_reconfigure.client.Client(<span class="hljs-string">'optical_flow'</span>)
+
+<span class="hljs-comment"># Выключить Optical Flow</span>
+flow_client.update_configuration({<span class="hljs-string">'enabled'</span>: <span class="hljs-literal">False</span>})
+
+rospy.sleep(<span class="hljs-number">5</span>)
+
+<span class="hljs-comment"># Включить Optical Flow</span>
+flow_client.update_configuration({<span class="hljs-string">'enabled'</span>: <span class="hljs-literal">True</span>})
+</code></pre>
+<!-- markdownlint-disable MD044 -->
+<h3 id="aruco-map-dynamic"># </h3>
+<p>Динамически изменить используемый файл с <a href="ArucoMap.html">картой ArUco-маркеров</a>:</p>
+<!-- markdownlint-enable MD044 -->
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
+<span class="hljs-keyword">import</span> dynamic_reconfigure.client
+
+rospy.init_node(<span class="hljs-string">'flight'</span>)
+map_client = dynamic_reconfigure.client.Client(<span class="hljs-string">'aruco_map'</span>)
+
+map_client.update_configuration({<span class="hljs-string">'map'</span>: <span class="hljs-string">'/home/pi/catkin_ws/src/clover/aruco_pose/map/office.txt'</span>})
+</code></pre>
+<h3 id="wait-global-position"># </h3>
+<p>Ожидать появления глобальной позиции (окончания инициализации <a href="GPS.html">GPS-приемника</a>):</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> math
+
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> rospy.is_shutdown():
+    <span class="hljs-keyword">if</span> math.isfinite(get_telemetry().lat):
+        <span class="hljs-keyword">break</span>
+    rospy.sleep(<span class="hljs-number">0.2</span>)
+</code></pre>
+<h3 id="get-param"># </h3>
+<p>Считать параметр полетного контроллера:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> mavros_msgs.srv <span class="hljs-keyword">import</span> ParamGet
+<span class="hljs-keyword">from</span> mavros_msgs.msg <span class="hljs-keyword">import</span> ParamValue
+
+param_get = rospy.ServiceProxy(<span class="hljs-string">'mavros/param/get'</span>, ParamGet)
+
+<span class="hljs-comment"># Считать параметр типа INT</span>
+value = param_get(param_id=<span class="hljs-string">'COM_FLTMODE1'</span>).value.integer
+
+<span class="hljs-comment"># Считать параметр типа FLOAT</span>
+value = param_get(param_id=<span class="hljs-string">'MPC_Z_P'</span>).value.<span class="hljs-built_in">float</span>
+</code></pre>
+<h3 id="set-param"># </h3>
+<p>Изменить параметр полетного контроллера:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> mavros_msgs.srv <span class="hljs-keyword">import</span> ParamSet
+<span class="hljs-keyword">from</span> mavros_msgs.msg <span class="hljs-keyword">import</span> ParamValue
+
+param_set = rospy.ServiceProxy(<span class="hljs-string">'mavros/param/set'</span>, ParamSet)
+
+<span class="hljs-comment"># Изменить параметр типа INT:</span>
+param_set(param_id=<span class="hljs-string">'COM_FLTMODE1'</span>, value=ParamValue(integer=<span class="hljs-number">8</span>))
+
+<span class="hljs-comment"># Изменить параметр типа FLOAT:</span>
+param_set(param_id=<span class="hljs-string">'MPC_Z_P'</span>, value=ParamValue(real=<span class="hljs-number">1.5</span>))
+</code></pre>
+<h3 id="is-simulation"># </h3>
+<p>Проверить, что код запущен в <a href="simulation.md">симуляции Gazebo</a>:</p>
+<pre><code class="lang-python">is_simulation = rospy.get_param(<span class="hljs-string">'/use_sim_time'</span>, <span class="hljs-literal">False</span>)
+</code></pre>
+<h3 id="simulator-interaction"># </h3>
+<p>Переместить физический объект (линк) в Gazebo (а также поменять его скорости) можно при помощи сервиса <code>gazebo/set_link_state</code> (тип <a href="http://docs.ros.org/en/api/gazebo_msgs/html/srv/SetLinkState.html" target="_blank"><code>SetLinkState</code></a>). Например, если добавить в мир объект куб (линк <code>unit_box::link</code>), то так можно переместить его в точку (1, 2, 3):</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
+<span class="hljs-keyword">from</span> geometry_msgs.msg <span class="hljs-keyword">import</span> Point, Pose, Quaternion
+<span class="hljs-keyword">from</span> gazebo_msgs.srv <span class="hljs-keyword">import</span> SetLinkState
+<span class="hljs-keyword">from</span> gazebo_msgs.msg <span class="hljs-keyword">import</span> LinkState
+
+rospy.init_node(<span class="hljs-string">'flight'</span>)
+
+set_link_state = rospy.ServiceProxy(<span class="hljs-string">'gazebo/set_link_state'</span>, SetLinkState)
+
+<span class="hljs-comment"># Переместить линк в Gazebo</span>
+set_link_state(LinkState(link_name=<span class="hljs-string">'unit_box::link'</span>, pose=Pose(position=Point(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>), orientation=Quaternion(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>))))
+</code></pre>
+<blockquote>
+<p><strong>Подсказка</strong> Простую анимацию объектов в Gazebo можно реализовать <a href="http://classic.gazebosim.org/tutorials?tut=actor&amp;cat=build_robot" target="_blank">с помощью акторов</a>.</p>
+</blockquote>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -121,11 +513,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

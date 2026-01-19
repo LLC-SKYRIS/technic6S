@@ -58,8 +58,22 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="настройка-failsafe">Настройка Failsafe</h1>
+<p>Основная статья: <a href="https://docs.px4.io/master/en/config/safety.html" target="_blank">https://docs.px4.io/master/en/config/safety.html</a>.</p>
+<p>Во вкладке <em>Safety</em> настраиваются реакции квадрокоптера на различные нештатные ситуации. Рекомендуется включить как минимум реакцию на потерю связи с пультом управления:</p>
+<ol>
+<li>В программе QGroundControl перейдите в панель <em>Vehicle Setup</em> и выберите меню <em>Safety</em>.</li>
+<li>В блоке <em>RC Loss Failsafe Trigger</em> выберите один из рекомендуемых вариантов реакции на потерю связи с пультом:<ul>
+<li><em>Land mode</em> – переход в режим посадки;</li>
+<li><em>Terminate</em> – аварийное отключение моторов.</li>
+</ul>
+</li>
+<li>В поле <em>RC Loss Timeout</em> выберите значение таймаута, по истечении которого связь с пультом считается потерянной. Рекомендуемое значение – 2 s.</li>
+</ol>
+<p><img src="assets/qgc-failsafe.png" width="600" class="center zoom"></img></p>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +137,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

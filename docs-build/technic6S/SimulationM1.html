@@ -58,8 +58,56 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="симулятор-на-компьютерах-с-чипом-m1">Симулятор на компьютерах с чипом M1</h1>
+<p>Для архитектуры ARM64, которую используют компьютеры с чипом M1 (Apple Silicon), <a href="SimulationVm.md">готовый образ с симулятором</a> не выпускается, поэтому возможна только ручная установка симулятора.</p>
+<p>В качестве виртуальной машины рекомендуется использовать бесплатное приложение <a href="https://mac.getutm.app/" target="_blank"><strong>UTM</strong></a>. Также возможно использование <strong>VMware Fusion Public Tech Preview</strong> с поддержкой M1.</p>
+<h2 id="установка-симулятора-с-utm">Установка симулятора с UTM</h2>
+<p><img src="assets/simulation_utm.png" width="500" class="center zoom"></img></p>
+<ol>
+<li>Скачайте UTM с официального сайта <a href="https://mac.getutm.app/" target="_blank">mac.getutm.app</a> и установите его.</li>
+<li>Скачайте исходный образ установщика Ubuntu 20.04 для архитектуры ARM64 по ссылке: <a href="https://clovervm.ams3.digitaloceanspaces.com/focal-desktop-arm64.iso" target="_blank">https://clovervm.ams3.digitaloceanspaces.com/focal-desktop-arm64.iso</a>.</li>
+<li><p>Создайте новую виртуальную машину в UTM, выбирая следующие настройки:</p>
+<ul>
+<li><strong>Тип</strong>: Virtualize.</li>
+<li><strong>Operating System</strong> (ОС): Linux.</li>
+<li><strong>Boot ISO Image</strong> (образ для загрузки): выберите скаченный образ <code>focal-desktop-arm64.iso</code>.</li>
+<li><strong>Memory</strong> (память): 4096 MB или более.</li>
+<li><strong>CPU Cores</strong> (ядра процессора): 4 или более.</li>
+<li>Включите поддержку OpenGL: <em>Enable hardware OpenGL acceleration</em>.</li>
+<li><strong>Storage</strong> (размер хранилища): 20 GB или более.</li>
+</ul>
+</li>
+<li><p>Запустите созданную виртуальную машину.</p>
+</li>
+<li><p>Выберите пункт <em>Install Ubuntu</em> и установите Ubuntu с помощью мастера установки.</p>
+<ul>
+<li>Рекомендуемый набор ПО: <em>Minimal installation</em>.</li>
+<li>Тип установки: <em>Erase disk and install Ubuntu</em>.</li>
+<li><p>Введите параметры учетной записи по желанию, например:</p>
+<p>  <img src="assets/simulation_ubuntu_account.png" width="400" class="center zoom"></img></p>
+</li>
+</ul>
+</li>
+<li><p>Завершите установку и запустите установленную систему (для этого потребуется извлечь виртуальный CD-диск или выбрать <em>Boot from next volume</em> в меню загрузки).</p>
+</li>
+<li>Установите симулятор согласно <a href="SimulationNative.html">инструкции по сборке симулятора на собственной машине</a>.</li>
+</ol>
+<h3 id="возможные-проблемы-при-установке">Возможные проблемы при установке</h3>
+<h4 id="отсутствие-картинки">Отсутствие картинки</h4>
+<p>Если при запуске виртуальной машины вместо изображения вы видите черный фон, попробуйте запустить машину с отключенной поддержкой GPU.</p>
+<p>В настройках виртуальной машины выберите <em>Display</em>, в пункте <em>Emulated Display Card</em> выберите <em>virtio-ramfb</em>. Запустите машину. При успешном запуске поменяйте настройку обратно на <em>virtio-ramfb-gl (GPU Supported)</em> и снова запустите машину.</p>
+<h4 id="проблема-с-git-clone">Проблема с <code>git clone</code></h4>
+<p>При осуществлении команды <code>git clone</code> может возникнуть подобная ошибка:</p>
+<pre><code class="lang-txt">on git clone if error: RPC failed; curl 56 GnuTLS recv error (-54): Error in the pull function.
+fatal: the remote end hung up unexpectedly
+fatal: early EOF
+fatal: index-pack failed
+</code></pre>
+<p>В этом случае поменяйте типа сетевой карты на Bridged. В настройках виртуальной машины выберите <em>Network</em>, в пункте <em>Network Mode</em> выберите <em>Bridged (Advanced)</em>.</p>
+<p>В дальнейшем, при возникновении проблем с сетью измените тип сети обратно на <em>Shared Network</em>.</p>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +171,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

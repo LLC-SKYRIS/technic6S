@@ -58,8 +58,98 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="навигация-по-картам-aruco-маркеров">Навигация по картам ArUco-маркеров</h1>
+<blockquote>
+<p><strong>Подсказка</strong> Для распознавания маркеров модуль камеры должен быть корректно подключен и <a href="CameraSettings.html">сконфигурирован</a>.</p>
+</blockquote>
+<p>Модуль <code>aruco_map</code> распознает карты ArUco-маркеров, как единое целое. Также возможна навигация по картам ArUco-маркеров с использованием механизма Vision Position Estimate (VPE).</p>
+<h2 id="конфигурирование">Конфигурирование</h2>
+<p>Аргумент <code>aruco</code> в файле <code>~/technic_ws/src/technic/technic/launch/technic.launch</code> должен быть в значении <code>true</code>:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"aruco"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"true"</span>/&gt;</span>
+</code></pre>
+<p>Для включения распознавания карт маркеров аргументы <code>aruco_map</code> и <code>aruco_detect</code> в файле <code>~/technic_ws/src/technic/technic/launch/aruco.launch</code> должны быть в значении <code>true</code>:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"aruco_detect"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"true"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"aruco_map"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"true"</span>/&gt;</span>
+</code></pre>
+<p>Для включения передачи координат в полетный контроллер по механизму VPE, аргумента <code>aruco_vpe</code> должен быть в значении <code>true</code>:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"aruco_vpe"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"true"</span>/&gt;</span>
+</code></pre>
+<h2 id="настройка-карты-маркеров">Настройка карты маркеров</h2>
+<p>Карта загружается из текстового файла, каждая строка которого имеет следующий формат:</p>
+<pre><code>id_маркера размер_маркера x y z угол_z угол_y угол_x
+</code></pre><p>Где <code>угол_N</code> – это угол поворота маркера вокруг оси N в радианах.</p>
+<p>Файлы карт располагаются в каталоге <code>~/technic_ws/src/technic/aruco_pose/map</code>. Название файла с картой задается в аргументе <code>map</code>:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"map"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"map.txt"</span>/&gt;</span>
+</code></pre>
+<p>Смотрите примеры карт маркеров в <a href=""><code>вышеуказанном каталоге</code></a>.</p>
+<p>Файл карты может быть сгенерирован с помощью инструмента <code>genmap.py</code>:</p>
+<pre><code class="lang-bash">rosrun aruco_pose genmap.py length x y dist_x dist_y first -o test_map.txt
+</code></pre>
+<p>Где <code>length</code> – размер маркера, <code>x</code> – количество маркеров по оси <em>x</em>, <code>y</code> - количество маркеров по оси <em>y</em>, <code>dist_x</code> – расстояние между центрами маркеров по оси <em>x</em>, <code>y</code> – расстояние между центрами маркеров по оси <em>y</em>, <code>first</code> – ID первого (левого нижнего) маркера, <code>test_map.txt</code> – название файла с картой. Дополнительный ключ <code>--bottom-left</code> позволяет нумеровать маркеры с левого нижнего угла.</p>
+<p>Пример:</p>
+<pre><code class="lang-bash">rosrun aruco_pose genmap.py 0.33 2 4 1 1 0 -o test_map.txt
+</code></pre>
+<p>Дополнительную информацию по утилите можно получить по ключу <code>-h</code>: <code>rosrun aruco_pose genmap.py -h</code>.</p>
+<!-- Также можно создать карту в специальном [конструкторе](arucogenmap.md). -->
+<h3 id="проверка">Проверка</h3>
+<p>Для контроля карты, по которой в данный момент коптер осуществляет навигацию, можно просмотреть содержимое топика <code>/aruco_map/image</code>. Через браузер его можно просмотреть при помощи <a href="CameraImages.html">web_video_server</a> по ссылке <a href="http://10.42.0.1:8080/snapshot?topic=/aruco_map/image" target="_blank">http://10.42.0.1:8080/snapshot?topic=/aruco_map/image</a>:</p>
+<p><img src="assets/aruco_map.png" width="200"></img></p>
+<p>Техник публикует текущую позицию распознанной карты в топик <code>aruco_map/pose</code>. Также публикуется <a href="CoordinateSystems.html">TF-фрейм</a> <code>aruco_map</code> (VPE выключен) или <code>aruco_map_detected</code> (VPE включен). Используя топик <code>aruco_map/visualization</code> можно визуализировать текущую карту маркеров в <a href="Rviz.html">rviz</a>.</p>
+<p>Наглядно позиция распознанной карты отображается в топике <code>aruco_map/debug</code> (просмотр доступен по ссылке <a href="http://10.42.0.1:8080/stream_viewer?topic=/aruco_map/debug" target="_blank">http://10.42.0.1:8080/stream_viewer?topic=/aruco_map/debug</a>):</p>
+<p><img src="assets/aruco_map_debug.png" width="250"></img></p>
+<h2 id="система-координат">Система координат</h2>
+<p>По <a href="http://www.ros.org/reps/rep-0103.html" target="_blank">соглашению</a> в маркерном поле используется стандартная система координат <abbr title="East-North-Up">ENU</abbr>:</p>
+<ul>
+<li>ось <strong><font color="red">x</font></strong> указывает на правую сторону карты маркеров;</li>
+<li>ось <strong><font color="green">y</font></strong> указывает кверху карты маркеров;</li>
+<li>ось <strong><font color="blue">z</font></strong> указывает от плоскости карты маркеров.</li>
+</ul>
+<p><img src="assets/aruco-map-axis.png" width="300"></img></p>
+<h2 id="настройка-vpe">Настройка VPE</h2>
+<p>Для работы механизма Vision Position Estimation необходимы следующие <a href="parameters.md">настройки PX4</a>.</p>
+<!-- * Выключен компас: `ATT_W_MAG` = 0 -->
+<p>При использовании <strong>EKF2</strong> (параметр <code>SYS_MC_EST_GROUP</code> = <code>ekf2</code>):</p>
+<ul>
+<li>В параметре <code>EKF2_AID_MASK</code> включены флажки <code>vision position fusion</code>, <code>vision yaw fusion</code>.</li>
+<li>Шум угла по зрению: <code>EKF2_EVA_NOISE</code> = 0.1 rad.</li>
+<li>Шум позиции по зрению: <code>EKF2_EVP_NOISE</code> = 0.1 m.</li>
+<li><code>EKF2_EV_DELAY</code> = 0.</li>
+</ul>
+<p>Для проверки правильности всех настроек можно <a href="selfcheck.md">воспользоваться утилитой <code>selfcheck.py</code></a>.</p>
+<h2 id="полет">Полет</h2>
+<p>При правильной настройке коптер начнет удерживать позицию в <a href="Modes.html">режимах</a> <code>POSCTL</code> и <code>OFFBOARD</code> автоматически.</p>
+<p>Для <a href="AutonomousFlightOffboard.html">автономных полетов</a> можно будет использовать функции <code>navigate</code>, <code>set_position</code>, <code>set_velocity</code>. Для полета в определенные координаты маркерного поля необходимо использовать фрейм <code>aruco_map</code>:</p>
+<pre><code class="lang-python"><span class="hljs-comment"># Вначале необходимо взлететь, чтобы коптер увидел карту меток и появился фрейм aruco_map:</span>
+navigate(x=<span class="hljs-number">0</span>, y=<span class="hljs-number">0</span>, z=<span class="hljs-number">2</span>, frame_id=<span class="hljs-string">'body'</span>, speed=<span class="hljs-number">0.5</span>, auto_arm=<span class="hljs-literal">True</span>)  <span class="hljs-comment"># взлет на 2 метра</span>
+
+time.sleep(<span class="hljs-number">5</span>)
+
+<span class="hljs-comment"># Полет в координату 2:2 маркерного поля, высота 2 метра</span>
+navigate(x=<span class="hljs-number">2</span>, y=<span class="hljs-number">2</span>, z=<span class="hljs-number">2</span>, speed=<span class="hljs-number">1</span>, frame_id=<span class="hljs-string">'aruco_map'</span>)  <span class="hljs-comment"># полет в координату 2:2, высота 3 метра</span>
+</code></pre>
+<h3 id="полет-в-координаты-по-id-маркера">Полет в координаты по ID маркера</h3>
+<p>По аналогии с <a href="ArucoMarker.html#навигация-по-маркерам">навигацией по отдельным маркерам</a> при настройке карты маркеров дрон сможет лететь в координаты относительно отдельного маркера, используя фрейм <code>aruco_ID</code> с соответствующим ID маркера.</p>
+<p>Полет в точку над маркером 5 на высоту 1 метр:</p>
+<pre><code class="lang-python">navigate(frame_id=<span class="hljs-string">'aruco_5'</span>, x=<span class="hljs-number">0</span>, y=<span class="hljs-number">0</span>, z=<span class="hljs-number">1</span>)
+</code></pre>
+<h2 id="дополнительные-настройки">Дополнительные настройки</h2>
+<p>Если коптер нестабильно удерживает позицию по VPE, попробуйте увеличить коэффициенты <em>P</em> PID-регулятора по скорости – параметры <code>MPC_XY_VEL_P</code> и <code>MPC_Z_VEL_P</code>.</p>
+<p>Если коптер нестабильно удерживает высоту, попробуйте увеличить коэффициент <code>MPC_Z_VEL_P</code> или лучше подобрать газ висения – <code>MPC_THR_HOVER</code>.</p>
+<h2 id="расположение-маркеров-на-потолке">Расположение маркеров на потолке</h2>
+<p><img src="assets/IMG_4175.jpg" width="300"></img></p>
+<p>Для навигации по маркерам, расположенным на потолке, необходимо поставить основную камеру так, чтобы она смотрела вверх и <a href="CameraSettings.html">установить соответствующий фрейм камеры</a>.</p>
+<p>Также в файле <code>~/technic_ws/src/technic/technic/launch/aruco.launch</code> необходимо выставить аргумент <code>placement</code> в значение <code>ceiling</code>:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"placement"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"ceiling"</span>/&gt;</span>
+</code></pre>
+<p>Технология <a href="OpticalFlow.html">Optical Flow</a> не может нормально работать при таком расположении камеры, поэтому в файле <code>~/technic_ws/src/technic/technic/launch/technic.launch</code> ее следует отключить:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"optical_flow"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"false"</span>/&gt;</span>
+</code></pre>
+<p>При такой конфигурации фрейм <code>aruco_map</code> также окажется перевернутым. Таким образом, для полета на высоту 2 метра ниже потолка, аргумент <code>z</code> нужно устанавливать в 2:</p>
+<pre><code class="lang-python">navigate(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>, z=<span class="hljs-number">1.1</span>, speed=<span class="hljs-number">0.5</span>, frame_id=<span class="hljs-string">'aruco_map'</span>)
+</code></pre>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +213,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

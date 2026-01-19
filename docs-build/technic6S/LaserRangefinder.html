@@ -58,8 +58,65 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h2 id="дальномер-vl53l1x">Дальномер VL53L1X</h2>
+<p>Рекомендуемая для Technic модель дальномера – STM VL53L1X. Это дальномер может измерять расстояния от 0 до 4 м, при этом обеспечивая высокую точность измерений.</p>
+<p>На <a href="ImageOPI.html">образе для OPi</a> предустановлен соответствующий ROS-драйвер.</p>
+<h3 id="подключение-к-opi">Подключение к OPi</h3>
+<blockquote>
+<p><strong>Подсказка</strong> Перед включением дальномера необходимо снять с него защитную пленку.</p>
+</blockquote>
+<p>Подключите дальномер по интерфейсу I²C к пинам 3V, GND, SCL и SDA:</p>
+<p>Если обозначенный пин GND занят, можно использовать другой свободный, используя <a href="http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html" target="_blank">распиновку</a>.</p>
+<blockquote>
+<p><strong>Подсказка</strong> По интерфейсу I²C возможно подключать несколько периферийных устройств одновременно. Используйте для этого параллельное подключение.</p>
+</blockquote>
+<h3 id="включение">Включение</h3>
+<p><a href="SSH.html">Подключитесь по SSH</a> и отредактируйте файл <code>~/technic_ws/src/technic/technic/launch/technic.launch</code> так, чтобы драйвер VL53L1X был включен:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"rangefinder_vl53l1x"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"true"</span>/&gt;</span>
+</code></pre>
+<p>По умолчания драйвер дальномера передает данные в Pixhawk (через топик <code>/rangefinder/range</code>). Для просмотра данных из топика используйте команду:</p>
+<pre><code class="lang-bash">rostopic <span class="hljs-built_in">echo</span> /rangefinder/range
+</code></pre>
+<h3 id="настройки-px4">Настройки PX4</h3>
+<blockquote>
+<p><strong>Подсказка</strong> Для корректной работы лазерного дальномера с полетным контроллером рекомендуется использование <a href="firmware.md#прошивка-для-клеверa">специальной сборки PX4 для Technic</a>.</p>
+</blockquote>
+<p>Для использования данных с дальномера в <a href="Parameters.html">PX4 должен быть сконфигурирован</a>.</p>
+<p>При использовании EKF2 (<code>SYS_MC_EST_GROUP</code> = <code>ekf2</code>):</p>
+<ul>
+<li><code>EKF2_HGT_MODE</code> = <code>2</code> (Range sensor) – при полете над горизонтальным полом;</li>
+<li><code>EKF2_RNG_AID</code> = <code>1</code> (Range aid enabled) – в остальных случаях.</li>
+</ul>
+<h3 id="получение-данных-из-python">Получение данных из Python</h3>
+<p>Для получения данных из топика создайте подписчика:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
+<span class="hljs-keyword">from</span> sensor_msgs.msg <span class="hljs-keyword">import</span> Range
+
+rospy.init_node(<span class="hljs-string">'flight'</span>)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">range_callback</span>(<span class="hljs-params">msg</span>):
+    <span class="hljs-comment"># Обработка новых данных с дальномера</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Rangefinder distance:'</span>, msg.<span class="hljs-built_in">range</span>)
+
+rospy.Subscriber(<span class="hljs-string">'rangefinder/range'</span>, Range, range_callback)
+
+rospy.spin() <span class="hljs-comment"># дальнейший код программы</span>
+</code></pre>
+<p>Также существует возможность однократного получения данных с дальномера:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> sensor_msgs.msg <span class="hljs-keyword">import</span> Range
+
+<span class="hljs-comment"># ...</span>
+
+dist = rospy.wait_for_message(<span class="hljs-string">'rangefinder/range'</span>, Range).<span class="hljs-built_in">range</span>
+</code></pre>
+<h3 id="визуализация-данных">Визуализация данных</h3>
+<p>Для построения графика по данным с дальномера может быть использован rqt_multiplot.</p>
+<p>Для визуализации данных может быть использован rviz. Для этого необходимо добавить топик типа <code>sensor_msgs/Range</code> в визуализацию:</p>
+<p><img src="assets/rviz-range.png" width="400" class="center zoom"></img></p>
+<p>См. <a href="Rviz.html">подробнее об rviz и rqt</a>.</p>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +180,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

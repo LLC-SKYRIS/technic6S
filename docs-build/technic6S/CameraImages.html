@@ -58,8 +58,28 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="просмотр-изображений-с-камер">Просмотр изображений с камер</h1>
+<p>Для просмотра изображений с камер (или других ROS-топиков) можно воспользоваться <a href="Rviz.html">rviz, rqt</a>, или смотреть их через браузер, используя web_video_server.</p>
+<p>См. подробнее про <a href="Rviz.html">использование rqt</a>.</p>
+<h3 id="просмотр-через-браузер"><strong><em>Просмотр через браузер</em></strong></h3>
+<p>Для просмотра видеострима нужно <a href="ConnectingToWi-Fi.html">подключиться к Wi-Fi</a> Technic (<code>technic-xxxx</code>), перейти на страницу <a href="http://10.42.0.1:8080/" target="_blank">http://10.42.0.1:8080/</a> и выбрать топик.</p>
+<p><img src="assets/web_video_server.png" width="300" class="center zoom"></img></p>
+<p>Если передача картинки работает слишком медленно, можно ускорить ее, указав тип передаваемых данных <code>mjpeg</code> и меняя GET-параметр <code>quality</code> (от 1 до 100), который отвечает за сжатие видеострима, например:</p>
+<p><a href="http://10.42.0.1:8080/stream_viewer?topic=/main_camera/image_raw&amp;type=mjpeg&amp;quality=1" target="_blank">http://10.42.0.1:8080/stream_viewer?topic=/main_camera/image_raw&amp;type=mjpeg&amp;quality=1</a></p>
+<p>По URL выше будет доступен стрим с основной камеры в минимальном возможном качестве.</p>
+<p>Также доступны параметры <code>width</code>, <code>height</code> и другие. Подробнее о <code>web_video_server</code>: <a href="http://wiki.ros.org/web_video_server" target="_blank">http://wiki.ros.org/web_video_server</a>.</p>
+<h3 id="просмотр-через-rqtimageview"><strong><em>Просмотр через rqt_image_view</em></strong></h3>
+<p>Для просмотра изображений через инструменты rqt необходим компьютер с установленной Ubuntu 20.04 и <a href="http://wiki.ros.org/noetic/Installation/Ubuntu" target="_blank">ROS Noetic</a>.</p>
+<p><a href="ConnectingToWi-Fi.html">Подключитесь к Wi-Fi сети Technic</a> и запустите <code>rqt_image_view</code> с указанием его IP-адреса:</p>
+<pre><code class="lang-bash">ROS_MASTER_URI=http://10.42.0.1:11311 rqt_image_view
+</code></pre>
+<p>Выберите топик для просмотра, например, <code>/main_camera/image_raw</code></p>
+<p>Для снижения нагрузки на сеть и уменьшения задержки используйте сжатый вариант топика – <code>/main_camera/image_raw/compressed</code>.</p>
+<p>Для изменения настроек сжатия используйте rqt-плагин Dynamic Reconfigure. </p>
+<p>См. <a href="Rviz.html">подробнее об rviz и rqt</a>.</p>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +143,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

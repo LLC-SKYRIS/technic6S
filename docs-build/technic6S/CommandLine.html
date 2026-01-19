@@ -58,8 +58,83 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="командная-строка">Командная строка</h1>
+<p>В Linux-системах, к семейству которых принадлежит используемая на OPi ОС Ubuntu, основным способом взаимодействия пользователя с системой является командная строка. Для работы с командной строкой <a href="Butterfly.html">откройте терминал в веб-интерфейсе</a> на OPi.</p>
+<h3 id="базовые-команды"><strong><em>Базовые команды</em></strong></h3>
+<blockquote>
+<p><strong>Подсказка</strong> Двойное нажатие клавиши <code>Tab ↹</code> позволяет автоматически дополнить вводимую команду или аргумент.</p>
+</blockquote>
+<p>Запускать от имени администратора</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span>
+</code></pre>
+<p>Показать содержимое текущей директории:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">ls</span>
+</code></pre>
+<p>Перейти в директорию:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> &lt;путь к директории&gt;
+</code></pre>
+<p>Перейти на директорию выше и на 2 директории выше:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> ..
+<span class="hljs-built_in">cd</span> ../..
+</code></pre>
+<p>Вывести полный путь к текущей директории:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">pwd</span>
+</code></pre>
+<p>Перейти в домашнюю директорию пользователя:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># все три команды равнозначны, где символ тильда (~) это сокращённая запись пути</span>
+<span class="hljs-comment"># к домашней директории, а переменная $HOME хранит этот путь</span>
+<span class="hljs-built_in">cd</span>
+<span class="hljs-built_in">cd</span> ~
+<span class="hljs-built_in">cd</span> <span class="hljs-variable">$HOME</span>
+</code></pre>
+<p>Создать директорию:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">mkdir</span> &lt;путь&gt;/&lt;название директории&gt;
+</code></pre>
+<p>Создать файл:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">touch</span> &lt;путь&gt;/&lt;название файла&gt;.&lt;расширение файла&gt;
+</code></pre>
+<p>Вывести содержимое файла <code>file.py</code>:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">cat</span> file.py
+</code></pre>
+<p>Запустить Python-скрипт <code>file.py</code>:</p>
+<pre><code class="lang-bash">python3 file.py
+</code></pre>
+<p>Перезагрузить OPi:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> reboot
+</code></pre>
+<p>Для завершения работающей программы нажмите комбинацию клавиш <code>Ctrl</code>+<code>C</code>.</p>
+<p>Читайте больше <a href="http://www.orangepi.org/orangepibbsen/forum.php?mod=viewthread&amp;tid=2766" target="_blank">о командах Linux в документации Orange Pi:</a>.</p>
+<h3 id="editing"><strong><em>Редактирование файлов </em></strong></h3>
+<p>Используйте редактор <strong>nano</strong> для того, чтобы создавать или редактировать файлы на OPi. Среди текстовых редакторов, доступных в терминале, он является наиболее простым и интуитивным.</p>
+<ol>
+<li><p>Для редактирования файла введите команду:</p>
+<pre><code class="lang-bash">nano &lt;название файла&gt;.&lt;расширение файла&gt;
+</code></pre>
+<p>Например:</p>
+<pre><code class="lang-bash">nano ~/technic_ws/src/technic/technic/launch/technic.launch
+</code></pre>
+</li>
+<li><p>Отредактируйте файл.</p>
+</li>
+<li>Для выхода с сохранением нажмите <code>Ctrl</code>+<code>X</code>, <code>Y</code>, <code>Enter</code>.</li>
+<li><p>При изменении .launch-файлов необходимо перезапустить пакет <code>technic</code>:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl restart technic
+</code></pre>
+</li>
+</ol>
+<p>Для редактирования файлов также можно использовать и другие редакторы, например, <strong>vim</strong>.</p>
+<blockquote>
+<p><strong>Подсказка</strong> Если файл не удается сохранить, возможно для редактирования требуются права администратора</p>
+</blockquote>
+<h3 id="сброс-изменений"><strong><em>Сброс изменений</em></strong></h3>
+<p>Для сброса изменений всех файлов, относящихся к пакету Technic (<code>launch</code>-файлы) используйте git:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> ~/technic_ws/src/technic
+git checkout .
+<span class="hljs-built_in">sudo</span> systemctl restart technic
+</code></pre>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +198,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

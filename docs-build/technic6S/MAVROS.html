@@ -58,8 +58,39 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="mavros">MAVROS</h1>
+<p>Основная документация: <a href="http://wiki.ros.org/mavros" target="_blank">http://wiki.ros.org/mavros</a></p>
+<p>MAVROS (MAVLink + ROS) — это пакет для ROS, предоставляющий возможность управлять беспилотниками по протоколу <a href="Mavlink.html">MAVLink</a>. MAVROS поддерживает полетные стеки PX4 и APM. Связь организовывается по UART, USB, TCP или UDP.</p>
+<p>MAVROS подписывается на определенные ROS-топики в ожидании команд, публикует в другие топики телеметрию, и предоставляет сервисы.</p>
+<p>Нода MAVROS автоматически запускается в launch-файле Technic. Для <a href="ConnectingToPX4.html">настройки типа подключения</a> см. аргумент <code>fcu_conn</code>.</p>
+<blockquote>
+<p><strong>Подсказка</strong> Упрощенное взаимодействие с коптером возможно с использованием пакета <a href="AutonomousFlightOffboard.html"><code>simple_offboard</code></a>.</p>
+<p><strong>Заметки</strong> В пакете <code>technic</code> некоторые плагины MAVROS отключены (в целях сохранения ресурсов). Подробнее см. параметр <code>plugin_blacklist</code> в файле <code>/home/orangepi/technic_ws/src/technic/technic/launch/mavros.launch</code>.</p>
+</blockquote>
+<h2 id="основные-сервисы">Основные сервисы</h2>
+<p><code>/mavros/set_mode</code> — установить <a href="Modes.html">полетный режим</a> контроллера. Обычно устанавливается режим OFFBOARD (для управления с OPi).</p>
+<p><code>/mavros/cmd/arming</code> — включить или выключить моторы беспилотника (изменить armed-статус).</p>
+<h2 id="основные-публикуемые-топики">Основные публикуемые топики</h2>
+<p><code>/mavros/state</code> — статус подключения к полетному контроллеру. Режим полетного контроллера.</p>
+<p><code>/mavros/local_position/pose</code> — локальная позиция коптера в системе координат ENU и его ориентация.</p>
+<p><code>/mavros/local_position/velocity</code> — текущая скорость в локальных координатах. Угловые скорости.</p>
+<p><code>/mavros/global_position/global</code> — текущая глобальная позиция (широта, долгота, высота).</p>
+<p><code>/mavros/global_position/local</code> — глобальная позиция в системе координат <a href="https://ru.wikipedia.org/wiki/Система_координат_UTM" target="_blank">UTM</a>.</p>
+<p><code>/mavros/global_position/rel_alt</code> — относительная высота (относительно высоты включения моторов).</p>
+<p>Просмотр сообщений, публикуемых в топики возможен с помощью утилиты <code>rostopic</code>, например <code>rostopic echo /mavros/state</code>. Подробнее см. <a href="ROS.html">работа с ROS</a>.</p>
+<h2 id="основные-топики-для-публикации">Основные топики для публикации</h2>
+<p><code>/mavros/setpoint_position/local</code> — установить целевую позицию  и рысканье (yaw) беспилотника (в системе координат ENU).</p>
+<p><code>/mavros/setpoint_position/global</code> – установить целевую позицию в глобальных координатах (ширина, долгота и высота) и рысканье беспилотника.</p>
+<p><code>/mavros/setpoint_velocity/cmd_vel</code> — установить целевую линейную скорость беспилотника.</p>
+<p><code>/mavros/setpoint_attitude/attitude</code> и <code>/mavros/setpoint_attitude/att_throttle</code> — установить целевую ориентацию (Attitude) и уровень газа.</p>
+<p><code>/mavros/setpoint_attitude/cmd_vel</code> и <code>/mavros/setpoint_attitude/att_throttle</code> — установить целевые угловые скорости и уровень газа.</p>
+<h3 id="топики-для-посылки-raw-пакетов">Топики для посылки raw-пакетов</h3>
+<p><code>/mavros/setpoint_raw/local</code> — отправка пакета <a href="https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED" target="_blank">SET_POSITION_TARGET_LOCAL_NED</a>. Позволяет установить целевую позицию /целевую скорость и целевое рысканье/угловую скорость по рысканью. Выбор устанавливаемых величин осуществляется с помощью поля <code>type_mask</code>.</p>
+<p><code>/mavros/setpoint_raw/attitude</code> — отправка пакета <a href="https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET" target="_blank">SET_ATTITUDE_TARGET</a>. Позволяет установить целевую ориентацию / угловые скорости и уровень газа. Выбор устанавливаемых величин осуществляется с помощью поля <code>type_mask</code></p>
+<p><code>/mavros/setpoint_raw/global</code> — отправка пакета <a href="https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT" target="_blank">SET_POSITION_TARGET_GLOBAL_INT</a>. Позволяет установить целевую позицию в глобальных координатах (ширина, долгота, высота), а также скорости полета.</p>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +154,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

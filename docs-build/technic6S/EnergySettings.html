@@ -56,8 +56,41 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="настройка-питания">Настройка питания</h1>
+<p>Чтобы откалибровать параметры, связанные с электропитанием, зайдите во вкладку <em>Vehicle Setup</em> и выберите меню <em>Power</em>.</p>
+<h3 id="калибровка-делителя-напряжения"><strong><em>Калибровка делителя напряжения</em></strong></h3>
+<blockquote>
+<p><strong>Подсказка</strong> Калибровка делителя напряжения должна выполняться с подключенным АКБ.</p>
+</blockquote>
+<ol>
+<li>В программе QGroundControl перейдите в панель <em>Vehicle Setup</em> и выберите меню <em>Power</em>.</li>
+<li>Установите параметр <em>Number of cells</em> в соответствии с количеством банок в АКБ.</li>
+<li>Откалибруйте делитель напряжения:<ul>
+<li>Подключите индикатор напряжения к балансировочному разъему АКБ.</li>
+<li>Нажмите кнопку <em>Calculate</em> напротив надписи <em>Voltage Divider</em>.</li>
+<li>Введите в открывшемся поле суммарное значение напряжения с индикатора напряжения.</li>
+<li>Нажмите <em>Close</em>, чтобы сохранить рассчитанное значение.</li>
+</ul>
+</li>
+</ol>
+<p>В случае отсутствия индикатора напряжения или невозможности ручной калибровки, установите усредненное значение делителя напряжения для комплекта Клевер 4 (<em>Voltage divider</em> = 11).</p>
+<p><img src="assets/qgc-voltage-divider.png" width="600" class="center zoom"></img></p>
+<p>Дополнительная информация: <a href="https://docs.qgroundcontrol.com/en/SetupView/Power.html" target="_blank">https://docs.qgroundcontrol.com/en/SetupView/Power.html</a>.</p>
+<h3 id="калибровка-регуляторов-esc"><strong><em>Калибровка регуляторов (ESC)</em></strong></h3>
+<blockquote>
+<p><strong>Подсказка</strong> <strong>Никогда не выполняйте калибровку регуляторов с установленными пропеллерами.</strong> В некоторых случаях моторы могут начать вращаться на максимальной скорости.</p>
+</blockquote>
+<ol>
+<li>Убедитесь, что АКБ не подключена и пропеллеры сняты</li>
+<li>Нажмите <em>Calibrate</em>.</li>
+<li>После появлении надписи <em>Connect the battery now</em> подсоедините АКБ.</li>
+<li>Дождитесь появления надписи <em>Calibration complete</em>.</li>
+</ol>
+<p><img src="assets/qgc-power.png" width="600" class="center zoom"></img></p>
+<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/advanced_config/esc_calibration.html" target="_blank">https://docs.px4.io/master/en/advanced_config/esc_calibration.html</a>.</p>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -121,11 +154,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

@@ -2,8 +2,9 @@
 
 {% block body %}
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    {{ page.content | safe }}
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">

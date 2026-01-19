@@ -58,8 +58,86 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="gpio">GPIO</h1>
+<p>GPIO (General-Purpose Input/Output) – это тип пинов на OPi, напряжение на которых можно программно подавать и измерять. Также на некоторых пинах реализован аппаратный <abbr title="Широтно-импульсная модуляция">ШИМ</abbr> (<abbr title="Pulse-width modulation">PWM</abbr>). Интерфейс GPIO может быть использован для управления различной периферией: светодиодами, электромагнитами, электромоторами, сервоприводами и т. д.</p>
+<blockquote>
+<p><strong>Info</strong> Используйте <a href="http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html" target="_blank">распиновку</a>, чтобы понять, какие из пинов на OPi поддерживают GPIO и ШИМ.</p>
+<p><strong>Info</strong> Для того, чтобы не создавалось конфликтов при использовании портов <em>GPIO</em> в образе закрыт доступ для портов 0, 1, 2, 3, 14, 15, на которые выведены интерфейсы подключения I2C и UART.</p>
+</blockquote>
+<p>Для работы с GPIO на <a href="ImageOPI.html">образе для OPi</a> предустановлена библиотека <a href="http://abyz.me.uk/rpi/pigpio/" target="_blank"><code>pigpio</code></a>. Чтобы взаимодействовать с этой библиотекой, запустите соответствующий демон:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl start pigpiod.service
+</code></pre>
+<p>Для включение автозапуска демона <code>pigpiod</code> используйте команду:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">enable</span> pigpiod.service
+</code></pre>
+<p>Пример работы с библиотекой:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> time
+<span class="hljs-keyword">import</span> pigpio
+
+<span class="hljs-comment"># инициализируем подключение к pigpiod</span>
+pi = pigpio.pi()
+
+<span class="hljs-comment"># устанавливаем режим 11 пина на вывод</span>
+pi.set_mode(<span class="hljs-number">11</span>, pigpio.OUTPUT)
+
+<span class="hljs-comment"># включаем сигнал на 11 пине</span>
+pi.write(<span class="hljs-number">11</span>, <span class="hljs-number">1</span>)
+
+time.sleep(<span class="hljs-number">2</span>)
+
+<span class="hljs-comment"># отключаем сигнал на 11 пине</span>
+pi.write(<span class="hljs-number">11</span>, <span class="hljs-number">0</span>)
+
+<span class="hljs-comment"># ...</span>
+
+<span class="hljs-comment"># устанавливаем режим 12 пина на ввод</span>
+pi.set_mode(<span class="hljs-number">12</span>, pigpio.INPUT)
+
+<span class="hljs-comment"># считываем состояние 12 пина</span>
+level = pi.read(<span class="hljs-number">12</span>)
+</code></pre>
+<p>Для определения номера пина используйте <a href="http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html" target="_blank">распиновку Orange Pi</a>.</p>
+<h2 id="подключение-сервоприводов">Подключение сервоприводов</h2>
+<p>Большинство сервоприводов управляются с помощью ШИМ-сигнала, причем крайним положениям привода соответствуют сигналы шириной приблизительно 1000 и 2000 мкс. Значения для конкретного сервопривода могут быть определены экспериментально.</p>
+<p>Подключите сигнальный провод сервопривода к одному из GPIO-пинов OrangePi 5 Pro. Для управления сервоприводом, подключенного к 13 пину, используйте такой код:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> time
+<span class="hljs-keyword">import</span> pigpio
+
+pi = pigpio.pi()
+
+<span class="hljs-comment"># устанавливаем режим 13 пина на вывод</span>
+pi.set_mode(<span class="hljs-number">13</span>, pigpio.OUTPUT)
+
+<span class="hljs-comment"># устанавливаем на 13 пине ШИМ сигнал в 1000 мкс</span>
+pi.set_servo_pulsewidth(<span class="hljs-number">13</span>, <span class="hljs-number">1000</span>)
+
+time.sleep(<span class="hljs-number">2</span>)
+
+<span class="hljs-comment"># устанавливаем на 13 пине ШИМ сигнал в 2000 мкс</span>
+pi.set_servo_pulsewidth(<span class="hljs-number">13</span>, <span class="hljs-number">2000</span>)
+</code></pre>
+<h2 id="подключение-электромагнита">Подключение электромагнита</h2>
+<p><img src="assets/gpio_mosfet_magnet.png" alt="HC-SR04" width="300"></img></p>
+<p>Для подключения электромагнита используйте полевой транзистор (MOSFET). Подключите транзистор к одному из GPIO-пинов OPi. Для управления магнитом, подключенным к 18 пину, используйте такой код:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> time
+<span class="hljs-keyword">import</span> pigpio
+
+pi = pigpio.pi()
+
+<span class="hljs-comment"># устанавливаем режим 18 пина на вывод</span>
+pi.set_mode(<span class="hljs-number">18</span>, pigpio.OUTPUT)
+
+<span class="hljs-comment"># включаем электромагнит</span>
+pi.write(<span class="hljs-number">18</span>, <span class="hljs-number">1</span>)
+
+time.sleep(<span class="hljs-number">2</span>)
+
+<span class="hljs-comment"># отключаем электромагнит</span>
+pi.write(<span class="hljs-number">18</span>, <span class="hljs-number">0</span>)
+</code></pre>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +201,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

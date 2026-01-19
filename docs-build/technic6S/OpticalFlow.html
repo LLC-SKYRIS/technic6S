@@ -58,8 +58,85 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="optical-flow">Optical flow</h1>
+<p>Технология Optical Flow (оптический поток) обеспечивает возможность полёта в двух режимах:</p>
+<ul>
+<li><p><strong>POSCTL</strong> — стабилизация и управление позицией</p>
+</li>
+<li><p><strong>OFFBOARD</strong> — полностью автономные полёты</p>
+</li>
+</ul>
+<p>Для работы системы используется камера, направленная вниз. Она постоянно анализирует структуру поверхности под дроном, а алгоритм определяет смещения между кадрами. Это даёт возможность вычислять горизонтальное перемещение коптера без использования внешних средств позиционирования.</p>
+<h2 id="активация">Активация</h2>
+<blockquote>
+<p><strong>Подсказка</strong> Для работы Optical Flow необходим <a href="LaserRangefinder.html">подключенный и настроенный лазерный дальномер</a>.</p>
+</blockquote>
+<p>Включите Optical Flow в файле <code>~/technic_ws/src/technic/technic/launch/technic.launch</code></p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"optical_flow"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"true"</span>/&gt;</span>
+</code></pre>
+<p>Optical Flow публикует данные в топик <code>/mavros/px4flow/raw/send</code>. Кроме того, в топик <code>/optical_flow/debug</code> публикуется визуализация, которую можно просмотреть с помощью <a href="CameraImages.html">web_video_server</a>.</p>
+<blockquote>
+<p><strong>Подсказка</strong> Для правильной работы модуль камеры должен быть корректно подключен и <a href="CameraSettings.html">сконфигурирован</a>.</p>
+</blockquote>
+<h2 id="настройка-полетного-контроллера">Настройка полетного контроллера</h2>
+<blockquote>
+<p><strong>Подсказка</strong> При использовании <a href="firmware.md#прошивка-для-клевера">сборки PX4 для Technic</a> необходимые параметры PX4 применятся автоматически.</p>
+</blockquote>
+<p>При использовании <strong>EKF2</strong> (параметр <code>SYS_MC_EST_GROUP</code> = <code>ekf2</code>):</p>
+<ul>
+<li><code>EKF2_AID_MASK</code> – включен флажок use optical flow.</li>
+<li><code>EKF2_OF_DELAY</code> – 0.</li>
+<li><code>EKF2_OF_QMIN</code> – 10.</li>
+<li><code>EKF2_OF_N_MIN</code> – 0.05.</li>
+<li><code>EKF2_OF_N_MAX</code> - 0.2.</li>
+<li><code>SENS_FLOW_ROT</code> – No rotation (отсутствие поворота).</li>
+<li><code>SENS_FLOW_MAXHGT</code> – 4.0 (для дальномера VL53L1X)</li>
+<li><code>SENS_FLOW_MINHGT</code> – 0.0 (для дальномера VL53L1X)</li>
+<li>Опционально: <code>EKF2_HGT_MODE</code> – range sensor (см. <a href="LaserRangefinder.html">конфигурирование дальномера</a>).</li>
+</ul>
+<p>Для проверки правильности всех настроек можно <a href="selfcheck.md">воспользоваться утилитой <code>selfcheck.py</code></a>.</p>
+<h2 id="полет-в-posctl">Полет в POSCTL</h2>
+<p>Настройте POSCTL как один из полетных режимов PX4. Переведите в режим POSCTL.</p>
+<h2 id="автономный-полет">Автономный полет</h2>
+<p>Автономный полет возможен с использованием модуля <a href="AutonomousFlightOffboard.html">simple_offboard</a>.</p>
+<p>Пример взлета на высоту 1.5 м и удержание позиции:</p>
+<pre><code class="lang-python">navigate(z=<span class="hljs-number">1.5</span>, frame_id=<span class="hljs-string">'body'</span>, auto_arm=<span class="hljs-literal">True</span>)
+</code></pre>
+<p>Полет вперед на 1 м:</p>
+<pre><code class="lang-python">navigate(x=<span class="hljs-number">1</span>, frame_id=<span class="hljs-string">'body'</span>)
+</code></pre>
+<p>Полет назад на 1 м (относительно предыдущей целевой точки):</p>
+<pre><code class="lang-python">navigate(x=-<span class="hljs-number">1</span>, frame_id=<span class="hljs-string">'navigate_target'</span>)
+</code></pre>
+<p>При использовании Optical Flow возможна также <a href="ArucoMarker.html">навигация по ArUco-маркерам</a>, в том числе <a href="ArucoMap.html">используя VPE</a>.</p>
+<h2 id="дополнительные-настройки">Дополнительные настройки</h2>
+<p>Если коптер нестабильно удерживает позицию, попробуйте увеличить коэффициенты <em>P</em> PID-регулятора по скорости – параметры <code>MPC_XY_VEL_P</code> и <code>MPC_Z_VEL_P</code>.</p>
+<p>Если коптер нестабильно удерживает высоту, попробуйте увеличить коэффициент <code>MPC_Z_VEL_P</code> или лучше подобрать газ висения – <code>MPC_THR_HOVER</code>.</p>
+<p>Если коптер уплывает по рысканью, попробуйте:</p>
+<ul>
+<li>перекалибровать гироскопы;</li>
+<li>перекалибровать магнитометр;</li>
+<li>попробовать разные значения параметра <code>EKF2_MAG_TYPE</code>, который определяет, каким образом данные с магнитометра используются в EKF2;</li>
+<li>изменять значения параметров <code>EKF2_MAG_NOISE</code>, <code>EKF2_GYR_NOISE</code>, <code>EKF2_GYR_B_NOISE</code>.</li>
+</ul>
+<blockquote>
+<p><strong>Заметки</strong> Для более хороших результатов выполняйте перекалибровку гироскопов непосредственно перед взлетом, используя <a href="CodeExamples.html#calibrate-gyro">соответствующий сниппет</a>.</p>
+</blockquote>
+<p>Если коптер уплывает по высоте, попробуйте:</p>
+<ul>
+<li>повысить значение коэффициента <code>MPC_Z_VEL_P</code>;</li>
+<li>изменить значение параметра <code>MPC_THR_HOVER</code>;</li>
+<li>выставить <code>MPC_ALT_MODE</code> = 2 (Terrain following).</li>
+</ul>
+<p>При использовании Optical Flow максимальная горизонтальная скорость дополнительно ограничивается. За это косвенно отвечает параметр <code>SENS_FLOW_MAXR</code> (максимальная достоверная "угловая скорость" оптического потока). При нормальном полёте горизонтальная скорость будет регулироваться так, чтобы показания Optical Flow не превышали 50% значения данного параметра.</p>
+<h2 id="неисправности">Неисправности</h2>
+<p>При появлении в QGC ошибок типа <code>EKF INTERNAL CHECKS</code> попробуйте перезагрузить EKF2. Для этого наберите в MAVLink-консоли:</p>
+<pre><code class="lang-nsh">ekf2 stop
+ekf2 start
+</code></pre>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +200,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

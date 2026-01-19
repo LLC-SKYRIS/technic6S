@@ -56,8 +56,52 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="система-координат">Система координат</h1>
+<p><img src="assets/frames-round-corners.png" width="500" class="center zoom"></img></p>
+<p>В пакете <code>technic</code> определены основные системы координат (фреймы):</p>
+<ul>
+<li><p><strong><code>map</code></strong> — глобальная система координат, отсчитываемая от точки запуска полётного контроллера (на схеме показана белой сеткой);</p>
+</li>
+<li><p><strong><code>base_link</code></strong> — система координат, привязанная к самому дрону (на рисунке — схематичное изображение квадрокоптера);</p>
+</li>
+<li><p><strong><code>body</code></strong> — координаты, связанные с дроном, но без учёта его наклонов по крену и тангажу (обозначены красной, зелёной и синей осями);</p>
+</li>
+<li><p><strong><code>navigate_target</code></strong> — координаты целевой точки, к которой дрон движется в данный момент (см. <a href="AutonomousFlightOffboard.html#navigate">navigate</a>);</p>
+</li>
+<li><p><strong><code>terrain</code></strong> — координаты относительно поверхности под дроном в текущей позиции (см. <a href="AutonomousFlightOffboard.html#set_altitude">set_altitude</a>);</p>
+</li>
+<li><p><strong><code>setpoint</code></strong> — текущая целевая позиция, заданная системой управления;</p>
+</li>
+<li><p><strong><code>main_camera_optical</code></strong> — система координат, <a href="CameraSettings.html">привязанная к основной камере</a>.</p>
+</li>
+</ul>
+<p>При использовании <a href="ArucoMarker.html">визуальной навигации по ArUco-маркерам</a> добавляются дополнительные фреймы:</p>
+<ul>
+<li><p><strong><code>aruco_map</code></strong> — система координат, соответствующая <a href="ArucoMap.html">карте маркеров</a>;</p>
+</li>
+<li><p><strong><code>aruco_N</code></strong> — координаты, связанные с конкретным <a href="Aruco.html">маркером</a>, где <em>N</em> — его ID.</p>
+</li>
+</ul>
+<blockquote>
+<p> <strong>Подсказка:</strong> согласно <a href="http://www.ros.org/reps/rep-0103.html" target="_blank">стандарту REP-103</a>, для фреймов, связанных с дроном, оси направлены следующим образом: X — вперёд, Y — влево, Z — вверх.</p>
+</blockquote>
+<p>Трёхмерное отображение всех систем координат можно увидеть в <a href="Rviz.html">rviz</a>.</p>
+<hr></hr>
+<h3 id="управление-системами-координат-с-помощью-tf2"><strong><em>Управление системами координат с помощью tf2</em></strong></h3>
+<p>В пакете Technic для работы с системами координат применяется инструментарий ROS под названием <strong>tf2</strong>. Этот набор предоставляет разработчикам библиотеки для C++, Python и других языков, которые упрощают выполнение преобразований координат объектов между различными фреймами.</p>
+<p><strong><em>Как это работает?</em></strong></p>
+<p>Отдельные компоненты (ROS-ноды) публикуют информацию о трансформациях в специальный топик <code>/tf</code>. Данные в нем представлены в виде сообщений <code>TransformStamped</code>, которые фиксируют временные и пространственные связи между разными системами координат.</p>
+<p><strong><em>Практическое применение</em></strong></p>
+<ul>
+<li><p><strong>Получение позиции дрона:</strong> Используя модуль <code>simple_offboard</code>, можно запросить текущее положение дрона в любой нужной системе координат. Для этого достаточно указать идентификатор требуемого фрейма (<code>frame_id</code>) при обращении к сервису <code>get_telemetry</code>.</p>
+</li>
+<li><p><strong>Прямая работа с преобразованиями:</strong> Библиотеку tf2 также можно вызывать напрямую из Python-кода для трансформации геометрических данных (таких как <code>PoseStamped</code> или <code>PointStamped</code>) из одной системы координат в другую.</p>
+</li>
+</ul>
+<p>Подробную информацию можно найти в документации: <a href="http://wiki.ros.org/tf2" target="_blank">http://wiki.ros.org/tf2</a></p>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -121,11 +165,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

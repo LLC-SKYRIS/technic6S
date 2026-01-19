@@ -58,8 +58,69 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="блочное-программирование">Блочное программирование</h1>
+<p>Блочное программирование позволяет составлять программы для дрона, используя наглядные функциональные блоки. Такой подход значительно упрощает работу с Technic. Не имея опыта в программировании, вы сможете из блоков построить задание, и выполнить это задание, запустив дрон. </p>
+<h3 id="конфигурация"><strong><em>Конфигурация</em></strong></h3>
+<p>Для корректной работы работы блочного программирования аргумент <code>blocks</code> в launch-файле Technic (<code>~/technic_ws/src/technic/technic/launch/technic.launch</code>) должен быть в значении<code>true</code>:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"blocks"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"true"</span>/&gt;</span>
+</code></pre>
+<h3 id="запуск"><strong><em>Запуск</em></strong></h3>
+<p>Для того, чтобы открыть интерфейс блочного программирования в Tehcnic, <a href="ConnectingToWi-Fi.html">подключитесь к Technic по Wi-Fi</a> и перейдите на страницу <a href="http://10.42.0.1:8000/technic_blocks/" target="_blank">http://10.42.0.1:8000/technic_blocks/</a> либо нажмите ссылку <em>Blocks programming</em> на <a href="WebInterface.html">основной веб-странице Technic</a>.</p>
+<p>Интерфейс выглядит следующим образом:</p>
+<p><img src="assets/blocks-round-corners.png" width="400" class="center zoom"></img></p>
+<p>Соберите необходимую программу из блоков в меню слева а затем нажмите кнопку <em>Run</em> для ее запуска. Также вы можете просмотреть сгенерированный код на языке Python, переключившись во вкладку <em>Python</em>.</p>
+<p>Кнопка <em>Stop</em> позволяет остановить программу. Нажатие кнопки <em>Land</em> также останавливает программу и сажает дрон.</p>
+<h3 id="сохранение-и-загрузка"><strong><em>Сохранение и загрузка</em></strong></h3>
+<p>Для сохранения программы откройте меню справа сверху, выберите пункт меню <em>Save</em> и введите название программы. Название программы может содержать только латинские буквы, дефис, подчеркивание и точку. Все ранее сохраненные программы будут доступны в этом же меню.</p>
+<p>На карте памяти сохраненные XML-файлы программ хранятся в каталоге <code>/technic_ws/src/technic/technic_blocks/programs/</code>.</p>
+<p>В этом же меню доступны примеры программ (подкаталог <code>examples</code>).</p>
+<h3 id="блоки"><strong><em>Блоки</em></strong></h3>
+<p>Набор блоков приблизительно аналогичен набору ROS-сервисов <a href="AutonomousFlightOffboard.html">API автономных полетов Technic</a>. В этом разделе приведено описание некоторых из них.</p>
+<p>Блоки Technic поделены на 4 категории:</p>
+<ul>
+<li><span style="padding:2px;color:white;background:#9d5ca6">Flight</span> – команды, имеющие отношение к полету.</li>
+<li><span style="padding:2px;color:white;background:#ff9b00">State</span> – блоки, позволяющие получить те или иные параметры текущего состояния коптера.</li>
+<li><span style="padding:2px;color:white;background:#01d754">LED</span> – блоки для управления <a href="LedStrip.html">LED-лентой</a>.</li>
+<li><span style="padding:2px;color:white;background:#5b97cc">GPIO</span> – блоки для работы с <a href="GPIO.html">GPIO-пинами</a>.</li>
+</ul>
+<p>В остальных категориях находятся стандартные блоки Google Blockly.</p>
+<h4 id="takeoff">take_off</h4>
+<p><img src="assets/takeoff-round-corners.png" width="450" class="center zoom"></img></p>
+<p>Взлететь на указанную высоту в метрах. Высота может быть произвольным блоком, возвращающим числовое значение.</p>
+<p>Флаг <code>wait</code> определяет, должен ли дрон ожидать окончания взлета перед выполнением следующего блока.</p>
+<h4 id="navigate">navigate</h4>
+<p><img src="assets/navigate-round-corners.png" width="350" class="center zoom"></img></p>
+<p>Прилететь в заданную точку. Координаты точки задаются в метрах.</p>
+<p>Флаг <code>wait</code> определяет, должен ли дрон ожидать завершения полета в точку перед выполнением следующего блока.</p>
+<h4 id="relative_to">Поле <em>relative to</em> </h4>
+<p>В блоке может быть выбрана <a href="CoordinateSystems.html">система координат</a>, в которой задана целевая точка:</p>
+<ul>
+<li><em>body</em> – координаты относительно коптера: вперед (<em>forward</em>), влево (<em>left</em>), вверх (<em>up</em>).</li>
+<li><em>markers map</em> – система координат, связанная с <a href="ArucoMap.html">картой ArUco-маркеров</a>.</li>
+<li><em>marker</em> – система координат, связанная с <a href="Aruco.html">ArUco-маркером</a>; появляется поле для ввода ID маркеа.</li>
+<li><em>last navigate target</em> – координаты относительно последней заданной точки для навигации.</li>
+<li><em>global</em> – глобальная система координат (широта и долгота) и относительная высота.</li>
+<li><em>global, WGS 84 alt.</em> – глобальная система координат и высота в <a href="https://ru.wikipedia.org/wiki/WGS_84" target="_blank">системе WGS 84</a>.</li>
+</ul>
+<h4 id="land">land</h4>
+<p><img src="assets/land-round-corners.png" width="350" class="center zoom"></img></p>
+<p>Произвести посадку.</p>
+<p>Флаг <code>wait</code> определяет, должен ли дрон ожидать окончания посадки перед выполнением следующего блока.</p>
+<h4 id="wait">wait</h4>
+<p><img src="assets/wait-round-corners.png" width="350" class="center zoom"></img></p>
+<p>Ожидать заданное время в секундах. Время ожидания может быть произвольным блоком, возвращающим числовое значение.</p>
+<h4 id="waitarrival">wait_arrival</h4>
+<p><img src="assets/waitarrival-round-corners.png" width="350" class="center zoom"></img></p>
+<p>Ожидать, пока дрон долетит до целевой точки (заданной в <a href="#navigate">navigate</a>-блоке).</p>
+<h3 id="GPIO"><strong><em>Работа с GPIO </em></strong></h3>
+<p>Категория <span style="padding:2px;color:white;background:#5b97cc">GPIO</span> содержит блоки для работы с GPIO. Обратите внимание, что для корректной работы этих блоков демон для работы с GPIO <code>pigpiod</code> должен быть включен:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">enable</span> pigpiod.service
+<span class="hljs-built_in">sudo</span> systemctl start pigpiod.service
+</code></pre>
+<p>Более подробную информацию о GPIO читайте в <a href="GPIO.html">соответствующей статье</a>.</p>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +184,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

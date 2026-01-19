@@ -58,8 +58,29 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="настройка-сети">Настройка сети</h1>
+<h3 id="изменение-настроек-wi-fi-точки-доступа"><strong><em>Изменение настроек Wi-Fi точки доступа</em></strong></h3>
+<ol>
+<li>Введите в терминал чтобы увидеть настройки сети</li>
+</ol>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> nano /etc/hostapd/hostapd.conf
+</code></pre>
+<ol>
+<li>Для изменения имени Wi-Fi точки доступа поменяйте значение параметра <strong>ssid</strong></li>
+<li>Для изменения пароля Wi-Fi поменяйте значение параметра <strong>wpa_passphrase</strong></li>
+</ol>
+<blockquote>
+<p><strong>Подсказка</strong> По умолчанию имя точки: technic-xxxx, пароль: technicwifi</p>
+</blockquote>
+<ol>
+<li>После внесенных изменений, нажмите Ctrl+X, затем Y и Enter</li>
+<li>Перезапустите OrangePi 5 Pro</li>
+</ol>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> reboot
+</code></pre>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +144,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         

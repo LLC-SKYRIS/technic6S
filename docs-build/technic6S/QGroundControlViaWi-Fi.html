@@ -58,8 +58,51 @@
     <body>
         
   <div class="book-body">
-    <!-- Здесь будет весь контент страницы автоматически -->
-    
+    <!-- Вставка основного контента страницы -->
+    <h1 id="подключение-qgroundcontrol-по-wi-fi">Подключение QGroundControl по Wi-Fi</h1>
+<p>Возможны контроль, управление, калибровка и настройка полетного контроллера квадрокоптера с помощью программы QGroundControl по Wi-Fi. Для этого необходимо <a href="ConnectingToWi-Fi.html">подключиться к Wi-Fi</a> сети <code>technic-xxxx</code>.</p>
+<h3 id="подключение"><strong><em>Подключение</em></strong></h3>
+<p>По умолчанию на Technic настроена возможность подключения QGroundControl по протоколу TCP.</p>
+<ol>
+<li>На первой вкладке QGroundControl выберите меню <em>Comm Links</em>.</li>
+<li>Нажмите кнопку <em>Add</em>, чтобы добавить новое подключение.</li>
+<li>Введите параметры подключения:<ul>
+<li>Name: <em>Technic</em>.</li>
+<li>Type: <em>TCP</em>.</li>
+<li>Host Address: <em>10.42.0.1</em>.</li>
+<li>TCP Port: <em>5760</em>.</li>
+</ul>
+</li>
+<li>Нажмите <em>OK</em> для сохранения параметров.</li>
+<li>Выберите созданное подключение и нажмите <em>Connect</em>.</li>
+</ol>
+<p><img src="assets/qg-round-corners.png" width="500" class="center zoom"></img></p>
+<h3 id="udp"><strong><em>UDP</em></strong></h3>
+<p>Также возможна настройка подключения по протоколу UDP. Для выбора различных вариантов подключения по UDP необходимо отредактировать параметр <code>gcs_bridge</code> в launch-файле <code>/home/orangepi/technic_ws/src/technic/technic/launch/technic.launch</code>.</p>
+<p>После изменения launch-файла необходимо перезагрузить сервис technic:</p>
+<pre><code class="lang-(bash)">sudo systemctl restart technic
+</code></pre>
+<h3 id="udp-бридж-с-автоматическим-подключением"><strong><em>UDP-бридж с автоматическим подключением</em></strong></h3>
+<ol>
+<li>Измените параметр <code>gcs_bridge</code> на <code>udp-b</code>.</li>
+<li>При открытии программы QGroundControl соединение должно установиться автоматически.</li>
+</ol>
+<h3 id="udp-бридж-без-автоматического-подключения"><strong><em>UDP-бридж без автоматического подключения</em></strong></h3>
+<ol>
+<li>Измените параметр <code>gcs_bridge</code> на <code>udp</code>.</li>
+<li>В QGroundControl создайте подключение со следующими настройками:</li>
+<li>Выберите созданное подключение и нажмите <em>Connect</em>.</li>
+</ol>
+<h3 id="udp-broadcast-бридж"><strong><em>UDP broadcast-бридж</em></strong></h3>
+<blockquote>
+<p><strong>Подсказка</strong> Особенностью UDP broadcast-бриджа является возможность просмотра телеметрии дрона одновременно с нескольких устройств (например с телефона и компьютера). Также он хорошо подходит для организации сети из устройств при помощи роутера.</p>
+</blockquote>
+<ol>
+<li>Измените параметр <code>gcs_bridge</code> на <code>udp-pb</code>.</li>
+<li>При открытии программы QGroundControl соединение должно установиться автоматически.</li>
+</ol>
+
+
     <!-- Footer -->
     <footer>
       <div class="projectInfo">
@@ -123,11 +166,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/uVLHKjPAJQHdd7u2-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/h5Tv0tRi7COjfkAV-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/lypAmy2rLsqlYQoO-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/1ZZZiVMsKERtKn+4-website.js"></script>
         
     
         
