@@ -2,7 +2,7 @@
 
 Чтобы откалибровать датчики зайдите во вкладку *Vehicle Setup* и выберите меню *Sensors*.
 
-### ***Компас***
+### Компас
 
 <img src="assets/qgc-cal-compass.png" width="600" class="center zoom">
 
@@ -16,7 +16,7 @@
 
 Дополнительная информация: https://docs.px4.io/master/en/config/compass.html.
 
-### ***Гироскоп***
+### Гироскоп
 
 <img src="assets/qgc-cal-gyro.png" width="600" class="center zoom">
 
@@ -29,7 +29,7 @@
 
 Дополнительная информация: https://docs.px4.io/master/en/config/gyroscope.html.
 
-### ***Акселерометр***
+### Акселерометр
 
 <img src="assets/qgc-cal-acc.png" width="600" class="center zoom">
 
@@ -40,7 +40,7 @@
 
 Дополнительная информация: https://docs.px4.io/master/en/config/accelerometer.html.
 
-### ***Уровень горизонта***
+### Уровень горизонта
 
 <img src="assets/qgc-cal-level.png" width="600" class="center zoom">
 

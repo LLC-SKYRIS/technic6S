@@ -1,6 +1,6 @@
 # Примеры кода
 
-## Python
+### Python
 
 <!-- markdownlint-disable MD031 -->
 

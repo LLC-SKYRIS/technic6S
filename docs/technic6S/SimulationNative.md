@@ -4,7 +4,7 @@
 
 Требования для сборки: **Ubuntu 20.04**.
 
-## Установка ROS
+### Установка ROS
 
 Установите ROS Noetic используя [официальную документацию по установке](http://wiki.ros.org/noetic/Installation/Ubuntu) (Desktop или Full установка).
 
@@ -21,7 +21,7 @@ source ~/.bashrc
 sudo apt install build-essential git python3-pip python3-rosdep
 ```
 
-## Создание рабочего пространства для симулятора
+### Создание рабочего пространства для симулятора
 
 Создайте рабочее пространство:
 
@@ -55,7 +55,7 @@ rosdep install --from-paths src --ignore-src -y
 sudo /usr/bin/python3 -m pip install -r ~/technic_ws/src/technic/technic/requirements.txt
 ```
 
-## Загрузка исходного кода PX4
+### Загрузка исходного кода PX4
 
 Сборка PX4 будет осуществлена вместе с другими пакетами в нашем рабочем пространстве. Вы можете загрузить его прямо в рабочее пространство или поместить куда-нибудь и создать симлинк к `~/technic_ws/src`. Нам также нужно будет поместить его подмодули `sitl_gazebo` и `mavlink` в `~/technic_ws/src`.
 
@@ -73,7 +73,7 @@ ln -s ~/PX4-Autopilot/mavlink ~/technic_ws/src/
 
 > **Заметки** Если процесс клонирования завершится с ошибкой сети (`fatal: fetch-pack: invalid index-pack output`), используйте версию HTTP 1.1 `git config --global http.version HTTP/1.1` (после клонирования верните 2 версию командой `git config --global http.version HTTP/2`). Альтернативным решением будет принудительное клонирование репозитория и субмодулей через SSH командой `git config --global url."git@github.com:".insteadOf https://github.com/` (требует генерации и установки SSH ключа в настройках профиля GitHub).
 
-## Установка зависимостей PX4
+### Установка зависимостей PX4
 
 PX4 имеет свой собственный скрипт для установки зависимостей. Воспользуемся им:
 
@@ -92,7 +92,7 @@ sudo ./ubuntu.sh
 pip3 install --user toml
 ```
 
-## Добавление рамы Техника
+### Добавление рамы Техника
 
 Добавьте в PX4 раму Техника с помощью следующей команды:
 
@@ -100,7 +100,7 @@ pip3 install --user toml
 ln -s ~/technic_ws/src/technic/technic_simulation/airframes/* ~/PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/airframes/
 ```
 
-## Установка датасетов geographiclib
+### Установка датасетов geographiclib
 
 Для `mavros` нужны датасеты geographiclib:
 
@@ -108,7 +108,7 @@ ln -s ~/technic_ws/src/technic/technic_simulation/airframes/* ~/PX4-Autopilot/RO
 sudo /opt/ros/noetic/lib/mavros/install_geographiclib_datasets.sh
 ```
 
-## Сборка симулятора
+### Сборка симулятора
 
 После установки всех зависимостей можно начинать сборку рабочего пространства:
 
@@ -119,7 +119,7 @@ catkin_make -j1
 
 > **Заметки** Флаг `-j1` означает, что сборка не будет использовать параллельные процессы, так как при сборке с параллельными процессами на виртуальной машине может не хватить оперативной памяти. Если у вас достаточно памяти, вы можете не использовать этот флаг.
 
-## Запуск симулятора
+### Запуск симулятора
 
 Чтобы удостовериться в том, что все было собрано корректно, попробуйте запустить симулятор:
 
@@ -129,7 +129,7 @@ roslaunch technic_simulation simulator.launch
 
 Вы можете проверить автономный полет используя скрипты в директории `~/technic_ws/src/technic/technic/examples`.
 
-## Дополнительные шаги
+### Дополнительные шаги
 
 Для того, чтобы возможно было запускать среду симуляции Gazebo отдельно (команда `gazebo`), добавьте в `.bashrc` вызов соответствующего скрипта инициализации:
 
@@ -146,7 +146,7 @@ sudo systemctl enable roscore
 sudo systemctl start roscore
 ```
 
-### Конфигурация веб-инструментов
+#### Конфигурация веб-инструментов
 
 Установите любой веб-сервер, чтобы раздавать веб-инструменты Техника (директория `~/.ros/www`), например, Monkey:
 

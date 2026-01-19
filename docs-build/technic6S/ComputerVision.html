@@ -935,7 +935,7 @@
 <pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl restart technic
 </code></pre>
 <p>Для мониторинга изображения с камеры можно использовать <a href="Rviz.html">rqt</a> или <a href="CameraImages.html">web_video_server</a>.</p>
-<h2 id="неисправности">Неисправности</h2>
+<h3 id="неисправности">Неисправности</h3>
 <p>Если изображение с камеры отсутствует, попробуйте проверить ее с помощью утилиты <a href=""><code>orangepicheckcamera</code></a>.</p>
 <p>Остановите сервисы Technic:</p>
 <pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl stop technic
@@ -944,16 +944,16 @@
 <pre><code class="lang-bash">orangepicheckcamera -o test.jpg
 </code></pre>
 <p>Если команда завершается с ошибкой, проверьте качество подключения шлейфа камеры к OPi или замените его.</p>
-<h2 id="настройки-камеры">Настройки камеры</h2>
+<h3 id="настройки-камеры">Настройки камеры</h3>
 <p>Ряд параметров камеры - размер изображения, максимальную частоту кадров, экспозицию - можно настроить в файле <code>main_camera.launch</code>. Список настраиваемых параметров можно <a href="https://github.com/OTL/cv_camera#parameters" target="_blank">посмотреть в репозитории cv_camera</a>.</p>
 <p>Параметры, не указанные в этом списке, можно указывать через <a href="https://docs.opencv.org/3.3.1/d4/d15/group__videoio__flags__base.html" target="_blank">код параметра OpenCV</a>. Например, для установки фиксированной экспозиции добавьте следующие параметры в ноду камеры:</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"property_0_code"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"21"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- property code 21 is CAP_PROP_AUTO_EXPOSURE --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"property_0_value"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0.25"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- property values are normalized as per OpenCV specs, even for "menu" controls; 0.25 means "use manual exposure" --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"cv_cap_prop_exposure"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0.3"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- set exposure to 30% of maximum value --&gt;</span>
 </code></pre>
-<h2 id="компьютерное-зрение">Компьютерное зрение</h2>
+<h3 id="компьютерное-зрение">Компьютерное зрение</h3>
 <p>Для реализации алгоритмов компьютерного зрения рекомендуется использовать предустановленную на eMMC библиотеку <a href="https://opencv.org" target="_blank">OpenCV</a>.</p>
-<h3 id="python">Python</h3>
+<h4 id="python">Python</h4>
 <p>Пример создания подписчика на топик с изображением с основной камеры для обработки с использованием OpenCV:</p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
 <span class="hljs-keyword">import</span> cv2
@@ -1038,7 +1038,7 @@ rospy.spin()
 <blockquote>
 <p><strong>Подсказка</strong> Смотрите другие примеры по работе с компьютерным зрением в каталоге <code>~/examples</code> <a href="ImageOPI.html">образа для OPI</a>.</p>
 </blockquote>
-<h2 id="запись-видео">Запись видео</h2>
+<h3 id="запись-видео">Запись видео</h3>
 <p>Для записи видео может использована нода <a href="http://wiki.ros.org/image_view#image_view.2Fdiamondback.video_recorder" target="_blank"><code>video_recorder</code></a> из пакета <code>image_view</code>:</p>
 <pre><code class="lang-bash">rosrun image_view video_recorder image:=/main_camera/image_raw
 </code></pre>
@@ -1133,7 +1133,7 @@ rospy.spin()
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Компьютерное зрение","level":"5.1.9","depth":2,"next":{"title":"Нейронные сети (CNN)","level":"5.1.10","depth":2,"path":"CNN.md","ref":"CNN.md","articles":[]},"previous":{"title":"MAVROS","level":"5.1.8","depth":2,"path":"MAVROS.md","ref":"MAVROS.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"ComputerVision.md","mtime":"2025-12-29T09:58:58.148Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-01-19T13:41:35.040Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Компьютерное зрение","level":"5.1.9","depth":2,"next":{"title":"Нейронные сети (CNN)","level":"5.1.10","depth":2,"path":"CNN.md","ref":"CNN.md","articles":[]},"previous":{"title":"MAVROS","level":"5.1.8","depth":2,"path":"MAVROS.md","ref":"MAVROS.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"ComputerVision.md","mtime":"2026-01-19T13:50:46.891Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-01-19T14:01:27.168Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -1187,11 +1187,11 @@ rospy.spin()
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/+UIxLEc3zVpi05kf-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/phecpdWs+Z5tFy4q-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/iMwa0Ry5LhLTEzv6-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/Y6RXpZtelU14f4nF-website.js"></script>
         
     
         

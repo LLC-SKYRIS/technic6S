@@ -938,7 +938,7 @@
 <blockquote>
 <p><strong>Подсказка</strong> Обратите внимание, что светодиодную ленту нужно питать от стабильного источника энергии. Если вы подключите питание напрямую к OPi, то это создаст слишком большую нагрузку на ваш микрокомпьютер. Для снятия нагрузки с OPi можно подключить питание к преобразователю BEC.</p>
 </blockquote>
-<h2 id="set_effect">Высокоуровневое управление лентой </h2>
+<h3 id="set_effect">Высокоуровневое управление лентой </h3>
 <ol>
 <li><p>Чтобы лента работала, подключите её следующим образом:</p>
 <ul>
@@ -1009,7 +1009,7 @@ set_effect(effect=<span class="hljs-string">'rainbow'</span>)  <span class="hljs
 </code></pre>
 <pre><code class="lang-bash">rosservice call /led/set_effect <span class="hljs-string">"{effect: 'rainbow'}"</span>
 </code></pre>
-<h2 id="настройка-реакции-ленты-на-события">Настройка реакции ленты на события</h2>
+<h3 id="настройка-реакции-ленты-на-события">Настройка реакции ленты на события</h3>
 <p>Technic умеет показывать LED-лентой текущее состояние полетного контроллера и сигнализировать о событиях. Данная функция настраивается в файле <code>~/technic_ws/src/technic/technic/launch/led.launch</code> в разделе <em>events effects table</em>. Пример настройки:</p>
 <pre><code class="lang-xml">startup: { r: 255, g: 255, b: 255 }
 connected: { effect: rainbow }
@@ -1041,7 +1041,7 @@ disconnected: { effect: blink, r: 255, g: 50, b: 50 }
 <p>Для того, чтобы отключить реакцию светодиодной ленты на события, установите аргумент <code>led_notify</code> в файле <code>~/technic_ws/src/technic/technic/launch/led.launch</code> в значение <code>false</code>:</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"led_notify"</span> <span class="hljs-attr">default</span>=<span class="hljs-string">"false"</span>/&gt;</span>
 </code></pre>
-<h2 id="низкоуровневое-управление-лентой">Низкоуровневое управление лентой</h2>
+<h3 id="низкоуровневое-управление-лентой">Низкоуровневое управление лентой</h3>
 <p>Для управления отдельными светодиодами используется ROS-сервис <code>/led/set_leds</code>. В параметрах задается массив номеров и RGB-цветов светодиодов, которые необходимо переключить.</p>
 <p>Пример работы с сервисом из Python:</p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
@@ -1158,7 +1158,7 @@ set_leds([LEDState(<span class="hljs-number">0</span>, <span class="hljs-number"
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Светодиодная лента","level":"6.1.8","depth":2,"next":{"title":"Симулятор","level":"7.1","depth":1,"path":"Simulator.md","ref":"Simulator.md","articles":[{"title":"Сборка на собственной машине","level":"7.1.1","depth":2,"path":"SimulationNative.md","ref":"SimulationNative.md","articles":[]},{"title":"Установка виртуальной машины","level":"7.1.2","depth":2,"path":"SimulationVM.md","ref":"SimulationVM.md","articles":[]},{"title":"Симулятор на компьютерах с чипом M1","level":"7.1.3","depth":2,"path":"SimulationM1.md","ref":"SimulationM1.md","articles":[]},{"title":"Rviz и RQT","level":"7.1.4","depth":2,"path":"Rviz.md","ref":"Rviz.md","articles":[]}]},"previous":{"title":"GPIO","level":"6.1.7","depth":2,"path":"GPIO.md","ref":"GPIO.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"LedStrip.md","mtime":"2025-12-29T10:00:07.282Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-01-19T13:41:35.040Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Светодиодная лента","level":"6.1.8","depth":2,"next":{"title":"Симулятор","level":"7.1","depth":1,"path":"Simulator.md","ref":"Simulator.md","articles":[{"title":"Сборка на собственной машине","level":"7.1.1","depth":2,"path":"SimulationNative.md","ref":"SimulationNative.md","articles":[]},{"title":"Установка виртуальной машины","level":"7.1.2","depth":2,"path":"SimulationVM.md","ref":"SimulationVM.md","articles":[]},{"title":"Симулятор на компьютерах с чипом M1","level":"7.1.3","depth":2,"path":"SimulationM1.md","ref":"SimulationM1.md","articles":[]},{"title":"Rviz и RQT","level":"7.1.4","depth":2,"path":"Rviz.md","ref":"Rviz.md","articles":[]}]},"previous":{"title":"GPIO","level":"6.1.7","depth":2,"path":"GPIO.md","ref":"GPIO.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"LedStrip.md","mtime":"2026-01-19T13:52:36.035Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-01-19T14:01:27.168Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -1212,11 +1212,11 @@ set_leds([LEDState(<span class="hljs-number">0</span>, <span class="hljs-number"
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/+UIxLEc3zVpi05kf-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/phecpdWs+Z5tFy4q-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/iMwa0Ry5LhLTEzv6-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/Y6RXpZtelU14f4nF-website.js"></script>
         
     
         

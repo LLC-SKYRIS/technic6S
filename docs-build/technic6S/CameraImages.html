@@ -929,14 +929,14 @@
                                 <h1 id="просмотр-изображений-с-камер">Просмотр изображений с камер</h1>
 <p>Для просмотра изображений с камер (или других ROS-топиков) можно воспользоваться <a href="Rviz.html">rviz, rqt</a>, или смотреть их через браузер, используя web_video_server.</p>
 <p>См. подробнее про <a href="Rviz.html">использование rqt</a>.</p>
-<h3 id="просмотр-через-браузер"><strong><em>Просмотр через браузер</em></strong></h3>
+<h3 id="просмотр-через-браузер">Просмотр через браузер</h3>
 <p>Для просмотра видеострима нужно <a href="ConnectingToWi-Fi.html">подключиться к Wi-Fi</a> Technic (<code>technic-xxxx</code>), перейти на страницу <a href="http://10.42.0.1:8080/" target="_blank">http://10.42.0.1:8080/</a> и выбрать топик.</p>
 <p><img src="assets/web_video_server.png" width="300" class="center zoom"></img></p>
 <p>Если передача картинки работает слишком медленно, можно ускорить ее, указав тип передаваемых данных <code>mjpeg</code> и меняя GET-параметр <code>quality</code> (от 1 до 100), который отвечает за сжатие видеострима, например:</p>
 <p><a href="http://10.42.0.1:8080/stream_viewer?topic=/main_camera/image_raw&amp;type=mjpeg&amp;quality=1" target="_blank">http://10.42.0.1:8080/stream_viewer?topic=/main_camera/image_raw&amp;type=mjpeg&amp;quality=1</a></p>
 <p>По URL выше будет доступен стрим с основной камеры в минимальном возможном качестве.</p>
 <p>Также доступны параметры <code>width</code>, <code>height</code> и другие. Подробнее о <code>web_video_server</code>: <a href="http://wiki.ros.org/web_video_server" target="_blank">http://wiki.ros.org/web_video_server</a>.</p>
-<h3 id="просмотр-через-rqtimageview"><strong><em>Просмотр через rqt_image_view</em></strong></h3>
+<h3 id="просмотр-через-rqtimageview">Просмотр через rqt_image_view</h3>
 <p>Для просмотра изображений через инструменты rqt необходим компьютер с установленной Ubuntu 20.04 и <a href="http://wiki.ros.org/noetic/Installation/Ubuntu" target="_blank">ROS Noetic</a>.</p>
 <p><a href="ConnectingToWi-Fi.html">Подключитесь к Wi-Fi сети Technic</a> и запустите <code>rqt_image_view</code> с указанием его IP-адреса:</p>
 <pre><code class="lang-bash">ROS_MASTER_URI=http://10.42.0.1:11311 rqt_image_view
@@ -1035,7 +1035,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Просмотр изображений с камер","level":"5.1.5","depth":2,"next":{"title":"ROS","level":"5.1.6","depth":2,"path":"ROS.md","ref":"ROS.md","articles":[]},"previous":{"title":"Блочное программирование","level":"5.1.4","depth":2,"path":"Blocky.md","ref":"Blocky.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"CameraImages.md","mtime":"2026-01-16T07:42:09.737Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-01-19T13:41:35.040Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Просмотр изображений с камер","level":"5.1.5","depth":2,"next":{"title":"ROS","level":"5.1.6","depth":2,"path":"ROS.md","ref":"ROS.md","articles":[]},"previous":{"title":"Блочное программирование","level":"5.1.4","depth":2,"path":"Blocky.md","ref":"Blocky.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"CameraImages.md","mtime":"2026-01-19T13:49:12.013Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-01-19T14:01:27.168Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -1089,11 +1089,11 @@
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/+UIxLEc3zVpi05kf-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/phecpdWs+Z5tFy4q-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/iMwa0Ry5LhLTEzv6-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/Y6RXpZtelU14f4nF-website.js"></script>
         
     
         
