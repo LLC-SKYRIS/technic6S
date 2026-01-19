@@ -155,3 +155,22 @@ pre {
   }
 }
 
+/* 1) Стрелки навигации должны быть ВЫШЕ линии футера */
+.book .book-body .navigation,
+.book .book-body a.navigation-prev,
+.book .book-body a.navigation-next {
+  margin-bottom: 18px !important; /* расстояние между стрелками и линией футера */
+}
+
+/* 2) Убираем верхний внешний отступ у футера,
+      чтобы линия не "поднималась" из-за margin */
+.site-footer {
+  margin-top: 0 !important;
+}
+
+/* 3) Если у темы есть padding у контейнера навигации,
+      гарантируем, что линия футера не накрывает стрелки */
+.site-footer__inner {
+  padding-top: 18px;  /* линия футера + аккуратный воздух сверху */
+}
+
