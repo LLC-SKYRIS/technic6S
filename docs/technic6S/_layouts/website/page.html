@@ -19,19 +19,42 @@
 
   <script>
   (function () {
-    const footer = document.getElementById('site-footer');
-    if (!footer) return;
+    function moveFooter() {
+      const footer = document.getElementById('site-footer');
+      if (!footer) return false;
 
-    // Правая колонка (без сайдбара)
-    const bodyInner = document.querySelector('.book .book-body .body-inner');
-    if (!bodyInner) return;
+      // Ищем блок стрелок в разных темах (GitBook/HonKit)
+      const nav =
+        document.querySelector('.book .book-body .navigation') ||
+        document.querySelector('.book .book-body .page-wrapper .navigation') ||
+        document.querySelector('.book .book-body .body-inner .navigation') ||
+        document.querySelector('.book .book-body .page-inner .navigation') ||
+        document.querySelector('.navigation');
 
-    // Блок со стрелками ← →
-    const navigation = bodyInner.querySelector('.navigation');
-    if (navigation) {
-      // ✅ ВАЖНО: вставляем футер ПОСЛЕ стрелок
-      navigation.insertAdjacentElement('afterend', footer);
+      if (!nav) return false;
+
+      // Если футер уже стоит после стрелок — ничего не делаем
+      if (footer.previousElementSibling === nav) return true;
+
+      nav.insertAdjacentElement('afterend', footer);
+      return true;
     }
+
+    // 1) Пытаемся сразу
+    if (moveFooter()) return;
+
+    // 2) Если навигация появляется позже — наблюдаем DOM
+    const root = document.querySelector('.book') || document.body;
+    const obs = new MutationObserver(function () {
+      if (moveFooter()) obs.disconnect();
+    });
+
+    obs.observe(root, { childList: true, subtree: true });
+
+    // 3) Фоллбек: ещё одна попытка после полной загрузки
+    window.addEventListener('load', function () {
+      moveFooter();
+    });
   })();
   </script>
 
