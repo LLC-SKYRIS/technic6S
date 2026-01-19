@@ -1334,48 +1334,31 @@ set_link_state(LinkState(link_name=<span class="hljs-string">'unit_box::link'</s
 
   <script>
   (function () {
-    function moveFooterAfterArrows() {
+    function placeFooter() {
       const footer = document.getElementById('site-footer');
       if (!footer) return false;
 
-      // В разных темах стрелки могут быть разными классами
-      const next =
-        document.querySelector('.navigation-next') ||
-        document.querySelector('a.navigation-next') ||
-        document.querySelector('.book .book-body a.navigation-next');
+      const pageWrapper =
+        document.querySelector('.book .book-body .body-inner .page-wrapper') ||
+        document.querySelector('.book .book-body .page-wrapper') ||
+        document.querySelector('.page-wrapper');
 
-      const prev =
-        document.querySelector('.navigation-prev') ||
-        document.querySelector('a.navigation-prev') ||
-        document.querySelector('.book .book-body a.navigation-prev');
+      if (!pageWrapper) return false;
 
-      // Идеально: ставим после NEXT (она последняя)
-      if (next) {
-        next.insertAdjacentElement('afterend', footer);
-        return true;
-      }
-
-      // Если next нет (например, последняя страница) — ставим после PREV
-      if (prev) {
-        prev.insertAdjacentElement('afterend', footer);
-        return true;
-      }
-
-      return false;
+      // Вставляем футер в самый конец page-wrapper (после стрелок)
+      pageWrapper.appendChild(footer);
+      return true;
     }
 
-    // 1) сразу
-    if (moveFooterAfterArrows()) return;
+    if (placeFooter()) return;
 
-    // 2) ждём, пока стрелки появятся/перерисуются
     const root = document.querySelector('.book') || document.body;
     const obs = new MutationObserver(() => {
-      if (moveFooterAfterArrows()) obs.disconnect();
+      if (placeFooter()) obs.disconnect();
     });
     obs.observe(root, { childList: true, subtree: true });
 
-    // 3) запасная попытка после полной загрузки
-    window.addEventListener('load', moveFooterAfterArrows);
+    window.addEventListener('load', placeFooter);
   })();
   </script>
 
@@ -1418,7 +1401,7 @@ set_link_state(LinkState(link_name=<span class="hljs-string">'unit_box::link'</s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Примеры кода на Python","level":"8.1.1","depth":2,"next":{"title":"Подключение GPS","level":"8.1.2","depth":2,"path":"GPS.md","ref":"GPS.md","articles":[]},"previous":{"title":"Дополнительные материалы","level":"8.1","depth":1,"ref":"","articles":[{"title":"Примеры кода на Python","level":"8.1.1","depth":2,"path":"CodeExamples.md","ref":"CodeExamples.md","articles":[]},{"title":"Подключение GPS","level":"8.1.2","depth":2,"path":"GPS.md","ref":"GPS.md","articles":[]},{"title":"Mavlink","level":"8.1.3","depth":2,"path":"Mavlink.md","ref":"Mavlink.md","articles":[]},{"title":"Подключение к Orange Pi 5 Pro с использованием SSH-ключей","level":"8.1.4","depth":2,"path":"SshKeys.md","ref":"SshKeys.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"CodeExamples.md","mtime":"2025-12-29T09:58:34.133Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-01-19T13:33:37.496Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Примеры кода на Python","level":"8.1.1","depth":2,"next":{"title":"Подключение GPS","level":"8.1.2","depth":2,"path":"GPS.md","ref":"GPS.md","articles":[]},"previous":{"title":"Дополнительные материалы","level":"8.1","depth":1,"ref":"","articles":[{"title":"Примеры кода на Python","level":"8.1.1","depth":2,"path":"CodeExamples.md","ref":"CodeExamples.md","articles":[]},{"title":"Подключение GPS","level":"8.1.2","depth":2,"path":"GPS.md","ref":"GPS.md","articles":[]},{"title":"Mavlink","level":"8.1.3","depth":2,"path":"Mavlink.md","ref":"Mavlink.md","articles":[]},{"title":"Подключение к Orange Pi 5 Pro с использованием SSH-ключей","level":"8.1.4","depth":2,"path":"SshKeys.md","ref":"SshKeys.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"CodeExamples.md","mtime":"2025-12-29T09:58:34.133Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-01-19T13:41:35.040Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -1472,11 +1455,11 @@ set_link_state(LinkState(link_name=<span class="hljs-string">'unit_box::link'</s
     <script src="gitbook/theme.js"></script>
     
         
-        <script src="gitbook/honkit-plugin-add-js/kIsmqhHCkzZ0CbUT-home-link.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/+UIxLEc3zVpi05kf-home-link.js"></script>
         
     
         
-        <script src="gitbook/honkit-plugin-add-js/GxSD64o56LOM7TUT-website.js"></script>
+        <script src="gitbook/honkit-plugin-add-js/iMwa0Ry5LhLTEzv6-website.js"></script>
         
     
         

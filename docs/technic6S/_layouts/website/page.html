@@ -19,48 +19,31 @@
 
   <script>
   (function () {
-    function moveFooterAfterArrows() {
+    function placeFooter() {
       const footer = document.getElementById('site-footer');
       if (!footer) return false;
 
-      // В разных темах стрелки могут быть разными классами
-      const next =
-        document.querySelector('.navigation-next') ||
-        document.querySelector('a.navigation-next') ||
-        document.querySelector('.book .book-body a.navigation-next');
+      const pageWrapper =
+        document.querySelector('.book .book-body .body-inner .page-wrapper') ||
+        document.querySelector('.book .book-body .page-wrapper') ||
+        document.querySelector('.page-wrapper');
 
-      const prev =
-        document.querySelector('.navigation-prev') ||
-        document.querySelector('a.navigation-prev') ||
-        document.querySelector('.book .book-body a.navigation-prev');
+      if (!pageWrapper) return false;
 
-      // Идеально: ставим после NEXT (она последняя)
-      if (next) {
-        next.insertAdjacentElement('afterend', footer);
-        return true;
-      }
-
-      // Если next нет (например, последняя страница) — ставим после PREV
-      if (prev) {
-        prev.insertAdjacentElement('afterend', footer);
-        return true;
-      }
-
-      return false;
+      // Вставляем футер в самый конец page-wrapper (после стрелок)
+      pageWrapper.appendChild(footer);
+      return true;
     }
 
-    // 1) сразу
-    if (moveFooterAfterArrows()) return;
+    if (placeFooter()) return;
 
-    // 2) ждём, пока стрелки появятся/перерисуются
     const root = document.querySelector('.book') || document.body;
     const obs = new MutationObserver(() => {
-      if (moveFooterAfterArrows()) obs.disconnect();
+      if (placeFooter()) obs.disconnect();
     });
     obs.observe(root, { childList: true, subtree: true });
 
-    // 3) запасная попытка после полной загрузки
-    window.addEventListener('load', moveFooterAfterArrows);
+    window.addEventListener('load', placeFooter);
   })();
   </script>
 
