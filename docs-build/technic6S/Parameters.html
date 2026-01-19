@@ -1,16 +1,1318 @@
 
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Настройка параметров QGroundControl · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.1.4">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
 
-<footer>
-  <div class="projectInfo">
-    <span>Обратиться за помощью в техническую поддержку</span>
-    <a href="https://t.me/skyris_support" target="_blank" rel="noopener">• telegram @skyris_support</a>
-    <a href="mailto:info@skyris.pro">• info@skyris.pro</a>
-  </div>
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
 
-  <div role="contentinfo" class="contentInfo">
-    ООО «Скайрис» 2025 © Все права защищены
-  </div>
-</footer>
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Programming.html" />
+    
+    
+    <link rel="prev" href="Modes.html" />
+    
+
+    </head>
+    <body>
+        
+  
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
 
 
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" >
+            
+                <a target="_blank" href="https://llc-skyris.github.io/technic6S/">
+            
+                    
+                    ← Вернуться на главную
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Main
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="Sborka.html">
+            
+                <a href="Sborka.html">
+            
+                    
+                    Этап 1: Сборка базового коптера
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="Sborka2.html">
+            
+                <a href="Sborka2.html">
+            
+                    
+                    Этап 2: Установка вычислительного модуля
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="OrangePi.html">
+            
+                <a href="OrangePi.html">
+            
+                    
+                    Работа с OrangePi 5 Pro
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="ImageOPI.html">
+            
+                <a href="ImageOPI.html">
+            
+                    
+                    Образ для OPI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="ConnectingToWi-Fi.html">
+            
+                <a href="ConnectingToWi-Fi.html">
+            
+                    
+                    Подключение к Wi-Fi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="WebInterface.html">
+            
+                <a href="WebInterface.html">
+            
+                    
+                    Веб Интерфейс
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="SSH.html">
+            
+                <a href="SSH.html">
+            
+                    
+                    Подключение по SSH
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="Butterfly.html">
+            
+                <a href="Butterfly.html">
+            
+                    
+                    Подключение к Web Терминалу
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="ConnectingToPX4.html">
+            
+                <a href="ConnectingToPX4.html">
+            
+                    
+                    Подключение к полетному контроллеру
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="QGroundControlViaWi-Fi.html">
+            
+                <a href="QGroundControlViaWi-Fi.html">
+            
+                    
+                    Подключение к QGroundControl
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="CommandLine.html">
+            
+                <a href="CommandLine.html">
+            
+                    
+                    Командная строка
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9" data-path="CoordinateSystems.html">
+            
+                <a href="CoordinateSystems.html">
+            
+                    
+                    Система координат
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    Настройка системы
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="EnergySettings.html">
+            
+                <a href="EnergySettings.html">
+            
+                    
+                    Настройка питания
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="CameraSettings.html">
+            
+                <a href="CameraSettings.html">
+            
+                    
+                    Настройка камеры
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="NetworkSettings.html">
+            
+                <a href="NetworkSettings.html">
+            
+                    
+                    Настройка сети
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="FailsafeSettings.html">
+            
+                <a href="FailsafeSettings.html">
+            
+                    
+                    Настройка failsafe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="PultSettings.html">
+            
+                <a href="PultSettings.html">
+            
+                    
+                    Настройка пульта
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="CalibrationSensors.html">
+            
+                <a href="CalibrationSensors.html">
+            
+                    
+                    Калибровка датчиков
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="Bind.html">
+            
+                <a href="Bind.html">
+            
+                    
+                    Bind приемника
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="Modes.html">
+            
+                <a href="Modes.html">
+            
+                    
+                    Полетные режимы
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.1.9" data-path="Parameters.html">
+            
+                <a href="Parameters.html">
+            
+                    
+                    Настройка параметров QGroundControl
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="Programming.html">
+            
+                <a href="Programming.html">
+            
+                    
+                    Программирование
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="AutoRunSoft.html">
+            
+                <a href="AutoRunSoft.html">
+            
+                    
+                    Автономный запуск ПО
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="AutonomousFlight.html">
+            
+                <a href="AutonomousFlight.html">
+            
+                    
+                    Автономный полет
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="AutonomousFlightOffboard.html">
+            
+                <a href="AutonomousFlightOffboard.html">
+            
+                    
+                    Режим автономного полета (OFFBOARD)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="Blocky.html">
+            
+                <a href="Blocky.html">
+            
+                    
+                    Блочное программирование
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5" data-path="CameraImages.html">
+            
+                <a href="CameraImages.html">
+            
+                    
+                    Просмотр изображений с камер
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.6" data-path="ROS.html">
+            
+                <a href="ROS.html">
+            
+                    
+                    ROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.7" data-path="ROSWeb.html">
+            
+                <a href="ROSWeb.html">
+            
+                    
+                    ROS топики в Веб Интерфейсе
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.8" data-path="MAVROS.html">
+            
+                <a href="MAVROS.html">
+            
+                    
+                    MAVROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.9" data-path="ComputerVision.html">
+            
+                <a href="ComputerVision.html">
+            
+                    
+                    Компьютерное зрение
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.10" data-path="CNN.html">
+            
+                <a href="CNN.html">
+            
+                    
+                    Нейронные сети (CNN)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.11" data-path="IntergrationCNN.html">
+            
+                <a href="IntergrationCNN.html">
+            
+                    
+                    Интеграция нейронных сетей в Technic6S
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="docs/technic6S/Периферия.md">
+            
+                <span>
+            
+                    
+                    Периферия
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="OpticalFlow.html">
+            
+                <a href="OpticalFlow.html">
+            
+                    
+                    Optical flow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="Aruco.html">
+            
+                <a href="Aruco.html">
+            
+                    
+                    Визуальные маркеры
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.3" data-path="ArucoMarker.html">
+            
+                <a href="ArucoMarker.html">
+            
+                    
+                    Распознавание ArUco-маркеров
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4" data-path="ArucoMap.html">
+            
+                <a href="ArucoMap.html">
+            
+                    
+                    Навигация по картам ArUco-маркеров
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.5" data-path="LaserRangefinder.html">
+            
+                <a href="LaserRangefinder.html">
+            
+                    
+                    Лазерный дальномер
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.6" data-path="UltrasonicRangefinder.html">
+            
+                <a href="UltrasonicRangefinder.html">
+            
+                    
+                    Ультразвуковой дальномер
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.7" data-path="GPIO.html">
+            
+                <a href="GPIO.html">
+            
+                    
+                    GPIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.8" data-path="LedStrip.html">
+            
+                <a href="LedStrip.html">
+            
+                    
+                    Светодиодная лента
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="Simulator.html">
+            
+                <a href="Simulator.html">
+            
+                    
+                    Симулятор
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="SimulationNative.html">
+            
+                <a href="SimulationNative.html">
+            
+                    
+                    Сборка на собственной машине
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" data-path="SimulationVM.html">
+            
+                <a href="SimulationVM.html">
+            
+                    
+                    Установка виртуальной машины
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.3" data-path="SimulationM1.html">
+            
+                <a href="SimulationM1.html">
+            
+                    
+                    Симулятор на компьютерах с чипом M1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.4" data-path="Rviz.html">
+            
+                <a href="Rviz.html">
+            
+                    
+                    Rviz и RQT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" >
+            
+                <span>
+            
+                    
+                    Дополнительные материалы
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="CodeExamples.html">
+            
+                <a href="CodeExamples.html">
+            
+                    
+                    Примеры кода на Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="GPS.html">
+            
+                <a href="GPS.html">
+            
+                    
+                    Подключение GPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.3" data-path="Mavlink.html">
+            
+                <a href="Mavlink.html">
+            
+                    
+                    Mavlink
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.4" data-path="SshKeys.html">
+            
+                <a href="SshKeys.html">
+            
+                    
+                    Подключение к Orange Pi 5 Pro с использованием SSH-ключей
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Настройка параметров QGroundControl</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="параметры-полетного-контроллера">Параметры полетного контроллера</h1>
+<p>Полная документация по параметрам PX4: <a href="https://docs.px4.io/master/en/advanced_config/parameter_reference.html" target="_blank">https://docs.px4.io/master/en/advanced_config/parameter_reference.html</a>.</p>
+<p>Для изменения параметров PX4 используйте программу QGroundControl, <a href="ConnectingToWi-Fi.html">подключившись к Технику по Wi-Fi</a> или USB. Перейдите в панель <em>Vehicle Setup</em> (кликнув на логотип QGroundControl в левом верхнем углу и выберите меню <em>Parameters</em>.</p>
+<h3 id="рекомендованные-значения"><strong><em>Рекомендованные значения</em></strong></h3>
+<h4 id="общие-параметры">Общие параметры</h4>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+<th>Примечание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SENS_FLOW_ROT</code></td>
+<td>0 (<em>No rotation</em>)</td>
+<td>В случае использования "железного" <a href="px4flow.md">PX4Flow</a>, оставьте значение по умолчанию</td>
+</tr>
+<tr>
+<td><code>SENS_FLOW_MINHGT</code></td>
+<td>0.0</td>
+<td>Для <a href="LaserRangefinder.html">дальномера VL53L1X</a></td>
+</tr>
+<tr>
+<td><code>SENS_FLOW_MAXHGT</code></td>
+<td>4.0</td>
+<td>Для <a href="LaserRangefinder.html">дальномера VL53L1X</a></td>
+</tr>
+<tr>
+<td><code>SENS_FLOW_MAXR</code></td>
+<td>10.0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>SYS_HAS_MAG</code></td>
+<td>0</td>
+<td>При невозможности запуска магнитометра (ошибка <em>No mags found</em>)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="настройки-подсистемы-estimator"><strong><em>Настройки подсистемы Estimator</em></strong></h4>
+<p>В случае использования LPE:</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+<th>Примечание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LPE_FUSION</code></td>
+<td>86</td>
+<td>Чекбоксы: <em>flow</em> + <em>vis</em> + <em>land detector</em> + <em>gyro comp</em>. При полете над ровным полом возможно включение <em>pub agl as lpos down</em>. <br></br>Подробнее: <a href="OpticalFlow.html">Optical Flow</a>, <a href="ArucoMap.html">ArUco-маркеры</a>, <a href="GPS.html">GPS</a>.</td>
+</tr>
+<tr>
+<td><code>LPE_VIS_DELAY</code></td>
+<td>0.0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>LPE_VIS_Z</code></td>
+<td>0.1</td>
+<td></td>
+</tr>
+<tr>
+<td><code>LPE_FLW_SCALE</code></td>
+<td>1.0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>LPE_FLW_R</code></td>
+<td>0.2</td>
+<td></td>
+</tr>
+<tr>
+<td><code>LPE_FLW_RR</code></td>
+<td>0.0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>LPE_FLW_QMIN</code></td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ATT_W_EXT_HDG</code></td>
+<td>0.5</td>
+<td>Включение использования внешнего угла по рысканью (при навигации по <a href="ArucoMap.html">карте маркеров</a>)</td>
+</tr>
+<tr>
+<td><code>ATT_EXT_HDG_M</code></td>
+<td>1 (<em>Vision</em>)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ATT_W_MAG</code></td>
+<td>0</td>
+<td>Выключение магнитометра (при навигации внутри помещения)</td>
+</tr>
+</tbody>
+</table>
+<p>В случае использования EKF2 (официальная прошивка):</p>
+<!-- markdownlint-disable MD044 -->
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+<th>Примечание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EKF2_AID_MASK</code>*</td>
+<td>26</td>
+<td>Чекбоксы: <em>flow</em> + <em>vision position</em> + <em>vision yaw</em>.<br></br>Подробнее: <a href="OpticalFlow.html">Optical Flow</a>, <a href="ArucoMap.html">ArUco-маркеры</a>, <a href="GPS.html">GPS</a>.</td>
+</tr>
+<tr>
+<td><code>EKF2_OF_DELAY</code></td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>EKF2_OF_QMIN</code></td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td><code>EKF2_OF_N_MIN</code></td>
+<td>0.05</td>
+<td></td>
+</tr>
+<tr>
+<td><code>EKF2_OF_N_MAX</code></td>
+<td>0.2</td>
+<td></td>
+</tr>
+<tr>
+<td><code>EKF2_HGT_MODE</code>*</td>
+<td>3 (<em>Vision</em>)</td>
+<td>При наличии <a href="LaserRangefinder.html">дальномера</a> и полете над ровным полом — 2 (<em>Range sensor</em>)</td>
+</tr>
+<tr>
+<td><code>EKF2_EVA_NOISE</code></td>
+<td>0.1 rad или 5 deg</td>
+<td></td>
+</tr>
+<tr>
+<td><code>EKF2_EVP_NOISE</code></td>
+<td>0.1</td>
+<td></td>
+</tr>
+<tr>
+<td><code>EKF2_EV_DELAY</code></td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>EKF2_MAG_TYPE</code></td>
+<td>5 (<em>None</em>)</td>
+<td>Выключение магнитометра (при навигации внутри помещения)</td>
+</tr>
+</tbody>
+</table>
+<p>* — начиная с версии PX4 1.14 помеченные звездочкой параметры заменены на следующие:</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+<th>Примечание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EKF2_EV_CTRL</code></td>
+<td>11</td>
+<td>Чекбоксы: <em>Horizontal position</em> + <em>Vertical position</em> + <em>Yaw</em></td>
+</tr>
+<tr>
+<td><code>EKF2_GPS_CTRL</code></td>
+<td>0</td>
+<td>Все чекбоксы сняты</td>
+</tr>
+<tr>
+<td><code>EKF2_BARO_CTRL</code></td>
+<td>0 (<em>Disabled</em>)</td>
+<td>Барометр отключен</td>
+</tr>
+<tr>
+<td><code>EKF2_OF_CTRL</code></td>
+<td>1 (<em>Enabled</em>)</td>
+<td>Optical flow включен</td>
+</tr>
+<tr>
+<td><code>EKF2_HGT_REF</code></td>
+<td>3 (<em>Vision</em>)</td>
+<td>При наличии <a href="LaserRangefinder.html">дальномера</a> и полете над ровным полом — 2 (<em>Range sensor</em>)</td>
+</tr>
+<tr>
+<td><code>EKF2_RNG_CTRL</code></td>
+<td>2 (<em>Enabled</em>)</td>
+<td>Дальномер включен</td>
+</tr>
+</tbody>
+</table>
+<!--
+> **Info** См. также: список параметров по умолчанию в [симуляторе](simulation.md): https://github.com/CopterExpress/clover/blob/master/clover_simulation/airframes/4500_clover. -->
+<h3 id="дополнительная-информация"><strong><em>Дополнительная информация</em></strong></h3>
+<p>Параметр <code>SYS_MC_EST_GROUP</code> отвечает за выбор Estimator'а.</p>
+<p>Estimator это подсистема, которая вычисляет текущее состояние (state) коптера, используя показания с датчиков. В состояние коптера входит:</p>
+<ul>
+<li>угловая скорость коптера – roll_rate, pitch_rate, yaw_rate;</li>
+<li>ориентация коптера (в локальной системе координат) – roll (крен), pitch (тангаж), yaw (рысканье) (одно из представлений);</li>
+<li>позиция коптера (в локальной системе координат) – x, y, z;</li>
+<li>скорость коптера (в локальной системе координат) – vx, vy, vz;</li>
+<li>глобальные координаты коптера – latitude, longitude, altitude;</li>
+<li>высота над поверхностью;</li>
+<li>другие параметры (дрейф гироскопов, скорость ветра и пр.).</li>
+</ul>
+<p><code>SYS_AUTOCONFIG</code> – сброс всех параметров (при установке в значение 1).</p>
+<h3 id="ekf2"><strong><em>EKF2</em></strong></h3>
+<p><code>EKF2_AID_MASK</code> – выбор датчиков, которые используются EKF2 для вычисления состояния коптера.</p>
+<p><code>EKF2_HGT_MODE</code> – основной источник данных о высоте (z в локальной системе координат):</p>
+<ul>
+<li>0 – давление с барометра.</li>
+<li>1 – GPS.</li>
+<li>2 – дальномер (например, vl53l1x).</li>
+<li>3 – данные с VPE.</li>
+</ul>
+<p>Вариант 2 является наиболее точным, но его корректно использовать, только если поверхность, над которой летает коптер – плоская. В противном случае начало координат по Z будет двигаться вверх и вниз с изменением высоты поверхности.</p>
+<h3 id="multicopter-position-control-полет-по-позиции"><strong><em>Multicopter Position Control (полет по позиции)</em></strong></h3>
+<p>Данные параметры настраивают полет коптера по позиции (режимы POSCTL, OFFBOARD, AUTO).</p>
+<p><code>MPC_THR_HOVER</code> – газ висения. Данный параметр необходимо установить на примерный процент газа, необходимый для того, чтобы коптер удерживал высоту. Если коптер имеет тенденцию набирать или терять высоту в режиме удержания высоты – можно уменьшить или увеличить это значение.</p>
+<p><code>MPC_XY_P</code> – коэффициент <em>P</em> регулятора по позиции. Этот параметр влияет на то, насколько резко коптер будет выполнять заданные команды по позиции. Слишком большое значение может вызвать перестрелы.</p>
+<p><code>MPC_XY_VEL_P</code> – коэффициент <em>P</em> регулятора по скорости. Данный параметр также влияет на точность и резкость выполнения коптером заданной позиции. При слишком большом значении возможны перестрелы.</p>
+<p><code>MPC_XY_VEL_MAX</code> – максимальная горизонтальная скорость в режимах POSCTL, OFFBOARD, AUTO.</p>
+<p><code>MPC_Z_P</code>, <code>MPC_Z_VEL_P</code> – коэффициенты <em>P</em> регуляторов по вертикальной позиции и скорости. Влияют на удерживание коптером необходимой высоты.</p>
+<p><code>MPC_LAND_SPEED</code> – вертикальная скорость посадки в режиме LAND.</p>
+<h3 id="lpe--q-attitude-estimator"><strong><em>LPE + Q attitude estimator</em></strong></h3>
+<p>Данные параметры настраивают поведение модулей <code>lpe</code> и <code>q</code>, которые вычисляют состояние (ориентацию, позицию) коптера. Эти параметры применяются <strong>только</strong> если параметр <code>SYS_MC_EST_GROUP</code> установлен в значение <code>1</code> (local_position_estimator, attitude_estimator_q).</p>
+<h3 id="commander"><strong><em>Commander</em></strong></h3>
+<p>Преарм-чеки, переключение режимов и состояний коптера.</p>
+<h3 id="sensors"><strong><em>Sensors</em></strong></h3>
+<p>Включение, выключение и настройка различных датчиков.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Modes.html" class="navigation navigation-prev " aria-label="Previous page: Полетные режимы">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Programming.html" class="navigation navigation-next " aria-label="Next page: Программирование">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Настройка параметров QGroundControl","level":"4.1.9","depth":2,"next":{"title":"Программирование","level":"5.1","depth":1,"path":"Programming.md","ref":"Programming.md","articles":[{"title":"Автономный запуск ПО","level":"5.1.1","depth":2,"path":"AutoRunSoft.md","ref":"AutoRunSoft.md","articles":[]},{"title":"Автономный полет","level":"5.1.2","depth":2,"path":"AutonomousFlight.md","ref":"AutonomousFlight.md","articles":[]},{"title":"Режим автономного полета (OFFBOARD)","level":"5.1.3","depth":2,"path":"AutonomousFlightOffboard.md","ref":"AutonomousFlightOffboard.md","articles":[]},{"title":"Блочное программирование","level":"5.1.4","depth":2,"path":"Blocky.md","ref":"Blocky.md","articles":[]},{"title":"Просмотр изображений с камер","level":"5.1.5","depth":2,"path":"CameraImages.md","ref":"CameraImages.md","articles":[]},{"title":"ROS","level":"5.1.6","depth":2,"path":"ROS.md","ref":"ROS.md","articles":[]},{"title":"ROS топики в Веб Интерфейсе","level":"5.1.7","depth":2,"path":"ROSWeb.md","ref":"ROSWeb.md","articles":[]},{"title":"MAVROS","level":"5.1.8","depth":2,"path":"MAVROS.md","ref":"MAVROS.md","articles":[]},{"title":"Компьютерное зрение","level":"5.1.9","depth":2,"path":"ComputerVision.md","ref":"ComputerVision.md","articles":[]},{"title":"Нейронные сети (CNN)","level":"5.1.10","depth":2,"path":"CNN.md","ref":"CNN.md","articles":[]},{"title":"Интеграция нейронных сетей в Technic6S","level":"5.1.11","depth":2,"path":"IntergrationCNN.md","ref":"IntergrationCNN.md","articles":[]}]},"previous":{"title":"Полетные режимы","level":"4.1.8","depth":2,"path":"Modes.md","ref":"Modes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"Parameters.md","mtime":"2026-01-16T07:10:36.781Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-01-19T10:25:32.885Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+  {# Это рендерит весь контент + меню слева #}
+
+  <!-- Footer -->
+  <footer>
+    <div class="projectInfo">
+      <span>Обратиться за помощью в техническую поддержку</span>
+      <a href="https://t.me/skyris_support" target="_blank" rel="noopener">• telegram @skyris_support</a>
+      <a href="mailto:info@skyris.pro">• info@skyris.pro</a>
+    </div>
+
+    <div role="contentinfo" class="contentInfo">
+      ООО «Скайрис» 2025 © Все права защищены
+    </div>
+  </footer>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/honkit-plugin-add-js/2fo2cpTzi8NMay3d-home-link.js"></script>
+        
+    
+        
+        <script src="gitbook/honkit-plugin-add-js/Q3xPNxyjiGbqnrrF-website.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
 
