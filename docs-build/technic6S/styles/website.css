@@ -73,89 +73,45 @@ pre {
   margin-bottom: 30px;
 }
 
-/* ===== Footer layout like Geoscan (2 rows) ===== */
 
 .site-footer {
-  border-top: 1px solid #e6e8ee;
   margin-top: 28px;
-  background: transparent;
+  background: #fff;
+  border-top: 1px solid #e1e3e9;
 }
 
-/* Делает структуру как на референсе:
-   Row 1: center socials
-   Row 2: left support + right copyright
-*/
+/* ширина = ширине контента страницы */
 .site-footer__inner {
-  max-width: 1000px;     /* подгони под ширину контента при желании */
-  margin: 0 auto;
   padding: 22px 18px;
-
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  grid-template-areas:
-    ". social ."
-    "support . copyright";
-  row-gap: 14px;
-  column-gap: 24px;
-  align-items: end;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
 }
 
-/* --- Areas --- */
-.site-footer__support { grid-area: support; }
-.site-footer__social { grid-area: social; }
-.site-footer__copyright { grid-area: copyright; }
-
-/* Левый блок: поддержка (как в Geoscan — не по центру) */
-.site-footer__support .projectInfo {
+/* Левый блок */
+.site-footer .projectInfo {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
   color: #666;
   font-size: 14px;
-  text-align: left;
 }
 
-.site-footer__support .projectInfo a {
+.site-footer .projectInfo a {
   color: #444;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   width: fit-content;
 }
 
-.site-footer__support .projectInfo a:hover {
+.site-footer .projectInfo a:hover {
   border-bottom-color: #999;
 }
 
-/* Центр: соцсети */
-.site-footer__social {
-  text-align: center;
-  color: #8a8f99;
-  font-size: 13px;
-}
-
-.site-footer__social-title {
-  margin-bottom: 10px;
-}
-
-.site-footer__social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-}
-
-/* Иконки-заглушки (как серые на скрине) */
-.site-footer__icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: #e9ecf2;
-  display: inline-block;
-}
-
-/* Правый блок: копирайт справа */
-.site-footer__copyright .contentInfo {
-  margin: 0;
-  color: #9aa0aa;
+/* Правый блок */
+.site-footer .contentInfo {
+  color: #888;
   font-size: 13px;
   text-align: right;
   white-space: nowrap;
@@ -164,22 +120,17 @@ pre {
 /* Адаптив */
 @media (max-width: 900px) {
   .site-footer__inner {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "social"
-      "support"
-      "copyright";
-    row-gap: 14px;
-    align-items: start;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
-  .site-footer__support .projectInfo,
-  .site-footer__copyright .contentInfo {
+  .site-footer .contentInfo {
     text-align: center;
     white-space: normal;
   }
 
-  .site-footer__support .projectInfo a {
+  .site-footer .projectInfo a {
     margin: 0 auto;
   }
 }
