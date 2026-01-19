@@ -77,39 +77,39 @@ footer {
   background: #fff;
   border-top: 1px solid #e1e3e9;
   padding: 22px 18px;
-  max-width: 900px;  /* или любая ширина контента */
-  margin: 40px auto 0; /* центрирование */
-  border-radius: 8px 8px 0 0; /* если нужно визуально отделить */
+  max-width: 900px;      /* ограничиваем ширину футера */
+  margin: 40px auto 0;    /* автоцентрирование + отступ сверху */
+  border-radius: 8px 8px 0 0; /* если хочешь визуально отделить футер */
 }
 
-.projectInfo{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  color:#666;
+footer .projectInfo,
+footer .contentInfo {
+  max-width: 850px;        /* чуть меньше, чем футер */
+  margin: 0 auto;          /* центрируем текст внутри футера */
 }
-.projectInfo a{
-  color:#444;
-  text-decoration:none;
-  border-bottom:1px solid transparent;
-  width: fit-content;
-}
-.projectInfo a:hover{
-  border-bottom-color:#999;
-}
-.contentInfo{
-  margin-top:14px;
-  color:#888;
-  font-size:13px;
-  text-align:right;
-}
-.book-body {
+
+footer .projectInfo {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  gap: 10px;
+  color: #666;
+  text-align: center;      /* сдвиг текста к центру */
 }
 
-.book-body > footer {
-  margin-top: auto; /* прижимает футер к низу контента */
+footer .projectInfo a {
+  color: #444;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+footer .projectInfo a:hover {
+  border-bottom-color: #999;
+}
+
+footer .contentInfo {
+  margin-top: 14px;
+  color: #888;
+  font-size: 13px;
+  text-align: center;      /* выравниваем правый блок по центру */
 }
 
