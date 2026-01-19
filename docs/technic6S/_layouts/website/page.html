@@ -18,22 +18,23 @@
   </footer>
 
   <script>
-    (function () {
-      // переносим футер под контент страницы (в правую колонку), не под меню
-      var footer = document.getElementById('site-footer');
-      if (!footer) return;
+  (function () {
+    const footer = document.getElementById('site-footer');
+    if (!footer) return;
 
-      // правая колонка (без sidebar)
-      var bodyInner = document.querySelector('.book .book-body .body-inner');
-      if (!bodyInner) return;
+    // Правая колонка (без сайдбара)
+    const bodyInner = document.querySelector('.book .book-body .body-inner');
+    if (!bodyInner) return;
 
-      // .page-wrapper содержит контент + стрелки навигации
-      var pageWrapper = bodyInner.querySelector('.page-wrapper');
-      if (!pageWrapper) return;
-
-      // ставим футер сразу после page-wrapper => будет под стрелками
-      pageWrapper.insertAdjacentElement('afterend', footer);
-    })();
+    // Блок со стрелками ← →
+    const navigation = bodyInner.querySelector('.navigation');
+    if (navigation) {
+      // ✅ ВАЖНО: вставляем футер ПОСЛЕ стрелок
+      navigation.insertAdjacentElement('afterend', footer);
+    }
+  })();
   </script>
+
+
 {% endblock %}
 
