@@ -1,35 +1,20 @@
 {% extends "website/page.html" %}
 
-{# Рендерим футер внутри правой части (контента страницы) #}
+{# ВАЖНО: используем block page (это правая часть) #}
 {% block page %}
   {{ super() }}
 
   <footer class="site-footer">
     <div class="site-footer__inner">
-
-      <div class="site-footer__support">
-        <div class="projectInfo">
-          <span>Обратиться за помощью в техническую поддержку</span>
-          <a href="https://t.me/skyris_support" target="_blank" rel="noopener">• telegram @skyris_support</a>
-          <a href="mailto:info@skyris.pro">• info@skyris.pro</a>
-        </div>
+      <div class="projectInfo">
+        <span>Обратиться за помощью в техническую поддержку</span>
+        <a href="https://t.me/skyris_support" target="_blank" rel="noopener">• telegram @skyris_support</a>
+        <a href="mailto:info@skyris.pro">• info@skyris.pro</a>
       </div>
 
-      <div class="site-footer__social">
-        <div class="site-footer__social-title">Следить за новостями проекта в социальных сетях</div>
-        <div class="site-footer__social-icons">
-          <span class="site-footer__icon"></span>
-          <span class="site-footer__icon"></span>
-          <span class="site-footer__icon"></span>
-        </div>
+      <div role="contentinfo" class="contentInfo">
+        ООО «Скайрис» 2025 © Все права защищены
       </div>
-
-      <div class="site-footer__copyright">
-        <div role="contentinfo" class="contentInfo">
-          ООО «Скайрис» 2025 © Все права защищены
-        </div>
-      </div>
-
     </div>
   </footer>
 {% endblock %}
