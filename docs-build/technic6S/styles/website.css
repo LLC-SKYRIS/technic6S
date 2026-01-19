@@ -74,72 +74,84 @@ pre {
 }
 
 
-/* ===== Footer (like on homepage) ===== */
+/* ===== Footer tuning (colors + spacing like template) ===== */
 
 .site-footer{
-  background:#fff;
-  border-top:1px solid #e1e3e9;
-  padding: 0;            /* padding перенесём внутрь */
-  margin-top: 0;         /* чтобы не "висел" в середине */
+  background: #fff;
+  border-top: 1px solid #e9ecf2; /* чуть мягче */
+  padding: 0;
 }
 
-/* ширина и центрирование как у контента */
+/* чтобы футер был на той же "сетке", что контент справа */
 .site-footer__inner{
-  max-width: 1200px;     /* как на твоей главной */
+  max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-  padding: 22px 18px;
 
-  display:flex;
+  padding: 18px 56px;     /* как в шаблоне: широкие поля */
+  min-height: 84px;       /* чтобы футер не выглядел "сжатым" */
+
+  display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 24px;
+  gap: 40px;
 }
 
-/* Левый блок */
+/* ЛЕВО: поддержка */
 .site-footer .projectInfo{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  color:#666;
-  font-size:14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  color: #8a8f99;         /* как на шаблоне — серый текст */
+  font-size: 13px;
+  line-height: 1.35;
 }
 
+/* ссылки — чуть темнее, но не черные */
 .site-footer .projectInfo a{
-  color:#444;
-  text-decoration:none;
-  border-bottom:1px solid transparent;
+  color: #6f7682;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
   width: fit-content;
 }
 
 .site-footer .projectInfo a:hover{
-  border-bottom-color:#999;
+  border-bottom-color: rgba(111,118,130,.55);
 }
 
-/* Правый блок */
+/* ПРАВО: копирайт */
 .site-footer .contentInfo{
-  color:#888;
-  font-size:13px;
-  text-align:right;
-  white-space:nowrap;
   margin: 0;
+  color: #b0b6c1;         /* ещё светлее */
+  font-size: 13px;
+  line-height: 1.35;
+
+  text-align: right;
+  white-space: nowrap;
 }
 
-/* Адаптив */
+/* ===== Responsive ===== */
+@media (max-width: 1200px){
+  .site-footer__inner{
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
 @media (max-width: 900px){
   .site-footer__inner{
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
+    padding: 18px 18px;
+    min-height: unset;
+
+    flex-direction: column;
+    align-items: flex-start;  /* на мобиле как обычно — слева */
+    gap: 12px;
   }
 
   .site-footer .contentInfo{
-    text-align:center;
-    white-space:normal;
-  }
-
-  .site-footer .projectInfo a{
-    margin:0 auto;
+    text-align: left;
+    white-space: normal;
   }
 }
 
