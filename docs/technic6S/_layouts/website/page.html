@@ -19,42 +19,48 @@
 
   <script>
   (function () {
-    function moveFooter() {
+    function moveFooterAfterArrows() {
       const footer = document.getElementById('site-footer');
       if (!footer) return false;
 
-      // Ищем блок стрелок в разных темах (GitBook/HonKit)
-      const nav =
-        document.querySelector('.book .book-body .navigation') ||
-        document.querySelector('.book .book-body .page-wrapper .navigation') ||
-        document.querySelector('.book .book-body .body-inner .navigation') ||
-        document.querySelector('.book .book-body .page-inner .navigation') ||
-        document.querySelector('.navigation');
+      // В разных темах стрелки могут быть разными классами
+      const next =
+        document.querySelector('.navigation-next') ||
+        document.querySelector('a.navigation-next') ||
+        document.querySelector('.book .book-body a.navigation-next');
 
-      if (!nav) return false;
+      const prev =
+        document.querySelector('.navigation-prev') ||
+        document.querySelector('a.navigation-prev') ||
+        document.querySelector('.book .book-body a.navigation-prev');
 
-      // Если футер уже стоит после стрелок — ничего не делаем
-      if (footer.previousElementSibling === nav) return true;
+      // Идеально: ставим после NEXT (она последняя)
+      if (next) {
+        next.insertAdjacentElement('afterend', footer);
+        return true;
+      }
 
-      nav.insertAdjacentElement('afterend', footer);
-      return true;
+      // Если next нет (например, последняя страница) — ставим после PREV
+      if (prev) {
+        prev.insertAdjacentElement('afterend', footer);
+        return true;
+      }
+
+      return false;
     }
 
-    // 1) Пытаемся сразу
-    if (moveFooter()) return;
+    // 1) сразу
+    if (moveFooterAfterArrows()) return;
 
-    // 2) Если навигация появляется позже — наблюдаем DOM
+    // 2) ждём, пока стрелки появятся/перерисуются
     const root = document.querySelector('.book') || document.body;
-    const obs = new MutationObserver(function () {
-      if (moveFooter()) obs.disconnect();
+    const obs = new MutationObserver(() => {
+      if (moveFooterAfterArrows()) obs.disconnect();
     });
-
     obs.observe(root, { childList: true, subtree: true });
 
-    // 3) Фоллбек: ещё одна попытка после полной загрузки
-    window.addEventListener('load', function () {
-      moveFooter();
-    });
+    // 3) запасная попытка после полной загрузки
+    window.addEventListener('load', moveFooterAfterArrows);
   })();
   </script>
 
