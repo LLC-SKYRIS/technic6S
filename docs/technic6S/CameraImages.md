@@ -4,7 +4,7 @@
 
 См. подробнее про [использование rqt](Rviz.md).
 
-### ***Просмотр через браузер***
+### Просмотр через браузер
 
 Для просмотра видеострима нужно [подключиться к Wi-Fi](ConnectingToWi-Fi.md) Technic \(`technic-xxxx`\), перейти на страницу [http://10.42.0.1:8080/](http://10.42.0.1:8080/) и выбрать топик.
 
@@ -18,7 +18,7 @@ http://10.42.0.1:8080/stream_viewer?topic=/main_camera/image_raw&type=mjpeg&qual
 
 Также доступны параметры `width`, `height` и другие. Подробнее о `web_video_server`: http://wiki.ros.org/web_video_server.
 
-### ***Просмотр через rqt_image_view***
+### Просмотр через rqt_image_view
 
 Для просмотра изображений через инструменты rqt необходим компьютер с установленной Ubuntu 20.04 и [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu).
 

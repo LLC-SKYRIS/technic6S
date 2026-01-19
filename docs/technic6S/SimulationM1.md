@@ -4,7 +4,7 @@
 
 В качестве виртуальной машины рекомендуется использовать бесплатное приложение [**UTM**](https://mac.getutm.app/). Также возможно использование **VMware Fusion Public Tech Preview** с поддержкой M1.
 
-## Установка симулятора с UTM
+### Установка симулятора с UTM
 
 <img src="assets/simulation_utm.png" width=500 class="center zoom">
 
