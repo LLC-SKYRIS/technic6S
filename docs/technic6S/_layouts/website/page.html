@@ -1,11 +1,9 @@
-<div class="wy-nav-content">
+{% extends "website/page.html" %}
 
-  <!-- Основной контент страницы -->
-  <div class="rst-content">
-    {{ content }}   <!-- <- это обязательно, сюда HonKit вставляет Markdown -->
-  </div>
+{% block body %}
+  {{ super() }}
 
-  <!-- Footer под контентом -->
+  <!-- Footer -->
   <footer>
     <div class="projectInfo">
       <span>Обратиться за помощью в техническую поддержку</span>
@@ -17,6 +15,5 @@
       ООО «Скайрис» 2025 © Все права защищены
     </div>
   </footer>
-
-</div>
+{% endblock %}
 
