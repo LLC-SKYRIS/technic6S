@@ -1,5 +1,7 @@
-<div class="book-body">
-  {{ page.content | safe }}  <!-- основной контент -->
+{% extends "website/page.html" %}
+
+{% block body %}
+  {{ super() }}  {# Это рендерит весь контент + меню слева #}
 
   <!-- Footer -->
   <footer>
@@ -13,5 +15,5 @@
       ООО «Скайрис» 2025 © Все права защищены
     </div>
   </footer>
-</div>
+{% endblock %}
 
