@@ -74,64 +74,72 @@ pre {
 }
 
 
-.site-footer {
-  margin-top: 28px;
-  background: #fff;
-  border-top: 1px solid #e1e3e9;
+/* ===== Footer (like on homepage) ===== */
+
+.site-footer{
+  background:#fff;
+  border-top:1px solid #e1e3e9;
+  padding: 0;            /* padding перенесём внутрь */
+  margin-top: 0;         /* чтобы не "висел" в середине */
 }
 
-/* ширина = ширине контента страницы */
-.site-footer__inner {
+/* ширина и центрирование как у контента */
+.site-footer__inner{
+  max-width: 1200px;     /* как на твоей главной */
+  margin: 0 auto;
+  width: 100%;
   padding: 22px 18px;
-  display: flex;
+
+  display:flex;
   justify-content: space-between;
   align-items: flex-end;
   gap: 24px;
 }
 
 /* Левый блок */
-.site-footer .projectInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  color: #666;
-  font-size: 14px;
+.site-footer .projectInfo{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  color:#666;
+  font-size:14px;
 }
 
-.site-footer .projectInfo a {
-  color: #444;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
+.site-footer .projectInfo a{
+  color:#444;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
   width: fit-content;
 }
 
-.site-footer .projectInfo a:hover {
-  border-bottom-color: #999;
+.site-footer .projectInfo a:hover{
+  border-bottom-color:#999;
 }
 
 /* Правый блок */
-.site-footer .contentInfo {
-  color: #888;
-  font-size: 13px;
-  text-align: right;
-  white-space: nowrap;
+.site-footer .contentInfo{
+  color:#888;
+  font-size:13px;
+  text-align:right;
+  white-space:nowrap;
+  margin: 0;
 }
 
 /* Адаптив */
-@media (max-width: 900px) {
-  .site-footer__inner {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+@media (max-width: 900px){
+  .site-footer__inner{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
   }
 
-  .site-footer .contentInfo {
-    text-align: center;
-    white-space: normal;
+  .site-footer .contentInfo{
+    text-align:center;
+    white-space:normal;
   }
 
-  .site-footer .projectInfo a {
-    margin: 0 auto;
+  .site-footer .projectInfo a{
+    margin:0 auto;
   }
 }
 

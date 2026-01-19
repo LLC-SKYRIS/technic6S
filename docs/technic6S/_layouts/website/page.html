@@ -1,10 +1,9 @@
 {% extends "website/page.html" %}
 
-{# ВАЖНО: используем block page (это правая часть) #}
 {% block page %}
   {{ super() }}
 
-  <footer class="site-footer">
+  <footer class="site-footer" id="site-footer">
     <div class="site-footer__inner">
       <div class="projectInfo">
         <span>Обратиться за помощью в техническую поддержку</span>
@@ -17,5 +16,24 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      // переносим футер под контент страницы (в правую колонку), не под меню
+      var footer = document.getElementById('site-footer');
+      if (!footer) return;
+
+      // правая колонка (без sidebar)
+      var bodyInner = document.querySelector('.book .book-body .body-inner');
+      if (!bodyInner) return;
+
+      // .page-wrapper содержит контент + стрелки навигации
+      var pageWrapper = bodyInner.querySelector('.page-wrapper');
+      if (!pageWrapper) return;
+
+      // ставим футер сразу после page-wrapper => будет под стрелками
+      pageWrapper.insertAdjacentElement('afterend', footer);
+    })();
+  </script>
 {% endblock %}
 
