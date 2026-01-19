@@ -73,3 +73,10 @@ pre {
   margin-bottom: 30px;
 }
 
+.custom-footer{
+  margin-top:40px;
+  background:#fff;
+  border-top:1px solid #e1e3e9;
+  padding:22px 18px;
+}
+
