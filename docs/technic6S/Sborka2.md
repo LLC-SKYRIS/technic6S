@@ -10,8 +10,10 @@
 - Стойка нейлоновая HTP-311 - 1шт;
 - Винт М3х5 - 1шт.
 
-<img src="assets/1.jpeg" width="600" style="center zoom">
-                                 Рис. 1
+<div class="img-figure">
+  <img src="assets/1.jpeg">
+</div>
+<p class="img-caption">Рис. 1</p>
 
 Установите радиаторы охлаждение и нейлоновую стойку HTP-311 на Orange Pi как показано на рисунке 1.
 
@@ -22,8 +24,10 @@
 - Кулер - 1шт; 
 - Винт М3х10 - 2шт.
 
-<img src="assets/2.jpeg" width="600" style="center zoom">
-                                 Рис. 2
+<div class="img-figure">
+  <img src="assets/2.jpeg">
+</div>
+<p class="img-caption">Рис. 2</p>
 
 Установите кулер на плату «SKYRIS шилд», как показано на рисунке 2 
 
@@ -38,8 +42,10 @@
 - SKYRIS шилд - 1шт; 
 - Винт М3х5 - 1шт.
 
-<img src="assets/3.jpeg" width="600" style="center zoom">
-                                 Рис. 3
+<div class="img-figure">
+  <img src="assets/3.jpeg">
+</div>
+<p class="img-caption">Рис. 3</p>
 
 Установите SKYRIS шилд на одноплатный компьютер Orange Pi, как показано на рисунке 3. 
 
@@ -52,9 +58,11 @@
 - Винт М3х14 - 4шт; 
 - Стойка нейлоновая HTP-335 - 4шт.
 
-<img src="assets/4.jpeg" width="600" style="center zoom">
-                                 Рис. 4
-  
+<div class="img-figure">
+  <img src="assets/4.jpeg">
+</div>
+<p class="img-caption">Рис. 4</p>
+
 Соедините детали как показано на рисунке 4:
 
 - совместите 4 отверстия на детали «Маунт Orange Pi» с ответными отверстиями на детали «Центральная пластина нижняя». 
@@ -70,8 +78,10 @@
 - Кабель UART - 1шт; 
 - Винт М2.5х5 - 4шт.
 
-<img src="assets/5.jpeg" width="600" style="center zoom">
-                                 Рис. 5
+<div class="img-figure">
+  <img src="assets/5.jpeg">
+</div>
+<p class="img-caption">Рис. 5</p>
   
 Установите Orange Pi на деталь «Маунт Orange Pi» с помощью 4 винтов М2.5х5:
 
@@ -84,18 +94,24 @@
 - Установите WiFi антенну в держатель антенны, расположенном в задней части детали «Маунт Orange Pi». 
 
 
-<img src="assets/5.1.jpeg" width="600" style="center zoom">
-                                 Рис. 6
+<div class="img-figure">
+  <img src="assets/5.1.jpeg">
+</div>
+<p class="img-caption">Рис. 6</p>
 
 Подключите кабель питания (двухжильный кабель с красным коннектором PH2.0) в красное гнездо «V IN» на SKYRIS шилд, как на рисунке 6.
 
-<img src="assets/6.png" width="600" style="center zoom">
-                                 Рис. 7
+<div class="img-figure">
+  <img src="assets/6.png">
+</div>
+<p class="img-caption">Рис. 7</p>
 
 Подключите кабель UART в гнездо TELEM2 на полетном контроллере (иллюстрация 7) 
 
-<img src="assets/7.png" width="600" style="center zoom">
-                                 Рис. 8
+<div class="img-figure">
+  <img src="assets/7.png">
+</div>
+<p class="img-caption">Рис. 8</p>
 
 Подключите кабель UART во внешнее гнездо UART на плате SKYRIS шилд (иллюстрация 8).
 
@@ -106,16 +122,17 @@
 - Адресная LED-лента - 1шт; 
 - Пластиковый хомут - 1шт.
 
-  
-
-<img src="assets/6.2.jpeg" width="600" style="center zoom">
-                                 Рис. 9
-  
+<div class="img-figure">
+  <img src="assets/6.2.jpeg">
+</div>
+<p class="img-caption">Рис. 9</p>
 
 Установите 4 детали «Маунт LED» на деталь «Маунт Orange Pi», как показано на рисунке 9. 
 
-<img src="assets/7.jpeg" width="600" style="center zoom">
-                                 Рис. 10
+<div class="img-figure">
+  <img src="assets/7.jpeg">
+</div>
+<p class="img-caption">Рис. 10</p>
 
 Установите LED-ленту на обруч, полученный в результате установки Маунтов LED.
 
@@ -131,8 +148,10 @@
 - Cтойка нейлоновая HTP-2.5 20мм - 4шт; 
 - Винт М2.5х5.
 
-<img src="assets/8.2.jpeg" width="600" style="center zoom">
-                                 Рис. 11
+<div class="img-figure">
+  <img src="assets/8.2.jpeg">
+</div>
+<p class="img-caption">Рис. 11</p>
 
 Установите камеру OPi, как показано на рисунке 11:
 
@@ -140,8 +159,10 @@
     
 - совместите монтажные отверстия на камере OPi с отверстиями на стойках и зафиксируйте камеру с помощью 4 винтов М2.5х5.
 
-<img src="assets/8.1.jpeg" width="600" style="center zoom">
-                                 Рис. 12
+<div class="img-figure">
+  <img src="assets/8.1.jpeg">
+</div>
+<p class="img-caption">Рис. 12</p>
 
 > **Подсказка** Обратите внимание на ориентацию камеры OPi. Гнездо подключения кабеля расположено внутрь, как на рисунке 12.
 
@@ -152,18 +173,22 @@
 - Лазерный дальномер - 1шт; 
 - Винт М3х5 - 2шт.
 
-<img src="assets/9.1.jpeg" width="600" style="center zoom">
-                                 Рис. 13
+<div class="img-figure">
+  <img src="assets/9.1.jpeg">
+</div>
+<p class="img-caption">Рис. 13</p>
 
 Установите лазерный дальномер, как показано на рисунке 13:
 
 - совместите монтажные отверстия на лазерном дальномере с монтажными отверстиями на детали «Маунт камеры» (провода ориентированы внутрь)
     
 - зафиксируйте лазерный дальномер с помощью 2 винтов М3х5.
-    
 
-<img src="assets/9.2.jpeg" width="600" style="center zoom">
-                                 Рис. 14
+
+<div class="img-figure">
+  <img src="assets/9.2.jpeg">
+</div>
+<p class="img-caption">Рис. 14</p>
   
 Проложите кабель лазерного дальномера между объективом камеры OPi и нейлоновыми стойками HTP-2.5 20мм, как показано на рисунке 14.
 
@@ -175,10 +200,10 @@
 - Кабель камеры OPi - 1шт; 
 - Винт М3х14 - 4шт.
 
-
-<img src="assets/10.jpeg" width="600" style="center zoom">
-                                 Рис. 15
-  
+<div class="img-figure">
+  <img src="assets/10.jpeg">
+</div>
+<p class="img-caption">Рис. 15</p>
 
 Установите Маунт камеры на дрон, как показано на рисунке 15:
 
@@ -188,9 +213,10 @@
 
 - зафиксируйте Маунт камеры с помощью 4 винтов М3х14.
 
-<img src="assets/11.jpeg" width="600" style="center zoom">
-                                 Рис. 16
-  
+<div class="img-figure">
+  <img src="assets/11.jpeg">
+</div>
+<p class="img-caption">Рис. 16</p>
 
 Подключите камеру OPi к одноплатному компьютеру Orange Pi, как на рисунке 16:
 
