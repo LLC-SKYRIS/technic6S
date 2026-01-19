@@ -73,55 +73,19 @@ pre {
   margin-bottom: 30px;
 }
 
-/* Основной контейнер */
-.page-container {
-  display: flex;
-  min-height: 100vh;
-}
-
-/* Левая панель меню */
-.book-summary {
-  width: 300px; /* или как у вас настроена ширина меню */
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  background: #f7f7f7;
-  border-right: 1px solid #e1e3e9;
-  overflow-y: auto;
-}
-
-/* Область контента с футером */
-.page-wrapper {
-  flex: 1;
-  margin-left: 300px; /* должно совпадать с шириной меню */
-  display: flex;
-  flex-direction: column;
-}
-
-.page-inner {
-  flex: 1;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  width: 100%;
-}
-
-/* Футер - только в области контента */
 footer {
   background: #fff;
   border-top: 1px solid #e1e3e9;
   padding: 22px 18px;
-  margin-top: 40px;
-  border-radius: 8px 8px 0 0;
-  width: 100%;
-  box-sizing: border-box;
+  max-width: 900px;      /* ограничиваем ширину футера */
+  margin: 40px auto 0;    /* автоцентрирование + отступ сверху */
+  border-radius: 8px 8px 0 0; /* если хочешь визуально отделить футер */
 }
 
 footer .projectInfo,
 footer .contentInfo {
-  max-width: 850px;
-  margin: 0 auto;
+  max-width: 850px;        /* чуть меньше, чем футер */
+  margin: 0 auto;          /* центрируем текст внутри футера */
 }
 
 footer .projectInfo {
@@ -129,7 +93,7 @@ footer .projectInfo {
   flex-direction: column;
   gap: 10px;
   color: #666;
-  text-align: center;
+  text-align: center;      /* сдвиг текста к центру */
 }
 
 footer .projectInfo a {
@@ -146,16 +110,6 @@ footer .contentInfo {
   margin-top: 14px;
   color: #888;
   font-size: 13px;
-  text-align: center;
+  text-align: center;      /* выравниваем правый блок по центру */
 }
 
-/* Адаптивность для мобильных */
-@media (max-width: 768px) {
-  .book-summary {
-    display: none; /* или position: absolute для мобильного меню */
-  }
-  
-  .page-wrapper {
-    margin-left: 0;
-  }
-}
