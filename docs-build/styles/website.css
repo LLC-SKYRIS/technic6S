@@ -619,3 +619,42 @@ body.landing-page .book .book-body{
   padding-top: 56px; /* подгони под высоту шапки */
 }
 
+/* === HIDE HONKIT SEARCH ON LANDING === */
+body.landing-page .book-summary .search,
+body.landing-page .book-summary .search-input,
+body.landing-page .book-summary .search-results,
+body.landing-page .book-body .search,
+body.landing-page .book-body .search-results {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* === COMPACT LANDING HEADER === */
+body.landing-page .landing-topbar .gen-header{
+  height: 56px;
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+body.landing-page .landing-topbar .logo img{
+  height: 14px;
+}
+
+body.landing-page .landing-topbar .search-inline input{
+  height: 34px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-size: 14px;
+}
+
+body.landing-page .book .book-summary,
+body.landing-page .book .book-body{
+  padding-top: 56px;
+}
+
+
