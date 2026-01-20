@@ -485,3 +485,21 @@ pre {
   transform: scaleX(1);
 }
 
+/* =========================================================
+   FIX: убрать underline у текста внутри карточек-линков
+   ========================================================= */
+
+.landing a.big-card,
+.landing a.big-card:hover,
+.landing a.big-card:focus,
+.landing a.big-card:active {
+  text-decoration: none !important;
+  border-bottom: none !important;   /* на случай если тема делает underline через border */
+}
+
+.landing a.big-card * ,
+.landing a.big-card:hover * {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
