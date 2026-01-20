@@ -1,3 +1,4 @@
+<!-- HTML -->
 <div class="landing">
   <nav class="gen-header">
     <a href="./" class="icon-home">
@@ -63,3 +64,4 @@
     </div>
   </div>
 </div>
+<!-- /HTML -->
