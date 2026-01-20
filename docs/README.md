@@ -1,17 +1,14 @@
 <div class="landing">
-
   <nav class="gen-header">
     <a href="./" class="icon-home">
       <div class="logo">
         <img src="images/logo.svg" alt="SKYRIS" />
       </div>
     </a>
-
     <div class="nav-link header-nav-link">
       <a href="https://skyris.pro/" target="_blank" rel="noopener"><span>Сайт компании</span></a>
       <a href="https://t.me/skyris_public" target="_blank" rel="noopener"><span>Новости компании</span></a>
     </div>
-
     <div class="wy-header-nav-search">
       <div class="input" role="search">
         <form id="site-search-form" class="wy-form search-inline" action="#" method="get" role="search">
@@ -23,12 +20,10 @@
       </div>
     </div>
   </nav>
-
   <div class="wy-nav-content">
     <div class="rst-content">
       <main>
         <div class="cards-row">
-
           <a class="big-card" href="technic6S/">
             <div class="big-card-inner">
               <div class="big-card-text">
@@ -45,7 +40,6 @@
               </div>
             </div>
           </a>
-
           <a class="big-card" href="pilotfpv/">
             <div class="big-card-inner">
               <div class="big-card-text">
@@ -62,10 +56,8 @@
               </div>
             </div>
           </a>
-
         </div>
       </main>
     </div>
   </div>
-
 </div>
