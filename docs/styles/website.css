@@ -657,4 +657,17 @@ body.landing-page .book .book-body{
   padding-top: 56px;
 }
 
+/* === DISABLE HONKIT SEARCH COMPLETELY === */
+.book-summary .search,
+.book-summary .search-input,
+.book-summary .search-results,
+.book-body .search,
+.book-body .search-results,
+#book-search-input {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
 
