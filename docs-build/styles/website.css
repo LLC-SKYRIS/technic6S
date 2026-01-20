@@ -494,3 +494,77 @@ body.landing-page .book .book-body .page-wrapper .page-inner section.markdown-se
   }
 }
 
+/* =========================================================
+   Landing cards: layout like docs.geoscan.ru
+   (text left, big image right, fixed card height)
+   ========================================================= */
+
+body.landing-page .landing .rst-content{
+  padding-top: 42px !important;
+  padding-bottom: 42px !important;
+}
+
+/* контейнер карточек — две в ряд */
+@media (min-width: 900px){
+  .landing .cards-row{
+    flex-wrap: nowrap !important;
+    gap: 36px !important;
+  }
+}
+
+/* сама карточка: фикс высота, чтобы картинка была крупной */
+.landing .big-card{
+  min-height: 260px !important;
+  height: 260px;                 /* ключевое: даёт базу для height:100% у картинки */
+}
+
+/* внутренности: ровно как "текст слева + картинка справа" */
+.landing .big-card-inner{
+  height: 100% !important;
+  padding: 34px 36px !important;
+  gap: 24px !important;
+}
+
+/* текст слева: чуть компактнее */
+.landing .big-card-text{
+  flex: 0 0 40% !important;      /* текст занимает 40% */
+  min-width: 200px !important;
+  align-items: flex-start !important;
+}
+
+/* заголовок и "в раздел" не по центру */
+.landing .big-card-text .title{
+  white-space: nowrap;
+}
+
+/* правая часть: картинка должна быть большой */
+.landing .big-card-image{
+  flex: 1 1 auto !important;
+  height: 100% !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  min-width: 0 !important;
+}
+
+/* делаем картинку крупной и "вписанной" */
+.landing .big-card-image img{
+  height: 100% !important;       /* важнее, чем max-height */
+  max-height: none !important;
+  width: auto !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+}
+
+/* на мобильном можно оставить колонку, как у вас было */
+@media (max-width: 768px){
+  .landing .big-card{
+    height: auto;
+    min-height: 320px !important;
+  }
+  .landing .big-card-image img{
+    height: auto !important;
+    width: 100% !important;
+    max-width: 520px !important;
+  }
+}
+
