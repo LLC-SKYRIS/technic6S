@@ -51,10 +51,64 @@
     document.body.classList.toggle('landing-page', isLanding);
   }
 
+  // ===== NEW: TOP HEADER ONLY ON LANDING =====
+  function ensureLandingHeader() {
+    // только если реально есть landing на странице
+    if (!document.querySelector('.landing')) return;
+
+    // уже вставлено
+    if (document.querySelector('.landing-topbar')) return;
+
+    var bar = document.createElement('div');
+    bar.className = 'landing-topbar';
+    bar.innerHTML =
+      '<nav class="gen-header">' +
+        '<a href="./" class="icon-home">' +
+          '<div class="logo"><img src="images/logo.svg" alt="SKYRIS" /></div>' +
+        '</a>' +
+
+        '<div class="nav-link header-nav-link">' +
+          '<a href="https://skyris.pro/" target="_blank" rel="noopener"><span>Сайт компании</span></a>' +
+          '<a href="https://t.me/skyris_public" target="_blank" rel="noopener"><span>Новости компании</span></a>' +
+        '</div>' +
+
+        '<div class="wy-header-nav-search">' +
+          '<div class="input" role="search">' +
+            '<form id="site-search-form" class="wy-form search-inline" action="#" method="get" role="search">' +
+              '<span class="search-icon" aria-hidden="true"><img src="images/search.png" alt=""></span>' +
+              '<input id="site-search-input" type="text" name="q" placeholder="Быстрый поиск" autocomplete="off">' +
+            '</form>' +
+          '</div>' +
+        '</div>' +
+      '</nav>';
+
+    // вставляем самым первым элементом в body
+    document.body.insertBefore(bar, document.body.firstChild);
+  }
+
+  function syncLandingHeader() {
+    var isLanding = !!document.querySelector('.landing');
+    var exists = document.querySelector('.landing-topbar');
+
+    // ушли с главной — удаляем
+    if (!isLanding && exists) {
+      exists.parentNode.removeChild(exists);
+      return;
+    }
+
+    // на главной — гарантируем наличие
+    if (isLanding) ensureLandingHeader();
+  }
+  // ===== /NEW =====
+
   function init() {
+    // сразу
     syncLandingMode();
-    setTimeout(syncLandingMode, 0);
-    setTimeout(syncLandingMode, 50);
+    syncLandingHeader();
+
+    // ещё раз после дорисовки
+    setTimeout(function () { syncLandingMode(); syncLandingHeader(); }, 0);
+    setTimeout(function () { syncLandingMode(); syncLandingHeader(); }, 50);
 
     addCopyButtons(document);
 
@@ -72,6 +126,7 @@
         scheduled = false;
         addCopyButtons(target);
         syncLandingMode();
+        syncLandingHeader();
       }, 50);
     });
 
@@ -80,8 +135,8 @@
     if (window.gitbook && window.gitbook.events && window.gitbook.events.bind) {
       window.gitbook.events.bind('page.change', function () {
         addCopyButtons(document);
-        setTimeout(syncLandingMode, 0);
-        setTimeout(syncLandingMode, 50);
+        setTimeout(function () { syncLandingMode(); syncLandingHeader(); }, 0);
+        setTimeout(function () { syncLandingMode(); syncLandingHeader(); }, 50);
       });
     }
   }

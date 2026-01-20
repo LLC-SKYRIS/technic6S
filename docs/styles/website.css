@@ -604,3 +604,18 @@ body.landing-page .book .book-body .page-wrapper {
   }
 }
 
+body.landing-page .landing-topbar{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+  background: #fff;
+  border-bottom: 1px solid #e1e3e9;
+}
+
+body.landing-page .book .book-summary,
+body.landing-page .book .book-body{
+  padding-top: 56px; /* подгони под высоту шапки */
+}
+
