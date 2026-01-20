@@ -47,6 +47,12 @@
   }
 
   function init() {
+
+        // Главная-лендинг: включаем спец-режим стилей
+    if (document.querySelector('.landing')) {
+      document.body.classList.add('landing-page');
+    }
+
     // 1) Попробуем сразу
     addCopyButtons(document);
 
@@ -84,4 +90,24 @@
     init();
   }
 })();
+
+/* =========================================================
+   LANDING PAGE: снять ограничения HonKit только на главной
+   (включается через body.landing-page)
+   ========================================================= */
+
+body.landing-page .book .book-body .page-wrapper,
+body.landing-page .book .book-body .page-wrapper .page-inner,
+body.landing-page .book .book-body .page-wrapper .page-inner section.markdown-section {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+body.landing-page .book .book-body .page-wrapper .page-inner {
+  padding: 0 !important;
+}
+
+body.landing-page .book .book-body .page-wrapper .page-inner section.markdown-section {
+  padding: 0 !important;
+}
 
