@@ -778,7 +778,7 @@ body.landing-page .landing main{
 
 /* ===== Wider cards on landing ===== */
 .landing .cards-row{
-  grid-template-columns: repeat(2, minmax(520px, 1fr));
+  grid-template-columns: repeat(2, minmax(600px, 1fr));
   gap: 48px; /* чуть больше воздуха между карточками */
 }
 
