@@ -71,15 +71,6 @@
           '<a href="https://skyris.pro/" target="_blank" rel="noopener"><span>Сайт компании</span></a>' +
           '<a href="https://t.me/skyris_public" target="_blank" rel="noopener"><span>Новости компании</span></a>' +
         '</div>' +
-
-        '<div class="wy-header-nav-search">' +
-          '<div class="input" role="search">' +
-            '<form id="site-search-form" class="wy-form search-inline" action="#" method="get" role="search">' +
-              '<span class="search-icon" aria-hidden="true"><img src="images/search.png" alt=""></span>' +
-              '<input id="site-search-input" type="text" name="q" placeholder="Быстрый поиск" autocomplete="off">' +
-            '</form>' +
-          '</div>' +
-        '</div>' +
       '</nav>';
 
     // вставляем самым первым элементом в body
