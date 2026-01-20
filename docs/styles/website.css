@@ -1,3 +1,7 @@
+/* =========================
+   Common markdown tweaks
+   ========================= */
+
 /* Общий стиль blockquote */
 .markdown-section blockquote {
   border-left: 4px solid #ccc;
@@ -17,9 +21,7 @@
 }
 
 /* Контейнер для блока кода + кнопки */
-pre {
-  position: relative;
-}
+pre { position: relative; }
 
 .copy-code-btn {
   position: absolute;
@@ -33,9 +35,7 @@ pre {
   cursor: pointer;
 }
 
-.copy-code-btn:active {
-  transform: translateY(1px);
-}
+.copy-code-btn:active { transform: translateY(1px); }
 
 .img-grid {
   display: grid;
@@ -48,12 +48,12 @@ pre {
 .img-grid img {
   width: 200px;
   height: 200px;
-  object-fit: cover; /* важное — делает квадрат */
+  object-fit: cover;
 }
 
 .img-figure {
   width: 600px;
-  height: 350px;              /* ЕДИНАЯ ВЫСОТА */
+  height: 350px;
   margin: 20px auto 6px;
   display: flex;
   align-items: center;
@@ -63,7 +63,7 @@ pre {
 .img-figure img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;        /* БЕЗ ОБРЕЗКИ */
+  object-fit: contain;
 }
 
 .img-caption {
@@ -74,22 +74,22 @@ pre {
 }
 
 
-/* ===== Footer tuning (colors + spacing like template) ===== */
+/* =========================
+   Footer tuning
+   ========================= */
 
 .site-footer{
   background: #fff;
-  border-top: 1px solid #e9ecf2; /* чуть мягче */
+  border-top: 1px solid #e9ecf2;
   padding: 0;
 }
 
-/* чтобы футер был на той же "сетке", что контент справа */
 .site-footer__inner{
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-
-  padding: 18px 56px;     /* как в шаблоне: широкие поля */
-  min-height: 84px;       /* чтобы футер не выглядел "сжатым" */
+  padding: 18px 56px;
+  min-height: 84px;
 
   display: flex;
   justify-content: space-between;
@@ -97,18 +97,15 @@ pre {
   gap: 40px;
 }
 
-/* ЛЕВО: поддержка */
 .site-footer .projectInfo{
   display: flex;
   flex-direction: column;
   gap: 8px;
-
-  color: #8a8f99;         /* как на шаблоне — серый текст */
+  color: #8a8f99;
   font-size: 13px;
   line-height: 1.35;
 }
 
-/* ссылки — чуть темнее, но не черные */
 .site-footer .projectInfo a{
   color: #6f7682;
   text-decoration: none;
@@ -120,18 +117,15 @@ pre {
   border-bottom-color: rgba(111,118,130,.55);
 }
 
-/* ПРАВО: копирайт */
 .site-footer .contentInfo{
   margin: 0;
-  color: #b0b6c1;         /* ещё светлее */
+  color: #b0b6c1;
   font-size: 13px;
   line-height: 1.35;
-
   text-align: right;
   white-space: nowrap;
 }
 
-/* ===== Responsive ===== */
 @media (max-width: 1200px){
   .site-footer__inner{
     padding-left: 24px;
@@ -143,9 +137,8 @@ pre {
   .site-footer__inner{
     padding: 18px 18px;
     min-height: unset;
-
     flex-direction: column;
-    align-items: flex-start;  /* на мобиле как обычно — слева */
+    align-items: flex-start;
     gap: 12px;
   }
 
@@ -155,68 +148,56 @@ pre {
   }
 }
 
-/* 1) Стрелки навигации должны быть ВЫШЕ линии футера */
+/* Навигационные стрелки выше линии футера */
 .book .book-body .navigation,
 .book .book-body a.navigation-prev,
 .book .book-body a.navigation-next {
-  margin-bottom: 18px !important; /* расстояние между стрелками и линией футера */
+  margin-bottom: 18px !important;
 }
 
-/* 2) Убираем верхний внешний отступ у футера,
-      чтобы линия не "поднималась" из-за margin */
-.site-footer {
-  margin-top: 0 !important;
-}
+.site-footer { margin-top: 0 !important; }
+.site-footer__inner { padding-top: 18px; }
 
-/* 3) Если у темы есть padding у контейнера навигации,
-      гарантируем, что линия футера не накрывает стрелки */
-.site-footer__inner {
-  padding-top: 18px;  /* линия футера + аккуратный воздух сверху */
-}
-
-/* ===== Sticky footer ONLY for right content column (HonKit) ===== */
-
-/* Правая колонка (без sidebar) растягивается на высоту окна */
+/* Sticky footer ONLY for right content column (HonKit) */
 .book .book-body .body-inner {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Контент + стрелки занимает всё доступное место */
 .book .book-body .body-inner .page-wrapper {
   flex: 1 0 auto;
 }
 
-/* Футер прижимается вниз правой колонки */
 .book .book-body .body-inner #site-footer.site-footer {
   margin-top: auto !important;
 }
 
+
 /* =========================================================
-   HOME / LANDING PAGE (only README.md with <div class="landing">)
+   HOME / LANDING PAGE
+   Включается через body.landing-page (ставится JS-ом)
    ========================================================= */
 
-.landing {
-  /* фон как у вашего HTML */
-  background: #f5f6f8;
-  /* чтобы “лендинг” занимал высоту экрана, а футер прижимался вниз */
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* Снимаем ограничения HonKit на главной */
+body.landing-page .book .book-body .page-wrapper,
+body.landing-page .book .book-body .page-wrapper .page-inner,
+body.landing-page .book .book-body .page-wrapper .page-inner section.markdown-section {
+  max-width: none !important;
+  width: 100% !important;
 }
 
-/* Убираем типичные отступы markdown-контейнера на главной,
-   иначе карточки могут быть “в рамке документации” */
-.book .markdown-section:has(.landing) {
+body.landing-page .book .book-body .page-wrapper .page-inner,
+body.landing-page .book .book-body .page-wrapper .page-inner section.markdown-section {
   padding: 0 !important;
 }
 
-/* На случай если :has() не поддерживается в каком-то браузере —
-   ваш лендинг и так будет выглядеть нормально, просто могут быть отступы.
-   Можно дополнительно сделать “мягкий” вариант: */
-.landing > * {
-  flex: 0 0 auto;
+/* Общая обертка лендинга */
+.landing {
+  background: #f5f6f8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ===== ШАПКА ===== */
@@ -315,42 +296,47 @@ pre {
   opacity: .45;
 }
 
-.landing .search-inline input[type="text"]:hover{
-  border-color: #d3d7e3;
-}
-
-.landing .search-inline input[type="text"]:focus{
-  border-color: #c8ccda;
-  box-shadow: none;
-}
+.landing .search-inline input[type="text"]:hover{ border-color: #d3d7e3; }
+.landing .search-inline input[type="text"]:focus{ border-color: #c8ccda; box-shadow: none; }
 
 /* ===== КОНТЕНТ ГЛАВНОЙ ===== */
+/* заполняем всю правую колонку, без max-width */
 .landing .wy-nav-content{
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   width: 100%;
 }
 
 .landing .rst-content{
-  padding-left: clamp(16px, 4vw, 56px);
-  padding-right: clamp(16px, 4vw, 56px);
+  padding-left: clamp(16px, 3vw, 48px);
+  padding-right: clamp(16px, 3vw, 48px);
   padding-top: 32px;
   padding-bottom: 32px;
 }
 
 /* ===== КАРТОЧКИ ===== */
+.landing a.big-card,
+.landing a.big-card:hover,
+.landing a.big-card:focus,
+.landing a.big-card:active,
+.landing a.big-card *,
+.landing a.big-card:hover *{
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
 .landing .cards-row{
   display: flex;
   gap: 32px;
   flex-wrap: wrap;
+  align-items: stretch;
 }
 
 .landing .big-card{
-  flex: 1 1 420px;
-  min-height: 320px;
+  flex: 1 1 420px;             /* моб/планшет: может переноситься */
+  min-height: 340px;
   background: #ffffff;
   border-radius: 26px;
-  text-decoration: none;
   color: inherit;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
@@ -364,46 +350,60 @@ pre {
 }
 
 .landing .big-card-inner{
-  padding: 40px 52px;
+  padding: 36px 40px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 24px;
 }
 
+/* текст слева */
 .landing .big-card-text{
-  flex: 1;
+  flex: 0 0 42%;
+  min-width: 220px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
+/* заголовок */
 .landing .big-card-text .title{
   font-size: 24px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   display: inline-block;
-  position: relative;
   white-space: nowrap;
 }
 
-.landing .big-card-text .accent{
-  font-weight: 700;
-}
+.landing .big-card-text .accent{ font-weight: 700; }
 
+/* линия и "в раздел" */
 .landing .go-link{
-  margin-top: 10px;
+  margin-top: 14px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
+
   font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #444;
+
   opacity: 0;
   transform: translateY(6px);
   transition: opacity .2s ease, transform .2s ease;
+}
+
+.landing .go-link .divider{
+  display: block;
+  width: 220px;
+  height: 1px;
+  background: #bbb;
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s ease;
 }
 
 .landing .big-card:hover .go-link{
@@ -411,21 +411,39 @@ pre {
   transform: translateY(0);
 }
 
+.landing .big-card:hover .go-link .divider{
+  transform: scaleX(1);
+}
+
+/* картинка справа */
 .landing .big-card-image{
-  flex: 0 0 58%;
+  flex: 1 1 auto;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  min-width: 0;
 }
 
 .landing .big-card-image img{
-  max-width: 100%;
-  max-height: 360px;
+  width: 100%;
+  max-width: 360px;
+  max-height: 220px;
   object-fit: contain;
   display: block;
 }
 
-/* ===== АДАПТИВ ===== */
+/* ===== ДЕСКТОП: две карточки строго в строку ===== */
+@media (min-width: 900px){
+  .landing .cards-row{
+    flex-wrap: nowrap;
+  }
+
+  .landing .big-card{
+    flex: 1 1 0;     /* обе равной ширины */
+  }
+}
+
+/* ===== МОБИЛА ===== */
 @media (max-width: 768px){
   .landing .rst-content{
     padding: 20px 16px 24px;
@@ -435,11 +453,23 @@ pre {
     padding: 28px 24px;
     flex-direction: column-reverse;
     text-align: center;
+    justify-content: center;
+  }
+
+  .landing .big-card-text{
+    flex: 0 0 auto;
+    min-width: 0;
+    align-items: center;
   }
 
   .landing .big-card-image{
     justify-content: center;
     width: 100%;
+  }
+
+  .landing .big-card-image img{
+    max-width: 520px;
+    max-height: 240px;
   }
 
   .landing .wy-header-nav-search{
@@ -458,78 +488,9 @@ pre {
   .landing .search-inline{
     width: 100%;
   }
-}
 
-/* ===== Линия МЕЖДУ заголовком и "В раздел" ===== */
-
-/* блок "В раздел" пусть появляется как раньше */
-.landing .go-link{
-  margin-top: 14px;   /* чуть больше воздуха */
-  gap: 10px;
-}
-
-/* сама линия */
-.landing .go-link .divider{
-  display: block;
-  width: 220px;        /* длина линии (подберите) */
-  height: 1px;
-  background: #bbb;
-
-  transform: scaleX(0);        /* скрыта */
-  transform-origin: left;
-  transition: transform .35s ease;
-}
-
-/* показываем линию при hover карточки */
-.landing .big-card:hover .go-link .divider{
-  transform: scaleX(1);
-}
-
-/* =========================================================
-   FIX: убрать underline у текста внутри карточек-линков
-   ========================================================= */
-
-.landing a.big-card,
-.landing a.big-card:hover,
-.landing a.big-card:focus,
-.landing a.big-card:active {
-  text-decoration: none !important;
-  border-bottom: none !important;   /* на случай если тема делает underline через border */
-}
-
-.landing a.big-card * ,
-.landing a.big-card:hover * {
-  text-decoration: none !important;
-  border-bottom: none !important;
-}
-
-/* =========================================================
-   Landing cards: 2 cards in one row (desktop)
-   ========================================================= */
-
-@media (min-width: 900px){
-  .landing .cards-row{
-    flex-wrap: nowrap;     /* НЕ переносить */
-    align-items: stretch;
-  }
-
-  .landing .big-card{
-    flex: 0 0 calc(50% - 16px);   /* две карточки в строку */
-    min-height: 320px;
-  }
-
-  /* чтобы картинка не “съедала” ширину */
-  .landing .big-card-image{
-    flex: 0 0 52%;
-  }
-}
-
-@media (max-width: 899px){
-  .landing .cards-row{
-    flex-wrap: wrap; /* можно переносить */
-  }
-  .landing .big-card{
-    flex: 1 1 420px; /* как у вас было */
+  .landing .go-link .divider{
+    margin: 0 auto;
   }
 }
 
