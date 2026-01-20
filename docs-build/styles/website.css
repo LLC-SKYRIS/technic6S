@@ -503,3 +503,33 @@ pre {
   border-bottom: none !important;
 }
 
+/* =========================================================
+   Landing cards: 2 cards in one row (desktop)
+   ========================================================= */
+
+@media (min-width: 900px){
+  .landing .cards-row{
+    flex-wrap: nowrap;     /* НЕ переносить */
+    align-items: stretch;
+  }
+
+  .landing .big-card{
+    flex: 0 0 calc(50% - 16px);   /* две карточки в строку */
+    min-height: 320px;
+  }
+
+  /* чтобы картинка не “съедала” ширину */
+  .landing .big-card-image{
+    flex: 0 0 52%;
+  }
+}
+
+@media (max-width: 899px){
+  .landing .cards-row{
+    flex-wrap: wrap; /* можно переносить */
+  }
+  .landing .big-card{
+    flex: 1 1 420px; /* как у вас было */
+  }
+}
+
