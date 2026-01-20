@@ -57,13 +57,12 @@ jobs:
           NODE
 
 
-      - name: Build Honkit books
+      - name: Build Honkit book
         run: |
           mkdir -p docs-build
           npx honkit --version
+          npx honkit build docs docs-build
 
-          npx honkit build docs/technic6S docs-build/technic6S
-          npx honkit build docs/pilotFPV  docs-build/pilotFPV
 
 
       - name: "Create redirect /tdocs/ -> /"
