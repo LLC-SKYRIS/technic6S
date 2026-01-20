@@ -327,3 +327,43 @@ body.landing-page .markdown-section{
   display: block;
 }
 
+/* =========================================================
+   HonKit FIXES for standalone landing (big-card version)
+   ========================================================= */
+
+/* снимаем max-width HonKit на главной */
+body.landing-page .book .book-body .page-wrapper,
+body.landing-page .book .book-body .page-inner,
+body.landing-page .markdown-section{
+  max-width: none !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+/* центрируем контент как в standalone */
+.landing .wy-nav-content{
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* HonKit любит портить картинки */
+.landing img{
+  max-width: 100%;
+  height: auto;
+}
+
+/* ФИКС: чтобы картинки НЕ тянулись на всю высоту карточки */
+.landing .big-card-image img{
+  max-height: 300px;   /* как в твоём HTML */
+  width: auto;
+  object-fit: contain;
+}
+
+/* ФИКС: иконка поиска (лупа) */
+.landing .search-inline .search-icon img{
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
