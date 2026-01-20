@@ -1,20 +1,17 @@
-/* =========================
+/* =========================================================
    Common markdown tweaks
-   ========================= */
+   ========================================================= */
 
-/* Итоговый стиль blockquote (ранние варианты перекрывались) */
 .markdown-section blockquote {
   border-left: 4px solid #1e88e5;
   padding: 10px 16px;
   background: #e3f2fd;
 }
 
-/* Синий Hint */
 .markdown-section blockquote strong:first-child {
   color: #1e88e5;
 }
 
-/* Контейнер для блока кода + кнопки */
 pre { position: relative; }
 
 .copy-code-btn {
@@ -30,6 +27,8 @@ pre { position: relative; }
 }
 
 .copy-code-btn:active { transform: translateY(1px); }
+
+/* images */
 
 .img-grid {
   display: grid;
@@ -67,210 +66,119 @@ pre { position: relative; }
   margin-bottom: 30px;
 }
 
-
-/* =========================
-   Footer tuning
-   ========================= */
+/* =========================================================
+   Footer
+   ========================================================= */
 
 .site-footer{
   background: #fff;
   border-top: 1px solid #e9ecf2;
-  padding: 0;
 }
 
 .site-footer__inner{
   max-width: 1200px;
   margin: 0 auto;
-  width: 100%;
   padding: 18px 56px;
-  min-height: 84px;
-
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
   gap: 40px;
 }
 
 .site-footer .projectInfo{
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  color: #8a8f99;
   font-size: 13px;
-  line-height: 1.35;
-}
-
-.site-footer .projectInfo a{
-  color: #6f7682;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  width: fit-content;
-}
-
-.site-footer .projectInfo a:hover{
-  border-bottom-color: rgba(111,118,130,.55);
+  color: #8a8f99;
 }
 
 .site-footer .contentInfo{
-  margin: 0;
-  color: #b0b6c1;
   font-size: 13px;
-  line-height: 1.35;
+  color: #b0b6c1;
   text-align: right;
-  white-space: nowrap;
-}
-
-@media (max-width: 1200px){
-  .site-footer__inner{
-    padding-left: 24px;
-    padding-right: 24px;
-  }
 }
 
 @media (max-width: 900px){
   .site-footer__inner{
-    padding: 18px 18px;
-    min-height: unset;
     flex-direction: column;
-    align-items: flex-start;
     gap: 12px;
+    padding: 18px;
   }
-
   .site-footer .contentInfo{
     text-align: left;
-    white-space: normal;
   }
 }
 
-/* Навигационные стрелки выше линии футера */
-.book .book-body .navigation,
-.book .book-body a.navigation-prev,
-.book .book-body a.navigation-next {
-  margin-bottom: 18px !important;
-}
-
-/* Sticky footer ONLY for right content column (HonKit) */
-.book .book-body .body-inner {
+/* Sticky footer for HonKit */
+.book .book-body .body-inner{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
-.book .book-body .body-inner .page-wrapper {
-  flex: 1 0 auto;
-}
-
-.book .book-body .body-inner #site-footer.site-footer {
-  margin-top: auto !important;
-}
-
+.book .book-body .body-inner .page-wrapper{ flex: 1; }
 
 /* =========================================================
-   HOME / LANDING PAGE
-   Включается через body.landing-page (ставится JS-ом)
+   LANDING PAGE
+   body.landing-page ставится JS
    ========================================================= */
 
-/* Снимаем ограничения HonKit на главной */
 body.landing-page .book .book-body .page-wrapper,
-body.landing-page .book .book-body .page-wrapper .page-inner,
-body.landing-page .book .book-body .page-wrapper .page-inner section.markdown-section {
+body.landing-page .book .book-body .page-inner,
+body.landing-page .markdown-section{
   max-width: none !important;
   width: 100% !important;
-}
-
-body.landing-page .book .book-body .page-wrapper .page-inner,
-body.landing-page .book .book-body .page-wrapper .page-inner section.markdown-section {
   padding: 0 !important;
 }
 
-/* Общая обертка лендинга */
-.landing {
+.landing{
   background: #f5f6f8;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* ===== ШАПКА ===== */
-.landing .gen-header {
+/* ===== HEADER ===== */
+
+.landing .gen-header{
   position: sticky;
   top: 0;
   z-index: 50;
-
   display: flex;
   align-items: center;
   gap: 16px;
-
   padding: 14px 18px;
-  background: #ffffff;
+  background: #fff;
   border-bottom: 1px solid #e1e3e9;
-
-  font-weight: 400;
-  letter-spacing: normal;
-  color: #666;
-}
-
-.landing .icon-home{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: inherit;
-  min-width: 80px;
-}
-
-.landing .logo{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
 }
 
 .landing .logo img{
   height: 14px;
-  width: auto;
   display: block;
 }
 
 .landing .header-nav-link{
   display: flex;
   gap: 14px;
-  flex-wrap: wrap;
 }
 
 .landing .header-nav-link a{
   text-decoration: none;
   color: #444;
-  font-weight: 400;
-  border-bottom: 1px solid transparent;
-}
-
-.landing .header-nav-link a:hover{
-  border-bottom-color: #999;
 }
 
 .landing .wy-header-nav-search{
   margin-left: auto;
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
-/* Поисковая строка в шапке */
+/* search */
+
 .landing .search-inline{
   position: relative;
   width: min(260px, 40vw);
 }
 
-.landing .search-inline input[type="text"]{
+.landing .search-inline input{
   width: 100%;
   padding: 10px 16px 10px 40px;
   border-radius: 999px;
   border: 1px solid #e1e3e9;
-  background: #ffffff;
-  outline: none;
-  font-size: 15px;
-  color: #333;
 }
 
 .landing .search-inline .search-icon{
@@ -278,338 +186,144 @@ body.landing-page .book .book-body .page-wrapper .page-inner section.markdown-se
   left: 14px;
   top: 50%;
   transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  opacity: .45;
-}
-
-.landing .search-inline input[type="text"]:hover{ border-color: #d3d7e3; }
-.landing .search-inline input[type="text"]:focus{ border-color: #c8ccda; box-shadow: none; }
-
-/* ===== КОНТЕНТ ГЛАВНОЙ ===== */
-/* заполняем всю правую колонку, без max-width */
-.landing .wy-nav-content{
-  max-width: none;
-  margin: 0;
-  width: 100%;
-}
-
-.landing .rst-content{
-  padding-left: clamp(16px, 3vw, 48px);
-  padding-right: clamp(16px, 3vw, 48px);
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
-
-/* ===== КАРТОЧКИ ===== */
-.landing a.big-card,
-.landing a.big-card:hover,
-.landing a.big-card:focus,
-.landing a.big-card:active,
-.landing a.big-card *,
-.landing a.big-card:hover *{
-  text-decoration: none !important;
-  border-bottom: none !important;
-}
-
-.landing .cards-row{
-  display: flex;
-  gap: 32px;
-  flex-wrap: wrap;
-  align-items: stretch;
-}
-
-.landing .big-card{
-  flex: 1 1 420px;
-  background: #ffffff;
-  border-radius: 26px;
-  color: inherit;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  border: 1px solid #e1e3e9;
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.landing .big-card:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
-}
-
-.landing .big-card-inner{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-}
-
-/* текст слева */
-.landing .big-card-text{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* заголовок */
-.landing .big-card-text .title{
-  font-size: 24px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  display: inline-block;
-  white-space: nowrap;
-}
-
-.landing .big-card-text .accent{ font-weight: 700; }
-
-/* линия и "в раздел" */
-.landing .go-link{
-  margin-top: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  font-size: 14px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #444;
-
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity .2s ease, transform .2s ease;
-}
-
-.landing .go-link .divider{
-  display: block;
-  width: 220px;
-  height: 1px;
-  background: #bbb;
-
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .35s ease;
-}
-
-.landing .big-card:hover .go-link{
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.landing .big-card:hover .go-link .divider{
-  transform: scaleX(1);
-}
-
-/* картинка справа */
-.landing .big-card-image{
-  flex: 1 1 auto;
-  min-width: 0;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-/* ===== ДЕСКТОП: две карточки строго в строку ===== */
-@media (min-width: 900px){
-  .landing .cards-row{
-    flex-wrap: nowrap;
-  }
-
-  .landing .big-card{
-    flex: 1 1 0;
-  }
-}
-
-/* ===== МОБИЛА ===== */
-@media (max-width: 768px){
-  .landing .rst-content{
-    padding: 20px 16px 24px;
-  }
-
-  .landing .big-card-inner{
-    flex-direction: column-reverse;
-    text-align: center;
-    justify-content: center;
-    gap: 24px;
-  }
-
-  .landing .big-card-text{
-    align-items: center;
-  }
-
-  .landing .big-card-image{
-    justify-content: center;
-    width: 100%;
-  }
-
-  .landing .wy-header-nav-search{
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .landing .gen-header{
-    flex-wrap: wrap;
-  }
-
-  .landing .header-nav-link{
-    width: 100%;
-  }
-
-  .landing .search-inline{
-    width: 100%;
-  }
-
-  .landing .go-link .divider{
-    margin: 0 auto;
-  }
-}
-
-
-/* =========================================================
-   Landing cards: итоговая версия (последняя в файле)
-   ========================================================= */
-
-body.landing-page .landing .rst-content{
-  padding-top: 42px !important;
-  padding-bottom: 42px !important;
-}
-
-/* контейнер карточек — две в ряд */
-@media (min-width: 900px){
-  .landing .cards-row{
-    flex-wrap: nowrap !important;
-    gap: 36px !important;
-  }
-}
-
-/* карточки выше, как в оригинале */
-.landing .big-card{
-  height: 320px !important;
-  min-height: 320px !important;
-}
-
-.landing .big-card-inner{
-  height: 100% !important;
-  padding: 40px 52px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 32px !important;
-}
-
-.landing .big-card-text{
-  flex: 0 0 42% !important;
-  min-width: 240px !important;
-}
-
-.landing .big-card-image{
-  flex: 1 1 auto !important;
-  height: 100% !important;
-  min-width: 0 !important;
-  display: flex !important;
-  justify-content: flex-end !important;
-  align-items: center !important;
-}
-
-/* САМОЕ ВАЖНОЕ: убираем max-ограничения и растягиваем по высоте */
-.landing .big-card-image img{
-  height: 100% !important;
-  width: auto !important;
-
-  max-height: none !important;
-  max-width: none !important;
-
-  object-fit: contain !important;
-  display: block !important;
-}
-
-/* на мобильном оставляем колонку */
-@media (max-width: 768px){
-  .landing .big-card{
-    height: auto;
-    min-height: 320px !important;
-  }
-
-  .landing .big-card-inner{
-    padding: 28px 24px !important;
-  }
-
-  .landing .big-card-image img{
-    height: auto !important;
-    width: 100% !important;
-    max-width: 520px !important;
-  }
-}
-
-/* на всякий случай: если где-то осталось ограничение */
-.landing img{
-  max-width: none;
-}
-
-/* ===== FIX: размеры и поведение картинок/карточек как в шаблоне ===== */
-
-/* карточки как в шаблоне: выше и аккуратнее */
-.landing .big-card{
-  height: 260px !important;        /* можно 260–280 */
-  min-height: 260px !important;
-}
-
-/* внутренние отступы как у "оригинала" */
-.landing .big-card-inner{
-  padding: 34px 44px !important;   /* можно 32/40 или 36/48 */
-}
-
-/* пропорции: текст слева фиксированнее, картинка справа свободнее */
-.landing .big-card-text{
-  flex: 0 0 44% !important;
-  min-width: 260px !important;
-}
-
-.landing .big-card-image{
-  flex: 1 1 56% !important;
-  justify-content: flex-end !important;
-  align-items: center !important;
-  overflow: hidden !important;     /* важно, чтобы ничего не вылезало */
-}
-
-/* ключевое: картинка НЕ по высоте 100%, а "вписывается" как в шаблоне */
-.landing .big-card-image img{
-  width: min(420px, 100%) !important;   /* ограничиваем ширину */
-  height: auto !important;              /* НЕ растягиваем по высоте */
-  max-height: 210px !important;         /* ограничиваем высоту внутри карточки */
-  object-fit: contain !important;
-  display: block !important;
-}
-
-/* мобила: оставляем колонку, но тоже без "height:100%" */
-@media (max-width: 768px){
-  .landing .big-card{
-    height: auto !important;
-    min-height: 320px !important;
-  }
-
-  .landing .big-card-inner{
-    padding: 26px 22px !important;
-  }
-
-  .landing .big-card-image img{
-    width: 100% !important;
-    max-width: 520px !important;
-    max-height: 260px !important;
-  }
-}
-
-/* FIX: иконка поиска не должна раздуваться */
-.landing .search-inline .search-icon{
-  overflow: hidden;
 }
 
 .landing .search-inline .search-icon img{
   width: 16px;
   height: 16px;
   display: block;
-  max-width: 100%;
+}
+
+/* ===== CONTENT ===== */
+
+.landing .wy-nav-content{
+  width: 100%;
+}
+
+.landing .rst-content{
+  padding: 42px clamp(16px, 3vw, 48px);
+}
+
+/* headings */
+
+.landing h1{
+  font-size: 34px;
+  margin-bottom: 18px;
+}
+
+.landing h2{
+  font-size: 26px;
+  margin: 28px 0 14px;
+}
+
+/* hint */
+
+.landing .admonition.hint{
+  background: #e3f2fd;
+  border-left: 4px solid #1e88e5;
+  padding: 14px 16px;
+  border-radius: 10px;
+  margin-bottom: 22px;
+}
+
+.landing .admonition-title{
+  font-weight: 700;
+  color: #1e88e5;
+}
+
+/* =========================================================
+   GALLERY — КАК В ШАБЛОНЕ PIONEER
+   ========================================================= */
+
+.landing .gallery-layout .content{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 28px;
+}
+
+@media (max-width: 900px){
+  .landing .gallery-layout .content{
+    grid-template-columns: 1fr;
+  }
+}
+
+.landing .gallery-element{
+  background: #fff;
+  border: 1px solid #e1e3e9;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.landing .gallery-element:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+}
+
+.landing .gallery-element a{
+  text-decoration: none !important;
+  color: inherit;
+  display: block;
+}
+
+/* header inside card */
+
+.landing .gallery-element .head{
+  padding: 28px 28px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.landing .gallery-element .title{
+  line-height: 1.05;
+}
+
+.landing .card-title{
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #6b6f78;
+}
+
+.landing .card-subtitle{
+  font-size: 28px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #111;
+}
+
+/* "В раздел" */
+
+.landing .float-title{
+  font-size: 13px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: .2s;
+}
+
+.landing .gallery-element:hover .float-title{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* image */
+
+.landing .gallery-element .image{
+  height: 220px;
+  padding: 10px 28px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing .gallery-element .image img{
+  max-width: 92%;
   max-height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
