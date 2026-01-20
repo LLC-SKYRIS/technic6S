@@ -671,3 +671,73 @@ body.landing-page .book .book-body{
   border: 0 !important;
 }
 
+/* ===== Topbar links spacing ===== */
+body.landing-page .landing-topbar .header-nav-link{
+  display: flex;
+  align-items: center;
+  gap: 18px;              /* расстояние между ссылками */
+}
+
+body.landing-page .landing-topbar .header-nav-link a{
+  color: #6b6f76;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+body.landing-page .landing-topbar .header-nav-link a:hover{
+  color: #2b2f36;
+}
+
+/* тонкий разделитель между ссылками (как в шаблонах часто делают) */
+body.landing-page .landing-topbar .header-nav-link a + a{
+  position: relative;
+  padding-left: 18px;
+}
+
+body.landing-page .landing-topbar .header-nav-link a + a::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 14px;
+  transform: translateY(-50%);
+  background: #d9dde6;
+}
+
+/* ===== Landing content top spacing ===== */
+body.landing-page .landing main{
+  padding-top: 34px;   /* отступ от шапки до карточек */
+}
+
+/* ===== Hover "В раздел" like original ===== */
+.landing .go-link{
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b6f76;
+
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+.landing .big-card:hover .go-link{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.landing .go-link .divider{
+  width: 42px;
+  height: 1px;
+  background: #cfd5e1;
+  display: inline-block;
+}
+
