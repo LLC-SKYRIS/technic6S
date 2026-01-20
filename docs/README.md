@@ -1,40 +1,82 @@
-<main class="index">
- 
-  <section class="landing-section">
-    <h2>Серия «SKYRIS»</h2>
+<div class="landing">
 
-    <div class="gallery-layout">
-      <div class="content">
-        <div class="gallery-element">
-          <a href="technic6S/">
-            <div class="head">
+<nav class="gen-header">
+  <a href="./" class="icon-home">
+    <div class="logo">
+      <img src="images/logo.svg" alt="SKYRIS" />
+    </div>
+  </a>
+
+  <div class="nav-link header-nav-link">
+    <a href="https://skyris.pro/" target="_blank" rel="noopener"><span>Сайт компании</span></a>
+    <a href="https://t.me/skyris_public" target="_blank" rel="noopener"><span>Новости компании</span></a>
+  </div>
+
+  <div class="wy-header-nav-search">
+    <form id="site-search-form" class="wy-form search-inline" role="search">
+      <span class="search-icon">
+        <img src="images/search.png" alt="">
+      </span>
+      <input
+        id="site-search-input"
+        type="text"
+        name="q"
+        placeholder="Быстрый поиск"
+        autocomplete="off">
+    </form>
+  </div>
+</nav>
+
+<div class="wy-nav-content">
+  <div class="rst-content">
+
+    <main>
+      <div class="cards-row">
+
+        <a class="big-card" href="technic6S/">
+          <div class="big-card-inner">
+
+            <div class="big-card-text">
               <div class="title">
-                <span class="card-title">Техник</span>
-                <span class="card-subtitle">6S</span>
+                <span>Техник </span><span class="accent">6S</span>
               </div>
-              <div class="float-title"><span>В раздел</span></div>
+              <div class="go-link">
+                <span class="divider"></span>
+                <span class="text">В раздел</span>
+              </div>
             </div>
-            <div class="image">
+
+            <div class="big-card-image">
               <img src="images/6S.png" alt="Техник 6S">
             </div>
-          </a>
-        </div>
 
-        <div class="gallery-element">
-          <a href="pilotfpv/">
-            <div class="head">
+          </div>
+        </a>
+
+        <a class="big-card" href="pilotFPV/">
+          <div class="big-card-inner">
+
+            <div class="big-card-text">
               <div class="title">
-                <span class="card-title">Пилот</span>
-                <span class="card-subtitle">FPV</span>
+                <span>Пилот </span><span class="accent">FPV</span>
               </div>
-              <div class="float-title"><span>В раздел</span></div>
+              <div class="go-link">
+                <span class="divider"></span>
+                <span class="text">В раздел</span>
+              </div>
             </div>
-            <div class="image">
+
+            <div class="big-card-image">
               <img src="images/pilot.png" alt="Пилот FPV">
             </div>
-          </a>
-        </div>
+
+          </div>
+        </a>
+
       </div>
-    </div>
-  </section>
-</main>
+    </main>
+
+  </div>
+</div>
+
+</div>
