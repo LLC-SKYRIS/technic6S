@@ -474,3 +474,133 @@ pre {
     width: 100%;
   }
 }
+
+/* ===== LANDING: фон + снятие ограничений HonKit только на главной ===== */
+
+body.landing-page .book .book-body .page-wrapper,
+body.landing-page .book .book-body .page-wrapper .page-inner,
+body.landing-page .book .book-body .page-wrapper .page-inner section.markdown-section {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+body.landing-page .book .book-body .page-wrapper .page-inner,
+body.landing-page .book .book-body .page-wrapper .page-inner section.markdown-section {
+  padding: 0 !important;
+}
+
+body.landing-page .book .book-body .page-wrapper {
+  background: #f5f6f8;
+}
+
+/* ===== LANDING WRAP ===== */
+.landing{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+.landing .gen-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 14px 18px;
+  background: #fff;
+  border-bottom: 1px solid #e1e3e9;
+}
+
+.landing .wy-header-nav-search{ margin-left: auto; }
+
+/* ===== MAIN CONTENT WIDTH ===== */
+.landing main{
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+
+  padding: 32px clamp(16px, 4vw, 56px);
+}
+
+/* ===== CARDS: как на фото 1 ===== */
+.landing .cards-row{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(360px, 1fr));
+  gap: 32px;
+}
+
+.landing .big-card{
+  display: block;
+  width: 100%;
+  min-height: 220px;
+
+  background: #fff;
+  border: 1px solid #e1e3e9;
+  border-radius: 26px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.landing .big-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+}
+
+.landing .big-card-inner{
+  height: 100%;
+  padding: 34px 44px;
+
+  display: grid;
+  grid-template-columns: 1fr minmax(180px, 320px);
+  align-items: center;
+  column-gap: 28px;
+}
+
+.landing .big-card-text .title{
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.landing .big-card-text .accent{ font-weight: 700; }
+
+.landing .big-card-image{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.landing .big-card-image img{
+  width: 100%;
+  height: auto;
+  max-height: 180px;     /* ключ: чтобы картинка НЕ улетала и не обрезалась */
+  object-fit: contain;
+  display: block;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px){
+  .landing .cards-row{
+    grid-template-columns: 1fr;
+  }
+
+  .landing .big-card-inner{
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+    text-align: center;
+  }
+
+  .landing .big-card-image{
+    justify-content: center;
+  }
+}
+

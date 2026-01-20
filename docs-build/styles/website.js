@@ -46,17 +46,18 @@
     });
   }
 
+  function syncLandingMode() {
+    var isLanding = !!document.querySelector('.landing');
+    document.body.classList.toggle('landing-page', isLanding);
+  }
+
   function init() {
+    syncLandingMode();
+    setTimeout(syncLandingMode, 0);
+    setTimeout(syncLandingMode, 50);
 
-        // Главная-лендинг: включаем спец-режим стилей
-    if (document.querySelector('.landing')) {
-      document.body.classList.add('landing-page');
-    }
-
-    // 1) Попробуем сразу
     addCopyButtons(document);
 
-    // 2) Наблюдаем за изменениями контента (SPA + поздний рендер)
     var target =
       document.querySelector('.page-inner') ||
       document.querySelector('.book-body') ||
@@ -65,21 +66,22 @@
 
     var scheduled = false;
     var observer = new MutationObserver(function () {
-      // дебаунс, чтобы не дёргать 1000 раз подряд
       if (scheduled) return;
       scheduled = true;
       setTimeout(function () {
         scheduled = false;
         addCopyButtons(target);
+        syncLandingMode();
       }, 50);
     });
 
     observer.observe(target, { childList: true, subtree: true });
 
-    // 3) Если доступен gitbook events — тоже подпишемся
     if (window.gitbook && window.gitbook.events && window.gitbook.events.bind) {
       window.gitbook.events.bind('page.change', function () {
         addCopyButtons(document);
+        setTimeout(syncLandingMode, 0);
+        setTimeout(syncLandingMode, 50);
       });
     }
   }
@@ -90,24 +92,3 @@
     init();
   }
 })();
-
-/* =========================================================
-   LANDING PAGE: снять ограничения HonKit только на главной
-   (включается через body.landing-page)
-   ========================================================= */
-
-body.landing-page .book .book-body .page-wrapper,
-body.landing-page .book .book-body .page-wrapper .page-inner,
-body.landing-page .book .book-body .page-wrapper .page-inner section.markdown-section {
-  max-width: none !important;
-  width: 100% !important;
-}
-
-body.landing-page .book .book-body .page-wrapper .page-inner {
-  padding: 0 !important;
-}
-
-body.landing-page .book .book-body .page-wrapper .page-inner section.markdown-section {
-  padding: 0 !important;
-}
-
