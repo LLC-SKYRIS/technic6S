@@ -1,18 +1,25 @@
-/* =========================================================
-   Common markdown tweaks
-   ========================================================= */
-
+/* Общий стиль blockquote */
 .markdown-section blockquote {
-  border-left: 4px solid #1e88e5;
+  border-left: 4px solid #ccc;
   padding: 10px 16px;
-  background: #e3f2fd;
+  background: #f9f9f9;
 }
 
+/* Синий Hint */
 .markdown-section blockquote strong:first-child {
   color: #1e88e5;
 }
 
-pre { position: relative; }
+/* Если начинается с "Hint" */
+.markdown-section blockquote {
+  border-left-color: #1e88e5;
+  background: #e3f2fd;
+}
+
+/* Контейнер для блока кода + кнопки */
+pre {
+  position: relative;
+}
 
 .copy-code-btn {
   position: absolute;
@@ -26,9 +33,9 @@ pre { position: relative; }
   cursor: pointer;
 }
 
-.copy-code-btn:active { transform: translateY(1px); }
-
-/* images */
+.copy-code-btn:active {
+  transform: translateY(1px);
+}
 
 .img-grid {
   display: grid;
@@ -41,12 +48,12 @@ pre { position: relative; }
 .img-grid img {
   width: 200px;
   height: 200px;
-  object-fit: cover;
+  object-fit: cover; /* важное — делает квадрат */
 }
 
 .img-figure {
   width: 600px;
-  height: 350px;
+  height: 350px;              /* ЕДИНАЯ ВЫСОТА */
   margin: 20px auto 6px;
   display: flex;
   align-items: center;
@@ -56,7 +63,7 @@ pre { position: relative; }
 .img-figure img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  object-fit: contain;        /* БЕЗ ОБРЕЗКИ */
 }
 
 .img-caption {
@@ -66,119 +73,232 @@ pre { position: relative; }
   margin-bottom: 30px;
 }
 
-/* =========================================================
-   Footer
-   ========================================================= */
+
+/* ===== Footer tuning (colors + spacing like template) ===== */
 
 .site-footer{
   background: #fff;
-  border-top: 1px solid #e9ecf2;
+  border-top: 1px solid #e9ecf2; /* чуть мягче */
+  padding: 0;
 }
 
+/* чтобы футер был на той же "сетке", что контент справа */
 .site-footer__inner{
   max-width: 1200px;
   margin: 0 auto;
-  padding: 18px 56px;
+  width: 100%;
+
+  padding: 18px 56px;     /* как в шаблоне: широкие поля */
+  min-height: 84px;       /* чтобы футер не выглядел "сжатым" */
+
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   gap: 40px;
 }
 
+/* ЛЕВО: поддержка */
 .site-footer .projectInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  color: #8a8f99;         /* как на шаблоне — серый текст */
   font-size: 13px;
-  color: #8a8f99;
+  line-height: 1.35;
 }
 
+/* ссылки — чуть темнее, но не черные */
+.site-footer .projectInfo a{
+  color: #6f7682;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  width: fit-content;
+}
+
+.site-footer .projectInfo a:hover{
+  border-bottom-color: rgba(111,118,130,.55);
+}
+
+/* ПРАВО: копирайт */
 .site-footer .contentInfo{
+  margin: 0;
+  color: #b0b6c1;         /* ещё светлее */
   font-size: 13px;
-  color: #b0b6c1;
+  line-height: 1.35;
+
   text-align: right;
+  white-space: nowrap;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1200px){
+  .site-footer__inner{
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
 
 @media (max-width: 900px){
   .site-footer__inner{
+    padding: 18px 18px;
+    min-height: unset;
+
     flex-direction: column;
+    align-items: flex-start;  /* на мобиле как обычно — слева */
     gap: 12px;
-    padding: 18px;
   }
+
   .site-footer .contentInfo{
     text-align: left;
+    white-space: normal;
   }
 }
 
-/* Sticky footer for HonKit */
-.book .book-body .body-inner{
+/* 1) Стрелки навигации должны быть ВЫШЕ линии футера */
+.book .book-body .navigation,
+.book .book-body a.navigation-prev,
+.book .book-body a.navigation-next {
+  margin-bottom: 18px !important; /* расстояние между стрелками и линией футера */
+}
+
+/* 2) Убираем верхний внешний отступ у футера,
+      чтобы линия не "поднималась" из-за margin */
+.site-footer {
+  margin-top: 0 !important;
+}
+
+/* 3) Если у темы есть padding у контейнера навигации,
+      гарантируем, что линия футера не накрывает стрелки */
+.site-footer__inner {
+  padding-top: 18px;  /* линия футера + аккуратный воздух сверху */
+}
+
+/* ===== Sticky footer ONLY for right content column (HonKit) ===== */
+
+/* Правая колонка (без sidebar) растягивается на высоту окна */
+.book .book-body .body-inner {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-.book .book-body .body-inner .page-wrapper{ flex: 1; }
+
+/* Контент + стрелки занимает всё доступное место */
+.book .book-body .body-inner .page-wrapper {
+  flex: 1 0 auto;
+}
+
+/* Футер прижимается вниз правой колонки */
+.book .book-body .body-inner #site-footer.site-footer {
+  margin-top: auto !important;
+}
 
 /* =========================================================
-   LANDING PAGE
-   body.landing-page ставится JS
+   HOME / LANDING PAGE (only README.md with <div class="landing">)
    ========================================================= */
 
-body.landing-page .book .book-body .page-wrapper,
-body.landing-page .book .book-body .page-inner,
-body.landing-page .markdown-section{
-  max-width: none !important;
-  width: 100% !important;
+.landing {
+  /* фон как у вашего HTML */
+  background: #f5f6f8;
+  /* чтобы “лендинг” занимал высоту экрана, а футер прижимался вниз */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Убираем типичные отступы markdown-контейнера на главной,
+   иначе карточки могут быть “в рамке документации” */
+.book .markdown-section:has(.landing) {
   padding: 0 !important;
 }
 
-.landing{
-  background: #f5f6f8;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* На случай если :has() не поддерживается в каком-то браузере —
+   ваш лендинг и так будет выглядеть нормально, просто могут быть отступы.
+   Можно дополнительно сделать “мягкий” вариант: */
+.landing > * {
+  flex: 0 0 auto;
 }
 
-/* ===== HEADER ===== */
-
-.landing .gen-header{
+/* ===== ШАПКА ===== */
+.landing .gen-header {
   position: sticky;
   top: 0;
   z-index: 50;
+
   display: flex;
   align-items: center;
   gap: 16px;
+
   padding: 14px 18px;
-  background: #fff;
+  background: #ffffff;
   border-bottom: 1px solid #e1e3e9;
+
+  font-weight: 400;
+  letter-spacing: normal;
+  color: #666;
+}
+
+.landing .icon-home{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  min-width: 80px;
+}
+
+.landing .logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .landing .logo img{
   height: 14px;
+  width: auto;
   display: block;
 }
 
 .landing .header-nav-link{
   display: flex;
   gap: 14px;
+  flex-wrap: wrap;
 }
 
 .landing .header-nav-link a{
   text-decoration: none;
   color: #444;
+  font-weight: 400;
+  border-bottom: 1px solid transparent;
+}
+
+.landing .header-nav-link a:hover{
+  border-bottom-color: #999;
 }
 
 .landing .wy-header-nav-search{
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* search */
-
+/* Поисковая строка в шапке */
 .landing .search-inline{
   position: relative;
   width: min(260px, 40vw);
 }
 
-.landing .search-inline input{
+.landing .search-inline input[type="text"]{
   width: 100%;
   padding: 10px 16px 10px 40px;
   border-radius: 999px;
   border: 1px solid #e1e3e9;
+  background: #ffffff;
+  outline: none;
+  font-size: 15px;
+  color: #333;
 }
 
 .landing .search-inline .search-icon{
@@ -186,224 +306,58 @@ body.landing-page .markdown-section{
   left: 14px;
   top: 50%;
   transform: translateY(-50%);
-}
-
-.landing .search-inline .search-icon img{
   width: 16px;
   height: 16px;
-  display: block;
-}
-
-/* ===== CONTENT ===== */
-
-.landing .wy-nav-content{
-  width: 100%;
-}
-
-.landing .rst-content{
-  padding: 42px clamp(16px, 3vw, 48px);
-}
-
-/* headings */
-
-.landing h1{
-  font-size: 34px;
-  margin-bottom: 18px;
-}
-
-.landing h2{
-  font-size: 26px;
-  margin: 28px 0 14px;
-}
-
-/* hint */
-
-.landing .admonition.hint{
-  background: #e3f2fd;
-  border-left: 4px solid #1e88e5;
-  padding: 14px 16px;
-  border-radius: 10px;
-  margin-bottom: 22px;
-}
-
-.landing .admonition-title{
-  font-weight: 700;
-  color: #1e88e5;
-}
-
-/* =========================================================
-   GALLERY — КАК В ШАБЛОНЕ PIONEER
-   ========================================================= */
-
-.landing .gallery-layout .content{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap: 28px;
-}
-
-@media (max-width: 900px){
-  .landing .gallery-layout .content{
-    grid-template-columns: 1fr;
-  }
-}
-
-.landing .gallery-element{
-  background: #fff;
-  border: 1px solid #e1e3e9;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.landing .gallery-element:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
-}
-
-.landing .gallery-element a{
-  text-decoration: none !important;
-  color: inherit;
-  display: block;
-}
-
-/* header inside card */
-
-.landing .gallery-element .head{
-  padding: 28px 28px 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.landing .gallery-element .title{
-  line-height: 1.05;
-}
-
-.landing .card-title{
-  font-size: 18px;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  color: #6b6f78;
-}
-
-.landing .card-subtitle{
-  font-size: 28px;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: #111;
-}
-
-/* "В раздел" */
-
-.landing .float-title{
-  font-size: 13px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  opacity: 0;
-  transform: translateY(6px);
-  transition: .2s;
-}
-
-.landing .gallery-element:hover .float-title{
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* image */
-
-.landing .gallery-element .image{
-  height: 220px;
-  padding: 10px 28px 26px;
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
+  opacity: .45;
 }
 
-.landing .gallery-element .image img{
-  max-width: 92%;
-  max-height: 100%;
-  object-fit: contain;
-  display: block;
+.landing .search-inline input[type="text"]:hover{
+  border-color: #d3d7e3;
 }
 
-/* =========================================================
-   HonKit FIXES for standalone landing (big-card version)
-   ========================================================= */
-
-/* снимаем max-width HonKit на главной */
-body.landing-page .book .book-body .page-wrapper,
-body.landing-page .book .book-body .page-inner,
-body.landing-page .markdown-section{
-  max-width: none !important;
-  width: 100% !important;
-  padding: 0 !important;
+.landing .search-inline input[type="text"]:focus{
+  border-color: #c8ccda;
+  box-shadow: none;
 }
 
-/* центрируем контент как в standalone */
+/* ===== КОНТЕНТ ГЛАВНОЙ ===== */
 .landing .wy-nav-content{
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 }
 
-/* HonKit любит портить картинки */
-.landing img{
-  max-width: 100%;
-  height: auto;
+.landing .rst-content{
+  padding-left: clamp(16px, 4vw, 56px);
+  padding-right: clamp(16px, 4vw, 56px);
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
-/* ФИКС: чтобы картинки НЕ тянулись на всю высоту карточки */
-.landing .big-card-image img{
-  max-height: 300px;   /* как в твоём HTML */
-  width: auto;
-  object-fit: contain;
-}
-
-/* ФИКС: иконка поиска (лупа) */
-.landing .search-inline .search-icon img{
-  width: 16px;
-  height: 16px;
-  display: block;
-}
-
-/* =========================================================
-   BIG CARDS (standalone layout) — рабочая версия для HonKit
-   ========================================================= */
-
-/* контейнер карточек */
+/* ===== КАРТОЧКИ ===== */
 .landing .cards-row{
   display: flex;
   gap: 32px;
   flex-wrap: wrap;
-  align-items: stretch;
 }
 
-/* карточка как контейнер */
 .landing .big-card{
   flex: 1 1 420px;
   min-height: 320px;
   background: #ffffff;
   border-radius: 26px;
+  text-decoration: none;
+  color: inherit;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
   border: 1px solid #e1e3e9;
   transition: transform .18s ease, box-shadow .18s ease;
 }
 
-/* ссылка внутри */
-.landing .big-card-link,
-.landing .big-card-link:hover,
-.landing .big-card-link:focus,
-.landing .big-card-link:active{
-  display: block;
-  height: 100%;
-  color: inherit;
-  text-decoration: none !important;
-  border-bottom: none !important;
-}
-
-/* hover эффект карточки */
 .landing .big-card:hover{
   transform: translateY(-4px);
   box-shadow: 0 14px 28px rgba(0,0,0,0.12);
@@ -418,7 +372,6 @@ body.landing-page .markdown-section{
   gap: 32px;
 }
 
-/* левая часть */
 .landing .big-card-text{
   flex: 1;
   display: flex;
@@ -435,24 +388,25 @@ body.landing-page .markdown-section{
   white-space: nowrap;
 }
 
-.landing .big-card-text .accent{ font-weight: 700; }
+.landing .big-card-text .accent{
+  font-weight: 700;
+}
 
-/* линия под заголовком */
 .landing .big-card-text .title::after{
-  content: "";
-  display: block;
+  content:"";
+  display:block;
   height: 1px;
-  background: #bbb;
+  background:#bbb;
   margin-top: 10px;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform .35s ease;
 }
-.landing .big-card:hover .big-card-text .title::after{
+
+.landing .big-card:hover .title::after{
   transform: scaleX(1);
 }
 
-/* "в раздел" */
 .landing .go-link{
   margin-top: 10px;
   display: flex;
@@ -466,302 +420,57 @@ body.landing-page .markdown-section{
   transform: translateY(6px);
   transition: opacity .2s ease, transform .2s ease;
 }
+
 .landing .big-card:hover .go-link{
   opacity: 1;
   transform: translateY(0);
 }
 
-/* divider можно оставить невидимым (как у тебя было) */
-.landing .go-link .divider{
-  display: none;
-}
-
-/* правая часть */
 .landing .big-card-image{
   flex: 0 0 58%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  min-width: 0;
 }
 
 .landing .big-card-image img{
   max-width: 100%;
-  max-height: 300px;
-  width: auto;
-  height: auto;
+  max-height: 360px;
   object-fit: contain;
   display: block;
 }
 
-/* фикс лупы */
-.landing .search-inline .search-icon img{
-  width: 16px;
-  height: 16px;
-  display: block;
-}
-
-/* адаптив */
+/* ===== АДАПТИВ ===== */
 @media (max-width: 768px){
+  .landing .rst-content{
+    padding: 20px 16px 24px;
+  }
+
   .landing .big-card-inner{
     padding: 28px 24px;
     flex-direction: column-reverse;
     text-align: center;
-    gap: 24px;
   }
+
   .landing .big-card-image{
     justify-content: center;
     width: 100%;
   }
-}
 
-/* =========================================================
-   LANDING: forced reset (не зависит от body.landing-page)
-   ========================================================= */
-
-/* чтобы HonKit не ограничивал ширину внутри markdown */
-.landing,
-.landing * { box-sizing: border-box; }
-
-/* выравнивание и фон как в твоём standalone */
-.landing{
-  background:#f5f6f8;
-  min-height:100vh;
-}
-
-/* центрирование контента как у шаблона */
-.landing .wy-nav-content{
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-/* padding контента */
-.landing .rst-content{
-  padding-left: clamp(16px, 4vw, 56px);
-  padding-right: clamp(16px, 4vw, 56px);
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
-
-/* =========================================================
-   BIG CARDS — твой дизайн
-   =========
-
-/* =========================================================
-   LANDING (HonKit-safe): применяем внутри markdown-section
-   ========================================================= */
-
-.markdown-section > .landing{
-  /* HonKit иногда добавляет свои отступы/ширины — фиксируем */
-  margin: 0 !important;
-  padding: 0 !important;
-  background: #f5f6f8;
-}
-
-/* убираем стандартные max-width у markdown-section только на этой странице */
-body.landing-page .book .book-body .page-wrapper .page-inner section.markdown-section{
-  max-width: none !important;
-  width: 100% !important;
-  padding: 0 !important;
-}
-
-/* общий контейнер лендинга */
-.markdown-section > .landing{
-  min-height: 100vh;
-}
-
-/* шапка */
-.markdown-section > .landing .gen-header{
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  display:flex;
-  align-items:center;
-  gap:16px;
-  padding: 14px 18px;
-  background:#ffffff;
-  border-bottom:1px solid #e1e3e9;
-  color:#666;
-}
-
-/* логотип */
-.markdown-section > .landing .logo img{
-  height:14px;
-  width:auto;
-  display:block;
-}
-
-/* ссылки */
-.markdown-section > .landing .header-nav-link{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
-.markdown-section > .landing .header-nav-link a{
-  text-decoration:none;
-  color:#444;
-  border-bottom: 1px solid transparent;
-}
-.markdown-section > .landing .header-nav-link a:hover{
-  border-bottom-color:#999;
-}
-
-/* поиск */
-.markdown-section > .landing .wy-header-nav-search{ margin-left:auto; }
-.markdown-section > .landing .search-inline{ position:relative; width:min(260px, 40vw); }
-.markdown-section > .landing .search-inline input[type="text"]{
-  width:100%;
-  padding: 10px 16px 10px 40px;
-  border-radius: 999px;
-  border:1px solid #e1e3e9;
-  background:#fff;
-  outline:none;
-  font-size:15px;
-  color:#333;
-}
-.markdown-section > .landing .search-icon{
-  position:absolute;
-  left:14px;
-  top:50%;
-  transform: translateY(-50%);
-  width:16px;
-  height:16px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  pointer-events:none;
-  opacity:.45;
-}
-.markdown-section > .landing .search-icon img{
-  width:16px;
-  height:16px;
-  display:block;
-}
-
-/* основной контент (центрирование как в шаблоне) */
-.markdown-section > .landing .landing-main{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 32px clamp(16px, 4vw, 56px);
-}
-
-/* карточки */
-.markdown-section > .landing .cards-row{
-  display:flex;
-  gap:32px;
-  flex-wrap:wrap;
-  align-items:stretch;
-}
-
-.markdown-section > .landing .big-card{
-  flex:1 1 420px;
-  min-height:320px;
-  background:#ffffff;
-  border-radius:26px;
-  overflow:hidden;
-  box-shadow:0 6px 18px rgba(0,0,0,0.06);
-  border:1px solid #e1e3e9;
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.markdown-section > .landing .big-card:hover{
-  transform: translateY(-4px);
-  box-shadow:0 14px 28px rgba(0,0,0,0.12);
-}
-
-.markdown-section > .landing .big-card-link{
-  display:block;
-  height:100%;
-  color:inherit;
-  text-decoration:none !important;
-  border-bottom:none !important;
-}
-
-.markdown-section > .landing .big-card-inner{
-  padding: 40px 52px;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:32px;
-}
-
-.markdown-section > .landing .big-card-text{
-  flex: 1;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-.markdown-section > .landing .big-card-text .title{
-  font-size:24px;
-  letter-spacing:0.04em;
-  text-transform:uppercase;
-  display:inline-block;
-  white-space:nowrap;
-}
-
-.markdown-section > .landing .big-card-text .accent{ font-weight:700; }
-
-.markdown-section > .landing .go-link{
-  margin-top:10px;
-  font-size:14px;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  color:#444;
-  opacity:0;
-  transform: translateY(6px);
-  transition: opacity .2s ease, transform .2s ease;
-}
-.markdown-section > .landing .big-card:hover .go-link{
-  opacity:1;
-  transform: translateY(0);
-}
-
-.markdown-section > .landing .big-card-image{
-  flex: 0 0 58%;
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  min-width:0;
-}
-.markdown-section > .landing .big-card-image img{
-  max-width:100%;
-  max-height:300px;
-  width:auto;
-  height:auto;
-  object-fit:contain;
-  display:block;
-}
-
-/* мобила */
-@media (max-width: 768px){
-  .markdown-section > .landing .landing-main{
-    padding: 20px 16px 24px;
+  .landing .wy-header-nav-search{
+    width: 100%;
+    margin-left: 0;
   }
-  .markdown-section > .landing .big-card-inner{
-    padding:28px 24px;
-    flex-direction: column-reverse;
-    text-align:center;
-    gap:24px;
+
+  .landing .gen-header{
+    flex-wrap: wrap;
   }
-  .markdown-section > .landing .big-card-image{
-    justify-content:center;
-    width:100%;
+
+  .landing .header-nav-link{
+    width: 100%;
   }
-  .markdown-section > .landing .gen-header{
-    flex-wrap:wrap;
-  }
-  .markdown-section > .landing .header-nav-link{
-    width:100%;
-  }
-  .markdown-section > .landing .wy-header-nav-search{
-    width:100%;
-    margin-left:0;
-  }
-  .markdown-section > .landing .search-inline{
-    width:100%;
+
+  .landing .search-inline{
+    width: 100%;
   }
 }
-
