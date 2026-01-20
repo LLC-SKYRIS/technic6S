@@ -515,3 +515,36 @@ body.landing-page .markdown-section{
   }
 }
 
+/* =========================================================
+   LANDING: forced reset (не зависит от body.landing-page)
+   ========================================================= */
+
+/* чтобы HonKit не ограничивал ширину внутри markdown */
+.landing,
+.landing * { box-sizing: border-box; }
+
+/* выравнивание и фон как в твоём standalone */
+.landing{
+  background:#f5f6f8;
+  min-height:100vh;
+}
+
+/* центрирование контента как у шаблона */
+.landing .wy-nav-content{
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* padding контента */
+.landing .rst-content{
+  padding-left: clamp(16px, 4vw, 56px);
+  padding-right: clamp(16px, 4vw, 56px);
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+/* =========================================================
+   BIG CARDS — твой дизайн
+   =========
+
