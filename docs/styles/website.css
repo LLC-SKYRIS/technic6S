@@ -568,3 +568,56 @@ body.landing-page .landing .rst-content{
   }
 }
 
+/* =========================================================
+   LANDING: BIG IMAGE LIKE ORIGINAL HTML
+   ========================================================= */
+
+/* карточки выше, как в оригинале */
+.landing .big-card{
+  height: 320px !important;
+  min-height: 320px !important;
+}
+
+/* внутри карточки: текст слева, картинка справа */
+.landing .big-card-inner{
+  height: 100% !important;
+  padding: 40px 52px !important; /* как у вас было в оригинале */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 32px !important;
+}
+
+/* текст НЕ должен съедать всю ширину */
+.landing .big-card-text{
+  flex: 0 0 42% !important;
+  min-width: 240px !important;
+}
+
+/* контейнер картинки должен иметь высоту */
+.landing .big-card-image{
+  flex: 1 1 auto !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
+
+/* САМОЕ ВАЖНОЕ: убираем все max-ограничения и растягиваем по высоте */
+.landing .big-card-image img{
+  height: 100% !important;
+  width: auto !important;
+
+  max-height: none !important;
+  max-width: none !important;
+
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* на всякий случай: если где-то осталось ограничение */
+.landing img{
+  max-width: none;
+}
+
