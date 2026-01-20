@@ -547,3 +547,69 @@ body.landing-page .landing .rst-content{
   max-width: none;
 }
 
+/* ===== FIX: размеры и поведение картинок/карточек как в шаблоне ===== */
+
+/* карточки как в шаблоне: выше и аккуратнее */
+.landing .big-card{
+  height: 260px !important;        /* можно 260–280 */
+  min-height: 260px !important;
+}
+
+/* внутренние отступы как у "оригинала" */
+.landing .big-card-inner{
+  padding: 34px 44px !important;   /* можно 32/40 или 36/48 */
+}
+
+/* пропорции: текст слева фиксированнее, картинка справа свободнее */
+.landing .big-card-text{
+  flex: 0 0 44% !important;
+  min-width: 260px !important;
+}
+
+.landing .big-card-image{
+  flex: 1 1 56% !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  overflow: hidden !important;     /* важно, чтобы ничего не вылезало */
+}
+
+/* ключевое: картинка НЕ по высоте 100%, а "вписывается" как в шаблоне */
+.landing .big-card-image img{
+  width: min(420px, 100%) !important;   /* ограничиваем ширину */
+  height: auto !important;              /* НЕ растягиваем по высоте */
+  max-height: 210px !important;         /* ограничиваем высоту внутри карточки */
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* мобила: оставляем колонку, но тоже без "height:100%" */
+@media (max-width: 768px){
+  .landing .big-card{
+    height: auto !important;
+    min-height: 320px !important;
+  }
+
+  .landing .big-card-inner{
+    padding: 26px 22px !important;
+  }
+
+  .landing .big-card-image img{
+    width: 100% !important;
+    max-width: 520px !important;
+    max-height: 260px !important;
+  }
+}
+
+/* FIX: иконка поиска не должна раздуваться */
+.landing .search-inline .search-icon{
+  overflow: hidden;
+}
+
+.landing .search-inline .search-icon img{
+  width: 16px;
+  height: 16px;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
