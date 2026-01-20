@@ -741,3 +741,38 @@ body.landing-page .landing main{
   display: inline-block;
 }
 
+/* ===== Push cards lower on landing ===== */
+body.landing-page .landing main{
+  padding-top: 110px !important;   /* сделай 90–140 как нравится */
+}
+
+/* ===== Left-align card text and "В раздел" ===== */
+.landing .big-card-text{
+  text-align: left !important;
+  align-items: flex-start !important;
+}
+
+.landing .go-link{
+  justify-content: flex-start !important;
+  align-self: flex-start !important;
+}
+
+/* ===== Remove theme underlines inside the card link ===== */
+.landing a.big-card,
+.landing a.big-card:hover,
+.landing a.big-card:focus{
+  text-decoration: none !important;
+}
+
+.landing a.big-card *{
+  text-decoration: none !important;
+}
+
+/* на всякий: если тема добавляет border-bottom вместо underline */
+.landing .big-card .title,
+.landing .big-card .go-link,
+.landing .big-card .go-link .text{
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
