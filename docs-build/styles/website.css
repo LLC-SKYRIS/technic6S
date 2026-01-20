@@ -548,3 +548,220 @@ body.landing-page .markdown-section{
    BIG CARDS — твой дизайн
    =========
 
+/* =========================================================
+   LANDING (HonKit-safe): применяем внутри markdown-section
+   ========================================================= */
+
+.markdown-section > .landing{
+  /* HonKit иногда добавляет свои отступы/ширины — фиксируем */
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #f5f6f8;
+}
+
+/* убираем стандартные max-width у markdown-section только на этой странице */
+body.landing-page .book .book-body .page-wrapper .page-inner section.markdown-section{
+  max-width: none !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+/* общий контейнер лендинга */
+.markdown-section > .landing{
+  min-height: 100vh;
+}
+
+/* шапка */
+.markdown-section > .landing .gen-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding: 14px 18px;
+  background:#ffffff;
+  border-bottom:1px solid #e1e3e9;
+  color:#666;
+}
+
+/* логотип */
+.markdown-section > .landing .logo img{
+  height:14px;
+  width:auto;
+  display:block;
+}
+
+/* ссылки */
+.markdown-section > .landing .header-nav-link{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.markdown-section > .landing .header-nav-link a{
+  text-decoration:none;
+  color:#444;
+  border-bottom: 1px solid transparent;
+}
+.markdown-section > .landing .header-nav-link a:hover{
+  border-bottom-color:#999;
+}
+
+/* поиск */
+.markdown-section > .landing .wy-header-nav-search{ margin-left:auto; }
+.markdown-section > .landing .search-inline{ position:relative; width:min(260px, 40vw); }
+.markdown-section > .landing .search-inline input[type="text"]{
+  width:100%;
+  padding: 10px 16px 10px 40px;
+  border-radius: 999px;
+  border:1px solid #e1e3e9;
+  background:#fff;
+  outline:none;
+  font-size:15px;
+  color:#333;
+}
+.markdown-section > .landing .search-icon{
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform: translateY(-50%);
+  width:16px;
+  height:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+  opacity:.45;
+}
+.markdown-section > .landing .search-icon img{
+  width:16px;
+  height:16px;
+  display:block;
+}
+
+/* основной контент (центрирование как в шаблоне) */
+.markdown-section > .landing .landing-main{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px clamp(16px, 4vw, 56px);
+}
+
+/* карточки */
+.markdown-section > .landing .cards-row{
+  display:flex;
+  gap:32px;
+  flex-wrap:wrap;
+  align-items:stretch;
+}
+
+.markdown-section > .landing .big-card{
+  flex:1 1 420px;
+  min-height:320px;
+  background:#ffffff;
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  border:1px solid #e1e3e9;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.markdown-section > .landing .big-card:hover{
+  transform: translateY(-4px);
+  box-shadow:0 14px 28px rgba(0,0,0,0.12);
+}
+
+.markdown-section > .landing .big-card-link{
+  display:block;
+  height:100%;
+  color:inherit;
+  text-decoration:none !important;
+  border-bottom:none !important;
+}
+
+.markdown-section > .landing .big-card-inner{
+  padding: 40px 52px;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px;
+}
+
+.markdown-section > .landing .big-card-text{
+  flex: 1;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.markdown-section > .landing .big-card-text .title{
+  font-size:24px;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  display:inline-block;
+  white-space:nowrap;
+}
+
+.markdown-section > .landing .big-card-text .accent{ font-weight:700; }
+
+.markdown-section > .landing .go-link{
+  margin-top:10px;
+  font-size:14px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:#444;
+  opacity:0;
+  transform: translateY(6px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.markdown-section > .landing .big-card:hover .go-link{
+  opacity:1;
+  transform: translateY(0);
+}
+
+.markdown-section > .landing .big-card-image{
+  flex: 0 0 58%;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  min-width:0;
+}
+.markdown-section > .landing .big-card-image img{
+  max-width:100%;
+  max-height:300px;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  display:block;
+}
+
+/* мобила */
+@media (max-width: 768px){
+  .markdown-section > .landing .landing-main{
+    padding: 20px 16px 24px;
+  }
+  .markdown-section > .landing .big-card-inner{
+    padding:28px 24px;
+    flex-direction: column-reverse;
+    text-align:center;
+    gap:24px;
+  }
+  .markdown-section > .landing .big-card-image{
+    justify-content:center;
+    width:100%;
+  }
+  .markdown-section > .landing .gen-header{
+    flex-wrap:wrap;
+  }
+  .markdown-section > .landing .header-nav-link{
+    width:100%;
+  }
+  .markdown-section > .landing .wy-header-nav-search{
+    width:100%;
+    margin-left:0;
+  }
+  .markdown-section > .landing .search-inline{
+    width:100%;
+  }
+}
+
