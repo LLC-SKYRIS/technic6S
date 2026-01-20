@@ -46,7 +46,7 @@
             </div>
           </a>
 
-          <a class="big-card" href="pilotFPV/">
+          <a class="big-card" href="pilotfpv/">
             <div class="big-card-inner">
               <div class="big-card-text">
                 <div class="title">
@@ -68,26 +68,4 @@
     </div>
   </div>
 
-  </div>
-
-<script>
-  // Поиск: просто пробрасываем q в страницу результатов поиска HonKit
-  // ВАЖНО: подставьте реальную страницу (например technic6S/OrangePi.html или любую существующую),
-  // где HonKit показывает результаты поиска (honkit-plugin-search обычно сам рендерит выдачу).
-  const SEARCH_RESULTS_PAGE = "technic6S/OrangePi.html";
-
-  function goSearch(q) {
-    q = (q || "").trim();
-    if (!q) return;
-    window.location.href = `${SEARCH_RESULTS_PAGE}?q=${encodeURIComponent(q)}`;
-  }
-
-  const form = document.getElementById("site-search-form");
-  const input = document.getElementById("site-search-input");
-  if (form && input) {
-    form.addEventListener("submit", (e) => { e.preventDefault(); goSearch(input.value); });
-    input.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") { e.preventDefault(); goSearch(input.value); }
-    });
-  }
-</script>
+</div>
