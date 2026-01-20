@@ -776,3 +776,30 @@ body.landing-page .landing main{
   box-shadow: none !important;
 }
 
+/* ===== Wider cards on landing ===== */
+.landing .cards-row{
+  grid-template-columns: repeat(2, minmax(520px, 1fr));
+  gap: 48px; /* чуть больше воздуха между карточками */
+}
+
+/* чтобы на больших экранах они реально были широкими */
+@media (min-width: 1400px){
+  .landing main{
+    max-width: 1400px;
+  }
+}
+
+/* ===== Remove small underline under title ===== */
+.landing .big-card-text .title::after{
+  content: none !important;
+}
+
+.landing .go-link{
+  margin-top: 18px;
+}
+
+.landing .go-link .divider{
+  width: 56px;   /* чуть длиннее */
+  background: #c9ceda;
+}
+
