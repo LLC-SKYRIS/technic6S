@@ -392,21 +392,6 @@ pre {
   font-weight: 700;
 }
 
-.landing .big-card-text .title::after{
-  content:"";
-  display:block;
-  height: 1px;
-  background:#bbb;
-  margin-top: 10px;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .35s ease;
-}
-
-.landing .big-card:hover .title::after{
-  transform: scaleX(1);
-}
-
 .landing .go-link{
   margin-top: 10px;
   display: flex;
@@ -473,5 +458,30 @@ pre {
   .landing .search-inline{
     width: 100%;
   }
+}
+
+/* ===== Линия МЕЖДУ заголовком и "В раздел" ===== */
+
+/* блок "В раздел" пусть появляется как раньше */
+.landing .go-link{
+  margin-top: 14px;   /* чуть больше воздуха */
+  gap: 10px;
+}
+
+/* сама линия */
+.landing .go-link .divider{
+  display: block;
+  width: 220px;        /* длина линии (подберите) */
+  height: 1px;
+  background: #bbb;
+
+  transform: scaleX(0);        /* скрыта */
+  transform-origin: left;
+  transition: transform .35s ease;
+}
+
+/* показываем линию при hover карточки */
+.landing .big-card:hover .go-link .divider{
+  transform: scaleX(1);
 }
 
