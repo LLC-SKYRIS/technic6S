@@ -803,3 +803,23 @@ body.landing-page .landing main{
   background: #c9ceda;
 }
 
+/* ===== Responsive cards grid (auto 2->1 columns) ===== */
+.landing .cards-row{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* на очень узких экранах разрешаем сжиматься ещё сильнее */
+@media (max-width: 520px){
+  .landing .cards-row{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1400px){
+  .landing main{ max-width: 1400px; }
+  .landing .cards-row{ gap: 48px; }
+}
+
