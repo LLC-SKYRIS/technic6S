@@ -109,47 +109,64 @@
       var summary = document.querySelector('.book-summary');
       if (!summary) return;
 
-      // пункты, у которых есть подменю
       var items = summary.querySelectorAll('li.chapter');
 
       items.forEach(function (li) {
         var child = li.querySelector(':scope > ul');
         var link = li.querySelector(':scope > a');
-        if (!child || !link) return;
+        if (!child || !link) return; // только "папки" (есть подменю)
 
         // уникальный ключ состояния
         var key = 'nav:' + (link.getAttribute('href') || link.textContent.trim());
 
-        // уже обработано
+        // уже обработано — не дублируем обработчики
         if (li.classList.contains('has-toggle')) return;
         li.classList.add('has-toggle');
 
-        // создаём кнопку-тоггл
+        // создаём стрелку (caret), как в VS Code
         var btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'nav-toggle';
         btn.setAttribute('aria-label', 'Toggle section');
         btn.innerHTML = '▸';
 
-        // читаем сохранённое состояние (по умолчанию раскрыто)
+        // восстановим сохранённое состояние (по умолчанию раскрыто)
         var saved = localStorage.getItem(key);
         var collapsed = saved === '1';
-
         li.classList.toggle('is-collapsed', collapsed);
 
-        btn.addEventListener('click', function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-
+        function toggle() {
           var nowCollapsed = !li.classList.contains('is-collapsed');
           li.classList.toggle('is-collapsed', nowCollapsed);
           localStorage.setItem(key, nowCollapsed ? '1' : '0');
+        }
+
+        // клик по стрелке — всегда toggle
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggle();
         });
 
-        // вставляем кнопку перед ссылкой
+        // VS Code режим:
+        // обычный клик по названию папки => toggle, НЕ навигация
+        // Ctrl/Cmd/Shift/Alt или средняя кнопка => навигация (оставляем по умолчанию)
+        link.addEventListener('click', function (e) {
+          // если пользователь хочет открыть ссылку (как "open in new tab" / спец-клик) — не мешаем
+          if (e.button !== 0) return; // не левая кнопка
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+          // обычный клик — просто свернуть/развернуть
+          e.preventDefault();
+          e.stopPropagation();
+          toggle();
+        });
+
+        // вставляем стрелку перед ссылкой
         li.insertBefore(btn, link);
       });
     }
+
 
 
     // Force trailing slash for landing cards (fix slow load + broken navigation)
