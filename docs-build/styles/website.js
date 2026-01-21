@@ -103,6 +103,49 @@
 
     addCopyButtons(document);
 
+    // Force trailing slash for landing cards (fix slow load + broken navigation)
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a.big-card') : null;
+      if (!a) return;
+
+      // только левая кнопка мыши без модификаторов
+      if (e.button !== 0) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+      var href = a.getAttribute('href');
+      if (!href) return;
+
+      // внешние ссылки не трогаем
+      if (/^(https?:)?\/\//i.test(href)) return;
+
+      // нормализуем: technic6S  -> technic6S/
+      //              technic6S#x -> technic6S/#x
+      var parts = href.split('#');
+      var path = parts[0];
+      var hash = parts[1] ? ('#' + parts[1]) : '';
+
+      // если это не файл и нет слэша — добавим
+      if (!path.endsWith('/') && !/\.[a-z0-9]+$/i.test(path)) {
+        path = path + '/';
+      }
+
+      var fixed = path + hash;
+
+      // если gitbook умеет навигацию — используем её, но с правильным URL
+      if (window.gitbook && window.gitbook.navigation && window.gitbook.navigation.go) {
+        e.preventDefault();
+        window.gitbook.navigation.go(fixed);
+        return;
+      }
+
+      // иначе обычный переход
+      if (fixed !== href) {
+        e.preventDefault();
+        window.location.href = fixed;
+      }
+    }, true);
+
+
     var target =
       document.querySelector('.page-inner') ||
       document.querySelector('.book-body') ||
