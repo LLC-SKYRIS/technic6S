@@ -67,7 +67,6 @@ chmod 600 ~/.ssh/config ~/.ssh/known_hosts
 
 Генерируем пару SSH-ключей в директории `~/.ssh` на ноутбуке:
 
-<!-- TODO: в Windows начиная с версии 10 все команды перечисленные статье должны работать, - Проверить! -->
 
 ```bash
 ssh-keygen -f ~/.ssh/id_technic -C "SSH key for Technic" -N ""
