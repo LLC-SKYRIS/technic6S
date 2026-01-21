@@ -96,12 +96,61 @@
     // сразу
     syncLandingMode();
     syncLandingHeader();
+    initCollapsibleSidebar();
+
 
     // ещё раз после дорисовки
     setTimeout(function () { syncLandingMode(); syncLandingHeader(); }, 0);
     setTimeout(function () { syncLandingMode(); syncLandingHeader(); }, 50);
 
     addCopyButtons(document);
+
+    function initCollapsibleSidebar() {
+      var summary = document.querySelector('.book-summary');
+      if (!summary) return;
+
+      // пункты, у которых есть подменю
+      var items = summary.querySelectorAll('li.chapter');
+
+      items.forEach(function (li) {
+        var child = li.querySelector(':scope > ul');
+        var link = li.querySelector(':scope > a');
+        if (!child || !link) return;
+
+        // уникальный ключ состояния
+        var key = 'nav:' + (link.getAttribute('href') || link.textContent.trim());
+
+        // уже обработано
+        if (li.classList.contains('has-toggle')) return;
+        li.classList.add('has-toggle');
+
+        // создаём кнопку-тоггл
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'nav-toggle';
+        btn.setAttribute('aria-label', 'Toggle section');
+        btn.innerHTML = '▸';
+
+        // читаем сохранённое состояние (по умолчанию раскрыто)
+        var saved = localStorage.getItem(key);
+        var collapsed = saved === '1';
+
+        li.classList.toggle('is-collapsed', collapsed);
+
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          var nowCollapsed = !li.classList.contains('is-collapsed');
+          li.classList.toggle('is-collapsed', nowCollapsed);
+          localStorage.setItem(key, nowCollapsed ? '1' : '0');
+        });
+
+        // вставляем кнопку перед ссылкой
+        li.insertBefore(btn, link);
+      });
+    }
+
 
     // Force trailing slash for landing cards (fix slow load + broken navigation)
     document.addEventListener('click', function (e) {
@@ -169,6 +218,7 @@
     if (window.gitbook && window.gitbook.events && window.gitbook.events.bind) {
       window.gitbook.events.bind('page.change', function () {
         addCopyButtons(document);
+        initCollapsibleSidebar();
         setTimeout(function () { syncLandingMode(); syncLandingHeader(); }, 0);
         setTimeout(function () { syncLandingMode(); syncLandingHeader(); }, 50);
       });
