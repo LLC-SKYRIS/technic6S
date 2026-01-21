@@ -7,7 +7,7 @@
 * [Техник 6S](technic6S/README.md)
 
   * [Этап 1: Сборка базового коптера](technic6S/Sborka.md)
-  * [Этап 2: Установка вычислительного модуля](technic6S/Sborka2.md)
+	* [Этап 2: Установка вычислительного модуля](technic6S/Sborka2.md)
 
   * [Работа с OrangePi 5 Pro](technic6S/OrangePi.md)
     * [Образ для OPI](technic6S/ImageOPI.md)
@@ -20,8 +20,8 @@
     * [Командная строка](technic6S/CommandLine.md)
     * [Система координат](technic6S/CoordinateSystems.md)
 
-  * Настройка системы
-    * [Настройка питания](technic6S/EnergySettings.md)
+  * [Настройка питания](technic6S/EnergySettings.md)
+	* [Настройка параметров QGroundControl](technic6S/Parameters.md)
     * [Настройка камеры](technic6S/CameraSettings.md)
     * [Настройка сети](technic6S/NetworkSettings.md)
     * [Настройка failsafe](technic6S/FailsafeSettings.md)
@@ -29,7 +29,6 @@
     * [Калибровка датчиков](technic6S/CalibrationSensors.md)
     * [Bind приемника](technic6S/Bind.md)
     * [Полетные режимы](technic6S/Modes.md)
-    * [Настройка параметров QGroundControl](technic6S/Parameters.md)
 
   * [Программирование](technic6S/Programming.md)
     * [Автономный запуск ПО](technic6S/AutoRunSoft.md)
@@ -60,8 +59,7 @@
     * [Симулятор на компьютерах с чипом M1](technic6S/SimulationM1.md)
     * [Rviz и RQT](technic6S/Rviz.md)
 
-  * Дополнительные материалы
-    * [Примеры кода на Python](technic6S/CodeExamples.md)
+  * [Доп материалы: Примеры кода на Python](technic6S/CodeExamples.md)
     * [Подключение GPS](technic6S/GPS.md)
     * [Mavlink](technic6S/Mavlink.md)
     * [Подключение к Orange Pi 5 Pro с использованием SSH-ключей](technic6S/SshKeys.md)
@@ -73,8 +71,7 @@
   * [Введение](pilotFPV/Введение.md)
   * [Сборка](pilotFPV/Сборка.md)
 
-  * Настройка
-    * [Шаг 1: Настройка регулятора 4в1](pilotFPV/Настройка1.md)
+  * [Шаг 1: Настройка регулятора 4в1](pilotFPV/Настройка1.md)
     * [Шаг 2: Установка ПО и Подключение полетного контроллера к ПК](pilotFPV/Настройка2.md)
     * [Обновление прошивки FC и Калибровка акселерометра](pilotFPV/Настройка3.md)
     * [Настройка каналов и Настройка моторов](pilotFPV/Настройка4.md)
