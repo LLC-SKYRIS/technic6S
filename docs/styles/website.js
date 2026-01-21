@@ -132,7 +132,7 @@
 
         // восстановим сохранённое состояние (по умолчанию раскрыто)
         var saved = localStorage.getItem(key);
-        var collapsed = saved === '1';
+        var collapsed = saved !== '0';
         li.classList.toggle('is-collapsed', collapsed);
 
         function toggle() {
