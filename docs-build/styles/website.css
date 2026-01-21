@@ -51,20 +51,36 @@ pre {
   object-fit: cover; /* важное — делает квадрат */
 }
 
-.img-figure {
-  width: 600px;
-  height: 350px;              /* ЕДИНАЯ ВЫСОТА */
-  margin: 20px auto 6px;
+/* ===== Responsive figure for docs images ===== */
+.img-figure{
+  /* занимает всю ширину колонки, но не становится слишком огромной */
+  width: min(100%, 980px);
+
+  /* центрируем */
+  margin: 24px auto 8px;
+
+  /* фиксируем пропорции блока, чтобы на разных экранах было красиво */
+  aspect-ratio: 16 / 9;
+
+  /* ограничиваем высоту "умно": */
+  max-height: 520px;
+  min-height: 180px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* необязательно, но удобно для визуального ритма */
+  overflow: hidden;
 }
 
-.img-figure img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;        /* БЕЗ ОБРЕЗКИ */
+.img-figure img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* без обрезки */
+  display: block;
 }
+
 
 .img-caption {
   text-align: center;
