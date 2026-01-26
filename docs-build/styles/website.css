@@ -897,3 +897,12 @@ body.landing-page .landing main{
   padding: 6px 10px 6px 0;
   line-height: 1.25;
 }
+
+/* ВАЖНО: именно это делает сворачивание видимым */
+.book-summary li.chapter.no-link-folder.is-collapsed > ul{
+  display: none !important;
+}
+
+.book-summary li.chapter.is-collapsed > ul{
+  display: none !important;
+}
