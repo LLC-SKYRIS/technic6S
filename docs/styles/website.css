@@ -857,10 +857,6 @@ body.landing-page .landing main{
   user-select: none;
 }
 
-.book-summary li.chapter.no-link-folder > .nav-folder-label:hover{
-  background: rgba(0,0,0,0.04);
-}
-
 /* стрелка центрируется ПО ТЕКСТУ, а не по li */
 .book-summary li.chapter.no-link-folder > button.nav-toggle{
   position: absolute;
@@ -926,37 +922,30 @@ body.landing-page .landing main{
   background: transparent !important;
 }
 
-/* =========================================
-   FIX: remove gray underline/line on active folders (Technic 6S path)
-   ========================================= */
+/* =======================================================
+   Sidebar: remove gray background/underline for folder labels
+   (no-link-folder subheadings)
+   ======================================================= */
 
-/* 1) если линия рисуется на самом LI */
-.book-summary li.chapter.no-link-folder.active,
-.book-summary li.chapter.no-link-folder.current{
-  border-bottom: 0 !important;
-  box-shadow: none !important;
-  background-image: none !important;
-}
-
-/* 2) если линия рисуется на label */
+/* 1) Полностью убираем "линию/подчеркивание", которое тема рисует через box-shadow/border */
+.book-summary li.chapter.no-link-folder > .nav-folder-label,
+.book-summary li.chapter.no-link-folder > .nav-folder-label:hover,
 .book-summary li.chapter.no-link-folder.active > .nav-folder-label,
 .book-summary li.chapter.no-link-folder.current > .nav-folder-label{
+  background: transparent !important;
+  text-decoration: none !important;
+  border: 0 !important;
   border-bottom: 0 !important;
   box-shadow: none !important;
   background-image: none !important;
 }
 
-/* 3) если тема рисует линию псевдоэлементом */
-.book-summary li.chapter.no-link-folder.active::before,
-.book-summary li.chapter.no-link-folder.active::after,
-.book-summary li.chapter.no-link-folder.current::before,
-.book-summary li.chapter.no-link-folder.current::after,
-.book-summary li.chapter.no-link-folder.active > .nav-folder-label::before,
-.book-summary li.chapter.no-link-folder.active > .nav-folder-label::after,
-.book-summary li.chapter.no-link-folder.current > .nav-folder-label::before,
-.book-summary li.chapter.no-link-folder.current > .nav-folder-label::after{
+/* 2) На всякий случай: если тема рисует линию псевдоэлементом */
+.book-summary li.chapter.no-link-folder > .nav-folder-label::before,
+.book-summary li.chapter.no-link-folder > .nav-folder-label::after{
   content: none !important;
   border: 0 !important;
   box-shadow: none !important;
   background: transparent !important;
 }
+
