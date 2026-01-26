@@ -114,23 +114,20 @@
       items.forEach(function (li) {
         var child = li.querySelector(':scope > ul');
         var link = li.querySelector(':scope > a');
-        if (!child || !link) return; // только "папки" (есть подменю)
 
-        // уникальный ключ состояния
-        var key = 'nav:' + (link.getAttribute('href') || link.textContent.trim());
+        // интересуют ТОЛЬКО пункты:
+        // - есть ссылка
+        // - есть вложенный список
+        if (!child || !link) return;
 
-        // уже обработано — не дублируем обработчики
+        // защита от повторной инициализации
         if (li.classList.contains('has-toggle')) return;
         li.classList.add('has-toggle');
 
-        // создаём стрелку (caret), как в VS Code
-        var btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'nav-toggle';
-        btn.setAttribute('aria-label', 'Toggle section');
-        btn.innerHTML = '▸';
+        // ключ состояния
+        var key = 'nav:' + link.getAttribute('href');
 
-        // восстановим сохранённое состояние (по умолчанию раскрыто)
+        // по умолчанию СВЁРНУТО
         var saved = localStorage.getItem(key);
         var collapsed = saved !== '0';
         li.classList.toggle('is-collapsed', collapsed);
@@ -141,31 +138,24 @@
           localStorage.setItem(key, nowCollapsed ? '1' : '0');
         }
 
-        // клик по стрелке — всегда toggle
+        // стрелка (caret)
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'nav-toggle';
+        btn.setAttribute('aria-label', 'Toggle section');
+        btn.innerHTML = '▸';
+
         btn.addEventListener('click', function (e) {
           e.preventDefault();
           e.stopPropagation();
           toggle();
         });
 
-        // VS Code режим:
-        // обычный клик по названию папки => toggle, НЕ навигация
-        // Ctrl/Cmd/Shift/Alt или средняя кнопка => навигация (оставляем по умолчанию)
-        link.addEventListener('click', function (e) {
-          // если пользователь хочет открыть ссылку (как "open in new tab" / спец-клик) — не мешаем
-          if (e.button !== 0) return; // не левая кнопка
-          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-
-          // обычный клик — просто свернуть/развернуть
-          e.preventDefault();
-          e.stopPropagation();
-          toggle();
-        });
-
-        // вставляем стрелку перед ссылкой
+        // вставляем стрелку ПЕРЕД ссылкой
         li.insertBefore(btn, link);
       });
     }
+
 
 
 
