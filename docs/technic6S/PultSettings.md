@@ -28,7 +28,9 @@
 1. Скачайте файл с прошивкой для пульта __________
 
 <img src="assets/bind5.png" width=200 class="center zoom">
-
+<div class="img-figure">
+  <img src="assets/bind5.png">
+</div>
 2. Включите пульт РУ зажав кнопку “Power” 
     
 3. Перейдите в меню нажав кнопку “SYS” 

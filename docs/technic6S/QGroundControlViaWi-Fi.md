@@ -16,8 +16,9 @@
 4. Нажмите *OK* для сохранения параметров.
 5. Выберите созданное подключение и нажмите *Connect*.
 
-<img src="assets/qg-round-corners.png" width=500 class="center zoom">
-
+<div class="img-figure">
+  <img src="assets/qg-round-corners.png">
+</div>
 ### UDP
 
 Также возможна настройка подключения по протоколу UDP. Для выбора различных вариантов подключения по UDP необходимо отредактировать параметр `gcs_bridge` в launch-файле `/home/orangepi/technic_ws/src/technic/technic/launch/technic.launch`.

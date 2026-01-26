@@ -16,8 +16,9 @@
 
 В случае отсутствия индикатора напряжения или невозможности ручной калибровки, установите усредненное значение делителя напряжения для комплекта Клевер 4 (*Voltage divider* = 11).
 
-<img src="assets/qgc-voltage-divider.png" width="600" class="center zoom">
-
+<div class="img-figure">
+  <img src="assets/qgc-voltage-divider.png">
+</div>
 Дополнительная информация: https://docs.qgroundcontrol.com/en/SetupView/Power.html.
 
 ### Калибровка регуляторов (ESC)
@@ -29,7 +30,9 @@
 3. После появлении надписи *Connect the battery now* подсоедините АКБ.
 4. Дождитесь появления надписи *Calibration complete*.
 
-<img src="assets/qgc-power.png" width="600" class="center zoom">
+<div class="img-figure">
+  <img src="assets/qgc-power.png">
+</div>
 
 Дополнительная информация: https://docs.px4.io/master/en/advanced_config/esc_calibration.html.
 

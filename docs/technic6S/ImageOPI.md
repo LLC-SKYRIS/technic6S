@@ -20,8 +20,8 @@
 
 5. После записи установите модуль в **OPi.
 
-
-<img src="assets/image-round-corners.png" width="600" class="zoom">
-
+<div class="img-figure">
+  <img src="assets/image-round-corners.png">
+</div>
 
 После того как образ будет записан на eMMC, можно подключаться к [Technic по Wi-Fi](ConnectingToWi-Fi.md), использовать [беспроводное подключение к QGroundControl](QGroundControlViaWi-Fi.md), получать [SSH-доступ](SSH.md) и пользоваться всеми функциями системы.  
