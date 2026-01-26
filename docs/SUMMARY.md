@@ -6,7 +6,7 @@
 
 * [Техник 6S](technic6S/README.md)
 
-  * [Этап 1: Сборка базового коптера](technic6S/Sborka.md)
+  * [Сборка базового коптера](technic6S/Sborka.md)
 	* [Этап 2: Установка вычислительного модуля](technic6S/Sborka2.md)
 
   * [Работа с OrangePi 5 Pro](technic6S/OrangePi.md)
