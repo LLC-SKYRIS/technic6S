@@ -115,17 +115,15 @@
         var child = li.querySelector(':scope > ul');
         var link = li.querySelector(':scope > a');
 
-        // интересуют ТОЛЬКО пункты:
-        // - есть ссылка
-        // - есть вложенный список
-        if (!child || !link) return;
+        // НУЖНЫ ТОЛЬКО:
+        // 1) есть вложенные пункты
+        // 2) НЕТ ссылки (это "Сборка", "Настройки системы" и т.п.)
+        if (!child || link) return;
 
-        // защита от повторной инициализации
         if (li.classList.contains('has-toggle')) return;
-        li.classList.add('has-toggle');
+        li.classList.add('has-toggle', 'no-link-folder');
 
-        // ключ состояния
-        var key = 'nav:' + link.getAttribute('href');
+        var key = 'nav:' + li.textContent.trim();
 
         // по умолчанию СВЁРНУТО
         var saved = localStorage.getItem(key);
@@ -138,11 +136,10 @@
           localStorage.setItem(key, nowCollapsed ? '1' : '0');
         }
 
-        // стрелка (caret)
+        // стрелка
         var btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'nav-toggle';
-        btn.setAttribute('aria-label', 'Toggle section');
         btn.innerHTML = '▸';
 
         btn.addEventListener('click', function (e) {
@@ -151,10 +148,18 @@
           toggle();
         });
 
-        // вставляем стрелку ПЕРЕД ссылкой
-        li.insertBefore(btn, link);
+        // клик по названию → toggle
+        li.addEventListener('click', function (e) {
+          if (e.target.closest('ul')) return;
+          if (e.target.closest('button')) return;
+          e.preventDefault();
+          toggle();
+        });
+
+        li.insertBefore(btn, li.firstChild);
       });
     }
+
 
 
 
