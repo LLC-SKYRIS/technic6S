@@ -115,9 +115,9 @@
         var child = li.querySelector(':scope > ul');
         var link = li.querySelector(':scope > a');
 
-        // НУЖНЫ ТОЛЬКО:
+        // НУЖНЫ ТОЛЬКО подглавы:
         // 1) есть вложенные пункты
-        // 2) НЕТ ссылки (это "Сборка", "Настройки системы" и т.п.)
+        // 2) НЕТ ссылки (это "Сборка", "Настройка системы", и т.д.)
         if (!child || link) return;
 
         if (li.classList.contains('has-toggle')) return;
@@ -125,7 +125,7 @@
 
         var key = 'nav:' + li.textContent.trim();
 
-        // по умолчанию СВЁРНУТО
+        // по умолчанию свернуто
         var saved = localStorage.getItem(key);
         var collapsed = saved !== '0';
         li.classList.toggle('is-collapsed', collapsed);
@@ -140,6 +140,7 @@
         var btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'nav-toggle';
+        btn.setAttribute('aria-label', 'Toggle section');
         btn.innerHTML = '▸';
 
         btn.addEventListener('click', function (e) {
@@ -148,17 +149,22 @@
           toggle();
         });
 
-        // клик по названию → toggle
+        li.insertBefore(btn, li.firstChild);
+
+        // 👉 КЛИК ПО ТЕКСТУ ПОДГЛАВЫ
         li.addEventListener('click', function (e) {
+          // если кликнули по вложенным страницам — не трогаем
           if (e.target.closest('ul')) return;
-          if (e.target.closest('button')) return;
+
+          // если клик по стрелке — уже обработано
+          if (e.target.closest('button.nav-toggle')) return;
+
           e.preventDefault();
           toggle();
         });
-
-        li.insertBefore(btn, li.firstChild);
       });
     }
+
 
 
 
