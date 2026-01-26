@@ -112,41 +112,61 @@
       var items = summary.querySelectorAll('li.chapter');
 
       items.forEach(function (li) {
-        var child = li.querySelector(':scope > ul');
-        var link = li.querySelector(':scope > a');
+        // --- найдём прямые дочерние элементы: ul и a ---
+        var directUL = null;
+        var directA = null;
 
-        // НУЖНЫ ТОЛЬКО подглавы:
-        // есть ul и НЕТ ссылки
-        if (!child || link) return;
+        for (var i = 0; i < li.children.length; i++) {
+          var el = li.children[i];
+          if (!directUL && el.tagName === 'UL') directUL = el;
+          if (!directA && el.tagName === 'A') directA = el;
+        }
+
+        // интересуют ТОЛЬКО "подглавы без ссылок": есть UL, но нет A
+        if (!directUL || directA) return;
 
         if (li.classList.contains('has-toggle')) return;
         li.classList.add('has-toggle', 'no-link-folder');
 
-        /* ---------- 1. СОЗДАЁМ КЛИКАБЕЛЬНЫЙ LABEL ---------- */
+        // --- найдём/создадим кликабельный label перед UL ---
+        // В разных темах текст может быть:
+        // 1) как прямой textNode в li
+        // 2) как span/div перед UL
+        var label = null;
 
-        // получаем "чистый" текст подглавы
-        var text = '';
-        for (var i = 0; i < li.childNodes.length; i++) {
-          var n = li.childNodes[i];
-          if (n.nodeType === 3 && n.textContent.trim()) {
-            text = n.textContent.trim();
-            li.removeChild(n);
-            break;
+        // сначала попробуем найти прямой элемент перед UL (span/div/p)
+        var ulIndex = Array.prototype.indexOf.call(li.children, directUL);
+        if (ulIndex > 0) {
+          var candidate = li.children[ulIndex - 1];
+          // если это не наша кнопка
+          if (!candidate.classList.contains('nav-toggle')) {
+            label = candidate;
           }
         }
 
-        if (!text) return;
+        // если подходящего элемента нет — создаём span и забираем текстовые узлы
+        if (!label) {
+          label = document.createElement('span');
+          label.className = 'nav-folder-label';
 
-        var label = document.createElement('span');
-        label.className = 'nav-folder-label';
-        label.textContent = text;
+          // соберём текст из textNode (если есть)
+          var textParts = [];
+          for (var n = 0; n < li.childNodes.length; n++) {
+            var node = li.childNodes[n];
+            if (node.nodeType === 3 && node.textContent.trim()) {
+              textParts.push(node.textContent.trim());
+            }
+          }
+          label.textContent = textParts.join(' ') || 'Раздел';
 
-        // вставляем label ПЕРЕД ul
-        li.insertBefore(label, child);
+          li.insertBefore(label, directUL);
+        } else {
+          // если label — элемент, добавим класс, чтобы он стал кликабельным
+          label.classList.add('nav-folder-label');
+        }
 
-        /* ---------- 2. СОСТОЯНИЕ ---------- */
-
-        var key = 'nav:' + text;
+        // --- состояние (по умолчанию свернуто) ---
+        var key = 'nav:' + (label.textContent || '').trim();
         var saved = localStorage.getItem(key);
         var collapsed = saved !== '0';
         li.classList.toggle('is-collapsed', collapsed);
@@ -157,11 +177,11 @@
           localStorage.setItem(key, nowCollapsed ? '1' : '0');
         }
 
-        /* ---------- 3. СТРЕЛКА ---------- */
-
+        // --- стрелка ---
         var btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'nav-toggle';
+        btn.setAttribute('aria-label', 'Toggle section');
         btn.innerHTML = '▸';
 
         btn.addEventListener('click', function (e) {
@@ -170,10 +190,10 @@
           toggle();
         });
 
+        // вставляем кнопку перед label
         li.insertBefore(btn, label);
 
-        /* ---------- 4. КЛИК ПО НАЗВАНИЮ ---------- */
-
+        // --- клик по названию подглавы тоже toggle ---
         label.addEventListener('click', function (e) {
           e.preventDefault();
           e.stopPropagation();
@@ -181,6 +201,7 @@
         });
       });
     }
+
 
 
 

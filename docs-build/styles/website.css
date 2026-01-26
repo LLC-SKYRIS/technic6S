@@ -839,10 +839,20 @@ body.landing-page .landing main{
   .landing .cards-row{ gap: 48px; }
 }
 
-/* ===== Collapsible sidebar (VS Code style) ===== */
+.book-summary li.chapter.no-link-folder > .nav-folder-label{
+  display: block;
+  cursor: pointer;
+  user-select: none;
+  padding: 4px 0;
+}
+
+.book-summary li.chapter.no-link-folder > .nav-folder-label:hover{
+  background: rgba(0,0,0,0.04);
+}
+
 .book-summary li.chapter.has-toggle{
   position: relative;
-  padding-left: 18px; /* место под стрелку */
+  padding-left: 18px;
 }
 
 .book-summary button.nav-toggle{
@@ -860,15 +870,10 @@ body.landing-page .landing main{
   padding: 0;
 }
 
-.book-summary li.chapter.has-toggle:hover > button.nav-toggle{
-  color: #5b6473;
-}
-
 .book-summary li.chapter.is-collapsed > ul{
   display: none;
 }
 
-/* стрелка повернута вниз, когда раскрыто */
 .book-summary li.chapter.has-toggle > button.nav-toggle{
   transform: rotate(90deg);
   transition: transform .15s ease;
@@ -877,18 +882,3 @@ body.landing-page .landing main{
 .book-summary li.chapter.is-collapsed > button.nav-toggle{
   transform: rotate(0deg);
 }
-
-.book-summary li.chapter.no-link-folder > .nav-folder-label{
-  display: block;
-  cursor: pointer;
-  user-select: none;
-  padding: 6px 0;
-}
-
-.book-summary li.chapter.no-link-folder > .nav-folder-label:hover{
-  background: rgba(0,0,0,0.04);
-}
-
-
-
-
