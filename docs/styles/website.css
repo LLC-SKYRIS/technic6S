@@ -949,3 +949,8 @@ body.landing-page .landing main{
   display: none !important;
 }
 
+/* крайний случай */
+.site-footer p{
+  display: none !important;
+}
+
