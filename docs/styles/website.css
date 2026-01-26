@@ -840,116 +840,60 @@ body.landing-page .landing main{
 }
 
 /* ================================
-   Sidebar folders spacing + align
+   Sidebar folders FINAL (correct)
    ================================ */
 
-/* 1) Строка подглавы: стрелка + название в одну линию, по центру */
 .book-summary li.chapter.no-link-folder{
   position: relative;
-  padding-left: 22px !important;   /* место под стрелку */
-  margin: 0 !important;
+  padding-left: 26px;
 }
 
-/* 2) Кликабельный текст подглавы */
+/* название подглавы */
 .book-summary li.chapter.no-link-folder > .nav-folder-label{
   display: block;
-  padding: 8px 10px 8px 0 !important;  /* больше воздуха между подглавами */
-  line-height: 1.25 !important;
-  cursor: pointer;
-  user-select: none;
-}
-
-/* hover как раньше */
-.book-summary li.chapter.no-link-folder > .nav-folder-label:hover{
-  background: rgba(0,0,0,0.04);
-}
-
-/* 3) Стрелка: ровно по центру строки, а не "ниже" */
-.book-summary li.chapter.no-link-folder > button.nav-toggle{
-  position: absolute;
-  left: 4px;
-  top: 50% !important;
-  transform: translateY(-50%) rotate(90deg);
-  width: 16px;
-  height: 16px;
-  border: 0;
-  padding: 0;
-  background: transparent;
-  cursor: pointer;
-  line-height: 16px;
-  font-size: 12px;
-  color: #9aa3b2;
-}
-
-/* свернули — стрелка вбок */
-.book-summary li.chapter.no-link-folder.is-collapsed > button.nav-toggle{
-  transform: translateY(-50%) rotate(0deg);
-}
-
-/* 4) Убираем огромные отступы у вложенного UL (из-за темы часто раздуты) */
-.book-summary li.chapter.no-link-folder > ul{
-  margin: 2px 0 6px 0 !important;
-  padding: 0 0 0 16px !important;     /* аккуратный отступ вложенности */
-}
-
-/* 5) Уменьшаем расстояние между страницами внутри раскрытой подглавы */
-.book-summary li.chapter.no-link-folder > ul li.chapter{
-  margin: 0 !important;
-}
-
-.book-summary li.chapter.no-link-folder > ul li.chapter > a{
-  display: block;
-  padding: 6px 10px 6px 0 !important;
-  line-height: 1.25 !important;
-}
-
-/* На всякий: если тема делает большие отступы у вложенных ul */
-.book-summary li.chapter.no-link-folder > ul ul{
-  margin: 0 !important;
-  padding-left: 16px !important;
-}
-
-/* === Correct arrow centering relative to folder title === */
-
-.book-summary li.chapter.no-link-folder{
-  position: relative;
-  padding-left: 26px !important; /* место под стрелку */
-}
-
-/* сам текст подглавы */
-.book-summary li.chapter.no-link-folder > .nav-folder-label{
-  display: block;
-  padding: 8px 10px 8px 0 !important;
+  padding: 8px 10px 8px 0;
   line-height: 1.3;
   cursor: pointer;
   user-select: none;
 }
 
-/* стрелка теперь центрируется ОТНОСИТЕЛЬНО НАЗВАНИЯ */
+.book-summary li.chapter.no-link-folder > .nav-folder-label:hover{
+  background: rgba(0,0,0,0.04);
+}
+
+/* стрелка центрируется ПО ТЕКСТУ, а не по li */
 .book-summary li.chapter.no-link-folder > button.nav-toggle{
   position: absolute;
   left: 6px;
 
-  top: calc(
-    (8px) +              /* верхний padding label */
-    (1.3em / 2)          /* половина высоты текста */
-  );
-
+  /* центр именно по названию */
+  top: calc(8px + (1.3em / 2));
   transform: translateY(-50%) rotate(90deg);
 
   width: 16px;
   height: 16px;
   border: 0;
-  padding: 0;
   background: transparent;
   cursor: pointer;
 
   font-size: 12px;
   line-height: 16px;
+  padding: 0;
   color: #9aa3b2;
 }
 
 /* свернуто */
 .book-summary li.chapter.no-link-folder.is-collapsed > button.nav-toggle{
   transform: translateY(-50%) rotate(0deg);
+}
+
+/* вложенные страницы — компактно */
+.book-summary li.chapter.no-link-folder > ul{
+  margin: 2px 0 6px 0;
+  padding-left: 16px;
+}
+
+.book-summary li.chapter.no-link-folder > ul li.chapter > a{
+  padding: 6px 10px 6px 0;
+  line-height: 1.25;
 }
