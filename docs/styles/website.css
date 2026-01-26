@@ -941,3 +941,11 @@ body.landing-page .landing main{
   background: transparent !important;
 }
 
+/* === Remove "Published with Honkit" === */
+.site-footer .honkit,
+.site-footer .gitbook-link,
+.site-footer a[href*="honkit"],
+.site-footer a[href*="gitbook"]{
+  display: none !important;
+}
+
