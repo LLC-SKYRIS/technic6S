@@ -115,47 +115,38 @@
         var child = li.querySelector(':scope > ul');
         var link = li.querySelector(':scope > a');
 
-        // Нужны только нессылочные папки: есть ul, но нет a
+        // НУЖНЫ ТОЛЬКО подглавы:
+        // есть ul и НЕТ ссылки
         if (!child || link) return;
 
         if (li.classList.contains('has-toggle')) return;
         li.classList.add('has-toggle', 'no-link-folder');
 
-        // 1) Найдём "текст" подглавы и обернём в span.nav-folder-label
-        // В разных темах текст бывает как textNode или span
-        var label = li.querySelector(':scope > .nav-folder-label');
+        /* ---------- 1. СОЗДАЁМ КЛИКАБЕЛЬНЫЙ LABEL ---------- */
 
-        if (!label) {
-          // берём все дочерние узлы li до <ul> и складываем в label
-          label = document.createElement('span');
-          label.className = 'nav-folder-label';
-
-          // вставим label перед ul
-          li.insertBefore(label, child);
-
-          // переносим все узлы, которые стоят перед <ul>, внутрь label
-          // (кроме нашей будущей кнопки)
-          while (label.nextSibling && label.nextSibling !== child) {
-            var n = label.nextSibling;
-            if (n.nodeType === 1 && n.classList && n.classList.contains('nav-toggle')) break;
-            label.appendChild(n);
+        // получаем "чистый" текст подглавы
+        var text = '';
+        for (var i = 0; i < li.childNodes.length; i++) {
+          var n = li.childNodes[i];
+          if (n.nodeType === 3 && n.textContent.trim()) {
+            text = n.textContent.trim();
+            li.removeChild(n);
+            break;
           }
-
-          // если текст был как textNode прямо в li — заберём его тоже
-          // (т.к. он обычно находится до ul)
-          var nodes = [];
-          for (var i = 0; i < li.childNodes.length; i++) {
-            var node = li.childNodes[i];
-            if (node === label || node === child) continue;
-            if (node.nodeType === 3 && node.textContent.trim()) nodes.push(node);
-          }
-          nodes.forEach(function (n) { label.appendChild(n); });
         }
 
-        // ключ состояния
-        var key = 'nav:' + (label.textContent || li.textContent).trim();
+        if (!text) return;
 
-        // по умолчанию свернуто
+        var label = document.createElement('span');
+        label.className = 'nav-folder-label';
+        label.textContent = text;
+
+        // вставляем label ПЕРЕД ul
+        li.insertBefore(label, child);
+
+        /* ---------- 2. СОСТОЯНИЕ ---------- */
+
+        var key = 'nav:' + text;
         var saved = localStorage.getItem(key);
         var collapsed = saved !== '0';
         li.classList.toggle('is-collapsed', collapsed);
@@ -166,11 +157,11 @@
           localStorage.setItem(key, nowCollapsed ? '1' : '0');
         }
 
-        // 2) стрелка
+        /* ---------- 3. СТРЕЛКА ---------- */
+
         var btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'nav-toggle';
-        btn.setAttribute('aria-label', 'Toggle section');
         btn.innerHTML = '▸';
 
         btn.addEventListener('click', function (e) {
@@ -179,10 +170,10 @@
           toggle();
         });
 
-        // вставляем кнопку в самое начало li
-        li.insertBefore(btn, li.firstChild);
+        li.insertBefore(btn, label);
 
-        // 3) клик по названию подглавы (label) — toggle
+        /* ---------- 4. КЛИК ПО НАЗВАНИЮ ---------- */
+
         label.addEventListener('click', function (e) {
           e.preventDefault();
           e.stopPropagation();
