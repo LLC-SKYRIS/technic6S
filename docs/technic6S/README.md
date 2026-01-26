@@ -4,6 +4,8 @@
 
 Набор включает в себя полетный контроллер PX4, [Orange Pi 5 pro](OrangePi.md) в качестве управляющего бортового компьютера, [модуль камеры](CameraSettings.md) для реализации полетов с использованием компьютерного зрения, а также набор различных датчиков и другой периферии. 
 
-<img src="assets/6S.png" width="600px" class="center zoom">
+<div class="img-figure">
+  <img src="assets/6S.png">
+</div>
 
 Платформа Technic также включает в себя преднастроенный [образ для Orange Pi 5 Pro](ImageOPI.md) в полным набором необходимого ПО для работы со всей периферией и [программирования автономных полетов](AutonomousFlight.md). Исходный код платформы Technic и данной документации открыт и [доступен на GitHub](https://github.com/LLC-SKYRIS/technic6S). 
