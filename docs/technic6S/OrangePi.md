@@ -2,7 +2,7 @@
 
 
 <div class="img-figure">
-  <img src="assets/orangepi.png">
+  <img src="assets/orange.jpeg">
 </div>
 
 **Orangepi 5 pro** –  это компактный одноплатный компьютер на мощном процессоре Rockchip RK 3588S, предназначенный для разработки: высокопроизводительных вычислений, приложений AIoT, таких как искусственный интеллект и умный дом. Orangepi 5 pro входит в комплекты программируемого квадрокоптера Technic. Далее OrangePi 5 Pro будет называться OPi
