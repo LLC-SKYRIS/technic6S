@@ -11,4 +11,7 @@
  orangepi
  ```
 
-<img src="assets/web-terminal-round-corners.png" width="600" class="center zoom">
+
+<div class="img-figure">
+  <img src="assets/web-terminal-round-corners.png">
+</div>

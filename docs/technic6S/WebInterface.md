@@ -6,4 +6,7 @@
 
 > **Подсказка** Наберите в браузере http://10.42.0.1:8000/technic чтобы открыть веб-интерфейс
 
-<img src="assets/web_interface.png" width=600 class="center zoom">
+
+<div class="img-figure">
+  <img src="assets/web_interface.png">
+</div>

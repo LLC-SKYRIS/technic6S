@@ -1,8 +1,9 @@
 # Система координат
 
 
-<img src="assets/frames-round-corners.png" width=500 class="center zoom">
-
+<div class="img-figure">
+  <img src="assets/frames-round-corners.png">
+</div>
 В пакете `technic` определены основные системы координат (фреймы):
 
 - **`map`** — глобальная система координат, отсчитываемая от точки запуска полётного контроллера (на схеме показана белой сеткой);
