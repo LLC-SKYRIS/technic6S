@@ -919,3 +919,10 @@ body.landing-page .landing main{
 .book-summary li.chapter.no-link-folder > .nav-folder-label::after{
   content: none !important;
 }
+
+/* === Remove active background from folder titles only === */
+.book-summary li.chapter.no-link-folder.active > .nav-folder-label,
+.book-summary li.chapter.no-link-folder.current > .nav-folder-label{
+  background: transparent !important;
+}
+
