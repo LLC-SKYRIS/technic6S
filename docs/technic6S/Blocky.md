@@ -17,7 +17,9 @@
 Интерфейс выглядит следующим образом:
 
 
-<img src="assets/blocks-round-corners.png" width=400 class="center zoom">
+<div class="img-figure">
+  <img src="assets/blocks-round-corners.png">
+</div>
 
 Соберите необходимую программу из блоков в меню слева а затем нажмите кнопку *Run* для ее запуска. Также вы можете просмотреть сгенерированный код на языке Python, переключившись во вкладку *Python*.
 

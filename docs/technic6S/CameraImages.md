@@ -8,7 +8,10 @@
 
 Для просмотра видеострима нужно [подключиться к Wi-Fi](ConnectingToWi-Fi.md) Technic \(`technic-xxxx`\), перейти на страницу [http://10.42.0.1:8080/](http://10.42.0.1:8080/) и выбрать топик.
 
-<img src="assets/web_video_server.png" width=300 class="center zoom">
+
+<div class="img-figure">
+  <img src="assets/web_video_server.png">
+</div>
 
 Если передача картинки работает слишком медленно, можно ускорить ее, указав тип передаваемых данных `mjpeg` и меняя GET-параметр `quality` (от 1 до 100), который отвечает за сжатие видеострима, например:
 

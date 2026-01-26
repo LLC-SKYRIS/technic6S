@@ -4,7 +4,9 @@
 
 ### Компас
 
-<img src="assets/qgc-cal-compass.png" width="600" class="center zoom">
+<div class="img-figure">
+  <img src="assets/qgc-cal-compass.png">
+</div>
 
 1. Выберите меню *Compass*.
 2. Выберите ориентацию полетного контроллера – *ROTATION_NONE* при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.
@@ -18,7 +20,9 @@
 
 ### Гироскоп
 
-<img src="assets/qgc-cal-gyro.png" width="600" class="center zoom">
+<div class="img-figure">
+  <img src="assets/qgc-cal-gyro.png">
+</div>
 
 1. Выберите меню *Gyroscope*
 2. Установите квадрокоптер на ровную поверхность.
@@ -31,7 +35,9 @@
 
 ### Акселерометр
 
-<img src="assets/qgc-cal-acc.png" width="600" class="center zoom">
+<div class="img-figure">
+  <img src="assets/qgc-cal-acc.png">
+</div>
 
 1. Выберите меню *Accelerometer*.
 2. Выберите ориентацию полетного контроллера – *ROTATION_NONE* при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.
@@ -42,7 +48,9 @@
 
 ### Уровень горизонта
 
-<img src="assets/qgc-cal-level.png" width="600" class="center zoom">
+<div class="img-figure">
+  <img src="assets/qgc-cal-level.png">
+</div>
 
 1. Выберите меню *Level Horizon*.
 2. Выберите ориентацию полетного контроллера – *ROTATION_NONE* при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.

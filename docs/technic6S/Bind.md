@@ -1,8 +1,14 @@
 # Бинд приемника 
 
-<img src="assets/pult1.png" width=400 class="center zoom">
 
-<img src="assets/WifiHotspot.png" width=200 class="center zoom">
+<div class="img-figure">
+  <img src="assets/pult1.png">
+</div>
+
+
+<div class="img-figure">
+  <img src="assets/WifiHotspot.png">
+</div>
 
 1. Скачайте файл с прошивкой для приемника __________
     
@@ -18,7 +24,9 @@
     
 5. В окне браузера введите адрес 10.0.0.1
 
-<img src="assets/pult1.png" width=400 class="center zoom">
+<div class="img-figure">
+  <img src="assets/pult1.png">
+</div>
 
 6. Перейдите на вкладку “Update”
 
@@ -26,7 +34,9 @@
 
 8. Нажмите кнопку “Update” - приемник обновит прошивку и перезагрузится
 
-<img src="assets/pult2.png" width=400 class="center zoom">
+<div class="img-figure">
+  <img src="assets/pult2.png">
+</div>
 
 9. Повторно подключитесь к приемнику по WIFI и запустите окно настроек в браузере (пункты 4 и 5)
 

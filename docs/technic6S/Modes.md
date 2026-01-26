@@ -19,7 +19,9 @@
 6. Проверьте корректность переключения режимов, переключая переключатель на пульте.
 7. Назначьте аварийное отключение моторов (*Kill switch*) на переключатель SwA (Channel 5).
 
-<img src="assets/qgc-modes.png" class="zoom" alt="QGroundControl modes">
+<div class="img-figure">
+  <img src="assets/qgc-modes.png">
+</div>
 
 ### Подробное описание полетных режимов
 
