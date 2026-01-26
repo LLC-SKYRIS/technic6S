@@ -878,13 +878,17 @@ body.landing-page .landing main{
   transform: rotate(0deg);
 }
 
-.book-summary li.chapter.no-link-folder{
+/* Кликабельное название подглавы (без ссылки) */
+.book-summary li.chapter.no-link-folder > .nav-folder-label{
+  display: block;
   cursor: pointer;
   user-select: none;
+  padding: 6px 0;
 }
 
-.book-summary li.chapter.no-link-folder:hover{
+.book-summary li.chapter.no-link-folder > .nav-folder-label:hover{
   background: rgba(0,0,0,0.04);
 }
+
 
 
