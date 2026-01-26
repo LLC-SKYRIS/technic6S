@@ -941,16 +941,21 @@ body.landing-page .landing main{
   background: transparent !important;
 }
 
-/* === Remove "Published with Honkit" === */
-.site-footer .honkit,
-.site-footer .gitbook-link,
-.site-footer a[href*="honkit"],
-.site-footer a[href*="gitbook"]{
+/* === Remove "Published with HonKit" / "GitBook" (theme footer variants) === */
+.gitbook-link,
+.honkit-link,
+.powered-by,
+.published-with,
+.book-footer,
+.page-footer,
+.book .book-body .book-footer,
+.book .book-body .page-footer,
+.book .book-body .footer,
+.book .book-body footer .gitbook-link,
+.book .book-body footer .honkit-link,
+.book .book-body footer a[href*="honkit"],
+.book .book-body footer a[href*="gitbook"]{
   display: none !important;
 }
 
-/* крайний случай */
-.site-footer p{
-  display: none !important;
-}
 

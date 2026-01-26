@@ -46,6 +46,34 @@
     });
   }
 
+  function hidePublishedWithHonkit(root) {
+    root = root || document;
+
+    var needles = [
+      'Published with HonKit',
+      'Published with honkit',
+      'Published with GitBook',
+      'Published with gitbook'
+    ];
+
+    // пробегаемся по типовым контейнерам, где такое обычно встречается
+    var nodes = root.querySelectorAll('footer, .footer, .book-footer, .page-footer, .gitbook-link, .powered-by, p, div, span, a');
+
+    nodes.forEach(function (el) {
+      var t = (el.textContent || '').replace(/\s+/g, ' ').trim();
+      if (!t) return;
+
+      // если элемент содержит только эту надпись (или начинается с неё) — прячем
+      for (var i = 0; i < needles.length; i++) {
+        if (t === needles[i] || t.indexOf(needles[i]) === 0) {
+          el.style.display = 'none';
+          break;
+        }
+      }
+    });
+  }
+
+
   function syncLandingMode() {
     var isLanding = !!document.querySelector('.landing');
     document.body.classList.toggle('landing-page', isLanding);
@@ -104,6 +132,7 @@
     setTimeout(function () { syncLandingMode(); syncLandingHeader(); }, 50);
 
     addCopyButtons(document);
+    hidePublishedWithHonkit(document);
 
     function initCollapsibleSidebar() {
       var summary = document.querySelector('.book-summary');
@@ -275,6 +304,7 @@
     if (window.gitbook && window.gitbook.events && window.gitbook.events.bind) {
       window.gitbook.events.bind('page.change', function () {
         addCopyButtons(document);
+        hidePublishedWithHonkit(document);
         initCollapsibleSidebar();
         setTimeout(function () { syncLandingMode(); syncLandingHeader(); }, 0);
         setTimeout(function () { syncLandingMode(); syncLandingHeader(); }, 50);
