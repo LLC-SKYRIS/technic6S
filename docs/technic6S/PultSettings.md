@@ -27,9 +27,8 @@
 
 1. Скачайте файл с прошивкой для пульта __________
 
-<div class="img-figure">
-  <img src="assets/bind5.png">
-</div>
+ <img src="assets/bind5.png" width=180 class="center zoom"> 
+
 2. Включите пульт РУ зажав кнопку “Power” 
     
 3. Перейдите в меню нажав кнопку “SYS” 
@@ -39,15 +38,13 @@
 5. Далее нажмите “Enter”
 
 
-<div class="img-figure">
-  <img src="assets/bind6.png">
-</div>
+
+ <img src="assets/bind6.png" width=300 class="center zoom"> 
 
 
-<div class="img-figure">
-  <img src="assets/WifiHotspotTX.png">
-</div>
 
+ <img src="assets/WifiHotspotTX.png" width=300 class="center zoom"> 
+ 
 6. После появления индикации “WiFi Running” пульт запустит точку доступа с названием “ExpressLRS TX” 
 7. Подключитесь к приемнику как к точке доступа WiFi:
     
