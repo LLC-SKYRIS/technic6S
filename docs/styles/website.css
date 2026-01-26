@@ -926,3 +926,37 @@ body.landing-page .landing main{
   background: transparent !important;
 }
 
+/* =========================================
+   FIX: remove gray underline/line on active folders (Technic 6S path)
+   ========================================= */
+
+/* 1) если линия рисуется на самом LI */
+.book-summary li.chapter.no-link-folder.active,
+.book-summary li.chapter.no-link-folder.current{
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  background-image: none !important;
+}
+
+/* 2) если линия рисуется на label */
+.book-summary li.chapter.no-link-folder.active > .nav-folder-label,
+.book-summary li.chapter.no-link-folder.current > .nav-folder-label{
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  background-image: none !important;
+}
+
+/* 3) если тема рисует линию псевдоэлементом */
+.book-summary li.chapter.no-link-folder.active::before,
+.book-summary li.chapter.no-link-folder.active::after,
+.book-summary li.chapter.no-link-folder.current::before,
+.book-summary li.chapter.no-link-folder.current::after,
+.book-summary li.chapter.no-link-folder.active > .nav-folder-label::before,
+.book-summary li.chapter.no-link-folder.active > .nav-folder-label::after,
+.book-summary li.chapter.no-link-folder.current > .nav-folder-label::before,
+.book-summary li.chapter.no-link-folder.current > .nav-folder-label::after{
+  content: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
