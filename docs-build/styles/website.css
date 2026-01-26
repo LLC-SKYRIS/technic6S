@@ -839,9 +839,6 @@ body.landing-page .landing main{
   .landing .cards-row{ gap: 48px; }
 }
 
-/* ================================
-   Sidebar folders FINAL (correct)
-   ================================ */
 
 .book-summary li.chapter.no-link-folder{
   position: relative;
@@ -890,8 +887,8 @@ body.landing-page .landing main{
 }
 
 .book-summary li.chapter.no-link-folder > ul li.chapter > a{
-  padding: 6px 10px 6px 0;
-  line-height: 1.25;
+  padding: 8px 10px 8px 0;
+  line-height: 1.35;
 }
 
 /* ВАЖНО: именно это делает сворачивание видимым */
@@ -921,11 +918,6 @@ body.landing-page .landing main{
 .book-summary li.chapter.no-link-folder.current > .nav-folder-label{
   background: transparent !important;
 }
-
-/* =======================================================
-   Sidebar: remove gray background/underline for folder labels
-   (no-link-folder subheadings)
-   ======================================================= */
 
 /* 1) Полностью убираем "линию/подчеркивание", которое тема рисует через box-shadow/border */
 .book-summary li.chapter.no-link-folder > .nav-folder-label,
