@@ -74,7 +74,6 @@
 ---
 
 * [Пилот FPV](pilotFPV/README.md)
-	* [Главная](pilotFPV/README.md)
 	* [Введение](pilotFPV/Введение.md)
 	* [Сборка](pilotFPV/Сборка.md)
 	
