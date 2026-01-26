@@ -906,3 +906,16 @@ body.landing-page .landing main{
 .book-summary li.chapter.is-collapsed > ul{
   display: none !important;
 }
+
+/* === Remove gray underline from collapsible folder titles === */
+.book-summary li.chapter.no-link-folder > .nav-folder-label{
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+/* на всякий случай — если тема рисует underline через псевдоэлементы */
+.book-summary li.chapter.no-link-folder > .nav-folder-label::before,
+.book-summary li.chapter.no-link-folder > .nav-folder-label::after{
+  content: none !important;
+}
