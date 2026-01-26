@@ -878,3 +878,13 @@ body.landing-page .landing main{
   transform: rotate(0deg);
 }
 
+.book-summary li.chapter.no-link-folder{
+  cursor: pointer;
+  user-select: none;
+}
+
+.book-summary li.chapter.no-link-folder:hover{
+  background: rgba(0,0,0,0.04);
+}
+
+
