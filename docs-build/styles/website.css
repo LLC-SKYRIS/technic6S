@@ -839,46 +839,72 @@ body.landing-page .landing main{
   .landing .cards-row{ gap: 48px; }
 }
 
-.book-summary li.chapter.no-link-folder > .nav-folder-label{
-  display: block;
-  cursor: pointer;
-  user-select: none;
-  padding: 4px 0;
+/* ================================
+   Sidebar folders spacing + align
+   ================================ */
+
+/* 1) Строка подглавы: стрелка + название в одну линию, по центру */
+.book-summary li.chapter.no-link-folder{
+  position: relative;
+  padding-left: 22px !important;   /* место под стрелку */
+  margin: 0 !important;
 }
 
+/* 2) Кликабельный текст подглавы */
+.book-summary li.chapter.no-link-folder > .nav-folder-label{
+  display: block;
+  padding: 8px 10px 8px 0 !important;  /* больше воздуха между подглавами */
+  line-height: 1.25 !important;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* hover как раньше */
 .book-summary li.chapter.no-link-folder > .nav-folder-label:hover{
   background: rgba(0,0,0,0.04);
 }
 
-.book-summary li.chapter.has-toggle{
-  position: relative;
-  padding-left: 18px;
-}
-
-.book-summary button.nav-toggle{
+/* 3) Стрелка: ровно по центру строки, а не "ниже" */
+.book-summary li.chapter.no-link-folder > button.nav-toggle{
   position: absolute;
-  left: 2px;
-  top: 8px;
-  width: 18px;
-  height: 18px;
+  left: 4px;
+  top: 50% !important;
+  transform: translateY(-50%) rotate(90deg);
+  width: 16px;
+  height: 16px;
   border: 0;
+  padding: 0;
   background: transparent;
   cursor: pointer;
-  color: #9aa3b2;
+  line-height: 16px;
   font-size: 12px;
-  line-height: 18px;
-  padding: 0;
+  color: #9aa3b2;
 }
 
-.book-summary li.chapter.is-collapsed > ul{
-  display: none;
+/* свернули — стрелка вбок */
+.book-summary li.chapter.no-link-folder.is-collapsed > button.nav-toggle{
+  transform: translateY(-50%) rotate(0deg);
 }
 
-.book-summary li.chapter.has-toggle > button.nav-toggle{
-  transform: rotate(90deg);
-  transition: transform .15s ease;
+/* 4) Убираем огромные отступы у вложенного UL (из-за темы часто раздуты) */
+.book-summary li.chapter.no-link-folder > ul{
+  margin: 2px 0 6px 0 !important;
+  padding: 0 0 0 16px !important;     /* аккуратный отступ вложенности */
 }
 
-.book-summary li.chapter.is-collapsed > button.nav-toggle{
-  transform: rotate(0deg);
+/* 5) Уменьшаем расстояние между страницами внутри раскрытой подглавы */
+.book-summary li.chapter.no-link-folder > ul li.chapter{
+  margin: 0 !important;
+}
+
+.book-summary li.chapter.no-link-folder > ul li.chapter > a{
+  display: block;
+  padding: 6px 10px 6px 0 !important;
+  line-height: 1.25 !important;
+}
+
+/* На всякий: если тема делает большие отступы у вложенных ul */
+.book-summary li.chapter.no-link-folder > ul ul{
+  margin: 0 !important;
+  padding-left: 16px !important;
 }
