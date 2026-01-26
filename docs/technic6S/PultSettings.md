@@ -27,7 +27,6 @@
 
 1. Скачайте файл с прошивкой для пульта __________
 
-<img src="assets/bind5.png" width=200 class="center zoom">
 <div class="img-figure">
   <img src="assets/bind5.png">
 </div>
@@ -39,9 +38,15 @@
     
 5. Далее нажмите “Enter”
 
-<img src="assets/bind6.png" width=200 class="center zoom"> 
 
-<img src="assets/WifiHotspotTX.png" width=200 class="center zoom">
+<div class="img-figure">
+  <img src="assets/bind6.png">
+</div>
+
+
+<div class="img-figure">
+  <img src="assets/WifiHotspotTX.png">
+</div>
 
 6. После появления индикации “WiFi Running” пульт запустит точку доступа с названием “ExpressLRS TX” 
 7. Подключитесь к приемнику как к точке доступа WiFi:

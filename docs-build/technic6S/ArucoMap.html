@@ -1171,10 +1171,16 @@
 <!-- Также можно создать карту в специальном [конструкторе](arucogenmap.md). -->
 <h3 id="проверка">Проверка</h3>
 <p>Для контроля карты, по которой в данный момент коптер осуществляет навигацию, можно просмотреть содержимое топика <code>/aruco_map/image</code>. Через браузер его можно просмотреть при помощи <a href="CameraImages.html">web_video_server</a> по ссылке <a href="http://10.42.0.1:8080/snapshot?topic=/aruco_map/image" target="_blank">http://10.42.0.1:8080/snapshot?topic=/aruco_map/image</a>:</p>
-<p><img src="assets/aruco_map.png" width="200"></img></p>
+<div class="img-figure">
+  <img src="assets/aruco_map.png"></img>
+</div>
+
 <p>Техник публикует текущую позицию распознанной карты в топик <code>aruco_map/pose</code>. Также публикуется <a href="CoordinateSystems.html">TF-фрейм</a> <code>aruco_map</code> (VPE выключен) или <code>aruco_map_detected</code> (VPE включен). Используя топик <code>aruco_map/visualization</code> можно визуализировать текущую карту маркеров в <a href="Rviz.html">rviz</a>.</p>
 <p>Наглядно позиция распознанной карты отображается в топике <code>aruco_map/debug</code> (просмотр доступен по ссылке <a href="http://10.42.0.1:8080/stream_viewer?topic=/aruco_map/debug" target="_blank">http://10.42.0.1:8080/stream_viewer?topic=/aruco_map/debug</a>):</p>
-<p><img src="assets/aruco_map_debug.png" width="250"></img></p>
+<div class="img-figure">
+  <img src="assets/aruco_map_debug.png"></img>
+</div>
+
 <h3 id="система-координат">Система координат</h3>
 <p>По <a href="http://www.ros.org/reps/rep-0103.html" target="_blank">соглашению</a> в маркерном поле используется стандартная система координат <abbr title="East-North-Up">ENU</abbr>:</p>
 <ul>
@@ -1315,7 +1321,7 @@ navigate(x=<span class="hljs-number">2</span>, y=<span class="hljs-number">2</sp
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Навигация по картам ArUco-маркеров","level":"2.1.5.5","depth":3,"next":{"title":"Лазерный дальномер","level":"2.1.5.6","depth":3,"path":"technic6S/LaserRangefinder.md","ref":"technic6S/LaserRangefinder.md","articles":[]},"previous":{"title":"Распознавание ArUco-маркеров","level":"2.1.5.4","depth":3,"path":"technic6S/ArucoMarker.md","ref":"technic6S/ArucoMarker.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/ArucoMap.md","mtime":"2026-01-19T13:47:00.489Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-01-26T12:51:19.350Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Навигация по картам ArUco-маркеров","level":"2.1.5.5","depth":3,"next":{"title":"Лазерный дальномер","level":"2.1.5.6","depth":3,"path":"technic6S/LaserRangefinder.md","ref":"technic6S/LaserRangefinder.md","articles":[]},"previous":{"title":"Распознавание ArUco-маркеров","level":"2.1.5.4","depth":3,"path":"technic6S/ArucoMarker.md","ref":"technic6S/ArucoMarker.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/ArucoMap.md","mtime":"2026-01-26T13:03:31.092Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-01-26T13:07:19.090Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1369,11 +1375,11 @@ navigate(x=<span class="hljs-number">2</span>, y=<span class="hljs-number">2</sp
     <script src="../gitbook/theme.js"></script>
     
         
-        <script src="../gitbook/honkit-plugin-add-js/9nwau0wr5c62RY65-home-link.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/xtM1d4hXavGoaDM5-home-link.js"></script>
         
     
         
-        <script src="../gitbook/honkit-plugin-add-js/EeVfnkNMafQZHWvn-website.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/IrcMddnwNvSAO7Mx-website.js"></script>
         
     
         

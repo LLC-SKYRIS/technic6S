@@ -6,10 +6,14 @@ The Robot Operating System (ROS) — это набор программных б
 
 Пункт View Topics позволяет увидеть список всех доступных топиков
 
-
-<img src="assets/topics.png" width=500 class="center zoom">
+<div class="img-figure">
+  <img src="assets/topics.png">
+</div>
 
 
 Пункт View Image Topics (web_video_server) позволяет увидеть [просмотр изображений с камер](CameraImages.md), [детекцию аруко меток](ArucoMarker.md), а также детекцию объектов используя [нейронные сети](CNN.md). 
 
-<img src="assets/image_topics-round-corners.png" width=500 class="center zoom">
+
+<div class="img-figure">
+  <img src="assets/image_topics-round-corners.png">
+</div>

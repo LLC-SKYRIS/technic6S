@@ -66,13 +66,18 @@ rosrun aruco_pose genmap.py 0.33 2 4 1 1 0 -o test_map.txt
 
 Для контроля карты, по которой в данный момент коптер осуществляет навигацию, можно просмотреть содержимое топика `/aruco_map/image`. Через браузер его можно просмотреть при помощи [web_video_server](CameraImages.md) по ссылке http://10.42.0.1:8080/snapshot?topic=/aruco_map/image:
 
-<img src="assets/aruco_map.png" width=200>
+<div class="img-figure">
+  <img src="assets/aruco_map.png">
+</div>
 
 Техник публикует текущую позицию распознанной карты в топик `aruco_map/pose`. Также публикуется [TF-фрейм](CoordinateSystems.md) `aruco_map` (VPE выключен) или `aruco_map_detected` (VPE включен). Используя топик `aruco_map/visualization` можно визуализировать текущую карту маркеров в [rviz](Rviz.md).
 
 Наглядно позиция распознанной карты отображается в топике `aruco_map/debug` (просмотр доступен по ссылке http://10.42.0.1:8080/stream_viewer?topic=/aruco_map/debug):
 
-<img src="assets/aruco_map_debug.png" width=250>
+
+<div class="img-figure">
+  <img src="assets/aruco_map_debug.png">
+</div>
 
 ### Система координат
 

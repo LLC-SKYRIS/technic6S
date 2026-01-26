@@ -1138,7 +1138,10 @@
   
                                 <h1 id="дальномер-hc-sr04">Дальномер HC-SR04</h1>
 <p>Ультразвуковой дальномер (<em>«сонар»</em>) — это датчик расстояния, принцип действия которого основан на измерении времени распространения звуковой волны (с частотой около 40 кГц) до препятствия и обратно. Сонар может измерять расстояние до 1,5–3 м с точностью до нескольких сантиметров.</p>
-<p><img src="assets/hc-sr04.jpg" alt="HC-SR04" width="200"></img></p>
+<div class="img-figure">
+  <img src="assets/hc-sr04.jpg"></img>
+</div>
+
 <h3 id="установка">Установка</h3>
 <p>Дальномер закрепляется к корпусу с помощью двухстороннего скотча. Для получения приемлемых результатов необходимо использование виброразвязки. В качестве виброразвязки можно использовать кусок поролона.</p>
 <h4 id="подключение">Подключение</h4>
@@ -1218,7 +1221,10 @@ history = collections.deque(maxlen=<span class="hljs-number">10</span>)  <span c
 <p><img src="assets/sonar-filtered.png"></img></p>
 <p>Исходный код ROS-ноды, использовавшейся для построения графика можно найти <a href="https://gist.github.com/okalachev/feb2d7235f5c9636802c3cda43add253" target="_blank">на Gist</a>.</p>
 <h3 id="дальномер-rcw-0001">Дальномер RCW-0001</h3>
-<p><img src="assets/rcw-0001.jpg" width="200"></img></p>
+<div class="img-figure">
+  <img src="assets/rcw-0001.jpg"></img>
+</div>
+
 <p>Ультразвуковой дальномер RCW-0001 совместим с дальномером HC-SR04. Используйте инструкцию выше для подключения и работы с ним.</p>
 <h3 id="полет">Полет</h3>
 <p>Пример полетной программы с использованием <a href="AutonomousFlightOffboard.html">simple_offboard</a>, которая заставляет коптер лететь вперед, пока подключенный ультразвуковой дальномер не задетектирует препятствие:</p>
@@ -1320,7 +1326,7 @@ history = collections.deque(maxlen=<span class="hljs-number">10</span>)  <span c
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Ультразвуковой дальномер","level":"2.1.5.7","depth":3,"next":{"title":"GPIO","level":"2.1.5.8","depth":3,"path":"technic6S/GPIO.md","ref":"technic6S/GPIO.md","articles":[]},"previous":{"title":"Лазерный дальномер","level":"2.1.5.6","depth":3,"path":"technic6S/LaserRangefinder.md","ref":"technic6S/LaserRangefinder.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/UltrasonicRangefinder.md","mtime":"2026-01-19T14:01:09.405Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-01-26T12:51:19.350Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Ультразвуковой дальномер","level":"2.1.5.7","depth":3,"next":{"title":"GPIO","level":"2.1.5.8","depth":3,"path":"technic6S/GPIO.md","ref":"technic6S/GPIO.md","articles":[]},"previous":{"title":"Лазерный дальномер","level":"2.1.5.6","depth":3,"path":"technic6S/LaserRangefinder.md","ref":"technic6S/LaserRangefinder.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/UltrasonicRangefinder.md","mtime":"2026-01-26T13:04:32.260Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-01-26T13:07:19.090Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1374,11 +1380,11 @@ history = collections.deque(maxlen=<span class="hljs-number">10</span>)  <span c
     <script src="../gitbook/theme.js"></script>
     
         
-        <script src="../gitbook/honkit-plugin-add-js/9nwau0wr5c62RY65-home-link.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/xtM1d4hXavGoaDM5-home-link.js"></script>
         
     
         
-        <script src="../gitbook/honkit-plugin-add-js/EeVfnkNMafQZHWvn-website.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/IrcMddnwNvSAO7Mx-website.js"></script>
         
     
         
