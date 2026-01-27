@@ -12,6 +12,10 @@
 
 3. Подключите модуль eMMC к компьютеру, при необходимости используйте адаптер.
 
+<div class="img-figure">
+  <img src="assets/adapter.jpg">
+</div>
+
 4. С помощью Etcher выполните запись загруженного образа на eMMC.
 	1. В появившемся окне нажмите "Flash from file"
 	2. Выберите скачанный образ файла
@@ -24,4 +28,8 @@
   <img src="assets/image-round-corners.png">
 </div>
 
-После того как образ будет записан на eMMC, можно подключаться к [Technic по Wi-Fi](ConnectingToWi-Fi.md), использовать [беспроводное подключение к QGroundControl](QGroundControlViaWi-Fi.md), получать [SSH-доступ](SSH.md) и пользоваться всеми функциями системы.  
+После того как образ будет записан на eMMC, подключите EMMC в Technic 6S
+
+
+
+Далее можно подключаться к [Technic по Wi-Fi](ConnectingToWi-Fi.md), использовать [беспроводное подключение к QGroundControl](QGroundControlViaWi-Fi.md), получать [SSH-доступ](SSH.md) и пользоваться всеми функциями системы.  
