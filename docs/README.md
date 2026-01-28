@@ -17,7 +17,7 @@
         </div>
       </a>
 
-      <a class="big-card" href="pilotfpv/">
+      <a class="big-card" href="pilotFPV/">
         <div class="big-card-inner">
           <div class="big-card-text">
             <div class="title"><span>Пилот </span><span class="accent">FPV</span></div>
