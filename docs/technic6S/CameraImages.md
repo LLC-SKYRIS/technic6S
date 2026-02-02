@@ -6,12 +6,15 @@
 
 ### Просмотр через браузер
 
-Для просмотра видеострима нужно [подключиться к Wi-Fi](ConnectingToWi-Fi.md) Technic \(`technic-xxxx`\), перейти на страницу [http://10.42.0.1:8080/](http://10.42.0.1:8080/) и выбрать топик.
+Для просмотра видеострима нужно [подключиться к Wi-Fi](ConnectingToWi-Fi.md) Technic \(`technic-xxxx`\), открыть страницу [Веб-интерфейса](WebInterface.md) и выбрать View Image topics
+
+Пункт позволяет увидеть [просмотр изображений с камер](CameraImages.md), [детекцию аруко меток](ArucoMarker.md), а также детекцию объектов используя [нейронные сети](CNN.md). 
 
 
 <div class="img-figure">
-  <img src="assets/web_video_server.png">
+  <img src="assets/image_topics-round-corners.png">
 </div>
+
 
 Если передача картинки работает слишком медленно, можно ускорить ее, указав тип передаваемых данных `mjpeg` и меняя GET-параметр `quality` (от 1 до 100), который отвечает за сжатие видеострима, например:
 

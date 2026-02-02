@@ -56,7 +56,7 @@
 
 ```python
 import rospy
-from clover.srv import SetLEDEffect
+from technic.srv import SetLEDEffect
 
 rospy.init_node('flight')
 

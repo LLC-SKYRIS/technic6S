@@ -1139,12 +1139,13 @@
                                 <h1 id="программирование-автономного-полета">Программирование автономного полета</h1>
 <p>Наиболее часто для задач автономного полета применяется язык <strong>Python</strong>, который позволяет считывать <a href="AutonomousFlightOffboard.html">телеметрию</a>(положение, ориентацию, скорость, заряд батареи) и отправлять команды управления, такие как <a href="AutonomousFlightOffboard.html">полет к заданной точке</a>, <a href="AutonomousFlightOffboard">изменение ориентации</a> или <a href="AutonomousFlightOffboard">задание угловых скоростей</a>.</p>
 <blockquote>
-<p>💡 <strong>Hint</strong> Если вы начинаете изучение Python, можно воспользоваться <a href="https://pythonworld.ru/samouchitel-python" target="_blank">самоучителем</a>.</p>
+<p> <strong>Подсказка</strong> Если вы начинаете изучение Python, можно воспользоваться <a href="https://pythonworld.ru/samouchitel-python" target="_blank">самоучителем</a>.</p>
 </blockquote>
 <p>После настройки позиционирования можно переходить к созданию собственных сценариев автономных полетов.  </p>
-<p>Для этого подключитесь к OrangePi 5 Pro через веб-интерфейс и откройте терминал</p>
+<p>Для этого подключитесь к <a href="WebInterface.html">OrangePi 5 Pro через веб-интерфейс</a> и откройте <a href="Butterfly.html">терминал</a></p>
 <p>Запуск программ выполняется стандартной командой Python:</p>
-<p><code>python3 flight.py</code></p>
+<pre><code class="lang-python">python3 flight.py
+</code></pre>
 <p>Пример простого полета (взлет → движение вперед → посадка):</p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> rospy
 <span class="hljs-keyword">from</span> technic <span class="hljs-keyword">import</span> srv
@@ -1179,7 +1180,7 @@ land()
 <blockquote>
 <p>ℹ️ Функция <code>navigate</code> выполняется асинхронно: скрипт продолжает работу, не дожидаясь достижения точки. Для блокирующей версии используйте <a href="CodeExamples.html#navigate_wait"><code>navigate_wait</code></a>.</p>
 </blockquote>
-<p>Обратите внимание: параметр <code>auto_arm=True</code> указывается только при первом вызове <code>navigate</code>. Он отвечает за автоматическую постановку дрона на охрану и перевод его в режим OFFBOARD.</p>
+<p>Обратите внимание: параметр <code>auto_arm=True</code> указывается только при первом вызове <code>navigate</code>. Он отвечает перевод дрона в режим OFFBOARD.</p>
 <p>С помощью параметра <code>frame_id</code> задается система координат, относительно которой рассчитываются движения:</p>
 <ul>
 <li><p><code>body</code> — координаты относительно корпуса дрона;</p>
@@ -1286,7 +1287,7 @@ land()
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Автономный полет","level":"2.1.4.3","depth":3,"next":{"title":"Режим автономного полета (OFFBOARD)","level":"2.1.4.4","depth":3,"path":"technic6S/AutonomousFlightOffboard.md","ref":"technic6S/AutonomousFlightOffboard.md","articles":[]},"previous":{"title":"Автономный запуск ПО","level":"2.1.4.2","depth":3,"path":"technic6S/AutoRunSoft.md","ref":"technic6S/AutoRunSoft.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/AutonomousFlight.md","mtime":"2025-12-29T09:55:29.116Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-02-02T09:07:23.792Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Автономный полет","level":"2.1.4.3","depth":3,"next":{"title":"Режим автономного полета (OFFBOARD)","level":"2.1.4.4","depth":3,"path":"technic6S/AutonomousFlightOffboard.md","ref":"technic6S/AutonomousFlightOffboard.md","articles":[]},"previous":{"title":"Автономный запуск ПО","level":"2.1.4.2","depth":3,"path":"technic6S/AutoRunSoft.md","ref":"technic6S/AutoRunSoft.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/AutonomousFlight.md","mtime":"2026-02-02T09:46:12.690Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-02-02T10:21:02.028Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1340,11 +1341,11 @@ land()
     <script src="../gitbook/theme.js"></script>
     
         
-        <script src="../gitbook/honkit-plugin-add-js/BdRlcC3idfvhKZzn-home-link.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/ctwknKZ7xnLTZwiW-home-link.js"></script>
         
     
         
-        <script src="../gitbook/honkit-plugin-add-js/E8Se6QV51XQYevR0-website.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/O6ziD8mIF1c3L0TJ-website.js"></script>
         
     
         
