@@ -1136,7 +1136,7 @@
                                 <section class="normal markdown-section">
                                 
   
-                                <h1 id="автономный-полет-offboard">Автономный полет (OFFBOARD)</h1>
+                                <h1 id="режим-автономного-полета-offboard">Режим автономного полета (OFFBOARD)</h1>
 <p>Модуль <code>simple_offboard</code> пакета <code>technic</code> предназначен для упрощенного программирования автономного полета дрона (<a href="Modes.html">режим</a> <code>OFFBOARD</code>). Он позволяет устанавливать желаемые полетные задачи и автоматически трансформирует <a href="CoordinateSystems.html">систему координат</a>.</p>
 <p><code>simple_offboard</code> является высокоуровневым способом взаимодействия с полетным контроллером. Для более низкоуровневой работы см. <a href="MAVROS.html">MAVROS</a>.</p>
 <p>Основные сервисы – <a href="#gettelemetry"><code>get_telemetry</code></a> (получение телеметрии), <a href="#navigate"><code>navigate</code></a> (полет в заданную точку по прямой), <a href="#navigateglobal"><code>navigate_global</code></a> (полет в глобальную точку по прямой), <a href="#land"><code>land</code></a> (переход в режим посадки).</p>
@@ -1165,52 +1165,6 @@ land = rospy.ServiceProxy(<span class="hljs-string">'land'</span>, Trigger)
 <blockquote>
 <p><strong>Заметки</strong> Незаполненные числовые параметры устанавливаются в значение 0.</p>
 </blockquote>
-<h4 id="gettelemetry">get_telemetry</h4>
-<p>Получить полную телеметрию коптера.</p>
-<p>Параметры:</p>
-<ul>
-<li><code>frame_id</code> – <a href="CoordinateSystems.html">система координат</a> для значений <code>x</code>, <code>y</code>, <code>z</code>, <code>vx</code>, <code>vy</code>, <code>vz</code>. Пример: <code>map</code>, <code>body</code>, <code>aruco_map</code>. Значение по умолчанию: <code>map</code>.</li>
-</ul>
-<p>Формат ответа:</p>
-<ul>
-<li><code>frame_id</code> – система координат;</li>
-<li><code>connected</code> – есть ли подключение к <abbr title="Flight Control Unit, полетный контроллер">FCU</abbr>;</li>
-<li><code>armed</code> – состояние <code>armed</code> винтов (винты включены, если true);</li>
-<li><code>mode</code> – текущий <a href="Modes.html">полетный режим</a>;</li>
-<li><code>x, y, z</code> – локальная позиция коптера <em>(м)</em>;</li>
-<li><code>lat, lon</code> – широта, долгота <em>(градусы)</em>, необходимо наличие <a href="GPS.html">GPS</a>;</li>
-<li><code>alt</code> – высота в глобальной системе координат (стандарт <a href="https://ru.wikipedia.org/wiki/WGS_84" target="_blank">WGS-84</a>, не <abbr title="Above Mean Sea Level, выше среднего уровня моря">AMSL</abbr>!), необходимо наличие <a href="GPS.html">GPS</a>;</li>
-<li><code>vx, vy, vz</code> – скорость коптера <em>(м/с)</em>;</li>
-<li><code>roll</code> – угол по крену <em>(радианы)</em>;</li>
-<li><code>pitch</code> – угол по тангажу <em>(радианы)</em>;</li>
-<li><code>yaw</code> – угол по рысканью <em>(радианы)</em>;</li>
-<li><code>roll_rate</code> – угловая скорость по крену <em>(рад/с)</em>;</li>
-<li><code>pitch_rate</code> – угловая скорость по тангажу <em>(рад/с)</em>;</li>
-<li><code>yaw_rate</code> – угловая скорость по рысканью <em>(рад/с)</em>;</li>
-<li><code>voltage</code> – общее напряжение аккумулятора <em>(В)</em>;</li>
-<li><code>cell_voltage</code> – напряжение аккумулятора на ячейку <em>(В)</em>.</li>
-</ul>
-<blockquote>
-<p><strong>Заметки</strong> Недоступные по каким-то причинам поля будут содержать в себе значения <code>NaN</code>.</p>
-</blockquote>
-<p>Вывод координат <code>x</code>, <code>y</code> и <code>z</code> коптера в локальной системе координат:</p>
-<pre><code class="lang-python">telemetry = get_telemetry()
-<span class="hljs-built_in">print</span>(telemetry.x, telemetry.y, telemetry.z)
-</code></pre>
-<p>Вывод высоты коптера относительно <a href="ArucoMap.html">карты ArUco-меток</a>:</p>
-<pre><code class="lang-python">telemetry = get_telemetry(frame_id=<span class="hljs-string">'aruco_map'</span>)
-<span class="hljs-built_in">print</span>(telemetry.z)
-</code></pre>
-<p>Проверка доступности глобальной позиции:</p>
-<pre><code class="lang-python"><span class="hljs-keyword">import</span> math
-<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> math.isnan(get_telemetry().lat):
-    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Global position is available'</span>)
-<span class="hljs-keyword">else</span>:
-    <span class="hljs-built_in">print</span>(<span class="hljs-string">'No global position'</span>)
-</code></pre>
-<p>Вывод текущей телеметрии (командная строка):</p>
-<pre><code class="lang-bash">rosservice call /get_telemetry <span class="hljs-string">"{frame_id: ''}"</span>
-</code></pre>
 <h4 id="navigate">navigate</h4>
 <p>Прилететь в обозначенную точку по прямой.</p>
 <p>Параметры:</p>
@@ -1389,6 +1343,52 @@ land = rospy.ServiceProxy(<span class="hljs-string">'land'</span>, Trigger)
 
 release()
 </code></pre>
+<h4 id="gettelemetry">get_telemetry</h4>
+<p>Получить полную телеметрию коптера.</p>
+<p>Параметры:</p>
+<ul>
+<li><code>frame_id</code> – <a href="CoordinateSystems.html">система координат</a> для значений <code>x</code>, <code>y</code>, <code>z</code>, <code>vx</code>, <code>vy</code>, <code>vz</code>. Пример: <code>map</code>, <code>body</code>, <code>aruco_map</code>. Значение по умолчанию: <code>map</code>.</li>
+</ul>
+<p>Формат ответа:</p>
+<ul>
+<li><code>frame_id</code> – система координат;</li>
+<li><code>connected</code> – есть ли подключение к <abbr title="Flight Control Unit, полетный контроллер">FCU</abbr>;</li>
+<li><code>armed</code> – состояние <code>armed</code> винтов (винты включены, если true);</li>
+<li><code>mode</code> – текущий <a href="Modes.html">полетный режим</a>;</li>
+<li><code>x, y, z</code> – локальная позиция коптера <em>(м)</em>;</li>
+<li><code>lat, lon</code> – широта, долгота <em>(градусы)</em>, необходимо наличие <a href="GPS.html">GPS</a>;</li>
+<li><code>alt</code> – высота в глобальной системе координат (стандарт <a href="https://ru.wikipedia.org/wiki/WGS_84" target="_blank">WGS-84</a>, не <abbr title="Above Mean Sea Level, выше среднего уровня моря">AMSL</abbr>!), необходимо наличие <a href="GPS.html">GPS</a>;</li>
+<li><code>vx, vy, vz</code> – скорость коптера <em>(м/с)</em>;</li>
+<li><code>roll</code> – угол по крену <em>(радианы)</em>;</li>
+<li><code>pitch</code> – угол по тангажу <em>(радианы)</em>;</li>
+<li><code>yaw</code> – угол по рысканью <em>(радианы)</em>;</li>
+<li><code>roll_rate</code> – угловая скорость по крену <em>(рад/с)</em>;</li>
+<li><code>pitch_rate</code> – угловая скорость по тангажу <em>(рад/с)</em>;</li>
+<li><code>yaw_rate</code> – угловая скорость по рысканью <em>(рад/с)</em>;</li>
+<li><code>voltage</code> – общее напряжение аккумулятора <em>(В)</em>;</li>
+<li><code>cell_voltage</code> – напряжение аккумулятора на ячейку <em>(В)</em>.</li>
+</ul>
+<blockquote>
+<p><strong>Заметки</strong> Недоступные по каким-то причинам поля будут содержать в себе значения <code>NaN</code>.</p>
+</blockquote>
+<p>Вывод координат <code>x</code>, <code>y</code> и <code>z</code> коптера в локальной системе координат:</p>
+<pre><code class="lang-python">telemetry = get_telemetry()
+<span class="hljs-built_in">print</span>(telemetry.x, telemetry.y, telemetry.z)
+</code></pre>
+<p>Вывод высоты коптера относительно <a href="ArucoMap.html">карты ArUco-меток</a>:</p>
+<pre><code class="lang-python">telemetry = get_telemetry(frame_id=<span class="hljs-string">'aruco_map'</span>)
+<span class="hljs-built_in">print</span>(telemetry.z)
+</code></pre>
+<p>Проверка доступности глобальной позиции:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> math
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> math.isnan(get_telemetry().lat):
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Global position is available'</span>)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'No global position'</span>)
+</code></pre>
+<p>Вывод текущей телеметрии (командная строка):</p>
+<pre><code class="lang-bash">rosservice call /get_telemetry <span class="hljs-string">"{frame_id: ''}"</span>
+</code></pre>
 
                                 
 
@@ -1479,7 +1479,7 @@ release()
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Режим автономного полета (OFFBOARD)","level":"2.1.4.4","depth":3,"next":{"title":"Блочное программирование","level":"2.1.4.5","depth":3,"path":"technic6S/Blocky.md","ref":"technic6S/Blocky.md","articles":[]},"previous":{"title":"Автономный полет","level":"2.1.4.3","depth":3,"path":"technic6S/AutonomousFlight.md","ref":"technic6S/AutonomousFlight.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/AutonomousFlightOffboard.md","mtime":"2026-01-19T13:47:41.545Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-02-02T09:07:23.792Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Режим автономного полета (OFFBOARD)","level":"2.1.4.4","depth":3,"next":{"title":"Блочное программирование","level":"2.1.4.5","depth":3,"path":"technic6S/Blocky.md","ref":"technic6S/Blocky.md","articles":[]},"previous":{"title":"Автономный полет","level":"2.1.4.3","depth":3,"path":"technic6S/AutonomousFlight.md","ref":"technic6S/AutonomousFlight.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/AutonomousFlightOffboard.md","mtime":"2026-02-02T10:06:30.762Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-02-02T10:21:02.028Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1533,11 +1533,11 @@ release()
     <script src="../gitbook/theme.js"></script>
     
         
-        <script src="../gitbook/honkit-plugin-add-js/BdRlcC3idfvhKZzn-home-link.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/ctwknKZ7xnLTZwiW-home-link.js"></script>
         
     
         
-        <script src="../gitbook/honkit-plugin-add-js/E8Se6QV51XQYevR0-website.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/O6ziD8mIF1c3L0TJ-website.js"></script>
         
     
         

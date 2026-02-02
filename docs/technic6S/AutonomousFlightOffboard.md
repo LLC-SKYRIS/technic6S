@@ -1,4 +1,4 @@
-# Автономный полет (OFFBOARD)
+# Режим автономного полета (OFFBOARD)
 
 Модуль `simple_offboard` пакета `technic` предназначен для упрощенного программирования автономного полета дрона ([режим](Modes.md) `OFFBOARD`). Он позволяет устанавливать желаемые полетные задачи и автоматически трансформирует [систему координат](CoordinateSystems.md).
 
@@ -35,65 +35,6 @@ land = rospy.ServiceProxy('land', Trigger)
 ### Описание API
 
 > **Заметки** Незаполненные числовые параметры устанавливаются в значение 0.
-
-#### get_telemetry
-
-Получить полную телеметрию коптера.
-
-Параметры:
-
-* `frame_id` – [система координат](CoordinateSystems.md) для значений `x`, `y`, `z`, `vx`, `vy`, `vz`. Пример: `map`, `body`, `aruco_map`. Значение по умолчанию: `map`.
-
-Формат ответа:
-
-* `frame_id` – система координат;
-* `connected` – есть ли подключение к <abbr title="Flight Control Unit, полетный контроллер">FCU</abbr>;
-* `armed` – состояние `armed` винтов (винты включены, если true);
-* `mode` – текущий [полетный режим](Modes.md);
-* `x, y, z` – локальная позиция коптера *(м)*;
-* `lat, lon` – широта, долгота *(градусы)*, необходимо наличие [GPS](GPS.md);
-* `alt` – высота в глобальной системе координат (стандарт [WGS-84](https://ru.wikipedia.org/wiki/WGS_84), не <abbr title="Above Mean Sea Level, выше среднего уровня моря">AMSL</abbr>!), необходимо наличие [GPS](GPS.md);
-* `vx, vy, vz` – скорость коптера *(м/с)*;
-* `roll` – угол по крену *(радианы)*;
-* `pitch` – угол по тангажу *(радианы)*;
-* `yaw` – угол по рысканью *(радианы)*;
-* `roll_rate` – угловая скорость по крену *(рад/с)*;
-* `pitch_rate` – угловая скорость по тангажу *(рад/с)*;
-* `yaw_rate` – угловая скорость по рысканью *(рад/с)*;
-* `voltage` – общее напряжение аккумулятора *(В)*;
-* `cell_voltage` – напряжение аккумулятора на ячейку *(В)*.
-
-> **Заметки** Недоступные по каким-то причинам поля будут содержать в себе значения `NaN`.
-
-Вывод координат `x`, `y` и `z` коптера в локальной системе координат:
-
-```python
-telemetry = get_telemetry()
-print(telemetry.x, telemetry.y, telemetry.z)
-```
-
-Вывод высоты коптера относительно [карты ArUco-меток](ArucoMap.md):
-
-```python
-telemetry = get_telemetry(frame_id='aruco_map')
-print(telemetry.z)
-```
-
-Проверка доступности глобальной позиции:
-
-```python
-import math
-if not math.isnan(get_telemetry().lat):
-    print('Global position is available')
-else:
-    print('No global position')
-```
-
-Вывод текущей телеметрии (командная строка):
-
-```bash
-rosservice call /get_telemetry "{frame_id: ''}"
-```
 
 #### navigate
 
@@ -361,3 +302,61 @@ release()
 ```
 
 
+#### get_telemetry
+
+Получить полную телеметрию коптера.
+
+Параметры:
+
+* `frame_id` – [система координат](CoordinateSystems.md) для значений `x`, `y`, `z`, `vx`, `vy`, `vz`. Пример: `map`, `body`, `aruco_map`. Значение по умолчанию: `map`.
+
+Формат ответа:
+
+* `frame_id` – система координат;
+* `connected` – есть ли подключение к <abbr title="Flight Control Unit, полетный контроллер">FCU</abbr>;
+* `armed` – состояние `armed` винтов (винты включены, если true);
+* `mode` – текущий [полетный режим](Modes.md);
+* `x, y, z` – локальная позиция коптера *(м)*;
+* `lat, lon` – широта, долгота *(градусы)*, необходимо наличие [GPS](GPS.md);
+* `alt` – высота в глобальной системе координат (стандарт [WGS-84](https://ru.wikipedia.org/wiki/WGS_84), не <abbr title="Above Mean Sea Level, выше среднего уровня моря">AMSL</abbr>!), необходимо наличие [GPS](GPS.md);
+* `vx, vy, vz` – скорость коптера *(м/с)*;
+* `roll` – угол по крену *(радианы)*;
+* `pitch` – угол по тангажу *(радианы)*;
+* `yaw` – угол по рысканью *(радианы)*;
+* `roll_rate` – угловая скорость по крену *(рад/с)*;
+* `pitch_rate` – угловая скорость по тангажу *(рад/с)*;
+* `yaw_rate` – угловая скорость по рысканью *(рад/с)*;
+* `voltage` – общее напряжение аккумулятора *(В)*;
+* `cell_voltage` – напряжение аккумулятора на ячейку *(В)*.
+
+> **Заметки** Недоступные по каким-то причинам поля будут содержать в себе значения `NaN`.
+
+Вывод координат `x`, `y` и `z` коптера в локальной системе координат:
+
+```python
+telemetry = get_telemetry()
+print(telemetry.x, telemetry.y, telemetry.z)
+```
+
+Вывод высоты коптера относительно [карты ArUco-меток](ArucoMap.md):
+
+```python
+telemetry = get_telemetry(frame_id='aruco_map')
+print(telemetry.z)
+```
+
+Проверка доступности глобальной позиции:
+
+```python
+import math
+if not math.isnan(get_telemetry().lat):
+    print('Global position is available')
+else:
+    print('No global position')
+```
+
+Вывод текущей телеметрии (командная строка):
+
+```bash
+rosservice call /get_telemetry "{frame_id: ''}"
+```
