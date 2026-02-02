@@ -10,18 +10,6 @@
 		* [Сборка базового коптера](technic6S/Sborka.md)
 		* [Установка вычислительного модуля](technic6S/Sborka2.md)
 
-	* Работа с OrangePi 5 Pro
-		* [OrangePi 5 Pro](technic6S/OrangePi.md)
-	    * [Образ для OPI](technic6S/ImageOPI.md)
-	    * [Подключение к Wi-Fi](technic6S/ConnectingToWi-Fi.md)
-	    * [Веб Интерфейс](technic6S/WebInterface.md)
-	    * [Подключение по SSH](technic6S/SSH.md)
-	    * [Подключение к Web Терминалу](technic6S/Butterfly.md)
-	    * [Подключение к полетному контроллеру](technic6S/ConnectingToPX4.md)
-	    * [Подключение к QGroundControl](technic6S/QGroundControlViaWi-Fi.md)
-	    * [Командная строка](technic6S/CommandLine.md)
-	    * [Система координат](technic6S/CoordinateSystems.md)
-
 	* Настройка системы
 		* [Настройка питания](technic6S/EnergySettings.md)
 		* [Настройка параметров QGroundControl](technic6S/Parameters.md)
@@ -32,6 +20,18 @@
 	    * [Калибровка датчиков](technic6S/CalibrationSensors.md)
 	    * [Bind приемника](technic6S/Bind.md)
 	    * [Полетные режимы](technic6S/Modes.md)
+
+	* Работа с OrangePi 5 Pro
+		* [OrangePi 5 Pro](technic6S/OrangePi.md)
+	    * [Образ для OPI](technic6S/ImageOPI.md)
+	    * [Подключение к Wi-Fi](technic6S/ConnectingToWi-Fi.md)
+	    * [Веб Интерфейс](technic6S/WebInterface.md)
+	    * [Подключение по SSH](technic6S/SSH.md)
+	    * [Подключение к Web Терминалу](technic6S/Butterfly.md)
+	    * [Командная строка](technic6S/CommandLine.md)
+	    * [Подключение к полетному контроллеру](technic6S/ConnectingToPX4.md)
+	    * [Подключение к QGroundControl](technic6S/QGroundControlViaWi-Fi.md)
+	    * [Система координат](technic6S/CoordinateSystems.md)
 
 	* Программирование
 		* [Программирование](technic6S/Programming.md)
