@@ -19,6 +19,7 @@
 <div class="img-figure">
   <img src="assets/qgc-voltage-divider.png">
 </div>
+
 Дополнительная информация: https://docs.qgroundcontrol.com/en/SetupView/Power.html.
 
 ### Калибровка регуляторов (ESC)
