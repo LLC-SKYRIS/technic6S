@@ -6,7 +6,7 @@
 
 ### Как установить
 
-1. Перейдите на страницу [релизов проекта]([https://drive.google.com/file/d/1s2qEamLdZaDSl2NnCpO6dGba4YZf9upF/view?usp=sharing](https://drive.google.com/file/d/1s2qEamLdZaDSl2NnCpO6dGba4YZf9upF/view?usp=sharing)) и скачайте актуальный стабильный образ.
+1. Перейдите на страницу [релизов проекта](https://disk.yandex.ru/d/Xf_tzTiELMYQZQ) и скачайте актуальный стабильный образ.
 
 2. Загрузите и установите приложение [Etcher](https://www.balena.io/etcher/), доступное для всех популярных операционных систем (Windows, Linux, macOS).
 
