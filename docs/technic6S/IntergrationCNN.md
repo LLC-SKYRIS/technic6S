@@ -123,10 +123,12 @@ models/*.rknn
 
 Ниже представлено пошаговое руководство по установке необходимого окружения.
 
+
 Установите Ubuntu 22.04 или 24.04 на ноутбук 
 
 Рекомендуется использовать виртуальное окружение `venv` для изоляции зависимостей
 
+```bash
 sudo apt update
 
 sudo apt install python3-pip python3-venv
@@ -146,21 +148,28 @@ pip install --upgrade pip
 pip install opencv-python
 pip install ultralytics  
 ###### Установка самого RKNN-Toolkit2 (файл нужно скачать с GitHub Rockchip или использовать pip)
+```
 
-пример:
+Пример:
 
+```bash
 pip install rknn_toolkit2-2.3.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+```
 
 _Примечание: Точные ссылки на файлы `.whl` и `requirements.txt` рекомендуется брать из официального репозитория `airockchip/rknn-toolkit2` на GitHub, так как версии часто обновляются
 
 После настройки окружения используйте команду в терминале для конвертации:
 
+```bash
 yolo export model=ваша_модель.pt format=rknn name=rk3588
+```
 
 ##### Требования к окружению:
 
- Установка актуальной версии Ultralytics
+ Установка актуальной версии Ultralytics и установка RKNN Toolkit (необходим для экспорта)
+ 
+```bash
 pip install --upgrade ultralytics
 
- Установка RKNN Toolkit (необходим для экспорта)
 pip install rknn-toolkit2
+```
