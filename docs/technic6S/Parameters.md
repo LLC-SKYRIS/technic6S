@@ -6,7 +6,9 @@
 
 Рекомендуется использовать новейшую стабильную версию прошивки
 
-![[firmware_qgc.png]]
+<div class="img-figure">
+  <img src="assets/firmware_qgc.png">
+</div>
 
 Для стабильной работы Техника рекомендуется скачать файл параметров полетного контроллера и залить его через QgroundControl
 
@@ -14,7 +16,10 @@
 
 Чтобы залить параметры зайдите в QgroundControl->Parameters->Tools->Load from file for review....
 
-![[addparametres.png]]
+<div class="img-figure">
+  <img src="assets/addparametres.png">
+</div>
+
 
 ### Рекомендованные значения
 
