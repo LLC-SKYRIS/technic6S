@@ -3,7 +3,7 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <title>Настройка параметров QGroundControl · HonKit</title>
+        <title>Калибровка камеры · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="HonKit 6.1.4">
@@ -48,10 +48,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="CameraSettings.html" />
+    <link rel="next" href="../pilotFPV/" />
     
     
-    <link rel="prev" href="EnergySettings.html" />
+    <link rel="prev" href="SshKeys.html" />
     
 
     </head>
@@ -186,7 +186,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.2.2" data-path="Parameters.html">
+        <li class="chapter " data-level="2.1.2.2" data-path="Parameters.html">
             
                 <a href="Parameters.html">
             
@@ -905,7 +905,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.7.5" data-path="Calibration.html">
+        <li class="chapter active" data-level="2.1.7.5" data-path="Calibration.html">
             
                 <a href="Calibration.html">
             
@@ -1133,7 +1133,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Настройка параметров QGroundControl</a>
+        <a href=".." >Калибровка камеры</a>
     </h1>
 </div>
 
@@ -1149,254 +1149,49 @@
                                 <section class="normal markdown-section">
                                 
   
-                                <h1 id="параметры-полетного-контроллера">Параметры полетного контроллера</h1>
-<p>Полная документация по параметрам PX4: <a href="https://docs.px4.io/master/en/advanced_config/parameter_reference.html" target="_blank">https://docs.px4.io/master/en/advanced_config/parameter_reference.html</a>.</p>
-<p>Для изменения параметров PX4 используйте программу QGroundControl, <a href="ConnectingToWi-Fi.html">подключившись к Технику по Wi-Fi</a> или USB. Перейдите в панель <em>Vehicle Setup</em> (кликнув на логотип QGroundControl в левом верхнем углу и выберите меню <em>Parameters</em>.</p>
-<h3 id="рекомендованные-значения">Рекомендованные значения</h3>
-<h4 id="общие-параметры">Общие параметры</h4>
-<table>
-<thead>
-<tr>
-<th>Параметр</th>
-<th>Значение</th>
-<th>Примечание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>SENS_FLOW_ROT</code></td>
-<td>0 (<em>No rotation</em>)</td>
-<td>В случае использования "железного" <a href="px4flow.md">PX4Flow</a>, оставьте значение по умолчанию</td>
-</tr>
-<tr>
-<td><code>SENS_FLOW_MINHGT</code></td>
-<td>0.0</td>
-<td>Для <a href="LaserRangefinder.html">дальномера VL53L1X</a></td>
-</tr>
-<tr>
-<td><code>SENS_FLOW_MAXHGT</code></td>
-<td>4.0</td>
-<td>Для <a href="LaserRangefinder.html">дальномера VL53L1X</a></td>
-</tr>
-<tr>
-<td><code>SENS_FLOW_MAXR</code></td>
-<td>10.0</td>
-<td></td>
-</tr>
-<tr>
-<td><code>SYS_HAS_MAG</code></td>
-<td>0</td>
-<td>При невозможности запуска магнитометра (ошибка <em>No mags found</em>)</td>
-</tr>
-</tbody>
-</table>
-<h4 id="настройки-подсистемы-estimator">Настройки подсистемы Estimator</h4>
-<p>В случае использования LPE:</p>
-<table>
-<thead>
-<tr>
-<th>Параметр</th>
-<th>Значение</th>
-<th>Примечание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>LPE_FUSION</code></td>
-<td>86</td>
-<td>Чекбоксы: <em>flow</em> + <em>vis</em> + <em>land detector</em> + <em>gyro comp</em>. При полете над ровным полом возможно включение <em>pub agl as lpos down</em>. <br></br>Подробнее: <a href="OpticalFlow.html">Optical Flow</a>, <a href="ArucoMap.html">ArUco-маркеры</a>, <a href="GPS.html">GPS</a>.</td>
-</tr>
-<tr>
-<td><code>LPE_VIS_DELAY</code></td>
-<td>0.0</td>
-<td></td>
-</tr>
-<tr>
-<td><code>LPE_VIS_Z</code></td>
-<td>0.1</td>
-<td></td>
-</tr>
-<tr>
-<td><code>LPE_FLW_SCALE</code></td>
-<td>1.0</td>
-<td></td>
-</tr>
-<tr>
-<td><code>LPE_FLW_R</code></td>
-<td>0.2</td>
-<td></td>
-</tr>
-<tr>
-<td><code>LPE_FLW_RR</code></td>
-<td>0.0</td>
-<td></td>
-</tr>
-<tr>
-<td><code>LPE_FLW_QMIN</code></td>
-<td>10</td>
-<td></td>
-</tr>
-<tr>
-<td><code>ATT_W_EXT_HDG</code></td>
-<td>0.5</td>
-<td>Включение использования внешнего угла по рысканью (при навигации по <a href="ArucoMap.html">карте маркеров</a>)</td>
-</tr>
-<tr>
-<td><code>ATT_EXT_HDG_M</code></td>
-<td>1 (<em>Vision</em>)</td>
-<td></td>
-</tr>
-<tr>
-<td><code>ATT_W_MAG</code></td>
-<td>0</td>
-<td>Выключение магнитометра (при навигации внутри помещения)</td>
-</tr>
-</tbody>
-</table>
-<p>В случае использования EKF2 (официальная прошивка):</p>
-<!-- markdownlint-disable MD044 -->
-<table>
-<thead>
-<tr>
-<th>Параметр</th>
-<th>Значение</th>
-<th>Примечание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>EKF2_AID_MASK</code>*</td>
-<td>26</td>
-<td>Чекбоксы: <em>flow</em> + <em>vision position</em> + <em>vision yaw</em>.<br></br>Подробнее: <a href="OpticalFlow.html">Optical Flow</a>, <a href="ArucoMap.html">ArUco-маркеры</a>, <a href="GPS.html">GPS</a>.</td>
-</tr>
-<tr>
-<td><code>EKF2_OF_DELAY</code></td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td><code>EKF2_OF_QMIN</code></td>
-<td>10</td>
-<td></td>
-</tr>
-<tr>
-<td><code>EKF2_OF_N_MIN</code></td>
-<td>0.05</td>
-<td></td>
-</tr>
-<tr>
-<td><code>EKF2_OF_N_MAX</code></td>
-<td>0.2</td>
-<td></td>
-</tr>
-<tr>
-<td><code>EKF2_HGT_MODE</code>*</td>
-<td>3 (<em>Vision</em>)</td>
-<td>При наличии <a href="LaserRangefinder.html">дальномера</a> и полете над ровным полом — 2 (<em>Range sensor</em>)</td>
-</tr>
-<tr>
-<td><code>EKF2_EVA_NOISE</code></td>
-<td>0.1 rad или 5 deg</td>
-<td></td>
-</tr>
-<tr>
-<td><code>EKF2_EVP_NOISE</code></td>
-<td>0.1</td>
-<td></td>
-</tr>
-<tr>
-<td><code>EKF2_EV_DELAY</code></td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td><code>EKF2_MAG_TYPE</code></td>
-<td>5 (<em>None</em>)</td>
-<td>Выключение магнитометра (при навигации внутри помещения)</td>
-</tr>
-</tbody>
-</table>
-<p>* — начиная с версии PX4 1.14 помеченные звездочкой параметры заменены на следующие:</p>
-<table>
-<thead>
-<tr>
-<th>Параметр</th>
-<th>Значение</th>
-<th>Примечание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>EKF2_EV_CTRL</code></td>
-<td>11</td>
-<td>Чекбоксы: <em>Horizontal position</em> + <em>Vertical position</em> + <em>Yaw</em></td>
-</tr>
-<tr>
-<td><code>EKF2_GPS_CTRL</code></td>
-<td>0</td>
-<td>Все чекбоксы сняты</td>
-</tr>
-<tr>
-<td><code>EKF2_BARO_CTRL</code></td>
-<td>0 (<em>Disabled</em>)</td>
-<td>Барометр отключен</td>
-</tr>
-<tr>
-<td><code>EKF2_OF_CTRL</code></td>
-<td>1 (<em>Enabled</em>)</td>
-<td>Optical flow включен</td>
-</tr>
-<tr>
-<td><code>EKF2_HGT_REF</code></td>
-<td>3 (<em>Vision</em>)</td>
-<td>При наличии <a href="LaserRangefinder.html">дальномера</a> и полете над ровным полом — 2 (<em>Range sensor</em>)</td>
-</tr>
-<tr>
-<td><code>EKF2_RNG_CTRL</code></td>
-<td>2 (<em>Enabled</em>)</td>
-<td>Дальномер включен</td>
-</tr>
-</tbody>
-</table>
-<!--
-> **Info** См. также: список параметров по умолчанию в [симуляторе](simulation.md): https://github.com/CopterExpress/clover/blob/master/clover_simulation/airframes/4500_clover. -->
-<h3 id="дополнительная-информация">Дополнительная информация</h3>
-<p>Параметр <code>SYS_MC_EST_GROUP</code> отвечает за выбор Estimator'а.</p>
-<p>Estimator это подсистема, которая вычисляет текущее состояние (state) коптера, используя показания с датчиков. В состояние коптера входит:</p>
+                                <h1 id="калибровка-камеры">Калибровка камеры</h1>
+<p>Калибровка камеры может значительно повысить качество работы модулей, связанным с компьютерным зрением: <a href="aruco.md">распознавание ArUco-маркеров</a> и <a href="optical_flow.md">Optical Flow</a>.</p>
+<p>При калибровке камеры подбираются параметры, наиболее хорошо описывающие конкретный установленный объектив. Данные параметры включают в себя фокусные расстояния, расположение точки principal point (которое зависит от того, насколько ровно по центру установлен объектив), коэффициенты дисторсии <em>D</em>. Подробнее про использующуюся модель искажений камеры можно прочитать в <a href="https://docs.opencv.org/2.4/modules/calib3d/doc/camera_calibration_and_3d_reconstruction.html" target="_blank">документации OpenCV</a>.</p>
+<p>Существует несколько инструментов, которые позволяют откалибровать камеру и прописать вычисленные параметры в систему. Обычно, они используют калибровочные изображения: "шахматные доски" (<em>Chessboard</em>), а так же комбинации шахматной доски и сетки ArUco-маркеров (<a href="https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html" target="_blank"><em>ChArUco</em></a>).</p>
+<p>Убедитесь что файл калибровки камеры, который лежит в проекте Техника соответствует вашей камере. В данный момент в проекте лежит калибровка для модели </p>
+<p>Если ваша камера отличается, сделайте калибровку для вашей модели камеры</p>
+<h2 id="ros-пакет-cameracalibration">ROS-пакет camera_calibration</h2>
+<p>Основной туториал: <a href="http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration" target="_blank">http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration</a>.</p>
+<p>Для калибровки камеры с использованием ROS-пакета camera_calibration необходим компьютер с установленным ОС GNU/Linux и <a href="http://wiki.ros.org/noetic/Installation/Ubuntu" target="_blank">ROS Noetic</a>.</p>
+<p><img src="assets/camera_calibration.png" alt="ROS Camera Calibrator" class="zoom center" width="600"></img></p>
+<ol>
+<li><p>Используя Терминал, установите на компьютер пакет <code>camera_calibration</code>:</p>
+<pre><code class="lang-bash"> <span class="hljs-built_in">sudo</span> apt-get install ros-noetic-camera-calibration
+</code></pre>
+</li>
+<li><p>Скачайте калибровочную доску – <a href="assets/chessboard.pdf"><code>chessboard.pdf</code></a>. Распечатайте доску на бумаге, приклейте ее к плоской поверхности</p>
+</li>
+<li><p>Запустите калибровку (на компьютере):</p>
+<pre><code class="lang-bash">Терминал 1: roscore
+
+Терминал 2: rosrun usb_cam usb_cam_node
+
+Терминал 3: rosrun camera_calibration cameracalibrator.py --size 6x8 --square 0.108 image:=/usb_cam/image_raw camera:=/usb_cam
+</code></pre>
+<blockquote>
+<p><strong>Note</strong> Вместо значения <em>0.108</em> укажите реальный размер квадрата на распечатанной доске или на экране (в метрах). Например, значение <em>0.03</em> будет соответствовать 3 см.</p>
+</blockquote>
+</li>
+<li><p>Когда программа для калибровки запустится, начните перемещать дрон таким образом, чтобы калибровочная доска попадала в кадр под разными углами.</p>
 <ul>
-<li>угловая скорость коптера – roll_rate, pitch_rate, yaw_rate;</li>
-<li>ориентация коптера (в локальной системе координат) – roll (крен), pitch (тангаж), yaw (рысканье) (одно из представлений);</li>
-<li>позиция коптера (в локальной системе координат) – x, y, z;</li>
-<li>скорость коптера (в локальной системе координат) – vx, vy, vz;</li>
-<li>глобальные координаты коптера – latitude, longitude, altitude;</li>
-<li>высота над поверхностью;</li>
-<li>другие параметры (дрейф гироскопов, скорость ветра и пр.).</li>
+<li>Перемещайте калибровочную доску в левый, правый, верхний и нижний торец кадра.</li>
+<li>Вращайте калибровочную доску вокруг всех 3-х осей.</li>
+<li>Отдаляйте и приближайте камеру к калибровочной доске.</li>
 </ul>
-<p><code>SYS_AUTOCONFIG</code> – сброс всех параметров (при установке в значение 1).</p>
-<h3 id="ekf2">EKF2</h3>
-<p><code>EKF2_AID_MASK</code> – выбор датчиков, которые используются EKF2 для вычисления состояния коптера.</p>
-<p><code>EKF2_HGT_MODE</code> – основной источник данных о высоте (z в локальной системе координат):</p>
-<ul>
-<li>0 – давление с барометра.</li>
-<li>1 – GPS.</li>
-<li>2 – дальномер (например, vl53l1x).</li>
-<li>3 – данные с VPE.</li>
-</ul>
-<p>Вариант 2 является наиболее точным, но его корректно использовать, только если поверхность, над которой летает коптер – плоская. В противном случае начало координат по Z будет двигаться вверх и вниз с изменением высоты поверхности.</p>
-<h3 id="multicopter-position-control-полет-по-позиции">Multicopter Position Control (полет по позиции)</h3>
-<p>Данные параметры настраивают полет коптера по позиции (режимы POSCTL, OFFBOARD, AUTO).</p>
-<p><code>MPC_THR_HOVER</code> – газ висения. Данный параметр необходимо установить на примерный процент газа, необходимый для того, чтобы коптер удерживал высоту. Если коптер имеет тенденцию набирать или терять высоту в режиме удержания высоты – можно уменьшить или увеличить это значение.</p>
-<p><code>MPC_XY_P</code> – коэффициент <em>P</em> регулятора по позиции. Этот параметр влияет на то, насколько резко коптер будет выполнять заданные команды по позиции. Слишком большое значение может вызвать перестрелы.</p>
-<p><code>MPC_XY_VEL_P</code> – коэффициент <em>P</em> регулятора по скорости. Данный параметр также влияет на точность и резкость выполнения коптером заданной позиции. При слишком большом значении возможны перестрелы.</p>
-<p><code>MPC_XY_VEL_MAX</code> – максимальная горизонтальная скорость в режимах POSCTL, OFFBOARD, AUTO.</p>
-<p><code>MPC_Z_P</code>, <code>MPC_Z_VEL_P</code> – коэффициенты <em>P</em> регуляторов по вертикальной позиции и скорости. Влияют на удерживание коптером необходимой высоты.</p>
-<p><code>MPC_LAND_SPEED</code> – вертикальная скорость посадки в режиме LAND.</p>
-<h3 id="lpe--q-attitude-estimator">LPE + Q attitude estimator</h3>
-<p>Данные параметры настраивают поведение модулей <code>lpe</code> и <code>q</code>, которые вычисляют состояние (ориентацию, позицию) коптера. Эти параметры применяются <strong>только</strong> если параметр <code>SYS_MC_EST_GROUP</code> установлен в значение <code>1</code> (local_position_estimator, attitude_estimator_q).</p>
-<h3 id="commander">Commander</h3>
-<p>Преарм-чеки, переключение режимов и состояний коптера.</p>
-<h3 id="sensors">Sensors</h3>
-<p>Включение, выключение и настройка различных датчиков.</p>
+</li>
+<li><p>Нажмите кнопку <em>CALIBRATE</em>, когда она станет активной. Процесс вычисления параметров калибровки займет несколько минут.</p>
+<p>Когда калибровка завершится, в терминале вы увидите полученные параметры. В окне отобразится изображение с выправленными искажениями. При успешной калибровке все реальные прямые линии должны остаться прямыми на полученном изображении.</p>
+</li>
+<li><p>Нажмите <em>SAVE</em>, чтобы сохранить полученные параметры калибровки. </p>
+</li>
+<li>Файл ost.yaml, полученный в результате калибровке положите в проект по пути:</li>
+</ol>
+<p><code>/home/orangepi/technic_ws/src/technic/technic/camera_info/fisheye_cam.yaml</code>.</p>
 
                                 
 
@@ -1471,12 +1266,12 @@
 
             
                 
-                <a href="EnergySettings.html" class="navigation navigation-prev " aria-label="Previous page: Настройка питания">
+                <a href="SshKeys.html" class="navigation navigation-prev " aria-label="Previous page: Подключение к Orange Pi 5 Pro с использованием SSH-ключей">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="CameraSettings.html" class="navigation navigation-next " aria-label="Next page: Настройка камеры">
+                <a href="../pilotFPV/" class="navigation navigation-next " aria-label="Next page: Пилот FPV">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1487,7 +1282,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Настройка параметров QGroundControl","level":"2.1.2.2","depth":3,"next":{"title":"Настройка камеры","level":"2.1.2.3","depth":3,"path":"technic6S/CameraSettings.md","ref":"technic6S/CameraSettings.md","articles":[]},"previous":{"title":"Настройка питания","level":"2.1.2.1","depth":3,"path":"technic6S/EnergySettings.md","ref":"technic6S/EnergySettings.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/Parameters.md","mtime":"2026-01-19T13:54:37.459Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-05-25T09:12:12.198Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Калибровка камеры","level":"2.1.7.5","depth":3,"next":{"title":"Пилот FPV","level":"3.1","depth":1,"path":"pilotFPV/README.md","ref":"pilotFPV/README.md","articles":[{"title":"Введение","level":"3.1.1","depth":2,"path":"pilotFPV/Введение.md","ref":"pilotFPV/Введение.md","articles":[]},{"title":"Сборка","level":"3.1.2","depth":2,"path":"pilotFPV/Сборка.md","ref":"pilotFPV/Сборка.md","articles":[]},{"title":"Настройка","level":"3.1.3","depth":2,"ref":"","articles":[{"title":"Шаг 1: Настройка регулятора 4в1","level":"3.1.3.1","depth":3,"path":"pilotFPV/Настройка1.md","ref":"pilotFPV/Настройка1.md","articles":[]},{"title":"Шаг 2: Установка ПО и Подключение полетного контроллера к ПК","level":"3.1.3.2","depth":3,"path":"pilotFPV/Настройка2.md","ref":"pilotFPV/Настройка2.md","articles":[]},{"title":"Обновление прошивки FC и Калибровка акселерометра","level":"3.1.3.3","depth":3,"path":"pilotFPV/Настройка3.md","ref":"pilotFPV/Настройка3.md","articles":[]},{"title":"Настройка каналов и Настройка моторов","level":"3.1.3.4","depth":3,"path":"pilotFPV/Настройка4.md","ref":"pilotFPV/Настройка4.md","articles":[]},{"title":"Настройка PID и Настройка OSD","level":"3.1.3.5","depth":3,"path":"pilotFPV/Настройка5.md","ref":"pilotFPV/Настройка5.md","articles":[]},{"title":"Настройка рабочих частот и Настройка LED-модулей","level":"3.1.3.6","depth":3,"path":"pilotFPV/Настройка6.md","ref":"pilotFPV/Настройка6.md","articles":[]},{"title":"Шаг 3: Первичная настройка приемника и Настройка пульта","level":"3.1.3.7","depth":3,"path":"pilotFPV/Настройка7.md","ref":"pilotFPV/Настройка7.md","articles":[]},{"title":"Настройка приемника в BetaFlight","level":"3.1.3.8","depth":3,"path":"pilotFPV/Настройка8.md","ref":"pilotFPV/Настройка8.md","articles":[]}]}]},"previous":{"title":"Подключение к Orange Pi 5 Pro с использованием SSH-ключей","level":"2.1.7.4","depth":3,"path":"technic6S/SshKeys.md","ref":"technic6S/SshKeys.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/Calibration.md","mtime":"2026-05-25T09:08:25.680Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-05-25T09:12:12.198Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
