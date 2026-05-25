@@ -57,6 +57,7 @@
 ```python
 import rospy
 from technic.srv import SetLEDEffect
+import spidev
 
 rospy.init_node('flight')
 
@@ -138,6 +139,7 @@ disconnected: { effect: blink, r: 255, g: 50, b: 50 }
 
 ```python
 import rospy
+import spidev
 from led_msgs.srv import SetLEDs
 from led_msgs.msg import LEDStateArray, LEDState
 
