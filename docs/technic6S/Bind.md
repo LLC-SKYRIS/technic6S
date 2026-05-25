@@ -5,7 +5,7 @@
 
  <img src="assets/WifiHotspot.png" width=300 class="center zoom"> 
 
-1. Скачайте файл с прошивкой для приемника __________
+1. Скачайте файл с прошивкой для приемника [ExpressLRS](https://drive.google.com/file/d/1V1ruk2lFeO_-U9p1VlDZJ6izxK5nqMBj/view?usp=sharing)
     
 2. Подключите полетный контроллер к ПК по USB 
     
