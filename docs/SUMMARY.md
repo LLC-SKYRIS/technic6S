@@ -70,6 +70,7 @@
 	    * [Подключение GPS](technic6S/GPS.md)
 	    * [Mavlink](technic6S/Mavlink.md)
 	    * [Подключение к Orange Pi 5 Pro с использованием SSH-ключей](technic6S/SshKeys.md)
+	    * [Калибровка камеры](technic6S/Calibration.md)
 
 ---
 
