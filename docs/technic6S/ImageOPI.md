@@ -6,7 +6,7 @@
 
 ### Как установить
 
-1. Перейдите на страницу [релизов проекта](https://disk.yandex.ru/d/OKVjcDk8EAdXnA) и скачайте актуальный стабильный образ.
+1. Перейдите на страницу [релизов проекта](https://drive.google.com/file/d/1DaIE16IzhP1Z6PI5BPnGGaE0UpXrsRwx/view?usp=sharing) и скачайте актуальный стабильный образ.
 
 2. Загрузите и установите приложение [Etcher](https://www.balena.io/etcher/), доступное для всех популярных операционных систем (Windows, Linux, macOS).
 
@@ -22,14 +22,13 @@
 	- Нажмите "Select Target" и выберите ваш eMMC
 	- Нажмите "Flash!" чтобы начать запись образа на карту
 
-5. После записи установите модуль в **OPi.
-
 <div class="img-figure">
   <img src="assets/image-round-corners.png">
 </div>
 
-После того как образ будет записан на eMMC, подключите EMMC в Technic 6S
+5. После записи установите модуль в **OPi.
 
+После того как образ будет записан на eMMC, подключите EMMC в Technic 6S
 
 
 Далее можно подключаться к [Technic по Wi-Fi](ConnectingToWi-Fi.md), использовать [беспроводное подключение к QGroundControl](QGroundControlViaWi-Fi.md), получать [SSH-доступ](SSH.md) и пользоваться всеми функциями системы.  
