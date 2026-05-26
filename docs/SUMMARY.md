@@ -17,8 +17,8 @@
 	    * [Настройка сети](technic6S/NetworkSettings.md)
 	    * [Настройка failsafe](technic6S/FailsafeSettings.md)
 	    * [Настройка пульта](technic6S/PultSettings.md)
-	    * [Калибровка датчиков](technic6S/CalibrationSensors.md)
 	    * [Bind приемника](technic6S/Bind.md)
+	    * [Калибровка датчиков](technic6S/CalibrationSensors.md)
 	    * [Полетные режимы](technic6S/Modes.md)
 
 	* Работа с OrangePi 5 Pro
