@@ -11,7 +11,7 @@
 </div>
 
 Для стабильной работы Техника рекомендуется скачать файл параметров полетного контроллера и залить его через QgroundControl
-#### Скачать параметры вы можете по этой ссылке [1.17.0.params](https://drive.google.com/file/d/1cZZ-5CCFPYByY5CeQkyhcwFffxlc9K3K/view?usp=sharing)
+#### Скачать параметры вы можете по этой ссылке [1.17.0.params](https://drive.google.com/file/d/12D9DQDxEM24uN7RRftyIcMB7_2rZHL5_/view?usp=sharing)
 
 Чтобы залить параметры зайдите в QgroundControl->Parameters->Tools->Load from file for review....
 
