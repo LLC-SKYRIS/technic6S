@@ -13,7 +13,7 @@
 3. Подключите модуль eMMC к компьютеру, при необходимости используйте адаптер.
 
 <div class="img-figure">
-  <img src="assets/adapter.jpg">
+  <img src="assets/15566_image.jpeg">
 </div>
 
 4. С помощью Etcher выполните запись загруженного образа на eMMC.
