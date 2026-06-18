@@ -6,14 +6,14 @@
 
 ### Как установить
 
-1. Перейдите на страницу [релизов проекта](https://drive.google.com/file/d/18BUTV-6AVEJMZmXUdfQRAVA0SqOeGJR_/view?usp=sharing) и скачайте актуальный стабильный образ.
+1. Перейдите на страницу [релизов проекта](https://drive.google.com/file/d/1cXTQq-FlVrBA8e0SFrVcVinUkGcik2DS/view?usp=sharing) и скачайте актуальный стабильный образ.
 
 2. Загрузите и установите приложение [Etcher](https://www.balena.io/etcher/), доступное для всех популярных операционных систем (Windows, Linux, macOS).
 
 3. Подключите модуль eMMC к компьютеру, при необходимости используйте адаптер.
 
 <div class="img-figure">
-  <img src="assets/adapter.jpg">
+  <img src="assets/15566_image.jpeg">
 </div>
 
 4. С помощью Etcher выполните запись загруженного образа на eMMC.
