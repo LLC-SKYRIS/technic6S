@@ -17,6 +17,7 @@
 2. Подключитесь к Wi-Fi
 3. Нажмите «Подключиться, используя ключ безопасности»
 4. В поле введите пароль `technicwifi`, и нажмите кнопку далее
+
 <div class="img-figure">
   <img src="assets/wifi-round-corners1.png"  width=283>
   <img src="assets/wifi-round-corners2.png"   width=400>
