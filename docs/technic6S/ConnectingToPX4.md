@@ -22,7 +22,7 @@
 
 Дополнительным способом подключения является подключение по интерфейсу USB.
 
-1. Соедините OPi и полетный контроллер micro-USB to USB кабелем.
+1. Соедините OPi и полетный контроллер Type-C to USB кабелем.
 2. Отключите соединение по uart 
 3. [Подключитесь в Orangepi 5 pro по SSH](SSH.md).
 4. Поменяйте в launch-файле Technic (`~/catkin_ws/src/clover/clover/launch/clover.launch`) тип подключения с `uart` на `usb` ``:

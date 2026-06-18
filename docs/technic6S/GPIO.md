@@ -6,97 +6,136 @@ GPIO (General-Purpose Input/Output) – это тип пинов на OPi, на�
 
 > **Info** Для того, чтобы не создавалось конфликтов при использовании портов *GPIO* в образе закрыт доступ для портов 0, 1, 2, 3, 14, 15, на которые выведены интерфейсы подключения I2C и UART.
 
-Для работы с GPIO на [образе для OPi](ImageOPI.md) предустановлена библиотека [`pigpio`](http://abyz.me.uk/rpi/pigpio/). Чтобы взаимодействовать с этой библиотекой, запустите соответствующий демон:
-
-```bash
-sudo systemctl start pigpiod.service
-```
-
-Для включение автозапуска демона `pigpiod` используйте команду:
-
-```bash
-sudo systemctl enable pigpiod.service
-```
-
-
-Пример работы с библиотекой:
-
-```python
-import time
-import pigpio
-
-# инициализируем подключение к pigpiod
-pi = pigpio.pi()
-
-# устанавливаем режим 11 пина на вывод
-pi.set_mode(11, pigpio.OUTPUT)
-
-# включаем сигнал на 11 пине
-pi.write(11, 1)
-
-time.sleep(2)
-
-# отключаем сигнал на 11 пине
-pi.write(11, 0)
-
-# ...
-
-# устанавливаем режим 12 пина на ввод
-pi.set_mode(12, pigpio.INPUT)
-
-# считываем состояние 12 пина
-level = pi.read(12)
-```
-
 Для определения номера пина используйте [распиновку Orange Pi](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html).
 
-### Подключение сервоприводов
-
-Большинство сервоприводов управляются с помощью ШИМ-сигнала, причем крайним положениям привода соответствуют сигналы шириной приблизительно 1000 и 2000 мкс. Значения для конкретного сервопривода могут быть определены экспериментально.
-
-Подключите сигнальный провод сервопривода к одному из GPIO-пинов OrangePi 5 Pro. Для управления сервоприводом, подключенного к 13 пину, используйте такой код:
-
-```python
-import time
-import pigpio
-
-pi = pigpio.pi()
-
-# устанавливаем режим 13 пина на вывод
-pi.set_mode(13, pigpio.OUTPUT)
-
-# устанавливаем на 13 пине ШИМ сигнал в 1000 мкс
-pi.set_servo_pulsewidth(13, 1000)
-
-time.sleep(2)
-
-# устанавливаем на 13 пине ШИМ сигнал в 2000 мкс
-pi.set_servo_pulsewidth(13, 2000)
-```
-
-### Подключение электромагнита
+#### Подключение полезной нагрузки (Сервопривод/Магнитный захват и т.д.)
+Для того чтобы подключить сервопривод или другую полезную нагрузку подсоедините пины сервопривода к контактам на плате
 
 <div class="img-figure">
-  <img src="assets/gpio_mosfet_magnet.png">
+	<img src="assets/PWMShield.svg"width=300 class="center zoom">
 </div>
+## Управление сервоприводом через PWM
+Сервопривод управляется PWM-сигналом с Orange Pi. В текущей конфигурации используется pin 17 утилиты gpio.
 
-Для подключения электромагнита используйте полевой транзистор (MOSFET). Подключите транзистор к одному из GPIO-пинов OPi. Для управления магнитом, подключенным к 18 пину, используйте такой код:
+Перед использованием необходимо убедиться, что сервопривод подключен правильно:
+- сигнальный провод серво подключен к PWM pin 17;
+- питание серво подключено к внешнему источнику 5V;
+- земля GND сервопривода соединена с GND Orange Pi/Technic;
+- не рекомендуется питать сервопривод от 3.3V Orange Pi.
 
-```python
-import time
-import pigpio
-
-pi = pigpio.pi()
-
-# устанавливаем режим 18 пина на вывод
-pi.set_mode(18, pigpio.OUTPUT)
-
-# включаем электромагнит
-pi.write(18, 1)
-
-time.sleep(2)
-
-# отключаем электромагнит
-pi.write(18, 0)
+#### Управление через терминал:
+Перед отправкой команд положения необходимо один раз инициализировать PWM.
+```bash
+sudo gpio mode 17 pwm
+sudo gpio pwmr 17 20000
+sudo gpio pwmc 17 24
 ```
+Назначение команд:
+- gpio mode 17 pwm переводит pin 17 в режим PWM;
+- gpio pwmr 17 20000 задает диапазон PWM, соответствующий периоду;
+- gpio pwmc 17 24 задает делитель частоты;
+- вместе pwmr=20000 и pwmc=24 дают частоту около 40 Гц.
+После инициализации можно задавать положение сервопривода:
+```bash
+sudo gpio pwm 17 1000
+sudo gpio pwm 17 1500
+sudo gpio pwm 17 2000
+```
+Обычно значения означают:
+- 1000 - одно крайнее положение;
+- 1500 - среднее положение;
+- 2000 - другое крайнее положение.
 
+Некоторые сервоприводы могут иметь другой допустимый диапазон. Если серво упирается, дрожит или сильно греется, нужно уменьшить диапазон, например использовать 1100...1900.
+
+Пример проверки
+ ```bash
+sudo gpio mode 17 pwm
+sudo gpio pwmr 17 20000
+sudo gpio pwmc 17 24
+sudo gpio pwm 17 1000
+sleep 1
+sudo gpio pwm 17 1500
+sleep 1
+sudo gpio pwm 17 2000
+sleep 1
+sudo gpio pwm 17 1500
+ ```
+Если сервопривод подключен правильно, он должен последовательно повернуться в разные положения.
+
+Управление из Python
+Для управления из Python можно вызывать те же команды через subprocess.
+```bash
+import subprocess
+import time
+PWM_PIN = 17
+PWM_RANGE = 20000
+PWM_CLOCK = 24
+def run_gpio(*args):
+subprocess.run(['gpio', *map(str, args)], check=False)
+def servo_init():
+run_gpio('mode', PWM_PIN, 'pwm')
+run_gpio('pwmr', PWM_PIN, PWM_RANGE)
+run_gpio('pwmc', PWM_PIN, PWM_CLOCK)
+def servo_write(value):
+run_gpio('pwm', PWM_PIN, value)
+servo_init()
+servo_write(1000)
+time.sleep(1)
+servo_write(1500)
+time.sleep(1)
+servo_write(2000)
+time.sleep(1)
+servo_write(1500) ```
+Для ROS-скрипта вместо time.sleep() можно использовать rospy.sleep().
+```bash
+Пример использования в ROS-скрипте
+import subprocess
+import rospy
+PWM_PIN = 17
+PWM_RANGE = 20000
+PWM_CLOCK = 24
+def run_gpio(*args):
+subprocess.run(['gpio', *map(str, args)], check=False)
+def servo_init():
+run_gpio('mode', PWM_PIN, 'pwm')
+run_gpio('pwmr', PWM_PIN, PWM_RANGE)
+run_gpio('pwmc', PWM_PIN, PWM_CLOCK)
+def servo_write(value):
+run_gpio('pwm', PWM_PIN, value)
+# Инициализация PWM
+servo_init()
+# Перевод серво в начальное положение
+servo_write(1500)
+# Пример движения
+rospy.sleep(1)
+servo_write(1000)
+rospy.sleep(1)
+servo_write(2000)
+rospy.sleep(1)
+servo_write(1500)
+```
+### Частые проблемы
+Если появляется ошибка:
+
+gpio: CCR should be less than or equal to ARR
+значит значение в команде gpio pwm 17 ... больше текущего диапазона PWM.
+Нужно заново выполнить:
+
+```bash
+sudo gpio pwmr 17 20000
+sudo gpio pwmc 17 24
+```
+Если сервопривод пищит, но не двигается, проверьте:
+- подключено ли внешнее питание 5V;
+- соединена ли земля серво с землей Orange Pi;
+- правильно ли выбран pin 17;
+- не перепутаны ли провода питания, земли и сигнала;
+- хватает ли тока источника питания.
+Если сервопривод дергается или греется, используйте более узкий диапазон:
+
+```bash
+sudo gpio pwm 17 1100
+sudo gpio pwm 17 1500
+sudo gpio pwm 17 1900
+```

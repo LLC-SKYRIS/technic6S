@@ -16,3 +16,5 @@
 <div class="img-figure">
   <img src="assets/web-terminal-round-corners.png">
 </div>
+
+Подробнее про терминал и про способы взаимодействия с ним можно посмотреть [здесь](CommandLine)
