@@ -536,12 +536,12 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.4.7" data-path="ROS.html">
+        <li class="chapter " data-level="2.1.4.7" data-path="ROSWeb.html">
             
-                <a href="ROS.html">
+                <a href="ROSWeb.html">
             
                     
-                    ROS
+                    ROS топики в Веб Интерфейсе
             
                 </a>
             
@@ -549,12 +549,12 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.4.8" data-path="ROSWeb.html">
+        <li class="chapter " data-level="2.1.4.8" data-path="ROS.html">
             
-                <a href="ROSWeb.html">
+                <a href="ROS.html">
             
                     
-                    ROS топики в Веб Интерфейсе
+                    ROS
             
                 </a>
             
@@ -1182,11 +1182,14 @@
 <li>gpio pwmr 17 20000 задает диапазон PWM, соответствующий периоду;</li>
 <li>gpio pwmc 17 24 задает делитель частоты;</li>
 <li>вместе pwmr=20000 и pwmc=24 дают частоту около 40 Гц.
-После инициализации можно задавать положение сервопривода:<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> gpio pwm 17 1000
+После инициализации можно задавать положение сервопривода:</li>
+</ul>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> gpio pwm 17 1000
 <span class="hljs-built_in">sudo</span> gpio pwm 17 1500
 <span class="hljs-built_in">sudo</span> gpio pwm 17 2000
 </code></pre>
-Обычно значения означают:</li>
+<p>Обычно значения означают:</p>
+<ul>
 <li>1000 - одно крайнее положение;</li>
 <li>1500 - среднее положение;</li>
 <li>2000 - другое крайнее положение.</li>
@@ -1209,9 +1212,11 @@
 Для управления из Python можно вызывать те же команды через subprocess.</p>
 <pre><code class="lang-bash">import subprocess
 import <span class="hljs-keyword">time</span>
+
 PWM_PIN = 17
 PWM_RANGE = 20000
 PWM_CLOCK = 24
+
 def run_gpio(*args):
 subprocess.run([<span class="hljs-string">'gpio'</span>, *map(str, args)], check=False)
 def servo_init():
@@ -1230,12 +1235,14 @@ time.sleep(1)
 servo_write(1500)
 </code></pre>
 <p>Для ROS-скрипта вместо time.sleep() можно использовать rospy.sleep().</p>
-<pre><code class="lang-bash">Пример использования в ROS-скрипте
-import subprocess
+<p>Пример использования в ROS-скрипте</p>
+<pre><code class="lang-bash">import subprocess
 import rospy
+
 PWM_PIN = 17
 PWM_RANGE = 20000
 PWM_CLOCK = 24
+
 def run_gpio(*args):
 subprocess.run([<span class="hljs-string">'gpio'</span>, *map(str, args)], check=False)
 def servo_init():
@@ -1367,7 +1374,7 @@ servo_write(1500)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GPIO","level":"2.1.5.8","depth":3,"next":{"title":"Светодиодная лента","level":"2.1.5.9","depth":3,"path":"technic6S/LedStrip.md","ref":"technic6S/LedStrip.md","articles":[]},"previous":{"title":"Ультразвуковой дальномер","level":"2.1.5.7","depth":3,"path":"technic6S/UltrasonicRangefinder.md","ref":"technic6S/UltrasonicRangefinder.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/GPIO.md","mtime":"2026-06-18T11:08:55.143Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-06-18T11:09:05.022Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GPIO","level":"2.1.5.8","depth":3,"next":{"title":"Светодиодная лента","level":"2.1.5.9","depth":3,"path":"technic6S/LedStrip.md","ref":"technic6S/LedStrip.md","articles":[]},"previous":{"title":"Ультразвуковой дальномер","level":"2.1.5.7","depth":3,"path":"technic6S/UltrasonicRangefinder.md","ref":"technic6S/UltrasonicRangefinder.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/GPIO.md","mtime":"2026-06-18T14:50:44.674Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-06-18T14:51:03.895Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1421,11 +1428,11 @@ servo_write(1500)
     <script src="../gitbook/theme.js"></script>
     
         
-        <script src="../gitbook/honkit-plugin-add-js/UyhgXQH3LAbeXOMc-home-link.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/dm2OtVjmIyx6Zrpg-home-link.js"></script>
         
     
         
-        <script src="../gitbook/honkit-plugin-add-js/hHX6BZRZevnaNqIZ-website.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/BT8R1y09L2Bzu2+d-website.js"></script>
         
     
         
