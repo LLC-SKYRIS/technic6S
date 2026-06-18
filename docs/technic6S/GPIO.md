@@ -25,22 +25,26 @@ GPIO (General-Purpose Input/Output) – это тип пинов на OPi, на�
 
 #### Управление через терминал:
 Перед отправкой команд положения необходимо один раз инициализировать PWM.
+
 ```bash
 sudo gpio mode 17 pwm
 sudo gpio pwmr 17 20000
 sudo gpio pwmc 17 24
 ```
+
 Назначение команд:
 - gpio mode 17 pwm переводит pin 17 в режим PWM;
 - gpio pwmr 17 20000 задает диапазон PWM, соответствующий периоду;
 - gpio pwmc 17 24 задает делитель частоты;
 - вместе pwmr=20000 и pwmc=24 дают частоту около 40 Гц.
 После инициализации можно задавать положение сервопривода:
+
 ```bash
 sudo gpio pwm 17 1000
 sudo gpio pwm 17 1500
 sudo gpio pwm 17 2000
 ```
+
 Обычно значения означают:
 - 1000 - одно крайнее положение;
 - 1500 - среднее положение;
@@ -49,6 +53,7 @@ sudo gpio pwm 17 2000
 Некоторые сервоприводы могут иметь другой допустимый диапазон. Если серво упирается, дрожит или сильно греется, нужно уменьшить диапазон, например использовать 1100...1900.
 
 Пример проверки
+
  ```bash
 sudo gpio mode 17 pwm
 sudo gpio pwmr 17 20000
@@ -61,16 +66,20 @@ sudo gpio pwm 17 2000
 sleep 1
 sudo gpio pwm 17 1500
  ```
+
 Если сервопривод подключен правильно, он должен последовательно повернуться в разные положения.
 
 Управление из Python
 Для управления из Python можно вызывать те же команды через subprocess.
+
 ```bash
 import subprocess
 import time
+
 PWM_PIN = 17
 PWM_RANGE = 20000
 PWM_CLOCK = 24
+
 def run_gpio(*args):
 subprocess.run(['gpio', *map(str, args)], check=False)
 def servo_init():
@@ -86,15 +95,21 @@ servo_write(1500)
 time.sleep(1)
 servo_write(2000)
 time.sleep(1)
-servo_write(1500) ```
+servo_write(1500) 
+```
+
 Для ROS-скрипта вместо time.sleep() можно использовать rospy.sleep().
-```bash
+
 Пример использования в ROS-скрипте
+
+```bash
 import subprocess
 import rospy
+
 PWM_PIN = 17
 PWM_RANGE = 20000
 PWM_CLOCK = 24
+
 def run_gpio(*args):
 subprocess.run(['gpio', *map(str, args)], check=False)
 def servo_init():
@@ -115,6 +130,7 @@ servo_write(2000)
 rospy.sleep(1)
 servo_write(1500)
 ```
+
 ### Частые проблемы
 Если появляется ошибка:
 
@@ -126,6 +142,7 @@ gpio: CCR should be less than or equal to ARR
 sudo gpio pwmr 17 20000
 sudo gpio pwmc 17 24
 ```
+
 Если сервопривод пищит, но не двигается, проверьте:
 - подключено ли внешнее питание 5V;
 - соединена ли земля серво с землей Orange Pi;
