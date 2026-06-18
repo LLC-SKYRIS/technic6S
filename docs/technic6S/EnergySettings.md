@@ -17,9 +17,9 @@
 В случае отсутствия индикатора напряжения или невозможности ручной калибровки, установите усредненное значение делителя напряжения для комплекта Клевер 4 (*Voltage divider* = 11).
 
 <div class="img-figure">
-  <img src="assets/qgc-voltage-divider.png">
+  <img src="assets/qgc-voltage-divider.png"width=347.8>
+  <img src="assets/qgc-voltage-divider1.png" width=347.8>
 </div>
-
 Дополнительная информация: https://docs.qgroundcontrol.com/en/SetupView/Power.html.
 
 ### Калибровка регуляторов (ESC)

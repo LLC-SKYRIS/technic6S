@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "honkit": "^6.1.4",
+    "honkit": "^6.2.2",
     "honkit-plugin-add-js": "^1.0.0"
   },
   "scripts": {
@@ -8,4 +8,3 @@
     "build:pilotFPV": "honkit build docs/pilotFPV docs-build/pilotFPV"
   }
 }
-

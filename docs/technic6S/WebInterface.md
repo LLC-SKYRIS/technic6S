@@ -12,3 +12,9 @@
 <div class="img-figure">
   <img src="assets/web_interface.png">
 </div>
+Подробнее про вкладки вы можете узнать здесь
+
+- [View Image Topics](CameraImages.md)
+- [Blocks Programming](Blocky.md)
+- [Open Web Terminal](Butterfly.md)
+- [View Topics](ROSWeb.md)

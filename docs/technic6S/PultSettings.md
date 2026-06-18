@@ -27,7 +27,7 @@
 
 1. Скачайте файл с прошивкой для пульта [ExpressLRS](https://drive.google.com/file/d/1V1ruk2lFeO_-U9p1VlDZJ6izxK5nqMBj/view?usp=sharing)
 
- <img src="assets/bind5.png" width=180 class="center zoom"> 
+ <img src="assets/bind5.png" width=180 class="zoom"> 
 
 2. Включите пульт РУ зажав кнопку “Power” 
     
