@@ -79,20 +79,25 @@
     document.body.classList.toggle('landing-page', isLanding);
   }
 
-  // ===== NEW: TOP HEADER ONLY ON LANDING =====
-  function ensureLandingHeader() {
-    // только если реально есть landing на странице
-    if (!document.querySelector('.landing')) return;
+  // ===== TOP HEADER ON ALL PAGES =====
+  function getAssetBasePath() {
+    var styles = document.querySelector('link[href$="styles/website.css"]');
+    var href = styles ? styles.getAttribute('href') : '';
+    var basePath = href ? href.replace(/styles\/website\.css$/, '') : './';
+    return basePath || './';
+  }
 
+  function ensureTopHeader() {
     // уже вставлено
     if (document.querySelector('.landing-topbar')) return;
 
+    var basePath = getAssetBasePath();
     var bar = document.createElement('div');
     bar.className = 'landing-topbar';
     bar.innerHTML =
       '<nav class="gen-header">' +
-        '<a href="./" class="icon-home">' +
-          '<div class="logo"><img src="images/logo.svg" alt="SKYRIS" /></div>' +
+        '<a href="' + basePath + '" class="icon-home">' +
+          '<div class="logo"><img src="' + basePath + 'images/logo.svg" alt="SKYRIS" /></div>' +
         '</a>' +
 
         '<div class="nav-link header-nav-link">' +
@@ -105,31 +110,21 @@
     document.body.insertBefore(bar, document.body.firstChild);
   }
 
-  function syncLandingHeader() {
-    var isLanding = !!document.querySelector('.landing');
-    var exists = document.querySelector('.landing-topbar');
-
-    // ушли с главной — удаляем
-    if (!isLanding && exists) {
-      exists.parentNode.removeChild(exists);
-      return;
-    }
-
-    // на главной — гарантируем наличие
-    if (isLanding) ensureLandingHeader();
+  function syncTopHeader() {
+    ensureTopHeader();
   }
-  // ===== /NEW =====
+  // ===== /TOP HEADER =====
 
   function init() {
     // сразу
     syncLandingMode();
-    syncLandingHeader();
+    syncTopHeader();
     initCollapsibleSidebar();
 
 
     // ещё раз после дорисовки
-    setTimeout(function () { syncLandingMode(); syncLandingHeader(); }, 0);
-    setTimeout(function () { syncLandingMode(); syncLandingHeader(); }, 50);
+    setTimeout(function () { syncLandingMode(); syncTopHeader(); }, 0);
+    setTimeout(function () { syncLandingMode(); syncTopHeader(); }, 50);
 
     addCopyButtons(document);
     hidePublishedWithHonkit(document);
@@ -295,7 +290,7 @@
         scheduled = false;
         addCopyButtons(target);
         syncLandingMode();
-        syncLandingHeader();
+        syncTopHeader();
       }, 50);
     });
 
@@ -306,8 +301,8 @@
         addCopyButtons(document);
         hidePublishedWithHonkit(document);
         initCollapsibleSidebar();
-        setTimeout(function () { syncLandingMode(); syncLandingHeader(); }, 0);
-        setTimeout(function () { syncLandingMode(); syncLandingHeader(); }, 50);
+        setTimeout(function () { syncLandingMode(); syncTopHeader(); }, 0);
+        setTimeout(function () { syncLandingMode(); syncTopHeader(); }, 50);
       });
     }
   }
