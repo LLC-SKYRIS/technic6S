@@ -190,23 +190,34 @@ pre {
   padding-top: 18px;  /* линия футера + аккуратный воздух сверху */
 }
 
-/* ===== Sticky footer ONLY for right content column (HonKit) ===== */
+/* ===== Fixed footer for right content column (HonKit) ===== */
 
-/* Правая колонка (без sidebar) растягивается на высоту окна */
-.book .book-body .body-inner {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.book .book-body #site-footer.site-footer {
+  position: fixed;
+  left: 300px;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  margin-top: 0 !important;
 }
 
-/* Контент + стрелки занимает всё доступное место */
+.book.without-summary .book-body #site-footer.site-footer {
+  left: 0;
+}
+
+/* Reserve space so fixed footer does not cover content/navigation arrows. */
 .book .book-body .body-inner .page-wrapper {
-  flex: 1 0 auto;
+  padding-bottom: 128px;
 }
 
-/* Футер прижимается вниз правой колонки */
-.book .book-body .body-inner #site-footer.site-footer {
-  margin-top: auto !important;
+@media (max-width: 600px) {
+  .book .book-body #site-footer.site-footer {
+    left: 0;
+  }
+
+  .book .book-body .body-inner .page-wrapper {
+    padding-bottom: 172px;
+  }
 }
 
 /* =========================================================
