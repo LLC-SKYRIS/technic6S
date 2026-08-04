@@ -35,7 +35,7 @@
       <a class="big-card" href="stand-vmg/">
         <div class="big-card-inner">
           <div class="big-card-text">
-            <div class="title"><span>Стенд</span><span class="accent">ВМГ</span></div>
+            <div class="title"><span>Стенд </span><span class="accent">ВМГ</span></div>
             <div class="go-link">
 			  <span class="divider" aria-hidden="true"></span>
 			  <span class="text">В раздел</span>
