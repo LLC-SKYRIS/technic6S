@@ -31,6 +31,21 @@
           </div>
         </div>
       </a>
+      
+      <a class="big-card" href="stand-vmg/">
+        <div class="big-card-inner">
+          <div class="big-card-text">
+            <div class="title"><span>Стенд</span><span class="accent">ВМГ</span></div>
+            <div class="go-link">
+			  <span class="divider" aria-hidden="true"></span>
+			  <span class="text">В раздел</span>
+			</div>
+          </div>
+          <div class="big-card-image">
+            <img src="images/Stand.png" alt="Стенд ВМГ">
+          </div>
+        </div>
+      </a>
 
     </div>
   </main>
