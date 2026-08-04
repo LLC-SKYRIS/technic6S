@@ -1,6 +1,6 @@
 # Summary
 
-* [Главная](docs/README.md)
+* [Главная](README.md)
 
 ---
 
