@@ -192,6 +192,11 @@ pre {
 
 /* ===== Fixed footer for right content column (HonKit) ===== */
 
+:root {
+  --site-footer-space: 128px;
+  --site-footer-space-mobile: 172px;
+}
+
 .book .book-body #site-footer.site-footer {
   position: fixed;
   left: 300px;
@@ -207,7 +212,12 @@ pre {
 
 /* Reserve space so fixed footer does not cover content/navigation arrows. */
 .book .book-body .body-inner .page-wrapper {
-  padding-bottom: 128px;
+  padding-bottom: var(--site-footer-space);
+}
+
+.book .book-summary {
+  box-sizing: border-box;
+  padding-bottom: var(--site-footer-space);
 }
 
 @media (max-width: 600px) {
@@ -216,7 +226,11 @@ pre {
   }
 
   .book .book-body .body-inner .page-wrapper {
-    padding-bottom: 172px;
+    padding-bottom: var(--site-footer-space-mobile);
+  }
+
+  .book .book-summary {
+    padding-bottom: var(--site-footer-space-mobile);
   }
 }
 
@@ -631,7 +645,7 @@ body.landing-page .book .book-body .page-wrapper {
   }
 }
 
-body.landing-page .landing-topbar{
+.landing-topbar{
   position: fixed;
   left: 0;
   right: 0;
@@ -641,8 +655,8 @@ body.landing-page .landing-topbar{
   border-bottom: 1px solid #e1e3e9;
 }
 
-body.landing-page .book .book-summary,
-body.landing-page .book .book-body{
+.book .book-summary,
+.book .book-body{
   padding-top: 56px; /* подгони под высоту шапки */
 }
 
@@ -659,7 +673,7 @@ body.landing-page .book-body .search-results {
 }
 
 /* === COMPACT LANDING HEADER === */
-body.landing-page .landing-topbar .gen-header{
+.landing-topbar .gen-header{
   height: 56px;
   padding: 0 24px;
 
@@ -668,19 +682,19 @@ body.landing-page .landing-topbar .gen-header{
   gap: 16px;
 }
 
-body.landing-page .landing-topbar .logo img{
+.landing-topbar .logo img{
   height: 14px;
 }
 
-body.landing-page .landing-topbar .search-inline input{
+.landing-topbar .search-inline input{
   height: 34px;
   padding-top: 6px;
   padding-bottom: 6px;
   font-size: 14px;
 }
 
-body.landing-page .book .book-summary,
-body.landing-page .book .book-body{
+.book .book-summary,
+.book .book-body{
   padding-top: 56px;
 }
 
@@ -699,13 +713,13 @@ body.landing-page .book .book-body{
 }
 
 /* ===== Topbar links spacing ===== */
-body.landing-page .landing-topbar .header-nav-link{
+.landing-topbar .header-nav-link{
   display: flex;
   align-items: center;
   gap: 18px;              /* расстояние между ссылками */
 }
 
-body.landing-page .landing-topbar .header-nav-link a{
+.landing-topbar .header-nav-link a{
   color: #6b6f76;
   text-decoration: none;
   font-size: 14px;
@@ -713,17 +727,17 @@ body.landing-page .landing-topbar .header-nav-link a{
   white-space: nowrap;
 }
 
-body.landing-page .landing-topbar .header-nav-link a:hover{
+.landing-topbar .header-nav-link a:hover{
   color: #2b2f36;
 }
 
 /* тонкий разделитель между ссылками (как в шаблонах часто делают) */
-body.landing-page .landing-topbar .header-nav-link a + a{
+.landing-topbar .header-nav-link a + a{
   position: relative;
   padding-left: 18px;
 }
 
-body.landing-page .landing-topbar .header-nav-link a + a::before{
+.landing-topbar .header-nav-link a + a::before{
   content: "";
   position: absolute;
   left: 0;
