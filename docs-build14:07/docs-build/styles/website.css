@@ -1,0 +1,961 @@
+/* Общий стиль blockquote */
+.markdown-section blockquote {
+  border-left: 4px solid #ccc;
+  padding: 10px 16px;
+  background: #f9f9f9;
+}
+
+/* Синий Hint */
+.markdown-section blockquote strong:first-child {
+  color: #1e88e5;
+}
+
+/* Если начинается с "Hint" */
+.markdown-section blockquote {
+  border-left-color: #1e88e5;
+  background: #e3f2fd;
+}
+
+/* Контейнер для блока кода + кнопки */
+pre {
+  position: relative;
+}
+
+.copy-code-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 6px;
+  background: rgba(255,255,255,.9);
+  cursor: pointer;
+}
+
+.copy-code-btn:active {
+  transform: translateY(1px);
+}
+
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  grid-template-rows: repeat(2, 200px);
+  gap: 10px;
+  justify-content: center;
+}
+
+.img-grid img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover; /* важное — делает квадрат */
+}
+
+/* ===== Responsive figure for docs images ===== */
+.img-figure{
+  /* занимает всю ширину колонки, но не становится слишком огромной */
+  width: min(100%, 980px);
+
+  /* центрируем */
+  margin: 24px auto 8px;
+
+  /* фиксируем пропорции блока, чтобы на разных экранах было красиво */
+  aspect-ratio: 16 / 9;
+
+  /* ограничиваем высоту "умно": */
+  max-height: 520px;
+  min-height: 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* необязательно, но удобно для визуального ритма */
+  overflow: hidden;
+}
+
+.img-figure img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* без обрезки */
+  display: block;
+}
+
+
+.img-caption {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+
+/* ===== Footer tuning (colors + spacing like template) ===== */
+
+.site-footer{
+  background: #fff;
+  border-top: 1px solid #e9ecf2; /* чуть мягче */
+  padding: 0;
+}
+
+/* чтобы футер был на той же "сетке", что контент справа */
+.site-footer__inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+
+  padding: 18px 56px;     /* как в шаблоне: широкие поля */
+  min-height: 84px;       /* чтобы футер не выглядел "сжатым" */
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+/* ЛЕВО: поддержка */
+.site-footer .projectInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  color: #8a8f99;         /* как на шаблоне — серый текст */
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+/* ссылки — чуть темнее, но не черные */
+.site-footer .projectInfo a{
+  color: #6f7682;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  width: fit-content;
+}
+
+.site-footer .projectInfo a:hover{
+  border-bottom-color: rgba(111,118,130,.55);
+}
+
+/* ПРАВО: копирайт */
+.site-footer .contentInfo{
+  margin: 0;
+  color: #b0b6c1;         /* ещё светлее */
+  font-size: 13px;
+  line-height: 1.35;
+
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1200px){
+  .site-footer__inner{
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (max-width: 900px){
+  .site-footer__inner{
+    padding: 18px 18px;
+    min-height: unset;
+
+    flex-direction: column;
+    align-items: flex-start;  /* на мобиле как обычно — слева */
+    gap: 12px;
+  }
+
+  .site-footer .contentInfo{
+    text-align: left;
+    white-space: normal;
+  }
+}
+
+/* 1) Стрелки навигации должны быть ВЫШЕ линии футера */
+.book .book-body .navigation,
+.book .book-body a.navigation-prev,
+.book .book-body a.navigation-next {
+  margin-bottom: 18px !important; /* расстояние между стрелками и линией футера */
+}
+
+/* 2) Убираем верхний внешний отступ у футера,
+      чтобы линия не "поднималась" из-за margin */
+.site-footer {
+  margin-top: 0 !important;
+}
+
+/* 3) Если у темы есть padding у контейнера навигации,
+      гарантируем, что линия футера не накрывает стрелки */
+.site-footer__inner {
+  padding-top: 18px;  /* линия футера + аккуратный воздух сверху */
+}
+
+/* ===== Sticky footer ONLY for right content column (HonKit) ===== */
+
+/* Правая колонка (без sidebar) растягивается на высоту окна */
+.book .book-body .body-inner {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Контент + стрелки занимает всё доступное место */
+.book .book-body .body-inner .page-wrapper {
+  flex: 1 0 auto;
+}
+
+/* Футер прижимается вниз правой колонки */
+.book .book-body .body-inner #site-footer.site-footer {
+  margin-top: auto !important;
+}
+
+/* =========================================================
+   HOME / LANDING PAGE (only README.md with <div class="landing">)
+   ========================================================= */
+
+.landing {
+  /* фон как у вашего HTML */
+  background: #f5f6f8;
+  /* чтобы “лендинг” занимал высоту экрана, а футер прижимался вниз */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Убираем типичные отступы markdown-контейнера на главной,
+   иначе карточки могут быть “в рамке документации” */
+.book .markdown-section:has(.landing) {
+  padding: 0 !important;
+}
+
+/* На случай если :has() не поддерживается в каком-то браузере —
+   ваш лендинг и так будет выглядеть нормально, просто могут быть отступы.
+   Можно дополнительно сделать “мягкий” вариант: */
+.landing > * {
+  flex: 0 0 auto;
+}
+
+/* ===== ШАПКА ===== */
+.landing .gen-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 14px 18px;
+  background: #ffffff;
+  border-bottom: 1px solid #e1e3e9;
+
+  font-weight: 400;
+  letter-spacing: normal;
+  color: #666;
+}
+
+.landing .icon-home{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  min-width: 80px;
+}
+
+.landing .logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.landing .logo img{
+  height: 14px;
+  width: auto;
+  display: block;
+}
+
+.landing .header-nav-link{
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.landing .header-nav-link a{
+  text-decoration: none;
+  color: #444;
+  font-weight: 400;
+  border-bottom: 1px solid transparent;
+}
+
+.landing .header-nav-link a:hover{
+  border-bottom-color: #999;
+}
+
+.landing .wy-header-nav-search{
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Поисковая строка в шапке */
+.landing .search-inline{
+  position: relative;
+  width: min(260px, 40vw);
+}
+
+.landing .search-inline input[type="text"]{
+  width: 100%;
+  padding: 10px 16px 10px 40px;
+  border-radius: 999px;
+  border: 1px solid #e1e3e9;
+  background: #ffffff;
+  outline: none;
+  font-size: 15px;
+  color: #333;
+}
+
+.landing .search-inline .search-icon{
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: .45;
+}
+
+.landing .search-inline input[type="text"]:hover{
+  border-color: #d3d7e3;
+}
+
+.landing .search-inline input[type="text"]:focus{
+  border-color: #c8ccda;
+  box-shadow: none;
+}
+
+/* ===== КОНТЕНТ ГЛАВНОЙ ===== */
+.landing .wy-nav-content{
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.landing .rst-content{
+  padding-left: clamp(16px, 4vw, 56px);
+  padding-right: clamp(16px, 4vw, 56px);
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+/* ===== КАРТОЧКИ ===== */
+.landing .cards-row{
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.landing .big-card{
+  flex: 1 1 420px;
+  min-height: 320px;
+  background: #ffffff;
+  border-radius: 26px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  border: 1px solid #e1e3e9;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.landing .big-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+}
+
+.landing .big-card-inner{
+  padding: 40px 52px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.landing .big-card-text{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.landing .big-card-text .title{
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+}
+
+.landing .big-card-text .accent{
+  font-weight: 700;
+}
+
+.landing .big-card-text .title::after{
+  content:"";
+  display:block;
+  height: 1px;
+  background:#bbb;
+  margin-top: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s ease;
+}
+
+.landing .big-card:hover .title::after{
+  transform: scaleX(1);
+}
+
+.landing .go-link{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #444;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.landing .big-card:hover .go-link{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.landing .big-card-image{
+  flex: 0 0 58%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.landing .big-card-image img{
+  max-width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 768px){
+  .landing .rst-content{
+    padding: 20px 16px 24px;
+  }
+
+  .landing .big-card-inner{
+    padding: 28px 24px;
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .landing .big-card-image{
+    justify-content: center;
+    width: 100%;
+  }
+
+  .landing .wy-header-nav-search{
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .landing .gen-header{
+    flex-wrap: wrap;
+  }
+
+  .landing .header-nav-link{
+    width: 100%;
+  }
+
+  .landing .search-inline{
+    width: 100%;
+  }
+}
+
+/* ===== LANDING: фон + снятие ограничений HonKit только на главной ===== */
+
+body.landing-page .book .book-body .page-wrapper,
+body.landing-page .book .book-body .page-wrapper .page-inner,
+body.landing-page .book .book-body .page-wrapper .page-inner section.markdown-section {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+body.landing-page .book .book-body .page-wrapper .page-inner,
+body.landing-page .book .book-body .page-wrapper .page-inner section.markdown-section {
+  padding: 0 !important;
+}
+
+body.landing-page .book .book-body .page-wrapper {
+  background: #f5f6f8;
+}
+
+/* ===== LANDING WRAP ===== */
+.landing{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+.landing .gen-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 14px 18px;
+  background: #fff;
+  border-bottom: 1px solid #e1e3e9;
+}
+
+.landing .wy-header-nav-search{ margin-left: auto; }
+
+/* ===== MAIN CONTENT WIDTH ===== */
+.landing main{
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+
+  padding: 32px clamp(16px, 4vw, 56px);
+}
+
+/* ===== CARDS: как на фото 1 ===== */
+.landing .cards-row{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(360px, 1fr));
+  gap: 32px;
+}
+
+.landing .big-card{
+  display: block;
+  width: 100%;
+  min-height: 220px;
+
+  background: #fff;
+  border: 1px solid #e1e3e9;
+  border-radius: 26px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.landing .big-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+}
+
+.landing .big-card-inner{
+  height: 100%;
+  padding: 34px 44px;
+
+  display: grid;
+  grid-template-columns: 1fr minmax(180px, 320px);
+  align-items: center;
+  column-gap: 28px;
+}
+
+.landing .big-card-text .title{
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.landing .big-card-text .accent{ font-weight: 700; }
+
+.landing .big-card-image{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.landing .big-card-image img{
+  width: 100%;
+  height: auto;
+  max-height: 180px;     /* ключ: чтобы картинка НЕ улетала и не обрезалась */
+  object-fit: contain;
+  display: block;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px){
+  .landing .cards-row{
+    grid-template-columns: 1fr;
+  }
+
+  .landing .big-card-inner{
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+    text-align: center;
+  }
+
+  .landing .big-card-image{
+    justify-content: center;
+  }
+}
+
+body.landing-page .landing-topbar{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+  background: #fff;
+  border-bottom: 1px solid #e1e3e9;
+}
+
+body.landing-page .book .book-summary,
+body.landing-page .book .book-body{
+  padding-top: 56px; /* подгони под высоту шапки */
+}
+
+/* === HIDE HONKIT SEARCH ON LANDING === */
+body.landing-page .book-summary .search,
+body.landing-page .book-summary .search-input,
+body.landing-page .book-summary .search-results,
+body.landing-page .book-body .search,
+body.landing-page .book-body .search-results {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* === COMPACT LANDING HEADER === */
+body.landing-page .landing-topbar .gen-header{
+  height: 56px;
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+body.landing-page .landing-topbar .logo img{
+  height: 14px;
+}
+
+body.landing-page .landing-topbar .search-inline input{
+  height: 34px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-size: 14px;
+}
+
+body.landing-page .book .book-summary,
+body.landing-page .book .book-body{
+  padding-top: 56px;
+}
+
+/* === DISABLE HONKIT SEARCH COMPLETELY === */
+.book-summary .search,
+.book-summary .search-input,
+.book-summary .search-results,
+.book-body .search,
+.book-body .search-results,
+#book-search-input {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+/* ===== Topbar links spacing ===== */
+body.landing-page .landing-topbar .header-nav-link{
+  display: flex;
+  align-items: center;
+  gap: 18px;              /* расстояние между ссылками */
+}
+
+body.landing-page .landing-topbar .header-nav-link a{
+  color: #6b6f76;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+body.landing-page .landing-topbar .header-nav-link a:hover{
+  color: #2b2f36;
+}
+
+/* тонкий разделитель между ссылками (как в шаблонах часто делают) */
+body.landing-page .landing-topbar .header-nav-link a + a{
+  position: relative;
+  padding-left: 18px;
+}
+
+body.landing-page .landing-topbar .header-nav-link a + a::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 14px;
+  transform: translateY(-50%);
+  background: #d9dde6;
+}
+
+/* ===== Landing content top spacing ===== */
+body.landing-page .landing main{
+  padding-top: 34px;   /* отступ от шапки до карточек */
+}
+
+/* ===== Hover "В раздел" like original ===== */
+.landing .go-link{
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b6f76;
+
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+.landing .big-card:hover .go-link{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.landing .go-link .divider{
+  width: 42px;
+  height: 1px;
+  background: #cfd5e1;
+  display: inline-block;
+}
+
+/* ===== Push cards lower on landing ===== */
+body.landing-page .landing main{
+  padding-top: 110px !important;   /* сделай 90–140 как нравится */
+}
+
+/* ===== Left-align card text and "В раздел" ===== */
+.landing .big-card-text{
+  text-align: left !important;
+  align-items: flex-start !important;
+}
+
+.landing .go-link{
+  justify-content: flex-start !important;
+  align-self: flex-start !important;
+}
+
+/* ===== Remove theme underlines inside the card link ===== */
+.landing a.big-card,
+.landing a.big-card:hover,
+.landing a.big-card:focus{
+  text-decoration: none !important;
+}
+
+.landing a.big-card *{
+  text-decoration: none !important;
+}
+
+/* на всякий: если тема добавляет border-bottom вместо underline */
+.landing .big-card .title,
+.landing .big-card .go-link,
+.landing .big-card .go-link .text{
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+/* ===== Wider cards on landing ===== */
+.landing .cards-row{
+  grid-template-columns: repeat(2, minmax(600px, 1fr));
+  gap: 48px; /* чуть больше воздуха между карточками */
+}
+
+/* чтобы на больших экранах они реально были широкими */
+@media (min-width: 1400px){
+  .landing main{
+    max-width: 1400px;
+  }
+}
+
+/* ===== Remove small underline under title ===== */
+.landing .big-card-text .title::after{
+  content: none !important;
+}
+
+.landing .go-link{
+  margin-top: 18px;
+}
+
+.landing .go-link .divider{
+  width: 56px;   /* чуть длиннее */
+  background: #c9ceda;
+}
+
+/* ===== Responsive cards grid (auto 2->1 columns) ===== */
+.landing .cards-row{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* на очень узких экранах разрешаем сжиматься ещё сильнее */
+@media (max-width: 520px){
+  .landing .cards-row{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1400px){
+  .landing main{ max-width: 1400px; }
+  .landing .cards-row{ gap: 48px; }
+}
+
+
+.book-summary li.chapter.no-link-folder{
+  position: relative;
+  padding-left: 26px;
+}
+
+/* название подглавы */
+.book-summary li.chapter.no-link-folder > .nav-folder-label{
+  display: block;
+  padding: 8px 10px 8px 0;
+  line-height: 1.3;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* стрелка центрируется ПО ТЕКСТУ, а не по li */
+.book-summary li.chapter.no-link-folder > button.nav-toggle{
+  position: absolute;
+  left: 6px;
+
+  /* центр именно по названию */
+  top: calc(8px + (1.3em / 2));
+  transform: translateY(-50%) rotate(90deg);
+
+  width: 16px;
+  height: 16px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+
+  font-size: 12px;
+  line-height: 16px;
+  padding: 0;
+  color: #9aa3b2;
+}
+
+/* свернуто */
+.book-summary li.chapter.no-link-folder.is-collapsed > button.nav-toggle{
+  transform: translateY(-50%) rotate(0deg);
+}
+
+/* вложенные страницы — компактно */
+.book-summary li.chapter.no-link-folder > ul{
+  margin: 2px 0 6px 0;
+  padding-left: 16px;
+}
+
+.book-summary li.chapter.no-link-folder > ul li.chapter > a{
+  padding: 8px 10px 8px 0;
+  line-height: 1.35;
+}
+
+/* ВАЖНО: именно это делает сворачивание видимым */
+.book-summary li.chapter.no-link-folder.is-collapsed > ul{
+  display: none !important;
+}
+
+.book-summary li.chapter.is-collapsed > ul{
+  display: none !important;
+}
+
+/* === Remove gray underline from collapsible folder titles === */
+.book-summary li.chapter.no-link-folder > .nav-folder-label{
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+/* на всякий случай — если тема рисует underline через псевдоэлементы */
+.book-summary li.chapter.no-link-folder > .nav-folder-label::before,
+.book-summary li.chapter.no-link-folder > .nav-folder-label::after{
+  content: none !important;
+}
+
+/* === Remove active background from folder titles only === */
+.book-summary li.chapter.no-link-folder.active > .nav-folder-label,
+.book-summary li.chapter.no-link-folder.current > .nav-folder-label{
+  background: transparent !important;
+}
+
+/* 1) Полностью убираем "линию/подчеркивание", которое тема рисует через box-shadow/border */
+.book-summary li.chapter.no-link-folder > .nav-folder-label,
+.book-summary li.chapter.no-link-folder > .nav-folder-label:hover,
+.book-summary li.chapter.no-link-folder.active > .nav-folder-label,
+.book-summary li.chapter.no-link-folder.current > .nav-folder-label{
+  background: transparent !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  background-image: none !important;
+}
+
+/* 2) На всякий случай: если тема рисует линию псевдоэлементом */
+.book-summary li.chapter.no-link-folder > .nav-folder-label::before,
+.book-summary li.chapter.no-link-folder > .nav-folder-label::after{
+  content: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* === Remove "Published with HonKit" / "GitBook" (theme footer variants) === */
+.gitbook-link,
+.honkit-link,
+.powered-by,
+.published-with,
+.book-footer,
+.page-footer,
+.book .book-body .book-footer,
+.book .book-body .page-footer,
+.book .book-body .footer,
+.book .book-body footer .gitbook-link,
+.book .book-body footer .honkit-link,
+.book .book-body footer a[href*="honkit"],
+.book .book-body footer a[href*="gitbook"]{
+  display: none !important;
+}
+
+
