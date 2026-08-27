@@ -27,15 +27,15 @@
 
 ---
 
-<!--## Где скачать образ
+## Где скачать образ
 
-Актуальная версия виртуальной машины доступна на странице релизов репозитория:
+Актуальная версия виртуальной машины доступна на странице Google drive:
 
-👉 [https://github.com/CopterExpress/clover_vm/releases/latest](https://github.com/CopterExpress/clover_vm/releases/latest)
+👉 [Google drive](https://drive.google.com/file/d/1mCeP510Pv9BCpOd2QukTuXVSaXkbRt2A/view)
 
---- -->
+
 ### Выбор среды виртуализации
-
+r
 Для запуска образа потребуется одна из поддерживаемых платформ виртуализации:
 
 - VirtualBox
