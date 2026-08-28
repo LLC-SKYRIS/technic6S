@@ -1,0 +1,1562 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Подключение к Orange Pi 5 Pro с использованием SSH-ключей · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Calibration.md" />
+    
+    
+    <link rel="prev" href="Mavlink.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Главная
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Техник 6S
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" >
+            
+                <span>
+            
+                    
+                    Сборка
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1.1" data-path="Sborka.html">
+            
+                <a href="Sborka.html">
+            
+                    
+                    Сборка базового коптера
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.2" data-path="Sborka2.html">
+            
+                <a href="Sborka2.html">
+            
+                    
+                    Установка вычислительного модуля
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" >
+            
+                <span>
+            
+                    
+                    Настройка системы
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="EnergySettings.html">
+            
+                <a href="EnergySettings.html">
+            
+                    
+                    Настройка питания
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="Parameters.html">
+            
+                <a href="Parameters.html">
+            
+                    
+                    Настройка параметров QGroundControl
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="CameraSettings.html">
+            
+                <a href="CameraSettings.html">
+            
+                    
+                    Настройка камеры
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.4" data-path="NetworkSettings.html">
+            
+                <a href="NetworkSettings.html">
+            
+                    
+                    Настройка сети
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.5" data-path="FailsafeSettings.html">
+            
+                <a href="FailsafeSettings.html">
+            
+                    
+                    Настройка failsafe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.6" data-path="PultSettings.html">
+            
+                <a href="PultSettings.html">
+            
+                    
+                    Настройка пульта
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.7" data-path="Bind.html">
+            
+                <a href="Bind.html">
+            
+                    
+                    Bind приемника
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.8" data-path="CalibrationSensors.html">
+            
+                <a href="CalibrationSensors.html">
+            
+                    
+                    Калибровка датчиков
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.9" data-path="Modes.html">
+            
+                <a href="Modes.html">
+            
+                    
+                    Полетные режимы
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" >
+            
+                <span>
+            
+                    
+                    Работа с OrangePi 5 Pro
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.3.1" data-path="OrangePi.html">
+            
+                <a href="OrangePi.html">
+            
+                    
+                    OrangePi 5 Pro
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.2" data-path="ImageOPI.html">
+            
+                <a href="ImageOPI.html">
+            
+                    
+                    Образ для OPI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.3" data-path="ConnectingToWi-Fi.html">
+            
+                <a href="ConnectingToWi-Fi.html">
+            
+                    
+                    Подключение к Wi-Fi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.4" data-path="WebInterface.html">
+            
+                <a href="WebInterface.html">
+            
+                    
+                    Веб Интерфейс
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.5" data-path="SSH.html">
+            
+                <a href="SSH.html">
+            
+                    
+                    Подключение по SSH
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.6" data-path="Butterfly.html">
+            
+                <a href="Butterfly.html">
+            
+                    
+                    Подключение к Web Терминалу
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.7" data-path="CommandLine.html">
+            
+                <a href="CommandLine.html">
+            
+                    
+                    Командная строка
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.8" data-path="ConnectingToPX4.html">
+            
+                <a href="ConnectingToPX4.html">
+            
+                    
+                    Подключение к полетному контроллеру
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.9" data-path="QGroundControlViaWi-Fi.html">
+            
+                <a href="QGroundControlViaWi-Fi.html">
+            
+                    
+                    Подключение к QGroundControl
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.10" data-path="CoordinateSystems.html">
+            
+                <a href="CoordinateSystems.html">
+            
+                    
+                    Система координат
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" >
+            
+                <span>
+            
+                    
+                    Программирование
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.4.1" data-path="Programming.html">
+            
+                <a href="Programming.html">
+            
+                    
+                    Программирование
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.2" data-path="AutoRunSoft.html">
+            
+                <a href="AutoRunSoft.html">
+            
+                    
+                    Автономный запуск ПО
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.3" data-path="AutonomousFlight.html">
+            
+                <a href="AutonomousFlight.html">
+            
+                    
+                    Автономный полет
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.4" data-path="AutonomousFlightOffboard.html">
+            
+                <a href="AutonomousFlightOffboard.html">
+            
+                    
+                    Режим автономного полета (OFFBOARD)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.5" data-path="Blocky.html">
+            
+                <a href="Blocky.html">
+            
+                    
+                    Блочное программирование
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.6" data-path="CameraImages.html">
+            
+                <a href="CameraImages.html">
+            
+                    
+                    Просмотр изображений с камер
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.7" data-path="ROSWeb.html">
+            
+                <a href="ROSWeb.html">
+            
+                    
+                    ROS топики в Веб Интерфейсе
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.8" data-path="ROS.html">
+            
+                <a href="ROS.html">
+            
+                    
+                    ROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.9" data-path="MAVROS.html">
+            
+                <a href="MAVROS.html">
+            
+                    
+                    MAVROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.10" data-path="ComputerVision.html">
+            
+                <a href="ComputerVision.html">
+            
+                    
+                    Компьютерное зрение
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.11" data-path="CNN.html">
+            
+                <a href="CNN.html">
+            
+                    
+                    Нейронные сети (CNN)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.12" data-path="IntergrationCNN.html">
+            
+                <a href="IntergrationCNN.html">
+            
+                    
+                    Интеграция нейронных сетей в Technic6S
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" >
+            
+                <span>
+            
+                    
+                    Периферия
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.5.1" data-path="Периферия.html">
+            
+                <a href="Периферия.html">
+            
+                    
+                    Периферия
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.2" data-path="OpticalFlow.html">
+            
+                <a href="OpticalFlow.html">
+            
+                    
+                    Optical flow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.3" data-path="Aruco.html">
+            
+                <a href="Aruco.html">
+            
+                    
+                    Визуальные маркеры
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.4" data-path="ArucoMarker.html">
+            
+                <a href="ArucoMarker.html">
+            
+                    
+                    Распознавание ArUco-маркеров
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.5" data-path="ArucoMap.html">
+            
+                <a href="ArucoMap.html">
+            
+                    
+                    Навигация по картам ArUco-маркеров
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.6" data-path="LaserRangefinder.html">
+            
+                <a href="LaserRangefinder.html">
+            
+                    
+                    Лазерный дальномер
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.7" data-path="UltrasonicRangefinder.html">
+            
+                <a href="UltrasonicRangefinder.html">
+            
+                    
+                    Ультразвуковой дальномер
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.8" data-path="GPIO.html">
+            
+                <a href="GPIO.html">
+            
+                    
+                    GPIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.9" data-path="LedStrip.html">
+            
+                <a href="LedStrip.html">
+            
+                    
+                    Светодиодная лента
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" >
+            
+                <span>
+            
+                    
+                    Симулятор
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.6.1" data-path="Simulator.html">
+            
+                <a href="Simulator.html">
+            
+                    
+                    Симулятор
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.2" data-path="SimulationNative.html">
+            
+                <a href="SimulationNative.html">
+            
+                    
+                    Сборка на собственной машине
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.3" data-path="SimulationVM.html">
+            
+                <a href="SimulationVM.html">
+            
+                    
+                    Установка виртуальной машины
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.4" data-path="SimulationM1.html">
+            
+                <a href="SimulationM1.html">
+            
+                    
+                    Симулятор на компьютерах с чипом M1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.5" data-path="Rviz.html">
+            
+                <a href="Rviz.html">
+            
+                    
+                    Rviz и RQT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" >
+            
+                <span>
+            
+                    
+                    Доп материалы
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.7.1" data-path="CodeExamples.html">
+            
+                <a href="CodeExamples.html">
+            
+                    
+                    Примеры кода на Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.2" data-path="GPS.html">
+            
+                <a href="GPS.html">
+            
+                    
+                    Подключение GPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.3" data-path="Mavlink.html">
+            
+                <a href="Mavlink.html">
+            
+                    
+                    Mavlink
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.7.4" data-path="SshKeys.html">
+            
+                <a href="SshKeys.html">
+            
+                    
+                    Подключение к Orange Pi 5 Pro с использованием SSH-ключей
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.5" data-path="Calibration.md">
+            
+                <span>
+            
+                    
+                    Калибровка камеры
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../pilotFPV/">
+            
+                <a href="../pilotFPV/">
+            
+                    
+                    Пилот FPV
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../pilotFPV/Введение.html">
+            
+                <a href="../pilotFPV/Введение.html">
+            
+                    
+                    Введение
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../pilotFPV/Сборка.html">
+            
+                <a href="../pilotFPV/Сборка.html">
+            
+                    
+                    Сборка
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" >
+            
+                <span>
+            
+                    
+                    Настройка
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.3.1" data-path="../pilotFPV/Настройка1.html">
+            
+                <a href="../pilotFPV/Настройка1.html">
+            
+                    
+                    Шаг 1: Настройка регулятора 4в1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.2" data-path="../pilotFPV/Настройка2.html">
+            
+                <a href="../pilotFPV/Настройка2.html">
+            
+                    
+                    Шаг 2: Установка ПО и Подключение полетного контроллера к ПК
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.3" data-path="../pilotFPV/Настройка3.html">
+            
+                <a href="../pilotFPV/Настройка3.html">
+            
+                    
+                    Обновление прошивки FC и Калибровка акселерометра
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.4" data-path="../pilotFPV/Настройка4.html">
+            
+                <a href="../pilotFPV/Настройка4.html">
+            
+                    
+                    Настройка каналов и Настройка моторов
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.5" data-path="../pilotFPV/Настройка5.html">
+            
+                <a href="../pilotFPV/Настройка5.html">
+            
+                    
+                    Настройка PID и Настройка OSD
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.6" data-path="../pilotFPV/Настройка6.html">
+            
+                <a href="../pilotFPV/Настройка6.html">
+            
+                    
+                    Настройка рабочих частот и Настройка LED-модулей
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.7" data-path="../pilotFPV/Настройка7.html">
+            
+                <a href="../pilotFPV/Настройка7.html">
+            
+                    
+                    Шаг 3: Первичная настройка приемника и Настройка пульта
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.8" data-path="../pilotFPV/Настройка8.html">
+            
+                <a href="../pilotFPV/Настройка8.html">
+            
+                    
+                    Настройка приемника в BetaFlight
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../stand-vmg/">
+            
+                <a href="../stand-vmg/">
+            
+                    
+                    Стенд ВМГ
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../stand-vmg/Управление_испытанием.html">
+            
+                <a href="../stand-vmg/Управление_испытанием.html">
+            
+                    
+                    Управление испытанием
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../stand-vmg/Общие_элементы_интерфейса.html">
+            
+                <a href="../stand-vmg/Общие_элементы_интерфейса.html">
+            
+                    
+                    Общие элементы интерфейса
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../stand-vmg/Страница_управление_тестом.html">
+            
+                <a href="../stand-vmg/Страница_управление_тестом.html">
+            
+                    
+                    Страница Управление тестом
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../stand-vmg/Страница_результаты.html">
+            
+                <a href="../stand-vmg/Страница_результаты.html">
+            
+                    
+                    Страница Результаты
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../stand-vmg/Страница_настройки.html">
+            
+                <a href="../stand-vmg/Страница_настройки.html">
+            
+                    
+                    Страница Настройки
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../stand-vmg/Рекомендуемый_порядок_испытаний.html">
+            
+                <a href="../stand-vmg/Рекомендуемый_порядок_испытаний.html">
+            
+                    
+                    Рекомендуемый порядок испытаний
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../stand-vmg/Действия_при_нештатной_ситуации.html">
+            
+                <a href="../stand-vmg/Действия_при_нештатной_ситуации.html">
+            
+                    
+                    Действия при нештатной ситуации
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Подключение к Orange Pi 5 Pro с использованием SSH-ключей</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+  
+                                <h1 id="подключение-к-orange-pi-с-использованием-ssh-ключей">Подключение к Orange Pi с использованием SSH-ключей</h1>
+<p><em>Эта инструкция позволит вам быстро подключаться к Orange Pi 5 Pro. Всего за одну секунду. Без ввода пароля.</em></p>
+<p>Базовые сведения по работе с SSH вы можете найти в разделе <a href="SSH.html">Доступ по SSH к Orangepi Pi</a>. А в этом разделе вы найдёте расширенную информацию по использованию SSH, а также ряд рекомендаций по использованию SSH при работе с Клевером.</p>
+<h3 id="общая-информация">Общая информация</h3>
+<p>SSH (англ. <em>secure shell</em> — "безопасная оболочка") - сетевой протокол, позволяющий удалённо управлять операционной системой на компьютере, к которому вы подключились. Аналогичен такому протоколу, как <em>telnet</em>, но позволяет выполнять шифрование сетевого трафика по время взаимодействия. Таким образом передача паролей и другой секретной информации оказываются скрыты. Операционная система Orange Pi поддерживает взаимодействие по SSH, как и многие другие распространённые системы на базе Linux.</p>
+<p>SSH позволяет не только организовывать работу в командной оболочке, но и передавать файлы, а также туннелировать передаваемые данные других протоколов, например информацию с видеокамеры или телеметрию. Кроме того, SSH поддерживает несколько режимов аутентификации (то есть проверки подключающегося пользователя), с его помощью возможно подключение к Технику не только с использованием пароля, но и беспарольный доступ (аутентификация по ключевой паре, т.е. SSH-ключи).</p>
+<h3 id="аутентификация-по-паролю">Аутентификация по паролю</h3>
+<p>Аутентификация <a href="SSH.html">по паролю</a> на образе OPI для Technic включена и пароль может быть использован для входа в командную оболочку мини-компьютера. На ЭВМ с операционными системами Linux (и в первую очередь на серверах, подключенных к интернету) возможность входа по паролю обычно отключают, поскольку есть более безопасный способ аутентификации.</p>
+<blockquote>
+<p><strong>Подсказка</strong> Вход в Техник по паролю отключать не рекомендуется, поскольку можно совсем утратить доступ к командной оболочке по сети.</p>
+</blockquote>
+<p>При первом подключении к OPI пользователю показывается уведомление с предложением сохранить уникальный отпечаток <em>fingerprint</em>. Сохранённая информация накапливается на компьютерах с которых выполняется вход по SSH на OPI, и проверяется на внезапную подмену.</p>
+<p>В ОС Linux и Unix (Mac OS) в текстовом SSH-клиенте первое подключение к OPI выглядит таким образом:</p>
+<pre><code class="lang-bash">ssh orangepi@10.42.0.1
+
+
+<span class="hljs-built_in">whoami</span>
+<span class="hljs-comment"># orangepi</span>
+
+<span class="hljs-built_in">exit</span>
+</code></pre>
+<p>В графических программах в Windows у вас будут периодически возникать окошки с похожими предупреждениями.</p>
+<blockquote>
+<p><strong>Подсказка</strong> В Windows 10 появился встроенный SSH-клиент, который можно запускать из командной строки, см. руководство по использованию от Microsoft <a href="https://learn.microsoft.com/ru-ru/windows-server/administration/openssh/openssh_install_firstuse" target="_blank">по этой ссылке</a>.</p>
+</blockquote>
+<h3 id="аутентификация-с-использованием-ssh-ключей">Аутентификация с использованием SSH-ключей</h3>
+<p>SSH-ключи - это удобный, быстрый альтернативный способ подключения к Orange Pi, для которого не требуется ввод пароля. В частности, при эксплуатации Техника такой способ удобен потому, что экономит время, а значит и заряд аккумулятора, и лимит времени отведённого на мероприятия в полётных зонах. Кроме того, использование SSH-ключей открывает возможности по удобному использованию других программ, которыми бы вы вряд-ли воспользовались бы при необходимости всякий раз набирать пароль.</p>
+<p>SSH-ключ делится на две части: пара состоит из т.н. <em>закрытого</em> и <em>открытого</em> ключа. Ключ однократно генерируется. Одна часть ключа (открытая) однократно передаётся на удалённый компьютер к которому будет выполняться подключение, вторая часть ключа (закрытая) хранится на компьютере, который будет подключаться, закрытая часть ключа никуда не передаётся.</p>
+<blockquote>
+<p><strong>Подсказка</strong> Открытый ключ однократно копируется на Orangepi Pi, а закрытый ключ сохраняется в ноутбуке в виде файла.</p>
+</blockquote>
+<h4 id="подготовка">Подготовка</h4>
+<p>Для того, чтобы пара ключей появилась, её необходимо сгенерировать. В ОС Linux и Unix (Mac OS) есть программа <code>ssh-keygen</code> с помощью которой мы и получим нужную нам пару ключей </p>
+<blockquote>
+<p><strong>Подсказка</strong> Команды выполняются не в Orange Pi, и не в виртуальной машине симулятора Gazebo, а в командной оболочке ноутбука с которого вы будете подключаться к Технику</p>
+</blockquote>
+<p>Прежде чем пользоваться ключами, необходимо выполнить ряд действий для настройки прав доступа <em>на ноутбуке</em>:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># однократная настойка прав доступа к пользовательским директориям</span>
+<span class="hljs-built_in">chmod</span> o-rwx <span class="hljs-variable">$HOME</span>
+<span class="hljs-built_in">mkdir</span> ~/.ssh
+<span class="hljs-built_in">chmod</span> g-rwx,o-rwx ~/.ssh
+<span class="hljs-built_in">touch</span> ~/.ssh/config ~/.ssh/known_hosts
+<span class="hljs-built_in">chmod</span> 600 ~/.ssh/config ~/.ssh/known_hosts
+</code></pre>
+<blockquote>
+<p><strong>Подсказка</strong> Директория <code>.ssh</code> в домашней папке пользователя - это стандартное место хранения и ключевых пар, и настроек подключения с использованием SSH, поэтому доступ к ней запрещаем группе Others (<em>посторонние</em>). Современные дистрибутивы Linux проверяют права доступа к файлам в директории <code>.ssh</code> и могут отказать в аутентификации по ключевым парам.</p>
+</blockquote>
+<h4 id="генерация-пары-ssh-ключей">Генерация пары SSH-ключей</h4>
+<p>Генерируем пару SSH-ключей в директории <code>~/.ssh</code> на ноутбуке:</p>
+<pre><code class="lang-bash">ssh-keygen -f ~/.ssh/id_technic -C <span class="hljs-string">"SSH key for Technic"</span> -N <span class="hljs-string">""</span>
+
+<span class="hljs-built_in">chmod</span> 400 ~/.ssh/id_technic*
+</code></pre>
+<h4 id="копирование-ssh-ключа-на-orange-pi">Копирование SSH-ключа на Orange Pi</h4>
+<p>После чего <a href="ConnectingToWi-Fi.html">подключаемся к Orange Pi по Wi-Fi</a> и продолжаем вводить команды <em>на ноутбуке</em> для копирования ключа на мини-компьютер:</p>
+<pre><code class="lang-bash">ssh-copy-id -i ~/.ssh/id_technic.pub orangepi@10.42.0.1
+</code></pre>
+<p>В результате с ноутбука на микрокомпьютер OPI будет скопирована т.н. <em>открытая</em> часть ключа, а <em>закрытая</em> останется на ноутбуке. Для проверки подключения без ввода пароля используем команду с указанием пути где находится SSH-ключ:</p>
+<pre><code class="lang-bash">ssh -i ~/.ssh/id_technic orangepi@10.42.0.1
+</code></pre>
+<p>Если терминал не потребует ввода пароля для подключения к OPI, то вы всё сделали правильно и пара SSH-ключей работает. Теперь можно набрать команду выхода из SSH-терминала, чтобы продолжить настройку ноутбука:</p>
+<pre><code class="lang-bash">orangepi@technic-2306:~ $ <span class="hljs-built_in">exit</span>
+
+galina@Thinkpad-X1:~/.ssh$
+</code></pre>
+<h3 id="настройка-ssh-подключения-к--технику">Настройка SSH-подключения к  Технику</h3>
+<p>Теперь давайте настроим SSH-терминал таким образом, чтобы не приходилось всякий раз вписывать путь к закрытому ключу. Это делается с помощью редактирования файла <code>~/.ssh/config</code> <em>на ноутбуке</em>. Откройте файл в текстовом редакторе и добавьте в файл следующие строки (если там уже есть какая-то информация, то поместите их в конец файла):</p>
+<pre><code class="lang-txt">Host 10.42.0.1
+    User pi
+    IdentityFile ~/.ssh/id_technic
+    PreferredAuthentications publickey,password
+    PubkeyAuthentication yes
+    PasswordAuthentication yes
+    ConnectTimeout 1
+    TCPKeepAlive yes
+    ServerAliveInterval 2
+    ServerAliveCountMax 3
+    StrictHostKeyChecking no
+</code></pre>
+<p>Эта настройка:</p>
+<ul>
+<li>влияет на работу SSH-терминала при подключении к компьютеру с ip-адресом <code>10.42.0.1</code>;</li>
+<li>если имя пользователя не указано, то автоматически будет использоваться имя <code>orangepi</code>;</li>
+<li>будет автоматически использоваться приватный ключ <code>~/.ssh/id_technic</code>;</li>
+<li>если ключ по каким-то причинам не подойдёт (был заменён на одном ноутбуке, но забыт заменить на другом), то SSH-терминал перейдёт к аутентификации по паролю (настройки <code>PreferredAuthentications</code>, <code>PubkeyAuthentication</code>, <code>PasswordAuthentication</code>);</li>
+<li>если связь с OPI не может установиться (WiFi ещё не включился), то SSH-подключение не зависнет, а быстро завершится (настройка <code>ConnectTimeout</code>);</li>
+<li>если связь с OPI будет внезапно разорвана, то SSH-подключение не зависнет, а быстро завершится (настройки <code>TCPKeepAlive</code>, <code>ServerAliveInterval</code>, <code>ServerAliveCountMax</code>);</li>
+<li>уникальные SSH-отпечатки OPI-микрокомпьютеров (<em>fingerprints</em>) о которых упоминалось выше, проверяться больше не будут (настройка <code>StrictHostKeyChecking</code>).</li>
+</ul>
+<p>Таким образом будет решено множество неудобств, связанных с использованием SSH-подключений.</p>
+<blockquote>
+<p><strong>Подсказка</strong> Если у вас в лаборатории несколько дронов на базе Orange Pi, и несколько ноутбуков, то можно <strong>однократно</strong> сгенерировать SSH-ключи, скопировать их на все дроны и разложить по всем ноутбукам, тогда с любого ноутбука можно будет быстро зайти на любой из дронов.</p>
+</blockquote>
+<p>Теперь, чтобы подключиться к OPI из терминала Linux вам достаточно набрать <code>ssh 1[TAB][TAB][ENTER]</code> и ip-адрес <code>10.42.0.1</code> автоматически дополнится в командной строке, т.к. командная оболочка использует адреса из файла <code>~/.ssh/config</code> и способна "угадать" ваши намерения для подключения к Технику. Нажав ввод вы мгновенно окажетесь в терминале  OPI.</p>
+<blockquote>
+<p><strong>Подсказка</strong> Графические программы для Windows, которые поддерживают работу с SSH-ключами, которыми вы можете воспользоваться: <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" target="_blank">PuTTY</a> и <a href="https://mobaxterm.mobatek.net/" target="_blank">MobaXterm</a>.</p>
+</blockquote>
+<h3 id="копирование-файлов-при-помощи-ssh">Копирование файлов при помощи SSH</h3>
+<p>Чтобы скопировать файл <code>circle_flight.py</code> с ноутбука на OPI в домашнюю папку пользователя <code>orangepi</code> можно также воспользоваться SSH. Для этого наберите в командной оболочке команду:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># сначала указываем 'что' копируем, а потом 'куда'</span>
+scp circle_flight.py 10.42.0.1
+</code></pre>
+<p>Для того, чтобы скопировать файл <code>output.avi</code> c OPI папки <code>examples</code> на ноутбук используем похожую команду:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># после символа ':' (двоеточие) можно указать путь на удалённом компьютере</span>
+<span class="hljs-comment"># путь указанный как './' означает текущую папку, куда будет скопирован файл</span>
+scp 10.42.0.1:examples/output.avi ./
+</code></pre>
+<h3 id="удалённый-запуск-команд-по-ssh">Удалённый запуск команд по SSH</h3>
+<p>Чтобы запустить команду с ноутбука на OPI (то есть удалённо) можно также воспользоваться SSH.</p>
+<p>Команда выключения Orange:</p>
+<pre><code class="lang-bash">ssh 10.42.0.1 <span class="hljs-string">'sudo shutdown now'</span>
+</code></pre>
+<p>Пример команды запуска Python-скрипта:</p>
+<!-- TODO: здесь слишком длинная команда получается, потому что-то запускать скрипты в .bashrc нехорошо (команды выполняются не только из bash) Должно быть так: ssh -t 192.168.11.1 'python3 examples/get_telemetry.py' -->
+<pre><code class="lang-bash">ssh -t 10.42.0.1 <span class="hljs-string">'ROS_HOSTNAME=`hostname`.local &amp;&amp; . /opt/ros/noetic/setup.bash &amp;&amp; . /home/orangepi/technic_ws/devel/setup.bash &amp;&amp; python3 examples/get_telemetry.py'</span>
+</code></pre>
+<p>Для того, чтобы удалённо запустить запись видео можно выполнить команду:</p>
+<pre><code class="lang-bash">ssh -t 10.42.0.1 <span class="hljs-string">'ROS_HOSTNAME=`hostname`.local &amp;&amp; . /opt/ros/noetic/setup.bash &amp;&amp; . /home/orangepi/technic_ws/devel/setup.bash &amp;&amp; rosrun image_view video_recorder image:=/main_camera/image_raw'</span>
+</code></pre>
+
+                                
+
+  <footer class="site-footer" id="site-footer">
+    <div class="site-footer__inner">
+      <div class="projectInfo">
+        <span>Обратиться за помощью в техническую поддержку</span>
+        <a href="https://t.me/skyris_support" target="_blank" rel="noopener">• telegram @skyris_support</a>
+        <a href="mailto:info@skyris.pro">• info@skyris.pro</a>
+      </div>
+
+      <div role="contentinfo" class="contentInfo">
+        ООО «Скайрис» 2025 © Все права защищены
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    function placeFooter() {
+      const footer = document.getElementById('site-footer');
+      if (!footer) return false;
+
+      const pageWrapper =
+        document.querySelector('.book .book-body .body-inner .page-wrapper') ||
+        document.querySelector('.book .book-body .page-wrapper') ||
+        document.querySelector('.page-wrapper');
+
+      if (!pageWrapper) return false;
+
+      // Вставляем футер в самый конец page-wrapper (после стрелок)
+      pageWrapper.appendChild(footer);
+      return true;
+    }
+
+    if (placeFooter()) return;
+
+    const root = document.querySelector('.book') || document.body;
+    const obs = new MutationObserver(() => {
+      if (placeFooter()) obs.disconnect();
+    });
+    obs.observe(root, { childList: true, subtree: true });
+
+    window.addEventListener('load', placeFooter);
+  })();
+  </script>
+
+
+
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Mavlink.html" class="navigation navigation-prev " aria-label="Previous page: Mavlink">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Calibration.md" class="navigation navigation-next " aria-label="Next page: Калибровка камеры">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Подключение к Orange Pi 5 Pro с использованием SSH-ключей","level":"2.1.7.4","depth":3,"next":{"title":"Калибровка камеры","level":"2.1.7.5","depth":3,"path":"technic6S/Calibration.md","ref":"technic6S/Calibration.md","articles":[]},"previous":{"title":"Mavlink","level":"2.1.7.3","depth":3,"path":"technic6S/Mavlink.md","ref":"technic6S/Mavlink.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/SshKeys.md","mtime":"2026-08-27T17:22:12.849Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-08-28T16:00:49.499Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/honkit-plugin-add-js/ad1722d3ed468786-home-link.js"></script>
+        
+    
+        
+        <script src="../gitbook/honkit-plugin-add-js/b166d99031049e31-website.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
