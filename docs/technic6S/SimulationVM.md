@@ -26,13 +26,9 @@
 > логин — `technic`, пароль — `technic`.
 
 ---
-
 ## Где скачать образ
 
-Актуальная версия виртуальной машины доступна на странице Google drive:
-
-👉 [Google drive](https://drive.google.com/file/d/1mCeP510Pv9BCpOd2QukTuXVSaXkbRt2A/view)
-
+Актуальная версия виртуальной машины доступна на странице [Google drive](https://drive.google.com/file/d/1mCeP510Pv9BCpOd2QukTuXVSaXkbRt2A/view):
 
 ### Выбор среды виртуализации
 r
