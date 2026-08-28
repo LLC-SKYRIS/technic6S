@@ -18,8 +18,8 @@
 3. Нажмите «Подключиться, используя ключ безопасности»
 4. В поле введите пароль `technicwifi`, и нажмите кнопку далее
 
-  <img src="assets/wifi-round-corners1.png"  width=300>
+  <img src="assets/WIFI-round-corners1.png"  width=300>
   
-  <img src="assets/wifi-round-corners2.png"   width=300>
+  <img src="assets/WIFI-round-corners2.png"   width=300>
 
 Для изменения настроек Wi-Fi или получения более детальной информации о устройстве сети на Orangepi 5 pro прочитайте статью [настройка Wi-Fi](NetworkSettings.md).
