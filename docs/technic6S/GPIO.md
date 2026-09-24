@@ -9,7 +9,7 @@ GPIO (General-Purpose Input/Output) – это тип пинов на OPi, на�
 Для определения номера пина используйте [распиновку Orange Pi](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html).
 
 #### Подключение полезной нагрузки (Сервопривод/Магнитный захват и т.д.)
-Для того чтобы подключить сервопривод или другую полезную нагрузку подсоедините пины сервопривода к контактам на плате
+Для того чтобы подключить сервопривод или другую полезную нагрузку подсоедините пины сервопривода к контактам на плате к пинам PWM0
 
 <div class="img-figure">
 	<img src="assets/PWMShield.svg"width=300 class="center zoom">
