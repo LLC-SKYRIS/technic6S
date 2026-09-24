@@ -55,7 +55,7 @@
 	    * [Навигация по картам ArUco-маркеров](technic6S/ArucoMap.md)
 	    * [Лазерный дальномер](technic6S/LaserRangefinder.md)
 	    * [Ультразвуковой дальномер](technic6S/UltrasonicRangefinder.md)
-	    * [GPIO](technic6S/GPIO.md)
+	    * [GPIO и Захваты](technic6S/GPIO.md)
 	    * [Светодиодная лента](technic6S/LedStrip.md)
 
 	* Симулятор
@@ -71,6 +71,7 @@
 	    * [Mavlink](technic6S/Mavlink.md)
 	    * [Подключение к Orange Pi 5 Pro с использованием SSH-ключей](technic6S/SshKeys.md)
 	    * [Калибровка камеры](technic6S/Calibration.md)
+	    * [Запись экрана с дрона](Camera_screen.md)
 
 ---
 
