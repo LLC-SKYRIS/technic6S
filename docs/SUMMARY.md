@@ -65,6 +65,12 @@
 	    * [Симулятор на компьютерах с чипом M1](technic6S/SimulationM1.md)
 	    * [Rviz и RQT](technic6S/Rviz.md)
 
+	* Шоу дронов
+		* [Technic-Show](technic6S/Technic-show.md)
+		* [Подключение к Wi-Fi сети](technic6S/wifi_connected.md)
+		* [Technic Show Server](technic6S/Server.md)
+		* [Установка клиента](technic6S/Client_installation.md)
+
 	* Доп материалы
 		* [Примеры кода на Python](technic6S/CodeExamples.md)
 	    * [Подключение GPS](technic6S/GPS.md)
