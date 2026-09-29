@@ -3,7 +3,7 @@
 
 Полное руководство по установке клиентской части `technic-show` на дрон, подключению к серверу и работе с интерфейсом оператора.
 
-Репозиторий: https://github.com/wdstq4jkwp-oss/technic-show.git
+Репозиторий: https://github.com/Gromodzila/technic-show.git
 
 ---
 
@@ -11,9 +11,9 @@
 
 1. [Установка с нуля](#1-установка-с-нуля)
 2. [Настройка](#2-настройка)
-3. [Параметры client.ini](#4-параметры-конфигурации-clientini)
-4. [работа с сервером](#4. Работа с сервером)
-5. [Полезные команды](#7-полезные-команды)
+3. [Параметры client.ini](#3-параметры-конфигурации-clientini)
+4. [Работа с сервером](#4. Работа с сервером)
+5. [Полезные команды](#5-полезные-команды)
 
 
 ---
@@ -27,7 +27,7 @@
 ### 1.2. Клонирование репозитория
 
 ```bash
-git clone https://github.com/wdstq4jkwp-oss/technic-show.git
+git clone https://github.com/Gromodzila/technic-show.git
 cd technic-show
 ```
 
@@ -45,6 +45,16 @@ sudo pip3 install -r /home/orangepi/technic-show/drone/requirements.txt --upgrad
 sudo chown -R orangepi:orangepi /home/orangepi/technic-show
 ```
 
+### 1.5.  Копирование сервисов
+
+```bash
+sudo cp /home/orangepi/technic-show/builder/assets/technic-show.service /lib/systemd/system/
+sudo systemctl daemon-reload
+
+
+sudo cp /home/orangepi/technic-show/examples/chrony/client.conf /etc/chrony/chrony.conf
+sudo systemctl restart chrony
+```
 
 ---
 
@@ -58,13 +68,13 @@ sudo chown -R orangepi:orangepi /home/orangepi/technic-show
 sudo /home/orangepi/technic-show/builder/assets/set_hostname.sh technic-skyris
 ```
 
-После смены имени перезагрузите дрон:
+После смены имени перезагрузите дрон(Можно после след. пункта):
 
 ```bash
 sudo reboot
 ```
 
-### 2.3. Запуск клиента и подключение к серверу
+### 2.2. Запуск клиента и подключение к серверу
 
 ```bash
 sudo /home/orangepi/technic-show/start_technic_show.sh ip_your_laptop
@@ -83,20 +93,21 @@ sudo /home/orangepi/technic-show/start_technic_show.sh ip_your_laptop
 
 ### 3.1. Общие настройки
 
-| Параметр | По умолчанию | Что значит |
-|----------|--------------|------------|
-| `id` | `/hostname` | Имя дрона. Оставляйте `/hostname`. |
-| `technic_dir` | `auto` | Путь к ROS-пакету. Не менять. |
-| `config_name` | `client` | Идентификатор конфига. Не менять. |
-| `config_version` | `1.0` | Версия. Не менять. |
+| Параметр         | По умолчанию | Что значит                         |
+| ---------------- | ------------ | ---------------------------------- |
+| `id`             | `/hostname`  | Имя дрона. Оставляйте `/hostname`. |
+| `technic_dir`    | `auto`       | Путь к ROS-пакету.                 |
+| `config_name`    | `client`     | Идентификатор конфига.             |
+| `config_version` | `1.0`        | Версия конфига                     |
+
 
 ### 3.2. `[SERVER]`
 
-| Параметр | Что значит |
-|----------|------------|
-| `host` | IP-адрес сервера. Меняется через `start_technic_show.sh`. |
-| `port` | Порт. По умолчанию `25000`. |
-| `buffer_size` | Размер буфера. `1024`. |
+| Параметр      | Что значит                                                |
+| ------------- | --------------------------------------------------------- |
+| `host`        | IP-адрес сервера. Меняется через `start_technic_show.sh`. |
+| `port`        | Порт. По умолчанию `25000`.                               |
+| `buffer_size` | Размер буфера. `1024`.                                    |
 
 ### 3.3. `[BROADCAST]`
 
@@ -115,14 +126,14 @@ sudo /home/orangepi/technic-show/start_technic_show.sh ip_your_laptop
 
 ### 3.5. `[FLIGHT]`
 
-| Параметр | Рекомендация для Technic 6S |
-|----------|----------------------------|
-| `frame_id` | `map` (или `aruco_map`) |
-| `takeoff_height` | `1.5` |
-| `takeoff_time` | `3.0` |
-| `arming_time` | `0.5` |
-| `land_delay` | `1.0` |
-| `land_timeout` | `8.0` |
+| Параметр         | Рекомендация для Technic 6S |
+| ---------------- | --------------------------- |
+| `frame_id`       | `map` (или `aruco_map`)     |
+| `takeoff_height` | `1.5`                       |
+| `takeoff_time`   | `3.0`                       |
+| `arming_time`    | `0.5`                       |
+| `land_delay`     | `1.0`                       |
+| `land_timeout`   | `8.0`                       |
 
 ### 3.6. `[ANIMATION]`
 
@@ -192,12 +203,12 @@ sudo /home/orangepi/technic-show/start_technic_show.sh ip_your_laptop
 
 ## 5. Полезные команды
 
-| Команда | Что делает |
-|---------|-----------|
-| `journalctl -u technic-show.service -f` | Логи клиента в реальном времени |
-| `systemctl status technic-show.service` | Статус клиента |
-| `sudo systemctl restart technic-show.service` | Перезапуск клиента |
-| `sudo systemctl restart technic` | Перезапуск ROS-стека |
-| `ip a show wlan0` | IP дрона |
-| `chronyc sources` | Проверка синхронизации |
-| `iw dev wlan0 info` | Режим Wi-Fi |
+| Команда                                       | Что делает                      |
+| --------------------------------------------- | ------------------------------- |
+| `journalctl -u technic-show.service -f`       | Логи клиента в реальном времени |
+| `systemctl status technic-show.service`       | Статус клиента                  |
+| `sudo systemctl restart technic-show.service` | Перезапуск клиента              |
+| `sudo systemctl restart technic`              | Перезапуск ROS-пакетов          |
+| `ip a show wlan0`                             | IP дрона                        |
+| `chronyc sources`                             | Проверка синхронизации          |
+| `iw dev wlan0 info`                           | Режим Wi-Fi                     |
