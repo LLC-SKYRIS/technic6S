@@ -3,7 +3,7 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <title>Калибровка датчиков · HonKit</title>
+        <title>Калибровка камеры · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="HonKit 6.2.2">
@@ -48,10 +48,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Modes.html" />
+    <link rel="next" href="CameraScreen.html" />
     
     
-    <link rel="prev" href="Bind.html" />
+    <link rel="prev" href="SshKeys.html" />
     
 
     </head>
@@ -264,7 +264,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.2.8" data-path="CalibrationSensors.html">
+        <li class="chapter " data-level="2.1.2.8" data-path="CalibrationSensors.html">
             
                 <a href="CalibrationSensors.html">
             
@@ -976,7 +976,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.8.5" data-path="Calibration.html">
+        <li class="chapter active" data-level="2.1.8.5" data-path="Calibration.html">
             
                 <a href="Calibration.html">
             
@@ -1334,7 +1334,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Калибровка датчиков</a>
+        <a href=".." >Калибровка камеры</a>
     </h1>
 </div>
 
@@ -1350,64 +1350,49 @@
                                 <section class="normal markdown-section">
                                 
   
-                                <h1 id="калибровка-датчиков">Калибровка датчиков</h1>
-<p>Чтобы откалибровать датчики зайдите во вкладку <em>Vehicle Setup</em> и выберите меню <em>Sensors</em>.</p>
-<h3 id="компас">Компас</h3>
-<div class="img-figure">
-  <img src="assets/qgc-cal-compass.png"></img>
-</div>
-
+                                <h1 id="калибровка-камеры">Калибровка камеры</h1>
+<p>Калибровка камеры может значительно повысить качество работы модулей, связанным с компьютерным зрением: <a href="aruco.md">распознавание ArUco-маркеров</a> и <a href="optical_flow.md">Optical Flow</a>.</p>
+<p>При калибровке камеры подбираются параметры, наиболее хорошо описывающие конкретный установленный объектив. Данные параметры включают в себя фокусные расстояния, расположение точки principal point (которое зависит от того, насколько ровно по центру установлен объектив), коэффициенты дисторсии <em>D</em>. Подробнее про использующуюся модель искажений камеры можно прочитать в <a href="https://docs.opencv.org/2.4/modules/calib3d/doc/camera_calibration_and_3d_reconstruction.html" target="_blank">документации OpenCV</a>.</p>
+<p>Существует несколько инструментов, которые позволяют откалибровать камеру и прописать вычисленные параметры в систему. Обычно, они используют калибровочные изображения: "шахматные доски" (<em>Chessboard</em>), а так же комбинации шахматной доски и сетки ArUco-маркеров (<a href="https://docs.opencv.org/3.4/df/d4a/tutorial_charuco_detection.html" target="_blank"><em>ChArUco</em></a>).</p>
+<p>Убедитесь что файл калибровки камеры, который лежит в проекте Техника соответствует вашей камере. В данный момент в проекте лежит калибровка для модели AR0234, вы можете его отдельно скачать по ссылке <a href="https://drive.google.com/file/d/1Bd88CuicgYL9WQ4uoWnGHtJOK6cGm9RF/view?usp=sharing" target="_blank">fisheye_cam.yaml</a></p>
+<p>Если ваша камера отличается, сделайте калибровку для вашей модели камеры</p>
+<h2 id="ros-пакет-cameracalibration">ROS-пакет camera_calibration</h2>
+<p>Основной туториал: <a href="http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration" target="_blank">http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration</a>.</p>
+<p>Для калибровки камеры с использованием ROS-пакета camera_calibration необходим компьютер с установленным ОС GNU/Linux и <a href="http://wiki.ros.org/noetic/Installation/Ubuntu" target="_blank">ROS Noetic</a>.</p>
+<p><img src="assets/camera_calibration.png" alt="ROS Camera Calibrator" class="zoom center" width="600"></img></p>
 <ol>
-<li>Выберите меню <em>Compass</em>.</li>
-<li>Выберите ориентацию полетного контроллера – <em>ROTATION_NONE</em> при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.</li>
-<li>Нажмите <em>OK</em>.</li>
-<li>Последовательно устанавливайте квадрокоптер в каждую из указанных ориентаций до появления желтой рамки.</li>
-<li>Вращайте квадрокоптер по направлению стрелки до появления зеленой рамки.</li>
-</ol>
+<li><p>Используя Терминал, установите на компьютер пакет <code>camera_calibration</code>:</p>
+<pre><code class="lang-bash"> <span class="hljs-built_in">sudo</span> apt-get install ros-noetic-camera-calibration
+</code></pre>
+</li>
+<li><p>Скачайте калибровочную доску – <a href="assets/chessboard.pdf"><code>chessboard.pdf</code></a>. Распечатайте доску на бумаге, приклейте ее к плоской поверхности</p>
+</li>
+<li><p>Запустите калибровку (на компьютере):452</p>
+<pre><code class="lang-bash">Терминал 1: roscore
+
+Терминал 2: rosrun usb_cam usb_cam_node
+
+Терминал 3: rosrun camera_calibration cameracalibrator.py --size 6x8 --square 0.108 image:=/usb_cam/image_raw camera:=/usb_cam
+</code></pre>
 <blockquote>
-<p><strong>Подсказка</strong> Последние версии прошивки PX4 не поддерживают внутренний компас на полетном контроллере SKYRIS Pix. При появлении ошибки <em>No mags found</em> перейдите во вкладку <em>Parameters</em>, установите параметры <code>SYS_HAS_MAG</code> в <code>0</code>, <code>EKF2_MAG_TYPE</code> в <code>None</code> и перезагрузите полетный контроллер (<em>Tools</em> =&gt; <em>Reboot Vehicle</em>).</p>
+<p><strong>Note</strong> Вместо значения <em>0.108</em> укажите реальный размер квадрата на распечатанной доске или на экране (в метрах). Например, значение <em>0.03</em> будет соответствовать 3 см.</p>
 </blockquote>
-<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/compass.html" target="_blank">https://docs.px4.io/master/en/config/compass.html</a>.</p>
-<h3 id="гироскоп">Гироскоп</h3>
-<div class="img-figure">
-  <img src="assets/qgc-cal-gyro.png"></img>
-</div>
-
-<ol>
-<li>Выберите меню <em>Gyroscope</em></li>
-<li>Установите квадрокоптер на ровную поверхность.</li>
-<li>Нажмите <em>OK</em>.</li>
-<li>Дождитесь окончания калибровки.</li>
+</li>
+<li><p>Когда программа для калибровки запустится, начните перемещать дрон таким образом, чтобы калибровочная доска попадала в кадр под разными углами.</p>
+<ul>
+<li>Перемещайте калибровочную доску в левый, правый, верхний и нижний торец кадра.</li>
+<li>Вращайте калибровочную доску вокруг всех 3-х осей.</li>
+<li>Отдаляйте и приближайте камеру к калибровочной доске.</li>
+</ul>
+</li>
+<li><p>Нажмите кнопку <em>CALIBRATE</em>, когда она станет активной. Процесс вычисления параметров калибровки займет несколько минут.</p>
+<p>Когда калибровка завершится, в терминале вы увидите полученные параметры. В окне отобразится изображение с выправленными искажениями. При успешной калибровке все реальные прямые линии должны остаться прямыми на полученном изображении.</p>
+</li>
+<li><p>Нажмите <em>SAVE</em>, чтобы сохранить полученные параметры калибровки. </p>
+</li>
+<li>Файл ost.yaml, полученный в результате калибровке положите в проект по пути:</li>
 </ol>
-<blockquote>
-<p><strong>Подсказка</strong> Во время калибровки гироскопа квадрокоптер не должен менять своего положения, шататься и т. д.</p>
-</blockquote>
-<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/gyroscope.html" target="_blank">https://docs.px4.io/master/en/config/gyroscope.html</a>.</p>
-<h3 id="акселерометр">Акселерометр</h3>
-<div class="img-figure">
-  <img src="assets/qgc-cal-acc.png"></img>
-</div>
-
-<ol>
-<li>Выберите меню <em>Accelerometer</em>.</li>
-<li>Выберите ориентацию полетного контроллера – <em>ROTATION_NONE</em> при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.</li>
-<li>Последовательно устанавливайте квадрокоптер в каждую из указанных ориентаций до появления желтой рамки.</li>
-<li>Держите квадрокоптер неподвижно до появления зеленой рамки.</li>
-</ol>
-<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/accelerometer.html" target="_blank">https://docs.px4.io/master/en/config/accelerometer.html</a>.</p>
-<h3 id="уровень-горизонта">Уровень горизонта</h3>
-<div class="img-figure">
-  <img src="assets/qgc-cal-level.png"></img>
-</div>
-
-<ol>
-<li>Выберите меню <em>Level Horizon</em>.</li>
-<li>Выберите ориентацию полетного контроллера – <em>ROTATION_NONE</em> при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.</li>
-<li>Установите квадрокоптер на ровную поверхность.</li>
-<li>Нажмите <em>OK</em>.</li>
-<li>Дождитесь окончания калибровки.</li>
-</ol>
-<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/level_horizon_calibration.html" target="_blank">https://docs.px4.io/master/en/config/level_horizon_calibration.html</a>.</p>
+<p><code>/home/orangepi/technic_ws/src/technic/technic/camera_info/fisheye_cam.yaml</code>.</p>
 
                                 
 
@@ -1482,12 +1467,12 @@
 
             
                 
-                <a href="Bind.html" class="navigation navigation-prev " aria-label="Previous page: Bind приемника">
+                <a href="SshKeys.html" class="navigation navigation-prev " aria-label="Previous page: Подключение к Orange Pi 5 Pro с использованием SSH-ключей">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Modes.html" class="navigation navigation-next " aria-label="Next page: Полетные режимы">
+                <a href="CameraScreen.html" class="navigation navigation-next " aria-label="Next page: Запись экрана с дрона">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1498,7 +1483,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Калибровка датчиков","level":"2.1.2.8","depth":3,"next":{"title":"Полетные режимы","level":"2.1.2.9","depth":3,"path":"technic6S/Modes.md","ref":"technic6S/Modes.md","articles":[]},"previous":{"title":"Bind приемника","level":"2.1.2.7","depth":3,"path":"technic6S/Bind.md","ref":"technic6S/Bind.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/CalibrationSensors.md","mtime":"2026-09-20T10:47:37.390Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-09-30T13:06:20.780Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Калибровка камеры","level":"2.1.8.5","depth":3,"next":{"title":"Запись экрана с дрона","level":"2.1.8.6","depth":3,"path":"technic6S/CameraScreen.md","ref":"technic6S/CameraScreen.md","articles":[]},"previous":{"title":"Подключение к Orange Pi 5 Pro с использованием SSH-ключей","level":"2.1.8.4","depth":3,"path":"technic6S/SshKeys.md","ref":"technic6S/SshKeys.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/Calibration.md","mtime":"2026-09-29T17:34:11.862Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-09-30T13:06:20.780Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -3,7 +3,7 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <title>Калибровка датчиков · HonKit</title>
+        <title>Подключение к Wi-Fi сети · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="HonKit 6.2.2">
@@ -48,10 +48,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Modes.html" />
+    <link rel="next" href="Server.html" />
     
     
-    <link rel="prev" href="Bind.html" />
+    <link rel="prev" href="Technic-show.html" />
     
 
     </head>
@@ -264,7 +264,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.2.8" data-path="CalibrationSensors.html">
+        <li class="chapter " data-level="2.1.2.8" data-path="CalibrationSensors.html">
             
                 <a href="CalibrationSensors.html">
             
@@ -866,7 +866,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.7.2" data-path="wifi_connected.html">
+        <li class="chapter active" data-level="2.1.7.2" data-path="wifi_connected.html">
             
                 <a href="wifi_connected.html">
             
@@ -1334,7 +1334,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Калибровка датчиков</a>
+        <a href=".." >Подключение к Wi-Fi сети</a>
     </h1>
 </div>
 
@@ -1350,64 +1350,47 @@
                                 <section class="normal markdown-section">
                                 
   
-                                <h1 id="калибровка-датчиков">Калибровка датчиков</h1>
-<p>Чтобы откалибровать датчики зайдите во вкладку <em>Vehicle Setup</em> и выберите меню <em>Sensors</em>.</p>
-<h3 id="компас">Компас</h3>
-<div class="img-figure">
-  <img src="assets/qgc-cal-compass.png"></img>
-</div>
-
+                                <h1 id="подключение-к-wi-fi-сети">Подключение к Wi-Fi сети</h1>
+<p>Вначале, вам нужно будет настроить роутер, к которому будут подключаться ваши дрон и ноутбук для запуска сервера 
+после настройки подключите кабель-Ethernet к вашему orangepi так, чтобы загорелись желтый и зеленый светодиоды
+а затем подключитесь к нему по <a href="https://docs.skyris.ru/technic6S/SSH.html" target="_blank">SSH</a></p>
+<p>после подключения выполните следующие команды</p>
 <ol>
-<li>Выберите меню <em>Compass</em>.</li>
-<li>Выберите ориентацию полетного контроллера – <em>ROTATION_NONE</em> при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.</li>
-<li>Нажмите <em>OK</em>.</li>
-<li>Последовательно устанавливайте квадрокоптер в каждую из указанных ориентаций до появления желтой рамки.</li>
-<li>Вращайте квадрокоптер по направлению стрелки до появления зеленой рамки.</li>
+<li><p>опустите точку доступа:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> nmcli connection down technic-ap
+</code></pre>
+</li>
+<li><p>удаляем точку доступа(если она будет нужна - пропустите):</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> nmcli connection del technic-ap
+</code></pre>
+</li>
+<li><p>выключаем сервис точки доступа:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl stop hostapd
+</code></pre>
+</li>
+<li><p>выключаем auto-start сервиса точки доступа:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">disable</span> hostapd
+</code></pre>
+</li>
+<li><p>после этого опустим и поднимем wlan0:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> ip <span class="hljs-built_in">link</span> <span class="hljs-built_in">set</span> wlan0 down
+<span class="hljs-built_in">sudo</span> iw dev wlan0 <span class="hljs-built_in">set</span> <span class="hljs-built_in">type</span> managed
+<span class="hljs-built_in">sudo</span> ip <span class="hljs-built_in">link</span> <span class="hljs-built_in">set</span> wlan0 up
+</code></pre>
+</li>
+<li><p>теперь проверьте interface: "type managed":</p>
+<pre><code class="lang-bash">iw dev
+</code></pre>
+</li>
+<li><p>проверьте есть ли Ваша wi-fi сеть:</p>
+<pre><code class="lang-bash">nmcli device wifi list
+</code></pre>
+</li>
 </ol>
-<blockquote>
-<p><strong>Подсказка</strong> Последние версии прошивки PX4 не поддерживают внутренний компас на полетном контроллере SKYRIS Pix. При появлении ошибки <em>No mags found</em> перейдите во вкладку <em>Parameters</em>, установите параметры <code>SYS_HAS_MAG</code> в <code>0</code>, <code>EKF2_MAG_TYPE</code> в <code>None</code> и перезагрузите полетный контроллер (<em>Tools</em> =&gt; <em>Reboot Vehicle</em>).</p>
-</blockquote>
-<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/compass.html" target="_blank">https://docs.px4.io/master/en/config/compass.html</a>.</p>
-<h3 id="гироскоп">Гироскоп</h3>
-<div class="img-figure">
-  <img src="assets/qgc-cal-gyro.png"></img>
-</div>
-
-<ol>
-<li>Выберите меню <em>Gyroscope</em></li>
-<li>Установите квадрокоптер на ровную поверхность.</li>
-<li>Нажмите <em>OK</em>.</li>
-<li>Дождитесь окончания калибровки.</li>
-</ol>
-<blockquote>
-<p><strong>Подсказка</strong> Во время калибровки гироскопа квадрокоптер не должен менять своего положения, шататься и т. д.</p>
-</blockquote>
-<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/gyroscope.html" target="_blank">https://docs.px4.io/master/en/config/gyroscope.html</a>.</p>
-<h3 id="акселерометр">Акселерометр</h3>
-<div class="img-figure">
-  <img src="assets/qgc-cal-acc.png"></img>
-</div>
-
-<ol>
-<li>Выберите меню <em>Accelerometer</em>.</li>
-<li>Выберите ориентацию полетного контроллера – <em>ROTATION_NONE</em> при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.</li>
-<li>Последовательно устанавливайте квадрокоптер в каждую из указанных ориентаций до появления желтой рамки.</li>
-<li>Держите квадрокоптер неподвижно до появления зеленой рамки.</li>
-</ol>
-<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/accelerometer.html" target="_blank">https://docs.px4.io/master/en/config/accelerometer.html</a>.</p>
-<h3 id="уровень-горизонта">Уровень горизонта</h3>
-<div class="img-figure">
-  <img src="assets/qgc-cal-level.png"></img>
-</div>
-
-<ol>
-<li>Выберите меню <em>Level Horizon</em>.</li>
-<li>Выберите ориентацию полетного контроллера – <em>ROTATION_NONE</em> при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.</li>
-<li>Установите квадрокоптер на ровную поверхность.</li>
-<li>Нажмите <em>OK</em>.</li>
-<li>Дождитесь окончания калибровки.</li>
-</ol>
-<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/level_horizon_calibration.html" target="_blank">https://docs.px4.io/master/en/config/level_horizon_calibration.html</a>.</p>
+<p>Есть ли она есть произведите подключение к вашей wifi сети
+через данную комнаду</p>
+<pre><code class="lang-bash"> <span class="hljs-built_in">sudo</span> nmcli device wifi connect <span class="hljs-string">"SSID"</span> password <span class="hljs-string">"PASSWORD"</span>
+</code></pre>
 
                                 
 
@@ -1482,12 +1465,12 @@
 
             
                 
-                <a href="Bind.html" class="navigation navigation-prev " aria-label="Previous page: Bind приемника">
+                <a href="Technic-show.html" class="navigation navigation-prev " aria-label="Previous page: Technic-Show">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Modes.html" class="navigation navigation-next " aria-label="Next page: Полетные режимы">
+                <a href="Server.html" class="navigation navigation-next " aria-label="Next page: Technic Show Server">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1498,7 +1481,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Калибровка датчиков","level":"2.1.2.8","depth":3,"next":{"title":"Полетные режимы","level":"2.1.2.9","depth":3,"path":"technic6S/Modes.md","ref":"technic6S/Modes.md","articles":[]},"previous":{"title":"Bind приемника","level":"2.1.2.7","depth":3,"path":"technic6S/Bind.md","ref":"technic6S/Bind.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/CalibrationSensors.md","mtime":"2026-09-20T10:47:37.390Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-09-30T13:06:20.780Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Подключение к Wi-Fi сети","level":"2.1.7.2","depth":3,"next":{"title":"Technic Show Server","level":"2.1.7.3","depth":3,"path":"technic6S/Server.md","ref":"technic6S/Server.md","articles":[]},"previous":{"title":"Technic-Show","level":"2.1.7.1","depth":3,"path":"technic6S/Technic-show.md","ref":"technic6S/Technic-show.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/wifi_connected.md","mtime":"2026-09-29T17:17:10.298Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-09-30T13:06:20.780Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

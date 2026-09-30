@@ -3,7 +3,7 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <title>Калибровка датчиков · HonKit</title>
+        <title>Technic-Show · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="HonKit 6.2.2">
@@ -48,10 +48,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Modes.html" />
+    <link rel="next" href="wifi_connected.html" />
     
-    
-    <link rel="prev" href="Bind.html" />
     
 
     </head>
@@ -264,7 +262,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.2.8" data-path="CalibrationSensors.html">
+        <li class="chapter " data-level="2.1.2.8" data-path="CalibrationSensors.html">
             
                 <a href="CalibrationSensors.html">
             
@@ -853,7 +851,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.1.7.1" data-path="Technic-show.html">
+        <li class="chapter active" data-level="2.1.7.1" data-path="Technic-show.html">
             
                 <a href="Technic-show.html">
             
@@ -1334,7 +1332,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Калибровка датчиков</a>
+        <a href=".." >Technic-Show</a>
     </h1>
 </div>
 
@@ -1350,64 +1348,64 @@
                                 <section class="normal markdown-section">
                                 
   
-                                <h1 id="калибровка-датчиков">Калибровка датчиков</h1>
-<p>Чтобы откалибровать датчики зайдите во вкладку <em>Vehicle Setup</em> и выберите меню <em>Sensors</em>.</p>
-<h3 id="компас">Компас</h3>
-<div class="img-figure">
-  <img src="assets/qgc-cal-compass.png"></img>
-</div>
-
-<ol>
-<li>Выберите меню <em>Compass</em>.</li>
-<li>Выберите ориентацию полетного контроллера – <em>ROTATION_NONE</em> при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.</li>
-<li>Нажмите <em>OK</em>.</li>
-<li>Последовательно устанавливайте квадрокоптер в каждую из указанных ориентаций до появления желтой рамки.</li>
-<li>Вращайте квадрокоптер по направлению стрелки до появления зеленой рамки.</li>
-</ol>
-<blockquote>
-<p><strong>Подсказка</strong> Последние версии прошивки PX4 не поддерживают внутренний компас на полетном контроллере SKYRIS Pix. При появлении ошибки <em>No mags found</em> перейдите во вкладку <em>Parameters</em>, установите параметры <code>SYS_HAS_MAG</code> в <code>0</code>, <code>EKF2_MAG_TYPE</code> в <code>None</code> и перезагрузите полетный контроллер (<em>Tools</em> =&gt; <em>Reboot Vehicle</em>).</p>
-</blockquote>
-<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/compass.html" target="_blank">https://docs.px4.io/master/en/config/compass.html</a>.</p>
-<h3 id="гироскоп">Гироскоп</h3>
-<div class="img-figure">
-  <img src="assets/qgc-cal-gyro.png"></img>
-</div>
-
-<ol>
-<li>Выберите меню <em>Gyroscope</em></li>
-<li>Установите квадрокоптер на ровную поверхность.</li>
-<li>Нажмите <em>OK</em>.</li>
-<li>Дождитесь окончания калибровки.</li>
-</ol>
-<blockquote>
-<p><strong>Подсказка</strong> Во время калибровки гироскопа квадрокоптер не должен менять своего положения, шататься и т. д.</p>
-</blockquote>
-<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/gyroscope.html" target="_blank">https://docs.px4.io/master/en/config/gyroscope.html</a>.</p>
-<h3 id="акселерометр">Акселерометр</h3>
-<div class="img-figure">
-  <img src="assets/qgc-cal-acc.png"></img>
-</div>
-
-<ol>
-<li>Выберите меню <em>Accelerometer</em>.</li>
-<li>Выберите ориентацию полетного контроллера – <em>ROTATION_NONE</em> при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.</li>
-<li>Последовательно устанавливайте квадрокоптер в каждую из указанных ориентаций до появления желтой рамки.</li>
-<li>Держите квадрокоптер неподвижно до появления зеленой рамки.</li>
-</ol>
-<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/accelerometer.html" target="_blank">https://docs.px4.io/master/en/config/accelerometer.html</a>.</p>
-<h3 id="уровень-горизонта">Уровень горизонта</h3>
-<div class="img-figure">
-  <img src="assets/qgc-cal-level.png"></img>
-</div>
-
-<ol>
-<li>Выберите меню <em>Level Horizon</em>.</li>
-<li>Выберите ориентацию полетного контроллера – <em>ROTATION_NONE</em> при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.</li>
-<li>Установите квадрокоптер на ровную поверхность.</li>
-<li>Нажмите <em>OK</em>.</li>
-<li>Дождитесь окончания калибровки.</li>
-</ol>
-<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/level_horizon_calibration.html" target="_blank">https://docs.px4.io/master/en/config/level_horizon_calibration.html</a>.</p>
+                                <h1 id="technic-show">Technic-Show</h1>
+<p><strong>Technic-Show</strong> — это открытая программная платформа для организации роевых шоу дронов. Подходит для работы с полётными контроллерами на прошивке PX4, установленными на дронах линейки Technic6S с вычислительным модулем <strong>Orange Pi 5 Pro</strong></p>
+<p>Система состоит из двух частей:</p>
+<ul>
+<li><strong>Клиент (Technic6S)</strong> — программа <code>technic-show</code>, которая запускается на Orange Pi, принимает команды от сервера и управляет полётным контроллером через MAVROS.</li>
+<li><strong>Сервер (персональный компьютер)</strong> — приложение на компьютере оператора (macOS, Windows или Linux), которое отображает состояние всех дронов, отправляет полётные задания, распределяет анимации и позволяет управлять шоу в реальном времени.</li>
+</ul>
+<p>Возможности:</p>
+<ul>
+<li>Роевое управление до сотен дронов одновременно.</li>
+<li>Загрузка полётных анимаций в формате CSV (создаются через Blender-аддон)</li>
+<li>Управление светодиодной лентой (WS281x) прямо из анимации.</li>
+<li>Синхронизация времени между дронами через собственный NTP-сервер.</li>
+<li>Работа с локальным позиционированием (ArUco-маркеры, UWB, Optical Flow)</li>
+<li>Обновление прошивки, калибровка сенсоров и загрузка параметров PX4 — прямо из интерфейса сервера.</li>
+</ul>
+<hr></hr>
+<h2 id="быстрый-старт">Быстрый старт</h2>
+<p>Если Вам требуется быстро запустить роевое представление, то посмотрите инструкцию ниже. Прочтите сначала всю инструкцию.</p>
+<h3 id="1-скачайте-готовый-образ">1. Скачайте готовый образ</h3>
+<p>Для Technic6S подготовлен образ, в котором уже установлены:</p>
+<ul>
+<li>Python-зависимости клиента <code>technic-show</code></li>
+<li>chrony, nmcli и др.</li>
+<li>вспомогательные скрипты.</li>
+</ul>
+<p><strong>Ссылка на образ:</strong> <em>(он находится на этапе тестирования, поэтому воспользуйтесь инструкцией по настройке client в ручную <a href="Client_installation">см. client</a>)</em></p>
+<p>После скачивания прошейте  <strong>eMMC</strong> при помощи <strong>Balena Etcher</strong> , вставьте её в <strong>Orange Pi</strong> и подайте питание на дрон.</p>
+<h3 id="2-подключитесь-к-дрону-по-точке-доступа">2. Подключитесь к дрону по точке доступа</h3>
+<p>После подключения к дрону <a href="wifi_connected"><em>см. инструкцию по подключению к wifi</em></a></p>
+<h3 id="3-старт-technic-show">3. Старт technic-show</h3>
+<p>Перейдите в assets:</p>
+<pre><code class="lang-bash"> <span class="hljs-built_in">cd</span> /home/orangepi/technic-show/builder/assets
+</code></pre>
+<p>И затем пропишите данные команды:</p>
+<pre><code class="lang-bash"> <span class="hljs-built_in">chmod</span> +x set_hostname.sh
+</code></pre>
+<p>затем перейдите в корень проекта:</p>
+<pre><code class="lang-bash"> <span class="hljs-built_in">cd</span> /home/orangepi/technic-show
+</code></pre>
+<p>И сделайте:</p>
+<pre><code class="lang-bash"> <span class="hljs-built_in">chmod</span> +x set_host.py
+ <span class="hljs-built_in">chmod</span> +x start_technic_show.sh
+</code></pre>
+<p>Теперь можно подключиться к серверу:</p>
+<pre><code class="lang-bash"> <span class="hljs-built_in">sudo</span> ./start_technic_show.sh ip_your_laptop
+</code></pre>
+<h3 id="4-установка-serverа">4. Установка server'а</h3>
+<ul>
+<li>Для того, чтобы управлять дроном у нас есть сервер, который можно 
+скачать в открытом репозитории <a href="https://github.com/Gromodzila/Technic-Show-Server" target="_blank">GitHub</a></li>
+<li>Полный разбор ПО server <a href="Server">см. тут</a></li>
+</ul>
+<p>Теперь через пакетный менеджер pip установить соответствующие библиотеки
+в папке server командой:</p>
+<pre><code class="lang-bash"> <span class="hljs-built_in">sudo</span> pip3 install -r requirements.txt
+</code></pre>
+<p>При возникновении вопросов пишите мне @Shvaighofer в телеграмме! </p>
 
                                 
 
@@ -1482,12 +1480,8 @@
 
             
                 
-                <a href="Bind.html" class="navigation navigation-prev " aria-label="Previous page: Bind приемника">
-                    <i class="fa fa-angle-left"></i>
-                </a>
                 
-                
-                <a href="Modes.html" class="navigation navigation-next " aria-label="Next page: Полетные режимы">
+                <a href="wifi_connected.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Подключение к Wi-Fi сети">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1498,7 +1492,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Калибровка датчиков","level":"2.1.2.8","depth":3,"next":{"title":"Полетные режимы","level":"2.1.2.9","depth":3,"path":"technic6S/Modes.md","ref":"technic6S/Modes.md","articles":[]},"previous":{"title":"Bind приемника","level":"2.1.2.7","depth":3,"path":"technic6S/Bind.md","ref":"technic6S/Bind.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/CalibrationSensors.md","mtime":"2026-09-20T10:47:37.390Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-09-30T13:06:20.780Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Technic-Show","level":"2.1.7.1","depth":3,"next":{"title":"Подключение к Wi-Fi сети","level":"2.1.7.2","depth":3,"path":"technic6S/wifi_connected.md","ref":"technic6S/wifi_connected.md","articles":[]},"previous":{"title":"Шоу дронов","level":"2.1.7","depth":2,"ref":"","articles":[{"title":"Technic-Show","level":"2.1.7.1","depth":3,"path":"technic6S/Technic-show.md","ref":"technic6S/Technic-show.md","articles":[]},{"title":"Подключение к Wi-Fi сети","level":"2.1.7.2","depth":3,"path":"technic6S/wifi_connected.md","ref":"technic6S/wifi_connected.md","articles":[]},{"title":"Technic Show Server","level":"2.1.7.3","depth":3,"path":"technic6S/Server.md","ref":"technic6S/Server.md","articles":[]},{"title":"Установка клиента","level":"2.1.7.4","depth":3,"path":"technic6S/Client_installation.md","ref":"technic6S/Client_installation.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/Technic-show.md","mtime":"2026-09-29T17:21:10.239Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-09-30T13:06:20.780Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

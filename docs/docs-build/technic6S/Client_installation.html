@@ -3,7 +3,7 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <title>Калибровка датчиков · HonKit</title>
+        <title>Установка клиента · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="HonKit 6.2.2">
@@ -48,10 +48,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Modes.html" />
     
-    
-    <link rel="prev" href="Bind.html" />
+    <link rel="prev" href="Server.html" />
     
 
     </head>
@@ -264,7 +262,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.2.8" data-path="CalibrationSensors.html">
+        <li class="chapter " data-level="2.1.2.8" data-path="CalibrationSensors.html">
             
                 <a href="CalibrationSensors.html">
             
@@ -892,7 +890,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.7.4" data-path="Client_installation.html">
+        <li class="chapter active" data-level="2.1.7.4" data-path="Client_installation.html">
             
                 <a href="Client_installation.html">
             
@@ -1334,7 +1332,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Калибровка датчиков</a>
+        <a href=".." >Установка клиента</a>
     </h1>
 </div>
 
@@ -1350,64 +1348,391 @@
                                 <section class="normal markdown-section">
                                 
   
-                                <h1 id="калибровка-датчиков">Калибровка датчиков</h1>
-<p>Чтобы откалибровать датчики зайдите во вкладку <em>Vehicle Setup</em> и выберите меню <em>Sensors</em>.</p>
-<h3 id="компас">Компас</h3>
-<div class="img-figure">
-  <img src="assets/qgc-cal-compass.png"></img>
-</div>
-
+                                <h3 id="установка-клиента">Установка клиента</h3>
+<h1 id="📘-technic-show-—-установка-настройка-и-работа">📘 Technic-Show — установка, настройка и работа</h1>
+<p>Полное руководство по установке клиентской части <code>technic-show</code> на дрон, подключению к серверу и работе с интерфейсом оператора.</p>
+<p>Репозиторий: <a href="https://github.com/Gromodzila/technic-show.git" target="_blank">https://github.com/Gromodzila/technic-show.git</a></p>
+<hr></hr>
+<h2 id="содержание">Содержание</h2>
 <ol>
-<li>Выберите меню <em>Compass</em>.</li>
-<li>Выберите ориентацию полетного контроллера – <em>ROTATION_NONE</em> при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.</li>
-<li>Нажмите <em>OK</em>.</li>
-<li>Последовательно устанавливайте квадрокоптер в каждую из указанных ориентаций до появления желтой рамки.</li>
-<li>Вращайте квадрокоптер по направлению стрелки до появления зеленой рамки.</li>
+<li><a href="#1-установка-с-нуля">Установка с нуля</a></li>
+<li><a href="#2-настройка">Настройка</a></li>
+<li><a href="#3-параметры-конфигурации-clientini">Параметры client.ini</a></li>
+<li><a href="#4.%20Работа%20с%20сервером">Работа с сервером</a></li>
+<li><a href="#5-полезные-команды">Полезные команды</a></li>
 </ol>
-<blockquote>
-<p><strong>Подсказка</strong> Последние версии прошивки PX4 не поддерживают внутренний компас на полетном контроллере SKYRIS Pix. При появлении ошибки <em>No mags found</em> перейдите во вкладку <em>Parameters</em>, установите параметры <code>SYS_HAS_MAG</code> в <code>0</code>, <code>EKF2_MAG_TYPE</code> в <code>None</code> и перезагрузите полетный контроллер (<em>Tools</em> =&gt; <em>Reboot Vehicle</em>).</p>
-</blockquote>
-<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/compass.html" target="_blank">https://docs.px4.io/master/en/config/compass.html</a>.</p>
-<h3 id="гироскоп">Гироскоп</h3>
-<div class="img-figure">
-  <img src="assets/qgc-cal-gyro.png"></img>
-</div>
+<hr></hr>
+<h2 id="1-установка-с-нуля">1. Установка с нуля</h2>
+<h3 id="11-требования">1.1. Требования</h3>
+<ul>
+<li>Дрон Technic 6S</li>
+</ul>
+<h3 id="12-клонирование-репозитория">1.2. Клонирование репозитория</h3>
+<pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> https://github.com/Gromodzila/technic-show.git
+<span class="hljs-built_in">cd</span> technic-show
+</code></pre>
+<h3 id="13-установка-системных-зависимостей">1.3. Установка системных зависимостей</h3>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> apt-get update
+<span class="hljs-built_in">sudo</span> apt-get install -y python3-pip git chrony
+<span class="hljs-built_in">sudo</span> pip3 install -r /home/orangepi/technic-show/drone/requirements.txt --upgrade
+</code></pre>
+<h3 id="14-права-на-проект">1.4. Права на проект</h3>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">chown</span> -R orangepi:orangepi /home/orangepi/technic-show
+</code></pre>
+<h3 id="15--копирование-сервисов">1.5.  Копирование сервисов</h3>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">cp</span> /home/orangepi/technic-show/builder/assets/technic-show.service /lib/systemd/system/
+<span class="hljs-built_in">sudo</span> systemctl daemon-reload
 
-<ol>
-<li>Выберите меню <em>Gyroscope</em></li>
-<li>Установите квадрокоптер на ровную поверхность.</li>
-<li>Нажмите <em>OK</em>.</li>
-<li>Дождитесь окончания калибровки.</li>
-</ol>
-<blockquote>
-<p><strong>Подсказка</strong> Во время калибровки гироскопа квадрокоптер не должен менять своего положения, шататься и т. д.</p>
-</blockquote>
-<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/gyroscope.html" target="_blank">https://docs.px4.io/master/en/config/gyroscope.html</a>.</p>
-<h3 id="акселерометр">Акселерометр</h3>
-<div class="img-figure">
-  <img src="assets/qgc-cal-acc.png"></img>
-</div>
 
-<ol>
-<li>Выберите меню <em>Accelerometer</em>.</li>
-<li>Выберите ориентацию полетного контроллера – <em>ROTATION_NONE</em> при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.</li>
-<li>Последовательно устанавливайте квадрокоптер в каждую из указанных ориентаций до появления желтой рамки.</li>
-<li>Держите квадрокоптер неподвижно до появления зеленой рамки.</li>
-</ol>
-<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/accelerometer.html" target="_blank">https://docs.px4.io/master/en/config/accelerometer.html</a>.</p>
-<h3 id="уровень-горизонта">Уровень горизонта</h3>
-<div class="img-figure">
-  <img src="assets/qgc-cal-level.png"></img>
-</div>
-
-<ol>
-<li>Выберите меню <em>Level Horizon</em>.</li>
-<li>Выберите ориентацию полетного контроллера – <em>ROTATION_NONE</em> при условии, что полетный контроллер ориентирован передом к носу квадрокоптера.</li>
-<li>Установите квадрокоптер на ровную поверхность.</li>
-<li>Нажмите <em>OK</em>.</li>
-<li>Дождитесь окончания калибровки.</li>
-</ol>
-<p>Дополнительная информация: <a href="https://docs.px4.io/master/en/config/level_horizon_calibration.html" target="_blank">https://docs.px4.io/master/en/config/level_horizon_calibration.html</a>.</p>
+<span class="hljs-built_in">sudo</span> <span class="hljs-built_in">cp</span> /home/orangepi/technic-show/examples/chrony/client.conf /etc/chrony/chrony.conf
+<span class="hljs-built_in">sudo</span> systemctl restart chrony
+</code></pre>
+<hr></hr>
+<h2 id="2-настройка">2. Настройка</h2>
+<h3 id="21-смена-имени-дрона">2.1. Смена имени дрона</h3>
+<p>Каждому дрону нужно уникальное имя.</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> /home/orangepi/technic-show/builder/assets/set_hostname.sh technic-skyris
+</code></pre>
+<p>После смены имени перезагрузите дрон(Можно после след. пункта):</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> reboot
+</code></pre>
+<h3 id="22-запуск-клиента-и-подключение-к-серверу">2.2. Запуск клиента и подключение к серверу</h3>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> /home/orangepi/technic-show/start_technic_show.sh ip_your_laptop
+</code></pre>
+<p>Где <code>ip_your_laptop</code> — IP компьютера с сервером. Узнать его:</p>
+<ul>
+<li><strong>macOS:</strong> <code>ipconfig getifaddr en0</code></li>
+<li><strong>Linux:</strong> <code>ip addr | grep "inet "</code></li>
+<li><strong>Windows:</strong> <code>ipconfig</code> — поле «IPv4-адрес»</li>
+</ul>
+<h2 id="3-параметры-конфигурации-clientini">3. Параметры конфигурации <code>client.ini</code></h2>
+<p>Файл: <code>/home/orangepi/technic-show/drone/config/client.ini</code></p>
+<h3 id="31-общие-настройки">3.1. Общие настройки</h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>По умолчанию</th>
+<th>Что значит</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>/hostname</code></td>
+<td>Имя дрона. Оставляйте <code>/hostname</code>.</td>
+</tr>
+<tr>
+<td><code>technic_dir</code></td>
+<td><code>auto</code></td>
+<td>Путь к ROS-пакету.</td>
+</tr>
+<tr>
+<td><code>config_name</code></td>
+<td><code>client</code></td>
+<td>Идентификатор конфига.</td>
+</tr>
+<tr>
+<td><code>config_version</code></td>
+<td><code>1.0</code></td>
+<td>Версия конфига</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-server">3.2. <code>[SERVER]</code></h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Что значит</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>host</code></td>
+<td>IP-адрес сервера. Меняется через <code>start_technic_show.sh</code>.</td>
+</tr>
+<tr>
+<td><code>port</code></td>
+<td>Порт. По умолчанию <code>25000</code>.</td>
+</tr>
+<tr>
+<td><code>buffer_size</code></td>
+<td>Размер буфера. <code>1024</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-broadcast">3.3. <code>[BROADCAST]</code></h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+<th>Что значит</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>use</code></td>
+<td><code>False</code></td>
+<td><strong>Оставьте <code>False</code>.</strong> Отключает автоматический поиск сервера.</td>
+</tr>
+<tr>
+<td><code>port</code></td>
+<td><code>8181</code></td>
+<td>Не менять.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="34-telemetry">3.4. <code>[TELEMETRY]</code></h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+<th>Что значит</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>transmit</code></td>
+<td><code>True</code></td>
+<td>Отправлять телеметрию на сервер.</td>
+</tr>
+<tr>
+<td><code>frequency</code></td>
+<td><code>1.0</code></td>
+<td>Частота передачи (раз в секунду).</td>
+</tr>
+<tr>
+<td><code>log_resources</code></td>
+<td><code>False</code></td>
+<td>Логировать CPU и память. Только для отладки.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="35-flight">3.5. <code>[FLIGHT]</code></h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Рекомендация для Technic 6S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>frame_id</code></td>
+<td><code>map</code> (или <code>aruco_map</code>)</td>
+</tr>
+<tr>
+<td><code>takeoff_height</code></td>
+<td><code>1.5</code></td>
+</tr>
+<tr>
+<td><code>takeoff_time</code></td>
+<td><code>3.0</code></td>
+</tr>
+<tr>
+<td><code>arming_time</code></td>
+<td><code>0.5</code></td>
+</tr>
+<tr>
+<td><code>land_delay</code></td>
+<td><code>1.0</code></td>
+</tr>
+<tr>
+<td><code>land_timeout</code></td>
+<td><code>8.0</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="36-animation">3.6. <code>[ANIMATION]</code></h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+<th>Что значит</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>start_action</code></td>
+<td><code>auto</code></td>
+<td>Автовыбор взлёт/полёт.</td>
+</tr>
+<tr>
+<td><code>check_ground</code></td>
+<td><code>False</code></td>
+<td><strong>Оставьте <code>False</code>.</strong></td>
+</tr>
+<tr>
+<td><code>yaw</code></td>
+<td><code>animation</code></td>
+<td>Брать рысканье из кадра.</td>
+</tr>
+<tr>
+<td><code>private_offset</code></td>
+<td><code>[0, 0, 0]</code></td>
+<td>Меняется через сервер.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="37-led">3.7. <code>[LED]</code></h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>use</code></td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>takeoff_indication</code></td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>land_indication</code></td>
+<td><code>True</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="38-failsafe">3.8. <code>[FAILSAFE]</code></h3>
+<p>Оставьте без изменений.</p>
+<h3 id="39-ntp">3.9. <code>[NTP]</code></h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>use</code></td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<hr></hr>
+<h2 id="4-работа-с-сервером">4. Работа с сервером</h2>
+<h3 id="основные-кнопки">Основные кнопки</h3>
+<table>
+<thead>
+<tr>
+<th>Кнопка</th>
+<th>Действие</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Check selected</strong></td>
+<td>Запросить телеметрию у выбранных дронов.</td>
+</tr>
+<tr>
+<td><strong>Start</strong></td>
+<td>Запустить анимацию с задержкой.</td>
+</tr>
+<tr>
+<td><strong>Pause</strong></td>
+<td>Пауза / продолжение.</td>
+</tr>
+<tr>
+<td><strong>Takeoff</strong></td>
+<td>Взлёт выбранных дронов.</td>
+</tr>
+<tr>
+<td><strong>Land</strong></td>
+<td>Посадка.</td>
+</tr>
+<tr>
+<td><strong>Disarm</strong></td>
+<td>Остановить моторы.</td>
+</tr>
+<tr>
+<td><strong>Flip</strong></td>
+<td>Переворот (в воздухе).</td>
+</tr>
+<tr>
+<td><strong>LED Test</strong></td>
+<td>Тест светодиодов (белый).</td>
+</tr>
+<tr>
+<td><strong>LED Fill</strong></td>
+<td>Залить ленту цветом.</td>
+</tr>
+<tr>
+<td><strong>Emergency Land</strong></td>
+<td>Экстренная посадка.</td>
+</tr>
+<tr>
+<td><strong>Reboot FCU</strong></td>
+<td>Перезагрузить полётный контроллер.</td>
+</tr>
+<tr>
+<td><strong>Calibrate Gyro</strong></td>
+<td>Калибровка гироскопа.</td>
+</tr>
+<tr>
+<td><strong>Calibrate Level</strong></td>
+<td>Калибровка акселерометра.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="меню">Меню</h3>
+<p><strong>File</strong> — отправка анимаций, калибровок, карты ArUco, launch-файлов, параметров PX4, любых файлов и команд.</p>
+<p><strong>Service</strong> — перезапуск <code>technic</code>, <code>technic-show</code>, <code>chrony</code>, перезагрузка дрона, обновление git-репозитория.</p>
+<p><strong>Animation</strong> — привязка начала анимации к текущей позиции, сброс смещений.</p>
+<p><strong>Table</strong> — редактирование конфигов, копирование конфигураций, управление колонками.</p>
+<h3 id="статус-дрона-в-таблице">Статус дрона в таблице</h3>
+<ul>
+<li>🟢 зелёный — всё в норме</li>
+<li>🟡 жёлтый — требует внимания</li>
+<li>🔴 красный — критическая ошибка, взлёт запрещён</li>
+</ul>
+<h2 id="5-полезные-команды">5. Полезные команды</h2>
+<table>
+<thead>
+<tr>
+<th>Команда</th>
+<th>Что делает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>journalctl -u technic-show.service -f</code></td>
+<td>Логи клиента в реальном времени</td>
+</tr>
+<tr>
+<td><code>systemctl status technic-show.service</code></td>
+<td>Статус клиента</td>
+</tr>
+<tr>
+<td><code>sudo systemctl restart technic-show.service</code></td>
+<td>Перезапуск клиента</td>
+</tr>
+<tr>
+<td><code>sudo systemctl restart technic</code></td>
+<td>Перезапуск ROS-пакетов</td>
+</tr>
+<tr>
+<td><code>ip a show wlan0</code></td>
+<td>IP дрона</td>
+</tr>
+<tr>
+<td><code>chronyc sources</code></td>
+<td>Проверка синхронизации</td>
+</tr>
+<tr>
+<td><code>iw dev wlan0 info</code></td>
+<td>Режим Wi-Fi</td>
+</tr>
+</tbody>
+</table>
 
                                 
 
@@ -1482,14 +1807,10 @@
 
             
                 
-                <a href="Bind.html" class="navigation navigation-prev " aria-label="Previous page: Bind приемника">
+                <a href="Server.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Technic Show Server">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="Modes.html" class="navigation navigation-next " aria-label="Next page: Полетные режимы">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -1498,7 +1819,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Калибровка датчиков","level":"2.1.2.8","depth":3,"next":{"title":"Полетные режимы","level":"2.1.2.9","depth":3,"path":"technic6S/Modes.md","ref":"technic6S/Modes.md","articles":[]},"previous":{"title":"Bind приемника","level":"2.1.2.7","depth":3,"path":"technic6S/Bind.md","ref":"technic6S/Bind.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/CalibrationSensors.md","mtime":"2026-09-20T10:47:37.390Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-09-30T13:06:20.780Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Установка клиента","level":"2.1.7.4","depth":3,"next":{"title":"Доп материалы","level":"2.1.8","depth":2,"ref":"","articles":[{"title":"Примеры кода на Python","level":"2.1.8.1","depth":3,"path":"technic6S/CodeExamples.md","ref":"technic6S/CodeExamples.md","articles":[]},{"title":"Подключение GPS","level":"2.1.8.2","depth":3,"path":"technic6S/GPS.md","ref":"technic6S/GPS.md","articles":[]},{"title":"Mavlink","level":"2.1.8.3","depth":3,"path":"technic6S/Mavlink.md","ref":"technic6S/Mavlink.md","articles":[]},{"title":"Подключение к Orange Pi 5 Pro с использованием SSH-ключей","level":"2.1.8.4","depth":3,"path":"technic6S/SshKeys.md","ref":"technic6S/SshKeys.md","articles":[]},{"title":"Калибровка камеры","level":"2.1.8.5","depth":3,"path":"technic6S/Calibration.md","ref":"technic6S/Calibration.md","articles":[]},{"title":"Запись экрана с дрона","level":"2.1.8.6","depth":3,"path":"technic6S/CameraScreen.md","ref":"technic6S/CameraScreen.md","articles":[]}]},"previous":{"title":"Technic Show Server","level":"2.1.7.3","depth":3,"path":"technic6S/Server.md","ref":"technic6S/Server.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/Client_installation.md","mtime":"2026-09-29T17:28:18.949Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-09-30T13:06:20.780Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
