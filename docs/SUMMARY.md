@@ -62,8 +62,9 @@
 		* [Симулятор](technic6S/Simulator.md)
 	    * [Сборка на собственной машине](technic6S/SimulationNative.md)
 	    * [Установка виртуальной машины](technic6S/SimulationVM.md)
+	    * [Использование симулятора](technic6S/SimulatorUsage.md)
 	    * [Симулятор на компьютерах с чипом M1](technic6S/SimulationM1.md)
-	    * [Rviz и RQT](technic6S/Rviz.md)
+	
 
 	* Шоу дронов
 		* [Technic-Show](technic6S/Technic-show.md)
@@ -78,6 +79,7 @@
 	    * [Подключение к Orange Pi 5 Pro с использованием SSH-ключей](technic6S/SshKeys.md)
 	    * [Калибровка камеры](technic6S/Calibration.md)
 	    * [Запись экрана с дрона](technic6S/CameraScreen.md)
+	    * [Rviz и RQT](technic6S/Rviz.md)
 
 ---
 
