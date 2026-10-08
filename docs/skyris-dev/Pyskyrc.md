@@ -131,15 +131,13 @@ pyskyrc/
 ```
 ## Совместимость
 
-| Компонент                       | Linux            | macOS      | Windows          |
-| ------------------------------- | ---------------- | ---------- | ---------------- |
-| USB HID (`/dev/hidraw*`)        | ✅                | ❌          | ❌                |
-| BLE через `bleak`               | ✅                | ✅          | Не тестировалось |
-| Auto-discovery (paired devices) | ✅ `bluetoothctl` | ❌          | ❌                |
-| CLI / shell                     | ✅                | Только BLE | Только BLE       |
-
-Планы: macOS/Windows поддержка USB — через `hidapi`, что требует
-переписать `HIDDevice`. PR welcome.
+| Компонент                       | Linux | macOS | Windows |
+| ------------------------------- | ----- | ----- | ------- |
+| USB HID через `hidapi`          | +     | +     | +       |
+| USB HID (`/dev/hidraw*`)        | +     | -     | -       |
+| BLE через `bleak`               | +     | +     | +       |
+| Auto-discovery (paired devices) | +     | +     | +       |
+| CLI / shell                     | +     | +     | +       |
 
 ## Безопасность
 
