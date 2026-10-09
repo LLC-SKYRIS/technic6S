@@ -96,6 +96,8 @@ pre {
   background: #fff;
   border-top: 1px solid #e9ecf2; /* чуть мягче */
   padding: 0;
+  height: var(--site-footer-height);
+  box-sizing: border-box;
 }
 
 /* чтобы футер был на той же "сетке", что контент справа */
@@ -105,7 +107,9 @@ pre {
   width: 100%;
 
   padding: 18px 56px;     /* как в шаблоне: широкие поля */
-  min-height: 84px;       /* чтобы футер не выглядел "сжатым" */
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
 
   display: flex;
   justify-content: space-between;
@@ -158,15 +162,10 @@ pre {
 @media (max-width: 900px){
   .site-footer__inner{
     padding: 18px 18px;
-    min-height: unset;
-
-    flex-direction: column;
-    align-items: flex-start;  /* на мобиле как обычно — слева */
-    gap: 12px;
   }
 
   .site-footer .contentInfo{
-    text-align: left;
+    text-align: right;
     white-space: normal;
   }
 }
@@ -190,23 +189,52 @@ pre {
   padding-top: 18px;  /* линия футера + аккуратный воздух сверху */
 }
 
-/* ===== Sticky footer ONLY for right content column (HonKit) ===== */
+/* ===== Fixed footer for right content column (HonKit) ===== */
 
-/* Правая колонка (без sidebar) растягивается на высоту окна */
-.book .book-body .body-inner {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+:root {
+  --site-footer-height: 120px;
+  --site-footer-space: var(--site-footer-height);
 }
 
-/* Контент + стрелки занимает всё доступное место */
+.book .book-body #site-footer.site-footer {
+  position: fixed;
+  left: 300px;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  margin-top: 0 !important;
+}
+
+.book.without-summary .book-body #site-footer.site-footer {
+  left: 0;
+}
+
+/* Reserve space so fixed footer does not cover content/navigation arrows. */
 .book .book-body .body-inner .page-wrapper {
-  flex: 1 0 auto;
+  padding-bottom: var(--site-footer-space);
 }
 
-/* Футер прижимается вниз правой колонки */
-.book .book-body .body-inner #site-footer.site-footer {
-  margin-top: auto !important;
+.book .book-summary {
+  box-sizing: border-box;
+  padding-bottom: var(--site-footer-space);
+}
+
+body.landing-page .book .book-body #site-footer.site-footer,
+body:has(.landing) .book .book-body #site-footer.site-footer {
+  display: none !important;
+}
+
+body.landing-page .book .book-body .body-inner .page-wrapper,
+body:has(.landing) .book .book-body .body-inner .page-wrapper,
+body.landing-page .book .book-summary,
+body:has(.landing) .book .book-summary {
+  padding-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .book .book-body #site-footer.site-footer {
+    left: 0;
+  }
 }
 
 /* =========================================================
@@ -620,7 +648,7 @@ body.landing-page .book .book-body .page-wrapper {
   }
 }
 
-body.landing-page .landing-topbar{
+.landing-topbar{
   position: fixed;
   left: 0;
   right: 0;
@@ -630,8 +658,8 @@ body.landing-page .landing-topbar{
   border-bottom: 1px solid #e1e3e9;
 }
 
-body.landing-page .book .book-summary,
-body.landing-page .book .book-body{
+.book .book-summary,
+.book .book-body{
   padding-top: 56px; /* подгони под высоту шапки */
 }
 
@@ -648,7 +676,7 @@ body.landing-page .book-body .search-results {
 }
 
 /* === COMPACT LANDING HEADER === */
-body.landing-page .landing-topbar .gen-header{
+.landing-topbar .gen-header{
   height: 56px;
   padding: 0 24px;
 
@@ -657,19 +685,19 @@ body.landing-page .landing-topbar .gen-header{
   gap: 16px;
 }
 
-body.landing-page .landing-topbar .logo img{
+.landing-topbar .logo img{
   height: 14px;
 }
 
-body.landing-page .landing-topbar .search-inline input{
+.landing-topbar .search-inline input{
   height: 34px;
   padding-top: 6px;
   padding-bottom: 6px;
   font-size: 14px;
 }
 
-body.landing-page .book .book-summary,
-body.landing-page .book .book-body{
+.book .book-summary,
+.book .book-body{
   padding-top: 56px;
 }
 
@@ -688,13 +716,13 @@ body.landing-page .book .book-body{
 }
 
 /* ===== Topbar links spacing ===== */
-body.landing-page .landing-topbar .header-nav-link{
+.landing-topbar .header-nav-link{
   display: flex;
   align-items: center;
   gap: 18px;              /* расстояние между ссылками */
 }
 
-body.landing-page .landing-topbar .header-nav-link a{
+.landing-topbar .header-nav-link a{
   color: #6b6f76;
   text-decoration: none;
   font-size: 14px;
@@ -702,17 +730,17 @@ body.landing-page .landing-topbar .header-nav-link a{
   white-space: nowrap;
 }
 
-body.landing-page .landing-topbar .header-nav-link a:hover{
+.landing-topbar .header-nav-link a:hover{
   color: #2b2f36;
 }
 
 /* тонкий разделитель между ссылками (как в шаблонах часто делают) */
-body.landing-page .landing-topbar .header-nav-link a + a{
+.landing-topbar .header-nav-link a + a{
   position: relative;
   padding-left: 18px;
 }
 
-body.landing-page .landing-topbar .header-nav-link a + a::before{
+.landing-topbar .header-nav-link a + a::before{
   content: "";
   position: absolute;
   left: 0;

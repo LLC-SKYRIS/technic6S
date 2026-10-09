@@ -85,6 +85,19 @@
                 <a href="../">
             
                     
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../docs/README.md">
+            
+                <span>
+            
+                    
                     Главная
             
                 </a>
@@ -729,7 +742,7 @@
                 <a href="GPIO.html">
             
                     
-                    GPIO
+                    GPIO и Захваты
             
                 </a>
             
@@ -808,109 +821,25 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.6.4" data-path="SimulationM1.html">
+        <li class="chapter " data-level="2.1.6.4" data-path="SimulatorUsage.html">
+            
+                <a href="SimulatorUsage.html">
+            
+                    
+                    Использование симулятора
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.5" data-path="SimulationM1.html">
             
                 <a href="SimulationM1.html">
             
                     
                     Симулятор на компьютерах с чипом M1
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.6.5" data-path="Rviz.html">
-            
-                <a href="Rviz.html">
-            
-                    
-                    Rviz и RQT
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.7" >
-            
-                <span>
-            
-                    
-                    Доп материалы
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="2.1.7.1" data-path="CodeExamples.html">
-            
-                <a href="CodeExamples.html">
-            
-                    
-                    Примеры кода на Python
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.7.2" data-path="GPS.html">
-            
-                <a href="GPS.html">
-            
-                    
-                    Подключение GPS
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.7.3" data-path="Mavlink.html">
-            
-                <a href="Mavlink.html">
-            
-                    
-                    Mavlink
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.7.4" data-path="SshKeys.html">
-            
-                <a href="SshKeys.html">
-            
-                    
-                    Подключение к Orange Pi 5 Pro с использованием SSH-ключей
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.7.5" data-path="Calibration.html">
-            
-                <a href="Calibration.html">
-            
-                    
-                    Калибровка камеры
             
                 </a>
             
@@ -1222,6 +1151,45 @@
     
 
     
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../skyris-dev/">
+            
+                <a href="../skyris-dev/">
+            
+                    
+                    Разработки SKYRIS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../skyris-dev/Pyskyrc.html">
+            
+                <a href="../skyris-dev/Pyskyrc.html">
+            
+                    
+                    pyskyrc — управление зарядниками SkyRC через Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
 
     <li class="divider"></li>
 
@@ -1308,7 +1276,7 @@ rospy.sleep(<span class="hljs-number">3</span>)
 land()
 </code></pre>
 <blockquote>
-<p>ℹ️ Функция <code>navigate</code> выполняется асинхронно: скрипт продолжает работу, не дожидаясь достижения точки. Для блокирующей версии используйте <a href="CodeExamples.html#navigate_wait"><code>navigate_wait</code></a>.</p>
+<p>ℹ️ Функция <code>navigate</code> выполняется асинхронно: скрипт продолжает работу, не дожидаясь достижения точки. Для блокирующей версии используйте <a href="CodeExamples.md#navigate_wait"><code>navigate_wait</code></a>.</p>
 </blockquote>
 <p>Обратите внимание: параметр <code>auto_arm=True</code> указывается только при первом вызове <code>navigate</code>. Он отвечает перевод дрона в режим OFFBOARD.</p>
 <p>С помощью параметра <code>frame_id</code> задается система координат, относительно которой рассчитываются движения:</p>
@@ -1417,7 +1385,7 @@ land()
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Автономный полет","level":"2.1.4.3","depth":3,"next":{"title":"Режим автономного полета (OFFBOARD)","level":"2.1.4.4","depth":3,"path":"technic6S/AutonomousFlightOffboard.md","ref":"technic6S/AutonomousFlightOffboard.md","articles":[]},"previous":{"title":"Автономный запуск ПО","level":"2.1.4.2","depth":3,"path":"technic6S/AutoRunSoft.md","ref":"technic6S/AutoRunSoft.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/AutonomousFlight.md","mtime":"2026-02-02T09:46:12.690Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-08-26T12:47:33.322Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Автономный полет","level":"2.1.4.3","depth":3,"next":{"title":"Режим автономного полета (OFFBOARD)","level":"2.1.4.4","depth":3,"path":"technic6S/AutonomousFlightOffboard.md","ref":"technic6S/AutonomousFlightOffboard.md","articles":[]},"previous":{"title":"Автономный запуск ПО","level":"2.1.4.2","depth":3,"path":"technic6S/AutoRunSoft.md","ref":"technic6S/AutoRunSoft.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/AutonomousFlight.md","mtime":"2026-02-02T09:46:12.690Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-10-09T10:53:13.778Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1471,11 +1439,11 @@ land()
     <script src="../gitbook/theme.js"></script>
     
         
-        <script src="../gitbook/honkit-plugin-add-js/S1kX8IeClDidIr61-home-link.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/7zACG+uWA3DjMoHv-home-link.js"></script>
         
     
         
-        <script src="../gitbook/honkit-plugin-add-js/attmE24JnWOKS69j-website.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/PTvyR+jIEQIxMSd8-website.js"></script>
         
     
         
