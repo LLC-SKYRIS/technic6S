@@ -51,26 +51,3 @@
  ```bash
  sudo systemctl disable hostapd
  ```
-
- 10. после этого опустим и поднимем wlan0:
- ```bash
- sudo ip link set wlan0 down
- sudo iw dev wlan0 set type managed
- sudo ip link set wlan0 up
- ```
-
- 11. теперь проверьте interface: "type managed":
- ```bash
- iw dev
- ```
-
- 12. проверьте есть ли Ваша wi-fi сеть:
- ```bash
- nmcli device wifi list
- ```
-
-Есть ли она есть произведите подключение к вашей wifi сети
-через данную комнаду
- ```bash
- sudo nmcli device wifi connect "SSID" password "PASSWORD"
- ```
