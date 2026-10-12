@@ -28,7 +28,7 @@
 ---
 ## Где скачать образ
 
-Актуальная версия виртуальной машины доступна на странице [Google drive](https://drive.google.com/file/d/1mCeP510Pv9BCpOd2QukTuXVSaXkbRt2A/view)
+Актуальная версия виртуальной машины доступна на странице [Google drive](https://drive.google.com/file/d/1eE8RkLnVFn9ZZUkyaPEN-j9Uox_Yyvs3/view?usp=sharing)
 
 ### Выбор среды виртуализации
 
