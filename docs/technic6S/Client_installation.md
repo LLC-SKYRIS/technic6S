@@ -1,5 +1,5 @@
-# Установка клиента
-## Technic-Show — установка, настройка и работа
+
+# Техник-шоу — установка, настройка и работа
 
 Полное руководство по установке клиентской части `technic-show` на дрон, подключению к серверу и работе с интерфейсом оператора.
 
@@ -77,10 +77,10 @@ sudo reboot
 ### 2.2. Запуск клиента и подключение к серверу
 
 ```bash
-sudo /home/orangepi/technic-show/start_technic_show.sh ip_your_laptop
+sudo /home/orangepi/technic-show/start_technic_show.sh <IP>
 ```
 
-Где `ip_your_laptop` — IP компьютера с сервером. Узнать его:
+Где `<IP>` — IP компьютера с сервером. Узнать его:
 
 - **macOS:** `ipconfig getifaddr en0`
 - **Linux:** `ip addr | grep "inet "`
