@@ -66,9 +66,9 @@
 	    * [Rviz и RQT](technic6S/Rviz.md)
 
 	* Шоу дронов
-		* [Technic-Show](technic6S/Technic-show.md)
+		* [Техник-шоу](technic6S/Technic-show.md)
 		* [Подключение к Wi-Fi сети](technic6S/wifi_connected.md)
-		* [Technic Show Server](technic6S/Server.md)
+		* [Техник Шоу Сервер](technic6S/Server.md)
 		* [Установка клиента](technic6S/Client_installation.md)
 
 	* Доп материалы
