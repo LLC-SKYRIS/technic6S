@@ -66,10 +66,10 @@
 	    * [Симулятор на компьютерах с чипом M1](technic6S/SimulationM1.md)
 
 	* Шоу дронов
-		* [Техник шоу](TechnicShow.md)
-		* [Подключение к Wi-Fi сети](WifiConnected.md)
+		* [Техник шоу](technic6S/TechnicShow.md)
+		* [Подключение к Wi-Fi сети](technic6S/WifiConnected.md)
 		* [Техник Шоу Сервер](technic6S/Server.md)
-		* [Установка клиента](ClientInstallation.md)
+		* [Установка клиента](technic6S/ClientInstallation.md)
 
 	* Доп материалы
 		* [Примеры кода на Python](technic6S/CodeExamples.md)
