@@ -3,10 +3,10 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <title>Подключение GPS · HonKit</title>
+        <title>Подключение к Wi-Fi сети · HonKit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 6.2.2">
+        <meta name="generator" content="HonKit 6.1.4">
         
         
         
@@ -48,10 +48,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Mavlink.html" />
+    <link rel="next" href="Server.html" />
     
     
-    <link rel="prev" href="CodeExamples.html" />
+    <link rel="prev" href="TechnicShow.html" />
     
 
     </head>
@@ -83,6 +83,19 @@
         <li class="chapter " data-level="1.1" data-path="../">
             
                 <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../docs/README.md">
+            
+                <span>
             
                     
                     Главная
@@ -808,12 +821,12 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.6.4" data-path="SimulationM1.html">
+        <li class="chapter " data-level="2.1.6.4" data-path="SimulatorUsage.html">
             
-                <a href="SimulationM1.html">
+                <a href="SimulatorUsage.html">
             
                     
-                    Симулятор на компьютерах с чипом M1
+                    Использование симулятора
             
                 </a>
             
@@ -821,12 +834,12 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.6.5" data-path="Rviz.html">
+        <li class="chapter " data-level="2.1.6.5" data-path="SimulationM1.html">
             
-                <a href="Rviz.html">
+                <a href="SimulationM1.html">
             
                     
-                    Rviz и RQT
+                    Симулятор на компьютерах с чипом M1
             
                 </a>
             
@@ -853,12 +866,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.1.7.1" data-path="Technic-show.html">
+        <li class="chapter " data-level="2.1.7.1" data-path="TechnicShow.html">
             
-                <a href="Technic-show.html">
+                <a href="TechnicShow.html">
             
                     
-                    Technic-Show
+                    Техник-шоу
             
                 </a>
             
@@ -866,9 +879,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.7.2" data-path="wifi_connected.html">
+        <li class="chapter active" data-level="2.1.7.2" data-path="wifiConnected.html">
             
-                <a href="wifi_connected.html">
+                <a href="wifiConnected.html">
             
                     
                     Подключение к Wi-Fi сети
@@ -884,7 +897,7 @@
                 <a href="Server.html">
             
                     
-                    Technic Show Server
+                    Техник Шоу Сервер
             
                 </a>
             
@@ -892,9 +905,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.7.4" data-path="Client_installation.html">
+        <li class="chapter " data-level="2.1.7.4" data-path="ClientInstallation.html">
             
-                <a href="Client_installation.html">
+                <a href="ClientInstallation.html">
             
                     
                     Установка клиента
@@ -937,7 +950,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.8.2" data-path="GPS.html">
+        <li class="chapter " data-level="2.1.8.2" data-path="GPS.html">
             
                 <a href="GPS.html">
             
@@ -995,6 +1008,19 @@
             
                     
                     Запись экрана с дрона
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.7" data-path="Rviz.html">
+            
+                <a href="Rviz.html">
+            
+                    
+                    Rviz и RQT
             
                 </a>
             
@@ -1306,6 +1332,45 @@
     
 
     
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../skyris-dev/">
+            
+                <a href="../skyris-dev/">
+            
+                    
+                    Разработки SKYRIS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../skyris-dev/Pyskyrc.html">
+            
+                <a href="../skyris-dev/Pyskyrc.html">
+            
+                    
+                    pyskyrc — управление зарядниками SkyRC через Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
 
     <li class="divider"></li>
 
@@ -1334,7 +1399,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Подключение GPS</a>
+        <a href=".." >Подключение к Wi-Fi сети</a>
     </h1>
 </div>
 
@@ -1350,33 +1415,53 @@
                                 <section class="normal markdown-section">
                                 
   
-                                <h1 id="подключение-gps">Подключение GPS</h1>
-<p>При подключении GPS появляются следующие возможности:</p>
-<ul>
-<li>удерживание коптером позиции при полете на улице;</li>
-<li>программирование автономных миссий в программе QGroundControl;</li>
-<li>полеты на глобальные точки в автономном режиме при помощи модуля <a href="AutonomousFlightOffboard.html">simple_offboard</a></li>
-</ul>
-<p>Полезные ссылки:</p>
-<ul>
-<li><a href="https://docs.px4.io/en/assembly/quick_start_pixhawk.html" target="_blank">https://docs.px4.io/en/assembly/quick_start_pixhawk.html</a></li>
-<li><a href="http://ardupilot.org/copter/docs/common-pixhawk-wiring-and-quick-start.html" target="_blank">http://ardupilot.org/copter/docs/common-pixhawk-wiring-and-quick-start.html</a></li>
-<li><a href="http://ardupilot.org/copter/docs/common-installing-3dr-ublox-gps-compass-module.html" target="_blank">http://ardupilot.org/copter/docs/common-installing-3dr-ublox-gps-compass-module.html</a></li>
-</ul>
-<h2 id="подключение">Подключение</h2>
-<p>GPS-модуль подключается к полётному контроллеру двумя кабелями:</p>
-<ul>
-<li><p>к разъёму <strong>GPS</strong> — для приёма координат,</p>
+                                <h1 id="подключение-к-wi-fi-сети">Подключение к Wi-Fi сети</h1>
+<p>Вначале, вам нужно будет настроить роутер, к которому будут подключаться ваши дрон и ноутбук для запуска сервера 
+после настройки подключите кабель-Ethernet к вашему orangepi так, чтобы загорелись желтый и зеленый светодиоды
+а затем подключитесь к нему <a href="https://docs.skyris.ru/technic6S/SSH.html" target="_blank">по SSH</a>
+Но бывает такое, что нет просто возможности подключить дрон по кабелю-Ethernet, по этому можно подключить сам дрон через установленную утилиту nmtui</p>
+<p>Порядок действий: </p>
+<ol>
+<li>Пропишите команду:<pre><code class="lang-bash">nmtui
+</code></pre>
 </li>
-<li><p>к разъёму <strong>I2C</strong> — для работы встроенного компаса.</p>
+<li><p>В открывшемся меню выберите(управление стрелочками):
+<img src="assets/menu.png"></img></p>
 </li>
-</ul>
-<p>После подключения GPS необходимо <strong>заново откалибровать компасы</strong> в программе <strong>QGroundControl</strong>. Подключиться к контроллеру можно по <a href="ConnectingToWi-Fi.html"><strong>Wi-Fi</strong></a> или через <strong>USB</strong>.</p>
-<p>Затем нужно разрешить использование GPS в настройках автопилота:</p>
-<ul>
-<li>при использовании <strong>EKF2</strong> включите GPS в параметре <code>EKF2_AID_MASK</code>,</li>
-</ul>
-<p>Если используется <strong>LPE</strong>, также убедитесь, что компас включён и имеет ненулевой вес — параметр <code>ATT_W_MAG</code>должен быть, например, <strong>0.1</strong>.</p>
+<li><p>Затем выберите сеть, к которой вы хотите подключится</p>
+</li>
+<li>Введите пароль </li>
+<li>После выхода из утилиты, узнайте в терминале на каком ip ваш дрон: <pre><code class="lang-bash">ip a
+</code></pre>
+</li>
+</ol>
+<p>после этой команды найдите такую строчку:</p>
+<pre><code class="lang-text"> 3: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
+
+    link/ether 9c:b8:b4:f1:d4:ae brd ff:ff:ff:ff:ff:ff
+
+    inet 192.168.x.x/24 brd 192.168.0.255 scope global dynamic noprefixroute wlan0
+</code></pre>
+<p><code>192.168.x.x</code> - будет вашим ip и уже по нему надо будет подключиться по SSH</p>
+<p>после подключения выполните следующие команды</p>
+<ol>
+<li><p>опустите точку доступа:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> nmcli connection down technic-ap
+</code></pre>
+</li>
+<li><p>удаляем точку доступа(если она будет нужна - пропустите):</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> nmcli connection del technic-ap
+</code></pre>
+</li>
+<li><p>выключаем сервис точки доступа:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl stop hostapd
+</code></pre>
+</li>
+<li><p>выключаем auto-start сервиса точки доступа:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">disable</span> hostapd
+</code></pre>
+</li>
+</ol>
 
                                 
 
@@ -1451,12 +1536,12 @@
 
             
                 
-                <a href="CodeExamples.html" class="navigation navigation-prev " aria-label="Previous page: Примеры кода на Python">
+                <a href="TechnicShow.html" class="navigation navigation-prev " aria-label="Previous page: Техник-шоу">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Mavlink.html" class="navigation navigation-next " aria-label="Next page: Mavlink">
+                <a href="Server.html" class="navigation navigation-next " aria-label="Next page: Техник Шоу Сервер">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1467,7 +1552,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Подключение GPS","level":"2.1.8.2","depth":3,"next":{"title":"Mavlink","level":"2.1.8.3","depth":3,"path":"technic6S/Mavlink.md","ref":"technic6S/Mavlink.md","articles":[]},"previous":{"title":"Примеры кода на Python","level":"2.1.8.1","depth":3,"path":"technic6S/CodeExamples.md","ref":"technic6S/CodeExamples.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/GPS.md","mtime":"2026-09-20T10:47:37.391Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-09-30T13:06:20.780Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Подключение к Wi-Fi сети","level":"2.1.7.2","depth":3,"next":{"title":"Техник Шоу Сервер","level":"2.1.7.3","depth":3,"path":"technic6S/Server.md","ref":"technic6S/Server.md","articles":[]},"previous":{"title":"Техник-шоу","level":"2.1.7.1","depth":3,"path":"technic6S/TechnicShow.md","ref":"technic6S/TechnicShow.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/wifiConnected.md","mtime":"2026-10-12T16:01:59.072Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-10-26T11:30:00.843Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1521,11 +1606,11 @@
     <script src="../gitbook/theme.js"></script>
     
         
-        <script src="../gitbook/honkit-plugin-add-js/Yy7foKBVnMJBN3q1-home-link.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/2O0tLRpol0YItrny-home-link.js"></script>
         
     
         
-        <script src="../gitbook/honkit-plugin-add-js/VREbVlsM8Ab8Wizs-website.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/0N1p6UbI2xkbnArT-website.js"></script>
         
     
         

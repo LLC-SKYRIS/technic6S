@@ -5,9 +5,10 @@
 Для изменения параметров PX4 используйте программу QGroundControl, [подключившись к Технику по Wi-Fi](ConnectingToWi-Fi.md) или USB. Перейдите в панель *Vehicle Setup* (кликнув на логотип QGroundControl в левом верхнем углу и выберите меню *Parameters*.
 
 Рекомендуется использовать новейшую стабильную версию прошивки
+#### Для этого скачайте файл прошивки по ссылке [1.17.0_px4_fmu](https://drive.google.com/file/d/1yIpuLNDxnGrbZB2eq_E3SpZkdmq88GLm/view?usp=sharing)
 
 <div class="img-figure">
-  <img src="assets/firmware_qgc.png">
+  <img src="assets/firmware.png">
 </div>
 
 Для стабильной работы Техника рекомендуется скачать файл параметров полетного контроллера и залить его через QgroundControl
