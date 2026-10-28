@@ -64,13 +64,12 @@
 	    * [Установка виртуальной машины](technic6S/SimulationVM.md)
 	    * [Использование симулятора](technic6S/SimulatorUsage.md)
 	    * [Симулятор на компьютерах с чипом M1](technic6S/SimulationM1.md)
-	
 
 	* Шоу дронов
-		* [Техник-шоу](technic6S/Technic-show.md)
-		* [Подключение к Wi-Fi сети](technic6S/wifi_connected.md)
+		* [Техник шоу](TechnicShow.md)
+		* [Подключение к Wi-Fi сети](WifiConnected.md)
 		* [Техник Шоу Сервер](technic6S/Server.md)
-		* [Установка клиента](technic6S/Client_installation.md)
+		* [Установка клиента](ClientInstallation.md)
 
 	* Доп материалы
 		* [Примеры кода на Python](technic6S/CodeExamples.md)
