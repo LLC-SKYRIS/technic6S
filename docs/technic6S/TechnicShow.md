@@ -29,13 +29,21 @@
 - chrony, nmcli и др. базовые интерфейсы.
 - Вспомогательные скрипты.
 
+<<<<<<<< HEAD:docs/technic6S/TechnicShow.md
 **Ссылка на образ:** *(он находится на этапе тестирования, поэтому воспользуйтесь инструкцией по настройке client в ручную [см. тут](ClientInstallation.md))*
+========
+**Ссылка на образ:** *(он находится на этапе тестирования, поэтому воспользуйтесь инструкцией по настройке client в ручную [см. client](docs/docs-build/technic6S/Client_installation.md))*
+>>>>>>>> 668e401408bd250002e9ec2d7bb64fbb566af09c:docs/docs-build/technic6S/Technic-show.md
 
 После скачивания прошейте **eMMC** при помощи **Balena Etcher** , вставьте её в **Orange Pi** и подайте питание на дрон.([см. тут](ImageOPI))
 
 ### 2. Подключитесь к дрону по точке доступа
 
+<<<<<<<< HEAD:docs/technic6S/TechnicShow.md
 После подключения к дрону просмотрите инструкцию по подключению его к вашей Wi-Fi сети.([см. тут](WifiConnected.md))
+========
+После подключения к дрону [*см. инструкцию по подключению к wifi*](docs/docs-build/technic6S/wifi_connected.md)
+>>>>>>>> 668e401408bd250002e9ec2d7bb64fbb566af09c:docs/docs-build/technic6S/Technic-show.md
 
 ### 3. Старт technic-show
 Перейдите в установочную папку:
