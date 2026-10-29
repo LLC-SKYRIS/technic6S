@@ -1,22 +1,20 @@
 # Веб-интерфейс
 
-____________________________________-------------------------------------------------------____________
-
 Веб-интерфейс - это инструмент для визуальной работы с инструментами Technic
 
 > **Подсказка** Веб-интерфейс открывается только после подключения по [wi-fi](ConnectingToWi-Fi.md) к сети Technic
 
 Он будет доступен после подключения к Technic по адресу http://10.42.0.1:8000/technic. В нем собраны основные веб-инструменты Technic: просмотр топиков с изображениями, блочное программирование, веб-терминал (Butterfly) а также полная копия данной документации.
 
-> **Подсказка** Наберите в браузере http://10.42.0.1:8000/technic чтобы открыть веб-интерфейс
+> **Подсказка** Наберите в браузере http://10.42.0.1 чтобы открыть веб-интерфейс
 
+<img src="assets/index.png" width=600 class="center zoom">
 
-<div class="img-figure">
-  <img src="assets/web_interface.png">
-</div>
 Подробнее про вкладки вы можете узнать здесь
 
 - [View Image Topics](CameraImages.md)
 - [Blocks Programming](Blocky.md)
 - [Open Web Terminal](Butterfly.md)
 - [View Topics](ROSWeb.md)
+- [Manual Control](Pings.md)
+- [Technic Console](Console.md)

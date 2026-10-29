@@ -93,14 +93,10 @@
 
 Ожидать, пока дрон долетит до целевой точки (заданной в [navigate](#navigate)-блоке).
 
-### ***Работа с GPIO {#GPIO}***
+### ***Работа с GPIO***
 
-Категория <span style="padding:2px;color:white;background:#5b97cc">GPIO</span> содержит блоки для работы с GPIO. Обратите внимание, что для корректной работы этих блоков демон для работы с GPIO `pigpiod` должен быть включен:
+Категория <span style="padding:2px;color:white;background:#5b97cc">GPIO</span> содержит блоки для работы с GPIO. Обратите внимание, что для корректной работы с gpio через блочное программирование, необходимо выставлять pin 17. Более подробно о работе с gpio вы можете прочитать [тут](GPIO.md)
 
-```bash
-sudo systemctl enable pigpiod.service
-sudo systemctl start pigpiod.service
-```
+<img src="assets/gpio1.png" width=350 class="center zoom">
 
-Более подробную информацию о GPIO читайте в [соответствующей статье](GPIO.md).
 
