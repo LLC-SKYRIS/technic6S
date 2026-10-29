@@ -12,9 +12,6 @@
  orangepi
  ```
 
-
-<div class="img-figure">
-  <img src="assets/web-terminal-round-corners.png">
-</div>
+<img src="assets/web-terminal-round-corners.png" width=600 class="center zoom">
 
 Подробнее про терминал и про способы взаимодействия с ним можно посмотреть [здесь](CommandLine)
