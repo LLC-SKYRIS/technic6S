@@ -51,7 +51,7 @@
     <link rel="next" href="ClientInstallation.html" />
     
     
-    <link rel="prev" href="wifiConnected.html" />
+    <link rel="prev" href="WifiConnected.html" />
     
 
     </head>
@@ -897,7 +897,7 @@
                 <a href="TechnicShow.html">
             
                     
-                    Техник-шоу
+                    Техник шоу
             
                 </a>
             
@@ -905,9 +905,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.7.2" data-path="wifiConnected.html">
+        <li class="chapter " data-level="2.1.7.2" data-path="WifiConnected.html">
             
-                <a href="wifiConnected.html">
+                <a href="WifiConnected.html">
             
                     
                     Подключение к Wi-Fi сети
@@ -1442,7 +1442,8 @@
                                 
   
                                 <h1 id="техник-шоу-сервер">Техник Шоу Сервер</h1>
-<p>Сервер для управления группой дронов во время шоу. Отображает их состояние в реальном времени, позволяет отправлять команды, файлы анимаций и конфигураций.</p>
+<p>Сервер - это специализированный программный питон файл, который, может быть, развернут на любой операционной системе будь то Windows или Linux.  </p>
+<p>Для его установки нужно будет ознакомиться с разделом <em>Требования и запуск</em>, а также установить папку с GitHube, где будет лежат основной сервер и его модули</p>
 <hr></hr>
 <h2 id="содержание">Содержание</h2>
 <ol>
@@ -1458,21 +1459,25 @@
 <hr></hr>
 <h2 id="1-требования-и-запуск">1. Требования и запуск</h2>
 <h3 id="что-нужно-для-запуска">Что нужно для запуска</h3>
-<ul>
-<li>Python <strong>3.9.7</strong></li>
-<li>Менеджер виртуальных окружений (<code>venv</code> или <code>pyenv</code>)</li>
-<li>Установленные библиотеки из <code>requirements.txt</code></li>
-</ul>
-<p>Файл <code>requirements.txt</code> содержит:</p>
-<pre><code>configobj==5.0.6
-PyQt5
-PyQt5-sip
-Quamash==0.6.1
-selectors2==2.0.1
-six==1.13.0
-</code></pre><h3 id="как-запустить">Как запустить</h3>
-<pre><code class="lang-bash"><span class="hljs-comment"># 1. Клонировать репозиторий</span>
-git <span class="hljs-built_in">clone</span> https://github.com/Gromodzila/Technic-Show-Server.git
+<ol>
+<li><p>Python <strong>3.9.7</strong> </p>
+<blockquote>
+<p><strong>Подсказка</strong> его можно установить с официального сайта(<a href="https://www.python.org/downloads/" target="_blank">см. тут</a>)</p>
+</blockquote>
+</li>
+<li><p>Менеджер виртуальных окружений (<code>venv</code> или <code>pyenv</code>):</p>
+<pre><code class="lang-bash">pip install venv
+</code></pre>
+</li>
+<li><p>Копирование проекта-сервера с репозитория GitHube(копируем его на ПК):</p>
+<pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> https://github.com/Gromodzila/Technic-Show-Server.git
+</code></pre>
+</li>
+<li><p>Все эти командны нужно вставлять в терминал на вашем компьютере, если у вас Windows, то в powershell(<a href="https://learn.microsoft.com/ru-ru/powershell/" target="_blank">документация</a>)</p>
+<h3 id="как-запустить-сервер">Как запустить сервер</h3>
+</li>
+</ol>
+<pre><code class="lang-bash"><span class="hljs-comment"># 1. Открыть терминал(powershell) </span>
 <span class="hljs-built_in">cd</span> Technic-Show-Server
 
 <span class="hljs-comment"># 2. Создать виртуальное окружение с Python 3.9.7</span>
@@ -1480,23 +1485,19 @@ python3.9 -m venv .venv
 
 <span class="hljs-comment"># 3. Активировать окружение</span>
 <span class="hljs-built_in">source</span> .venv/bin/activate       <span class="hljs-comment"># macOS / Linux</span>
-<span class="hljs-comment"># .venv\Scripts\activate        # Windows</span>
+<span class="hljs-comment"># .\venv\Scripts\Activate.ps1   # Windows</span>
 
-<span class="hljs-comment"># 4. Установить зависимости</span>
+<span class="hljs-comment"># 4. Установить зависимости преокта сервера</span>
 pip install -r requirements.txt
 
-<span class="hljs-comment"># 5. Запустить сервер</span>
-<span class="hljs-built_in">cd</span> server
-python server.py
+<span class="hljs-comment"># 5. Запустить сервер </span>
+python3 server.py
 </code></pre>
 <p>После запуска откроется главное окно с таблицей дронов и панелью управления.</p>
 <hr></hr>
 <h2 id="2-структура-проекта">2. Структура проекта</h2>
 <pre><code>TehnicShowServer/
-├── server/                    # серверная часть
-│   ├── server.py              # точка входа, GUI, логика интерфейса
-│   ├── config/                # конфигурационные файлы
-│   │   ├── server.ini
+│   ├── config/                # конфигуратор
 │   │   └── spec/configspec_server.ini
 │   ├── icons/                 # иконки и splash-картинки
 │   └── modules/               # модули сервера
@@ -1507,6 +1508,7 @@ python server.py
 │       ├── visual_land_dialog.py   # диалог визуальной посадки
 │       └── ui/                # сгенерированные формы PyQt5
 │
+├── server.py                  # точка входа, GUI, логика интерфейса
 ├── lib/                       # общие библиотеки
 │   ├── __init__.py
 │   ├── messaging.py           # протокол обмена сообщениями
@@ -1638,7 +1640,7 @@ python server.py
 </table>
 <h3 id="работа-с-таблицей">Работа с таблицей</h3>
 <ul>
-<li>Левый клик по флажку — выбрать или снять выбор дрона</li>
+<li>Левый клик по флажку(квадратик) — выбрать или снять выбор дрона</li>
 <li>Двойной клик по <code>copter ID</code> — открыть диалог редактирования имени</li>
 <li>Двойной клик по <code>checks</code> — показать детальный отчёт самопроверки</li>
 <li>Правый клик по заголовку столбца — меню настройки видимых столбцов, их порядка и ширины</li>
@@ -1648,7 +1650,6 @@ python server.py
 </ul>
 </li>
 </ul>
-<p>Пресеты отображения столбцов (например, «Батарея и позиция», «Полный отчёт») сохраняются в конфиге сервера.</p>
 <hr></hr>
 <h2 id="6-кнопки-управления">6. Кнопки управления</h2>
 <p>Все кнопки находятся в правой колонке главного окна и сгруппированы по назначению.</p>
@@ -1667,7 +1668,7 @@ python server.py
 </tr>
 <tr>
 <td>Preflight check</td>
-<td>Запрос телеметрии у выбранных дронов. Обновляет статусы в таблице</td>
+<td>Запрос телеметрии у выбранных дронов. Обновляет статусы в таблице; скорее всего не понадобится</td>
 </tr>
 <tr>
 <td>Start animation</td>
@@ -1713,11 +1714,11 @@ python server.py
 <tbody>
 <tr>
 <td>Disarm ALL</td>
-<td>Отключение моторов у всех дронов. Только после посадки</td>
+<td>Отключение моторов у всех дронов</td>
 </tr>
 <tr>
 <td>Disarm selected</td>
-<td>Отключение моторов у выбранных дронов. Только после посадки</td>
+<td>Отключение моторов у выбранных дронов</td>
 </tr>
 <tr>
 <td>Test leds</td>
@@ -1733,7 +1734,7 @@ python server.py
 </tr>
 <tr>
 <td>Flip</td>
-<td>Переворот (сальто) выбранных дронов. Только при активном FCU</td>
+<td>Переворот выбранных дронов. Только при активном FCU</td>
 </tr>
 </tbody>
 </table>
@@ -1752,11 +1753,11 @@ python server.py
 </tr>
 <tr>
 <td>Calibrate gyro</td>
-<td>Калибровка гироскопа. Дрон должен стоять неподвижно</td>
+<td>Калибровка гироскопа</td>
 </tr>
 <tr>
 <td>Calibrate level</td>
-<td>Калибровка горизонта.  Дрон должен стоять неподвижно</td>
+<td>Калибровка горизонта</td>
 </tr>
 </tbody>
 </table>
@@ -1869,21 +1870,6 @@ python server.py
 </tr>
 </tbody>
 </table>
-<h4 id="прочее">Прочее</h4>
-<table>
-<thead>
-<tr>
-<th>Пункт</th>
-<th>Действие</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Retrive file</td>
-<td>Запросить файл с дрона и сохранить его локально</td>
-</tr>
-</tbody>
-</table>
 <h4 id="подменю-restart-service">Подменю Restart service</h4>
 <table>
 <thead>
@@ -1955,26 +1941,21 @@ python server.py
 <ol>
 <li>Включить дроны, дождаться их подключения. Строки появятся в таблице</li>
 <li>Поставить галочки у нужных дронов</li>
-<li>Нажать <strong>Preflight check</strong>. Убедиться, что ключевые столбцы зелёные</li>
-<li>Отправить файлы: анимации, конфигурации, карту ArUco</li>
-<li>Проверить, что версия прошивки и конфигурации совпадает у всех дронов</li>
+<li>Отправить файлы: анимации, карту ArUco</li>
 </ol>
 <h3 id="запуск-шоу">Запуск шоу</h3>
 <ol>
-<li>Установить задержку <strong>Start after</strong> (например, 10 секунд)</li>
+<li>Установить задержку <strong>Start after</strong> (например, 2 секунд)</li>
 <li>Нажать <strong>Start animation</strong></li>
-<li>Следить за таблицей. При необходимости — <strong>Pause</strong></li>
+<li>Следить за таблицей. При необходимости — <strong>Pause</strong> с последующей посадкой при нештатной ситуации</li>
 </ol>
 <h3 id="аварийные-ситуации">Аварийные ситуации</h3>
 <ul>
 <li>Один дрон ведёт себя нештатно: перехватить его через ручное управление</li>
 <li>Полный сбой: <strong>Land ALL</strong> или <strong>Emergency land</strong>(ознакомится перед применением)</li>
 </ul>
-<h3 id="обслуживание">Обслуживание</h3>
-<ul>
-<li>Перезагрузить полётный контроллер — <strong>Reboot FCU</strong></li>
-<li>Перезапустить ROS-сервис — <strong>Selected drones → Restart service → technic</strong></li>
-</ul>
+<hr></hr>
+<p>Если остались вопросы напишите мне @Shvaighofer; в скором времени будет выпущено приложение по серверу</p>
 
                                 
 
@@ -2049,7 +2030,7 @@ python server.py
 
             
                 
-                <a href="wifiConnected.html" class="navigation navigation-prev " aria-label="Previous page: Подключение к Wi-Fi сети">
+                <a href="WifiConnected.html" class="navigation navigation-prev " aria-label="Previous page: Подключение к Wi-Fi сети">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -2065,7 +2046,7 @@ python server.py
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Техник Шоу Сервер","level":"2.1.7.3","depth":3,"next":{"title":"Установка клиента","level":"2.1.7.4","depth":3,"path":"technic6S/ClientInstallation.md","ref":"technic6S/ClientInstallation.md","articles":[]},"previous":{"title":"Подключение к Wi-Fi сети","level":"2.1.7.2","depth":3,"path":"technic6S/wifiConnected.md","ref":"technic6S/wifiConnected.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/Server.md","mtime":"2026-10-12T16:01:59.071Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-10-29T12:26:47.062Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Техник Шоу Сервер","level":"2.1.7.3","depth":3,"next":{"title":"Установка клиента","level":"2.1.7.4","depth":3,"path":"technic6S/ClientInstallation.md","ref":"technic6S/ClientInstallation.md","articles":[]},"previous":{"title":"Подключение к Wi-Fi сети","level":"2.1.7.2","depth":3,"path":"technic6S/WifiConnected.md","ref":"technic6S/WifiConnected.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/Server.md","mtime":"2026-10-29T12:32:21.020Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-10-29T12:36:39.700Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -2119,11 +2100,11 @@ python server.py
     <script src="../gitbook/theme.js"></script>
     
         
-        <script src="../gitbook/honkit-plugin-add-js/ROWeSEFCDbyEp5tU-home-link.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/DgLht6VqrbP2LTOj-home-link.js"></script>
         
     
         
-        <script src="../gitbook/honkit-plugin-add-js/X+MAtyR+Sx2jtx01-website.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/yyPNKhgu5lAc0enX-website.js"></script>
         
     
         

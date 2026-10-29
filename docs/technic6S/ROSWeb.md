@@ -6,7 +6,6 @@ The Robot Operating System (ROS) — это набор программных б
 
 Пункт View Topics позволяет увидеть список всех доступных топиков
 
-
 <div class="img-figure">
   <img src="assets/topics.png">
 </div>
