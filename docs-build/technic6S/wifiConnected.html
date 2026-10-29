@@ -897,7 +897,7 @@
                 <a href="TechnicShow.html">
             
                     
-                    Техник-шоу
+                    Техник шоу
             
                 </a>
             
@@ -905,9 +905,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.7.2" data-path="wifiConnected.html">
+        <li class="chapter active" data-level="2.1.7.2" data-path="WifiConnected.html">
             
-                <a href="wifiConnected.html">
+                <a href="WifiConnected.html">
             
                     
                     Подключение к Wi-Fi сети
@@ -1442,43 +1442,33 @@
                                 
   
                                 <h1 id="подключение-к-wi-fi-сети">Подключение к Wi-Fi сети</h1>
-<p>Вначале, вам нужно будет настроить роутер, к которому будут подключаться ваши дрон и ноутбук для запуска сервера 
-после настройки подключите кабель-Ethernet к вашему orangepi так, чтобы загорелись желтый и зеленый светодиоды
-а затем подключитесь к нему <a href="https://docs.skyris.ru/technic6S/SSH.html" target="_blank">по SSH</a>
-Но бывает такое, что нет просто возможности подключить дрон по кабелю-Ethernet, по этому можно подключить сам дрон через установленную утилиту nmtui</p>
-<p>Порядок действий: </p>
+<p>Для подключения Technic6S нужно сделать пару простых действий.</p>
+<ul>
+<li>Вначале, вам нужно будет настроить роутер, к которому будут подключаться ваши дрон и ноутбук для запуска сервер. Если ваш роутер настроен, то вы мо</li>
+</ul>
+<p>После настройки роутера выберите варинат подключения:</p>
 <ol>
-<li>Пропишите команду:<pre><code class="lang-bash">nmtui
-</code></pre>
-</li>
-<li><p>В открывшемся меню выберите(управление стрелочками):
-<img src="assets/menu.png"></img></p>
-</li>
-<li><p>Затем выберите сеть, к которой вы хотите подключится</p>
-</li>
-<li>Введите пароль </li>
-<li>После выхода из утилиты, узнайте в терминале на каком ip ваш дрон: <pre><code class="lang-bash">ip a
+<li>Через кабель-Ethernet.</li>
+<li>Через точку доступа Technic6S.</li>
+</ol>
+<hr></hr>
+<h2 id="1-способ">1 способ</h2>
+<p>Подключите Technic6S к роуетру предварительно посмотрите в какой порт вы подключаете кабель. Порт должен иметь название "LAN", а не "WAN";  после подключения Technic6S к роутеру на orangepi 5 pro(порт Ethernet) должны загореться светодиоды зеленый и желтый. Как загорятся светодиоды зайдите на роутер и в списках клиентов найдите ваш дрон.</p>
+<p>После этого подключайтесь к Technic6S по SSH(<a href="SSH">см. тут</a>)</p>
+<p>Затем, в самом <strong>терминале</strong> прописываем следующие инсталляционные команды:</p>
+<ol>
+<li>опустим точку доступа Technic6S:<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> nmcli connection down technic-ap
 </code></pre>
 </li>
 </ol>
-<p>после этой команды найдите такую строчку:</p>
-<pre><code class="lang-text"> 3: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
-
-    link/ether 9c:b8:b4:f1:d4:ae brd ff:ff:ff:ff:ff:ff
-
-    inet 192.168.x.x/24 brd 192.168.0.255 scope global dynamic noprefixroute wlan0
-</code></pre>
-<p><code>192.168.x.x</code> - будет вашим ip и уже по нему надо будет подключиться по SSH</p>
-<p>после подключения выполните следующие команды</p>
+<blockquote>
+<p><strong>Подсказка</strong> если в дальнейшем вам понадобится зайти на дрон через точку доступа, то пропустите 2 пункт 1 способа</p>
+</blockquote>
 <ol>
-<li><p>опустите точку доступа:</p>
-<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> nmcli connection down technic-ap
-</code></pre>
-</li>
-<li><p>удаляем точку доступа(если она будет нужна - пропустите):</p>
+<li><p>удаляем точку доступа:</p>
 <pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> nmcli connection del technic-ap
 </code></pre>
-</li>
+<ol>
 <li><p>выключаем сервис точки доступа:</p>
 <pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl stop hostapd
 </code></pre>
@@ -1487,7 +1477,66 @@
 <pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">disable</span> hostapd
 </code></pre>
 </li>
+<li><p>теперь надо сменить режим интерфейса:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> ip <span class="hljs-built_in">link</span> <span class="hljs-built_in">set</span> wlan0 down
+<span class="hljs-built_in">sudo</span> iw dev wlan0 <span class="hljs-built_in">set</span> <span class="hljs-built_in">type</span> managed
+<span class="hljs-built_in">sudo</span> ip <span class="hljs-built_in">link</span> <span class="hljs-built_in">set</span> wlan0 up
+</code></pre>
+</li>
 </ol>
+</li>
+<li><p>проверьте, что изменения произошли:</p>
+<pre><code class="lang-bash">iw dev
+</code></pre>
+</li>
+<li><p>Там должно быть словосочетание <code>type managed</code></p>
+</li>
+<li><p>после этого проверьте список Wi-Fi сеток:</p>
+<pre><code class="lang-bash">nmcli device wifi list
+</code></pre>
+</li>
+<li><p>Если вы увидели сеть, которую раздает ваш настроенный роутер, то следуйте дальше</p>
+</li>
+<li><p>Подключение к Wi-Fi сетке:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> nmcli device wifi connect <span class="hljs-string">"SSID"</span> password <span class="hljs-string">"PASSWORD"</span>
+</code></pre>
+</li>
+<li><code>SSID</code> - это название вашей сети</li>
+<li><code>PASSWORD</code> - это пароль вашей сети
+после этого вы увидите, что конект успешен; Ваш дрон готов идти к следующим этапам!</li>
+</ol>
+<hr></hr>
+<h2 id="2-способ">2 способ</h2>
+<p>Данный метод будет работать через системную утилиту <code>nmtui</code> и последующее переподключение по-новому ip-адресу дрона.</p>
+<ol>
+<li>Подключитесь к дрону по точке доступа и зайдите в терминал либо <a href="WebInterface">веб-интерфейса</a> либо <a href="SSH">ssh-подключения</a></li>
+<li><p>В самом терминале активируйте утилиту <code>nmtui</code> просто её вписав в терминал:</p>
+<pre><code class="lang-bash">nmtui
+</code></pre>
+</li>
+<li><p>Откроется меню, где нужно будет выбрать <code>Activate a connection</code></p>
+<blockquote>
+<p><strong>Подсказка</strong> всё управление происходит через стрелочки на клавиатуре, а чтобы выбрать что-то нужно нажать <em>enter</em> или <em>return</em> </p>
+</blockquote>
+</li>
+<li><p>После подключения выходим из данного меню и смотрим нашу статику относительно роутера</p>
+</li>
+<li><p>Введите в терминал комнаду:</p>
+<pre><code class="lang-bash">ip a
+</code></pre>
+</li>
+<li><p>после этой команды найдите такую строчку:
+```text</p>
+</li>
+<li><p>wlan0-sta: <broadcast, multicast,="" up,="" lower_up=""> ... и тд.
+<code>``
+</code>192.168.x.x` - будет вашим ip и уже по нему надо будет подключиться по SSH</broadcast,></p>
+</li>
+<li><p>После нахождения нового ip-адреса переподключитесь на него по SSH и проследуйте по пунктам 1 способа с 1 по 4 пункт. </p>
+</li>
+</ol>
+<hr></hr>
+<p>Если остались вопросы напишите мне @Shvaighofer</p>
 
                                 
 
@@ -1562,7 +1611,7 @@
 
             
                 
-                <a href="TechnicShow.html" class="navigation navigation-prev " aria-label="Previous page: Техник-шоу">
+                <a href="TechnicShow.html" class="navigation navigation-prev " aria-label="Previous page: Техник шоу">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -1578,7 +1627,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Подключение к Wi-Fi сети","level":"2.1.7.2","depth":3,"next":{"title":"Техник Шоу Сервер","level":"2.1.7.3","depth":3,"path":"technic6S/Server.md","ref":"technic6S/Server.md","articles":[]},"previous":{"title":"Техник-шоу","level":"2.1.7.1","depth":3,"path":"technic6S/TechnicShow.md","ref":"technic6S/TechnicShow.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/wifiConnected.md","mtime":"2026-10-12T16:01:59.072Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-10-29T12:26:47.062Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Подключение к Wi-Fi сети","level":"2.1.7.2","depth":3,"next":{"title":"Техник Шоу Сервер","level":"2.1.7.3","depth":3,"path":"technic6S/Server.md","ref":"technic6S/Server.md","articles":[]},"previous":{"title":"Техник шоу","level":"2.1.7.1","depth":3,"path":"technic6S/TechnicShow.md","ref":"technic6S/TechnicShow.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["add-js"],"pluginsConfig":{"add-js":{"js":["./assets/home-link.js","./styles/website.js"]},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css"}},"file":{"path":"technic6S/WifiConnected.md","mtime":"2026-10-29T12:32:21.020Z","type":"markdown"},"gitbook":{"version":"6.1.4","time":"2026-10-29T12:36:39.700Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1632,11 +1681,11 @@
     <script src="../gitbook/theme.js"></script>
     
         
-        <script src="../gitbook/honkit-plugin-add-js/ROWeSEFCDbyEp5tU-home-link.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/DgLht6VqrbP2LTOj-home-link.js"></script>
         
     
         
-        <script src="../gitbook/honkit-plugin-add-js/X+MAtyR+Sx2jtx01-website.js"></script>
+        <script src="../gitbook/honkit-plugin-add-js/yyPNKhgu5lAc0enX-website.js"></script>
         
     
         
