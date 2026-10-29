@@ -8,10 +8,7 @@
 
 > **Подсказка** Наберите в браузере http://10.42.0.1 чтобы открыть веб-интерфейс
 
-
-<div class="img-figure">
-  <img src="assets/index.png">
-</div>
+<img src="assets/index.png" width=600 class="center zoom">
 
 Подробнее про вкладки вы можете узнать здесь
 
