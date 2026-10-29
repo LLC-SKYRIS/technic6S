@@ -41,6 +41,8 @@
 	    * [Блочное программирование](technic6S/Blocky.md)
 	    * [Просмотр изображений с камер](technic6S/CameraImages.md)
 	    * [ROS топики в Веб Интерфейсе](technic6S/ROSWeb.md)
+	    * [Ручное управление](technic6S/Pings.md)
+	    - [Technic Console](technic6S/Console.md)
 	    * [ROS](technic6S/ROS.md)
 	    * [MAVROS](technic6S/MAVROS.md)
 	    * [Компьютерное зрение](technic6S/ComputerVision.md)
