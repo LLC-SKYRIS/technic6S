@@ -131,7 +131,18 @@ rospy.sleep(1)
 servo_write(1500)
 ```
 
+### Блочное программирование
+
+Если вы используете блочное программирование для управления сервоприводом или любой другой полезной нагрузкой, то обязательно в начале скрипта установите этот блок:
+
+<img src="assets/gpio_set_true-round-corners.png" width=500 class="center zoom">
+
+Пример рабочего скрипта:
+
+<img src="assets/gpio-right-round-corners.png" class="center zoom">
+
 ### Частые проблемы
+
 Если появляется ошибка:
 
 gpio: CCR should be less than or equal to ARR
@@ -155,13 +166,3 @@ sudo gpio pwmc 17 24
 sudo gpio pwm 17 1100
 sudo gpio pwm 17 1500
 sudo gpio pwm 17 1900
-```
-
-#### Блочное программирование
-Если вы исползуете блочное программирование для управения сервоприводом или любой другой полезной нагрузкой то обязательно в начале скипта установите этот блок: 
-
-![[gpio_set_true-round-corners.png]]
-
-Пример рабочего скрипта:
-
-![[gpio-right-round-corners.png]]
