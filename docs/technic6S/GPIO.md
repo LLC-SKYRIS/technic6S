@@ -81,13 +81,13 @@ PWM_RANGE = 20000
 PWM_CLOCK = 24
 
 def run_gpio(*args):
-subprocess.run(['gpio', *map(str, args)], check=False)
+	subprocess.run(['gpio', *map(str, args)], check=False)
 def servo_init():
-run_gpio('mode', PWM_PIN, 'pwm')
-run_gpio('pwmr', PWM_PIN, PWM_RANGE)
-run_gpio('pwmc', PWM_PIN, PWM_CLOCK)
-def servo_write(value):
-run_gpio('pwm', PWM_PIN, value)
+	run_gpio('mode', PWM_PIN, 'pwm')
+	run_gpio('pwmr', PWM_PIN, PWM_RANGE)
+	run_gpio('pwmc', PWM_PIN, PWM_CLOCK)
+	def servo_write(value):
+	run_gpio('pwm', PWM_PIN, value)
 servo_init()
 servo_write(1000)
 time.sleep(1)
@@ -111,13 +111,13 @@ PWM_RANGE = 20000
 PWM_CLOCK = 24
 
 def run_gpio(*args):
-subprocess.run(['gpio', *map(str, args)], check=False)
+	subprocess.run(['gpio', *map(str, args)], check=False)
 def servo_init():
-run_gpio('mode', PWM_PIN, 'pwm')
-run_gpio('pwmr', PWM_PIN, PWM_RANGE)
-run_gpio('pwmc', PWM_PIN, PWM_CLOCK)
+	run_gpio('mode', PWM_PIN, 'pwm')
+	run_gpio('pwmr', PWM_PIN, PWM_RANGE)
+	run_gpio('pwmc', PWM_PIN, PWM_CLOCK)
 def servo_write(value):
-run_gpio('pwm', PWM_PIN, value)
+	run_gpio('pwm', PWM_PIN, value)
 # Инициализация PWM
 servo_init()
 # Перевод серво в начальное положение
