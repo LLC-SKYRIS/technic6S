@@ -166,3 +166,4 @@ sudo gpio pwmc 17 24
 sudo gpio pwm 17 1100
 sudo gpio pwm 17 1500
 sudo gpio pwm 17 1900
+```
