@@ -9,6 +9,9 @@
 	* Сборка
 		* [Сборка базового коптера](technic6S/Sborka.md)
 		* [Установка вычислительного модуля](technic6S/Sborka2.md)
+		* [Установка поворотного кронштейна камеры](technic6S/CameraBracket.md)
+		* [Установка механического захвата Тип 1](technic6S/GripperType1.md)
+		* [Установка механического захвата Иип 2](technic6S/GripperType2.md)
 
 	* Настройка системы
 		* [Настройка питания](technic6S/EnergySettings.md)
